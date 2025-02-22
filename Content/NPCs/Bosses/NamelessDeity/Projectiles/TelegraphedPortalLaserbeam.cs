@@ -1,148 +1,144 @@
 ﻿using Luminance.Common.DataStructures;
+using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using NoxusBoss.Common.BaseEntities;
+using NoxusBoss.Assets;
+using NoxusBoss.Content.NPCs.Bosses.NamelessDeity.SpecificEffectManagers;
 using NoxusBoss.Content.Particles;
-using NoxusBoss.Core.Graphics.Shaders.Keyboard;
-using NoxusBoss.Core.Graphics.SpecificEffectManagers;
+using NoxusBoss.Core.BaseEntities;
+using NoxusBoss.Core.Graphics.GeneralScreenEffects;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 
-namespace NoxusBoss.Content.NPCs.Bosses.NamelessDeity.Projectiles
+namespace NoxusBoss.Content.NPCs.Bosses.NamelessDeity.Projectiles;
+
+public class TelegraphedPortalLaserbeam : BaseTelegraphedPrimitiveLaserbeam, IPixelatedPrimitiveRenderer, IProjOwnedByBoss<NamelessDeityBoss>
 {
-    public class TelegraphedPortalLaserbeam : BaseTelegraphedPrimitiveLaserbeam, IPixelatedPrimitiveRenderer, IDrawAdditive, IProjOwnedByBoss<NamelessDeityBoss>
+    public PixelationPrimitiveLayer LayerToRenderTo => PixelationPrimitiveLayer.AfterProjectiles;
+
+    // This laser should be drawn with pixelation, and as such should not be drawn manually via the base projectile.
+    public override bool UseStandardDrawing => false;
+
+    public override int TelegraphPointCount => 33;
+
+    public override int LaserPointCount => 45;
+
+    public override float MaxLaserLength => 8000f;
+
+    public override float LaserExtendSpeedInterpolant => 0.081f;
+
+    public override ManagedShader TelegraphShader => ShaderManager.GetShader("NoxusBoss.NamelessDeityFlowerLaserTelegraphShader");
+
+    public override ManagedShader LaserShader => ShaderManager.GetShader("NoxusBoss.NamelessDeityPortalLaserShader");
+
+    public override void SetStaticDefaults()
     {
-        // This laser should be drawn with pixelation, and as such should not be drawn manually via the base projectile.
-        public override bool UseStandardDrawing => false;
+        ProjectileID.Sets.DrawScreenCheckFluff[Type] = (int)MaxLaserLength + 400;
+    }
 
-        public override int TelegraphPointCount => 33;
+    public override void SetDefaults()
+    {
+        Projectile.width = 112;
+        Projectile.height = 112;
+        Projectile.penetrate = -1;
+        Projectile.tileCollide = false;
+        Projectile.ignoreWater = true;
+        Projectile.hostile = true;
+        Projectile.timeLeft = 60000;
+    }
 
-        public override int LaserPointCount => 45;
+    public override void PostAI()
+    {
+        // Fade out when the laser is about to die.
+        Projectile.Opacity = InverseLerp(TelegraphTime + LaserShootTime - 1f, TelegraphTime + LaserShootTime - 11f, Time);
 
-        public override float MaxLaserLength => 8000f;
-
-        public override float LaserExtendSpeedInterpolant => 0.081f;
-
-        public override ManagedShader TelegraphShader => ShaderManager.GetShader("NoxusBoss.SideStreakShader");
-
-        public override ManagedShader LaserShader => ShaderManager.GetShader("NoxusBoss.NamelessDeityPortalLaserShader");
-
-        public override void SetStaticDefaults()
+        // Periodically release post-firing particles when the laser is firing.
+        // For performance reasons, these effects do not occur if the player is too far away to reasonably witness them.
+        bool laserIsFiring = Time >= TelegraphTime && Time <= TelegraphTime + LaserShootTime - 4f;
+        if (laserIsFiring && Projectile.WithinRange(Main.LocalPlayer.Center, 1000f))
         {
-            ProjectileID.Sets.DrawScreenCheckFluff[Type] = (int)MaxLaserLength + 400;
-        }
-
-        public override void SetDefaults()
-        {
-            Projectile.width = 112;
-            Projectile.height = 112;
-            Projectile.penetrate = -1;
-            Projectile.tileCollide = false;
-            Projectile.ignoreWater = true;
-            Projectile.hostile = true;
-            Projectile.timeLeft = 60000;
-        }
-
-        public override void PostAI()
-        {
-            // Fade out when the laser is about to die.
-            Projectile.Opacity = InverseLerp(TelegraphTime + LaserShootTime - 1f, TelegraphTime + LaserShootTime - 11f, Time);
-
-            // Periodically release post-firing particles when the laser is firing.
-            // For performance reasons, these effects do not occur if the player is too far away to reasonably witness them.
-            bool laserIsFiring = Time >= TelegraphTime && Time <= TelegraphTime + LaserShootTime - 4f;
-            if (laserIsFiring && Projectile.WithinRange(Main.LocalPlayer.Center, 1000f))
+            // Periodically release outward pulses.
+            if (Time % 4f == 3f)
             {
-                // Periodically release outward pulses.
-                if (Time % 4f == 3f)
-                {
-                    PulseRing ring = new(Projectile.Center, Vector2.Zero, new(229, 60, 90), 0.5f, 2.75f, 12);
-                    ring.Spawn();
-                }
+                PulseRing ring = new PulseRing(Projectile.Center, Vector2.Zero, new(229, 60, 90), 0.5f, 2.75f, 12);
+                ring.Spawn();
             }
         }
+    }
 
-        public override void OnLaserFire()
+    public override void OnLaserFire()
+    {
+        GeneralScreenEffectSystem.ChromaticAberration.Start(Main.LocalPlayer.Center - Vector2.UnitY * 200f, 0.5f, 30);
+        NamelessDeityKeyboardShader.BrightnessIntensity += 0.4f;
+
+        if (Projectile.ai[2] == 1f)
         {
-            ScreenEffectSystem.SetFlashEffect(Main.LocalPlayer.Center - Vector2.UnitY * 200f, 1.4f, 60);
-            ScreenEffectSystem.SetChromaticAberrationEffect(Main.LocalPlayer.Center - Vector2.UnitY * 200f, 0.5f, 30);
-            NamelessDeityKeyboardShader.BrightnessIntensity += 0.4f;
-
-            SoundEngine.PlaySound(NamelessDeityBoss.PortalLaserShootSound, Main.LocalPlayer.Center);
-
-            if (OverallShakeIntensity <= 12f)
-                StartShakeAtPoint(Projectile.Center, 6f, TwoPi, Vector2.UnitX, 0.09f);
+            SoundStyle sound = GennedAssets.Sounds.NamelessDeity.PortalLaserShoot with
+            {
+                Volume = 1.32f,
+                PitchVariance = 0.1f,
+                MaxInstances = 1,
+                SoundLimitBehavior = SoundLimitBehavior.ReplaceOldest
+            };
+            SoundEngine.PlaySound(sound, Main.LocalPlayer.Center);
         }
 
-        public override float TelegraphWidthFunction(float completionRatio) => Projectile.Opacity * Projectile.width;
+        if (ScreenShakeSystem.OverallShakeIntensity <= 12f)
+            ScreenShakeSystem.StartShakeAtPoint(Projectile.Center, 6f, TwoPi, Vector2.UnitX, 0.09f);
+    }
 
-        public override Color TelegraphColorFunction(float completionRatio)
-        {
-            float timeFadeOpacity = InverseLerpBump(TelegraphTime - 1f, TelegraphTime - 7f, TelegraphTime - 20f, 0f, Time);
-            float endFadeOpacity = InverseLerpBump(0f, 0.15f, 0.67f, 1f, completionRatio);
-            Color baseColor = Color.Lerp(new(206, 46, 164), Color.OrangeRed, Projectile.identity / 9f % 0.7f);
-            return baseColor * endFadeOpacity * timeFadeOpacity * Projectile.Opacity * 0.3f;
-        }
+    public override float TelegraphWidthFunction(float completionRatio) => Projectile.Opacity * Projectile.width;
 
-        public override float LaserWidthFunction(float completionRatio) => Projectile.Opacity * Projectile.width;
+    public override Color TelegraphColorFunction(float completionRatio)
+    {
+        float timeFadeOpacity = InverseLerpBump(TelegraphTime - 1f, TelegraphTime - 7f, TelegraphTime - 20f, 0f, Time);
+        float endFadeOpacity = InverseLerp(1f, 0.67f, completionRatio);
+        Color baseColor = Color.Lerp(new(206, 46, 164), new(255, 0, 0), Projectile.identity / 9f % 0.7f);
+        return baseColor * endFadeOpacity * timeFadeOpacity * Projectile.Opacity * 0.7f;
+    }
 
-        public override Color LaserColorFunction(float completionRatio)
-        {
-            float timeFade = InverseLerp(LaserShootTime - 1f, LaserShootTime - 8f, Time - TelegraphTime);
-            float startFade = InverseLerp(0f, 0.065f, completionRatio);
-            Color baseColor = Color.Lerp(new(206, 46, 164), Color.Orange, Projectile.identity / 9f % 0.7f);
+    public override float LaserWidthFunction(float completionRatio) => Projectile.Opacity * Projectile.width;
 
-            return baseColor * Projectile.Opacity * timeFade * startFade * 0.75f;
-        }
+    public override Color LaserColorFunction(float completionRatio)
+    {
+        float timeFade = InverseLerp(LaserShootTime - 1f, LaserShootTime - 8f, Time - TelegraphTime);
+        float startFade = InverseLerp(0f, 0.065f, completionRatio);
+        Color baseColor = Color.Lerp(new(206, 46, 164), Color.Orange, Projectile.identity / 9f % 0.7f);
 
-        public override void PrepareTelegraphShader(ManagedShader telegraphShader)
-        {
-            telegraphShader.TrySetParameter("generalOpacity", Projectile.Opacity);
-        }
+        return baseColor * Projectile.Opacity * timeFade * startFade * 0.75f;
+    }
 
-        public override void PrepareLaserShader(ManagedShader laserShader)
-        {
-            laserShader.TrySetParameter("darknessNoiseScrollSpeed", 2.5f);
-            laserShader.TrySetParameter("brightnessNoiseScrollSpeed", 1.7f);
-            laserShader.TrySetParameter("darknessScrollOffset", Vector2.UnitY * (Projectile.identity * 0.3358f % 1f));
-            laserShader.TrySetParameter("brightnessScrollOffset", Vector2.UnitY * (Projectile.identity * 0.3747f % 1f));
-            laserShader.TrySetParameter("drawAdditively", false);
-            laserShader.SetTexture(WavyBlotchNoise, 1);
-            laserShader.SetTexture(DendriticNoiseZoomedOut, 2);
-        }
+    public override void PrepareTelegraphShader(ManagedShader telegraphShader)
+    {
+        telegraphShader.TrySetParameter("generalOpacity", Projectile.Opacity);
+    }
 
-        public void RenderPixelatedPrimitives(SpriteBatch spriteBatch) => DrawTelegraphOrLaser(true);
+    public override void PrepareLaserShader(ManagedShader laserShader)
+    {
+        laserShader.TrySetParameter("darknessNoiseScrollSpeed", 2.5f);
+        laserShader.TrySetParameter("brightnessNoiseScrollSpeed", 1.7f);
+        laserShader.TrySetParameter("darknessScrollOffset", Vector2.UnitY * (Projectile.identity * 0.3358f % 1f));
+        laserShader.TrySetParameter("brightnessScrollOffset", Vector2.UnitY * (Projectile.identity * 0.3747f % 1f));
+        laserShader.TrySetParameter("drawAdditively", false);
+        laserShader.SetTexture(WavyBlotchNoise, 1, SamplerState.LinearWrap);
+        laserShader.SetTexture(DendriticNoiseZoomedOut, 2, SamplerState.LinearWrap);
+    }
 
-        // This is unrelated to the laser's drawing itself, and serves more as stuff that exists at the point at which the laser is being fired, to give the impression of a focal point.
-        public void DrawAdditive(SpriteBatch spriteBatch)
-        {
-            // Draw an energy source when firing.
-            float sourceOpacity = InverseLerp(LaserShootTime - 1f, LaserShootTime - 6f, Time - TelegraphTime) * 0.92f;
-            Vector2 sourceScale = Projectile.scale * new Vector2(1f, 3f);
-            Vector2 sourceDrawPosition = Projectile.Center - Main.screenPosition + Projectile.velocity * 16f;
-            Color sourceColor = Color.White * InverseLerp(-3f, 0f, Time - TelegraphTime) * sourceOpacity;
-            spriteBatch.Draw(BloomCircleSmall, sourceDrawPosition, null, sourceColor, Projectile.velocity.ToRotation(), BloomCircleSmall.Size() * 0.5f, sourceScale, 0, 0f);
+    public void RenderPixelatedPrimitives(SpriteBatch spriteBatch) => DrawTelegraphOrLaser(true);
 
-            // Calculate the glimmer completion. If it hasn't started yet or already was drawn, skip everything else.
-            float glimmerCompletion = InverseLerp(8f, TelegraphTime, Time);
-            if (glimmerCompletion <= 0f || glimmerCompletion >= 1f)
-                return;
+    // This is unrelated to the laser's drawing itself, and serves more as stuff that exists at the point at which the laser is being fired, to give the impression of a focal point.
+    public override bool PreDraw(ref Color lightColor)
+    {
+        // Draw an energy source when firing.
+        float sourceOpacity = InverseLerp(LaserShootTime - 1f, LaserShootTime - 6f, Time - TelegraphTime) * 0.92f;
+        Vector2 sourceScale = Projectile.scale * new Vector2(1f, 3f);
+        Vector2 sourceDrawPosition = Projectile.Center - Main.screenPosition + Projectile.velocity * 46f;
+        Color sourceColor = Color.White * InverseLerp(-3f, 0f, Time - TelegraphTime) * sourceOpacity;
+        sourceColor.A = 0;
 
-            // Calculate draw information for the glimmer and glow.
-            float glimmerScale = InverseLerpBump(0f, 0.45f, 0.95f, 1f, glimmerCompletion);
-            float glimmerOpacity = Pow(InverseLerp(0f, 0.32f, glimmerCompletion), 2f) * 0.5f;
-            float glimmerRotation = Lerp(PiOver4, Pi * 4f + PiOver4, Pow(glimmerCompletion, 0.15f));
+        Main.spriteBatch.Draw(BloomCircleSmall, sourceDrawPosition, null, sourceColor, Projectile.velocity.ToRotation(), BloomCircleSmall.Size() * 0.5f, sourceScale, 0, 0f);
 
-            // Draw the glimmer.
-            Vector2 glimmerDrawPosition = Projectile.Center - Main.screenPosition;
-            Color glimmerDrawColor = Projectile.GetAlpha(Color.Wheat) * glimmerOpacity;
-            Color circularGlowDrawColor = Projectile.GetAlpha(Color.Pink) * glimmerOpacity;
-            spriteBatch.Draw(FourPointedStarTexture, glimmerDrawPosition, null, glimmerDrawColor, glimmerRotation, FourPointedStarTexture.Size() * 0.5f, glimmerScale, 0, 0f);
-            spriteBatch.Draw(BloomFlare, glimmerDrawPosition, null, glimmerDrawColor * 0.3f, glimmerRotation, BloomFlare.Size() * 0.5f, glimmerScale * 1.5f, 0, 0f);
-
-            // Draw the circular glow.
-            spriteBatch.Draw(HollowCircleSoftEdge, glimmerDrawPosition, null, circularGlowDrawColor, Projectile.velocity.ToRotation(), HollowCircleSoftEdge.Size() * 0.5f, glimmerScale * new Vector2(0.9f, 1.25f) * 0.35f, 0, 0f);
-        }
+        return false;
     }
 }

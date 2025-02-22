@@ -1,0 +1,19 @@
+GraphicalUniverseImager: {
+	EternalGardenAurora: Аврора сада
+	NamelessDeityStars: Звёздный рай
+	NamelessDeityKaleidoscope: Реальность
+	AvatarP1Background: Карминное небо
+	AvatarP2Background: Турбулентные просторы
+	BloodWhirlpool: Кровавый водоворот
+	CryonicStatic: Замороженный стаз
+	RiftEclipse: Затмение разлома
+	TerminusStairway: Тихие небеса
+	NoMusic: Музыка не включена
+	AvatarMusic: Спокойствие
+}
+
+SolynBookExchange: {
+	BookObtainmentPercentage: Найдено {0}% книг!
+	CreditText: Найдено игроком [c/FF84D8:{0}]
+	RarityText: "Редкость: "
+}

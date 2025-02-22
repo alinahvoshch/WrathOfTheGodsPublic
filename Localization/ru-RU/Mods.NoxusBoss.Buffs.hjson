@@ -1,0 +1,44 @@
+CuriousHandBuff: {
+	DisplayName: Любопытная рука
+	Description: Она ласкает форму и текстуру твоего мира, позабыв об этих ощущениях за эоны существования
+}
+
+BlackHolePetBuff: {
+	DisplayName: Чёрная дыра
+	Description: Вечный косинус очищается за благословлённым синквейном
+}
+
+StarPetBuff: {
+	DisplayName: Звезда
+	Description: Да проложит звезда тебе путь
+}
+
+BabyNamelessBuff: {
+	DisplayName: Безымянное божество
+	Description: Всё сходится
+}
+
+NilkDebuff: {
+	DisplayName: Нолоко
+	Description: ...
+}
+
+StarstrikinglySatiated: {
+	DisplayName: Звёзднозительное насыщение
+	Description: Космически повышает все характеристики и ускоряет восстановление здоровья
+}
+
+Glaciated: {
+	DisplayName: Окоченелый
+	Description: Вы не можете пошевелиться
+}
+
+InvincibilityBuff: {
+	DisplayName: Сила цветка
+	Description: Благословение лотоса не позволяет причинить вам вред
+}
+
+AntimatterAnnihilation: {
+	DisplayName: Антиматериальная аннигиляция
+	Description: Твоё существование не имеет веса
+}

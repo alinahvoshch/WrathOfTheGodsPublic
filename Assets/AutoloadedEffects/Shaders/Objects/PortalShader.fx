@@ -61,7 +61,7 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     if (coords.x < 0.5)
         forwardLightIntensity *= InverseLerp(-0.07, -0.01, signedDistanceFromPortalEdge);
     
-    return finalColor + forwardLightIntensity * spike * (distanceIrregularity <= 0);
+    return finalColor + forwardLightIntensity * sampleColor * spike * (distanceIrregularity <= 0);
 }
 technique Technique1
 {

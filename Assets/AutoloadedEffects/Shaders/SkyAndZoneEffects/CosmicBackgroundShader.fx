@@ -1,10 +1,10 @@
 sampler kalisetFractal : register(s1);
 sampler noiseTexture : register(s2);
 
+float time;
 float zoom;
 float scrollSpeedFactor;
 float brightness;
-float globalTime;
 float colorChangeStrength1;
 float colorChangeStrength2;
 float detailIterations;
@@ -19,15 +19,15 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     float volumetricLayerFade = 1.0;
     float distanceFromBottom = distance(coords.y, 1);
     float detailIterationsClamped = clamp(detailIterations, 1, 20);
-    float2 offset = float2(0.375, 0.12);
+    float2 offset = float2(0.22, 0.05);
     for (int i = 0; i < detailIterationsClamped; i++)
     {
-        float time = globalTime * pow(volumetricLayerFade, 2) * 3;
+        float scrollTime = time * pow(volumetricLayerFade, 2) * 3;
         float2 p = (coords - offset) * zoom + offset;
         p.y += 1.5;
 
         // Perform scrolling behaviors. Each layer should scroll a bit slower than the previous one, to give an illusion of 3D.
-        p += float2(time * scrollSpeedFactor, time * scrollSpeedFactor);
+        p += float2(scrollTime * scrollSpeedFactor, scrollTime * scrollSpeedFactor);
         p /= volumetricLayerFade;
 
         float totalChange = tex2D(kalisetFractal, p);
@@ -40,7 +40,7 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     
     // Apply color change interpolants. This will be used later.
     float colorChangeBrightness1 = tex2D(noiseTexture, coords * 1.5);
-    float colorChangeBrightness2 = tex2D(noiseTexture, coords * 1.65 + globalTime * scrollSpeedFactor);
+    float colorChangeBrightness2 = tex2D(noiseTexture, coords * 1.65 + time * scrollSpeedFactor);
     float totalColorChange = colorChangeBrightness1 + colorChangeBrightness2;
 
     // Account for the accumulated scale from the fractal noise.

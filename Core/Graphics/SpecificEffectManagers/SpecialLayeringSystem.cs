@@ -1,107 +1,110 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework.Graphics;
 using MonoMod.Cil;
-using NoxusBoss.Content.Particles.Metaballs;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 
-namespace NoxusBoss.Core.Graphics.SpecificEffectManagers
+namespace NoxusBoss.Core.Graphics.SpecificEffectManagers;
+
+[Autoload(Side = ModSide.Client)]
+public class SpecialLayeringSystem : ModSystem
 {
-    [Autoload(Side = ModSide.Client)]
-    public class SpecialLayeringSystem : ModSystem
+    public static List<int> DrawCacheAfterBlack
     {
-        public static List<int> DrawCacheBeforeBlack
-        {
-            get;
-            private set;
-        } = new(Main.maxNPCs);
+        get;
+        private set;
+    } = new(Main.maxNPCs);
 
-        public static List<int> DrawCacheAfterNoxusFog
-        {
-            get;
-            private set;
-        } = new(Main.maxNPCs);
+    public static List<int> DrawCacheFrontLayer
+    {
+        get;
+        private set;
+    } = new(Main.maxNPCs);
 
-        public static List<int> DrawCacheBeforeBlack_Proj
-        {
-            get;
-            private set;
-        } = new(Main.maxProjectiles);
+    public static List<int> DrawCacheOverTent
+    {
+        get;
+        private set;
+    } = new(Main.maxNPCs);
 
-        internal static void DrawOverBlackNPCCache(ILContext il)
-        {
-            ILCursor cursor = new(il);
+    public static List<int> DrawCacheAfterBlack_Proj
+    {
+        get;
+        private set;
+    } = new(Main.maxProjectiles);
 
-            if (!cursor.TryGotoNext(MoveType.Before, i => i.MatchCall<ScreenDarkness>("DrawBack")))
+    internal static void DrawOverBlackNPCCache(ILContext il)
+    {
+        ILCursor cursor = new ILCursor(il);
+
+        if (!cursor.TryGotoNext(MoveType.After, i => i.MatchCall<ScreenDarkness>("DrawBack")))
+            return;
+
+        cursor.EmitDelegate(() =>
+        {
+            if (Main.gameMenu)
                 return;
 
-            cursor.EmitDelegate(() =>
-            {
-                if (Main.gameMenu)
-                    return;
+            EmptyDrawCache_Projectile(DrawCacheAfterBlack_Proj);
+            EmptyDrawCache_NPC(DrawCacheAfterBlack);
+        });
+    }
 
-                var pitchBlackMetaball = ModContent.GetInstance<PitchBlackMetaball>();
-                if (pitchBlackMetaball.ShouldRender)
-                {
-                    Main.spriteBatch.PrepareForShaders();
-                    pitchBlackMetaball.RenderLayerWithShader();
-                    Main.spriteBatch.ResetToDefault();
-                }
+    internal static void DrawToFrontLayer(On_MoonlordDeathDrama.orig_DrawWhite orig, SpriteBatch spriteBatch)
+    {
+        orig(spriteBatch);
+        EmptyDrawCache_NPC(DrawCacheFrontLayer);
+    }
 
-                EmptyDrawCache_Projectile(DrawCacheBeforeBlack_Proj);
-                EmptyDrawCache_NPC(DrawCacheBeforeBlack);
-            });
-        }
-
-        public static void EmptyDrawCache_Projectile(List<int> cache)
+    public static void EmptyDrawCache_Projectile(List<int> cache)
+    {
+        for (int i = 0; i < cache.Count; i++)
         {
-            for (int i = 0; i < cache.Count; i++)
+            try
             {
-                try
-                {
-                    Main.instance.DrawProj(cache[i]);
-                }
-                catch (Exception e)
-                {
-                    TimeLogger.DrawException(e);
-                    Main.npc[cache[i]].active = false;
-                }
+                Main.instance.DrawProj(cache[i]);
             }
-            cache.Clear();
-        }
-
-        public static void EmptyDrawCache_NPC(List<int> cache)
-        {
-            for (int i = 0; i < cache.Count; i++)
+            catch (Exception e)
             {
-                try
-                {
-                    Main.instance.DrawNPC(cache[i], false);
-                }
-                catch (Exception e)
-                {
-                    TimeLogger.DrawException(e);
-                    Main.npc[cache[i]].active = false;
-                }
+                TimeLogger.DrawException(e);
+                Main.projectile[cache[i]].active = false;
             }
-            cache.Clear();
         }
+        cache.Clear();
+    }
 
-        public override void OnModLoad()
+    public static void EmptyDrawCache_NPC(List<int> cache)
+    {
+        for (int i = 0; i < cache.Count; i++)
         {
-            Main.QueueMainThreadAction(() =>
+            try
             {
-                IL_Main.DoDraw += DrawOverBlackNPCCache;
-            });
+                Main.instance.DrawNPC(cache[i], false);
+            }
+            catch (Exception e)
+            {
+                TimeLogger.DrawException(e);
+                Main.npc[cache[i]].active = false;
+            }
         }
+        cache.Clear();
+    }
 
-        public override void OnModUnload()
+    public override void OnModLoad()
+    {
+        Main.QueueMainThreadAction(() =>
         {
-            Main.QueueMainThreadAction(() =>
-            {
-                IL_Main.DoDraw -= DrawOverBlackNPCCache;
-            });
-        }
+            IL_Main.DoDraw += DrawOverBlackNPCCache;
+            On_MoonlordDeathDrama.DrawWhite += DrawToFrontLayer;
+        });
+    }
+
+    public override void OnModUnload()
+    {
+        Main.QueueMainThreadAction(() =>
+        {
+            IL_Main.DoDraw -= DrawOverBlackNPCCache;
+            On_MoonlordDeathDrama.DrawWhite -= DrawToFrontLayer;
+        });
     }
 }

@@ -1,2 +1,4 @@
+AvatarPoemText: Note this (https://www.dafont.com/note-this.font) and Comforter Brush (https://fonts.google.com/specimen/Comforter+Brush) in Russian
 DivineLanguageText: Skavenzoexy (https://www.cufonfonts.com/font/skavenzoexy)
-NamelessDeityText: Nanum Myeongjo (https://fonts.google.com/specimen/Nanum+Myeongjo)
+NamelessDeityText: Nanmu Myeongjo (https://fonts.google.com/specimen/Nanum+Myeongjo) and EB Garamond (https://fonts.google.com/specimen/EB+Garamond) in Russian
+SolynFightDialogue: Cute Dino (https://www.dafont.com/cute-dino-2.font) and Gooseberry (https://fontesk.com/gooseberry-font/) in Russian

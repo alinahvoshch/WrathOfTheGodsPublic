@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
+﻿namespace NoxusBoss.Core.CrossCompatibility.Inbound.Infernum;
 
-namespace NoxusBoss.Core.CrossCompatibility.Inbound
+public interface IInfernumBossBarSupport
 {
-    public interface IInfernumBossBarSupport
+    public IEnumerable<float> PhaseThresholdLifeRatios
     {
-        public IEnumerable<float> PhaseThresholdLifeRatios
-        {
-            get;
-        }
+        get;
     }
 }

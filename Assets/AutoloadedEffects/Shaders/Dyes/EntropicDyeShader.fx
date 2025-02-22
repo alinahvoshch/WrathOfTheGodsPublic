@@ -36,22 +36,25 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     float2 mapCoords = float2(brightness * 0.9 + uTime * hueScrollSpeed, uTime * accentScrollSpeed + length(snappedFramedCoords) * 0.5);
     float4 mapColor = tex2D(colorMapTexture, mapCoords);
     
-    // Make the resulting color color approach a dark purple. This does a good job of eliminating isolated green colors, which aren't in line with Noxus' aesthetic.
+    // Make the resulting color color approach a dark purple. This does a good job of eliminating isolated green colors, which aren't in line with the Avatar's aesthetic.
     // The intensity of this interpolation is stronger the darker the original color but is weakened if the original map color's red value is high.
     float4 result = lerp(mapColor, float4(uColor, 1), (1 - brightness) * 0.9 - mapColor.r * 0.5);
     
-    // Reduce red intensity depending on how much blue there is. This effect is a bit mild but it helps ensure that pink colors aren't too strong, since those aren't very common on Noxus.
+    // Reduce red intensity depending on how much blue there is. This effect is a bit mild but it helps ensure that pink colors aren't too strong, since those aren't very common on the Avatar.
     result.r -= result.b * 0.2;
     
     // Provide a blanket weakening of the blue input, to help darken the overall effect a bit.
     result.b *= 0.7;
     
     // Make the green input vanish relative to how much blue there is. If there's already a good amount of blue it's acceptable for green to be present in moderate amounts, since that results in
-    // a cool cyan aesthetic. Otherwise, though, it'll just create undesirable green/yellow colors that are nowhere to be found on Noxus.
+    // a cool cyan aesthetic. Otherwise, though, it'll just create undesirable green/yellow colors that are nowhere to be found on the Avatar.
     result.g *= lerp(0.2, 1.09, pow(result.b, 1.7));
     
     // Make the color brighter, to make the aesthetic less muted and more consistent with what the brightness was like before the shader was applied.
     result *= brightness * 0.56 + 1.1;
+    
+    float sampleColorLumoniosity = dot(sampleColor.rgb, float3(0.3, 0.6, 0.1));
+    result.rgb *= sampleColorLumoniosity;
     
     return result * color.a * sampleColor.a;
 }

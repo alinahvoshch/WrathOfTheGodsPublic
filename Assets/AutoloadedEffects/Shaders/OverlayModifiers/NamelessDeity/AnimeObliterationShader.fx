@@ -1,6 +1,7 @@
 ﻿sampler baseTexture : register(s0);
 sampler uvOffsetingNoiseTexture : register(s1);
 
+float silhouetteInterpolant;
 float opacity;
 float globalTime;
 float disintegrationFactor;
@@ -13,7 +14,7 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     coords = round(coords / pixelationFactor) * pixelationFactor;
     
     // Calculate values for the warp noise.
-    float warpNoise = tex2D(uvOffsetingNoiseTexture, coords * 7.3 + float2(globalTime * 0.1, 0)).r;
+    float warpNoise = tex2D(uvOffsetingNoiseTexture, coords * 19.8 + float2(globalTime * 0.14, 0)).r;
     float warpAngle = warpNoise * 16;
     float2 warpNoiseOffset = float2(cos(warpAngle), sin(warpAngle));
     
@@ -23,7 +24,8 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     
     // Make colors black to contrast the bright light.
     float4 color = tex2D(baseTexture, coords);
-    color = float4(0, 0, 0, 1) * color.a;
+    
+    color = lerp(color, float4(0, 0, 0, 1) * color.a, silhouetteInterpolant);
     
     return color * sampleColor * opacity;
 }

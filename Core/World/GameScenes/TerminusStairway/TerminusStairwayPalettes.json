@@ -1,0 +1,27 @@
+{
+  "TopBackgroundGradient": [
+    "0.086, 0.306, 0.588",
+    "0.118, 0.118, 0.220"
+  ],
+
+  "BottomBackgroundGradient": [
+    "1.0, 0.682, 0.647",
+    "1.0, 0.761, 0.667"
+  ],
+
+  "SpaceTopColor": [
+    "0.0, 0.0, 0.0"
+  ],
+
+  "SpaceBottomColor": [
+    "0.0, 0.016, 0.133"
+  ],
+
+  "TopOfWorldAdditiveSpaceColor": [
+    "0.0, 0.258, 0.543"
+  ],
+
+  "BackgroundElementOverlayColor": [
+    "0.914, 0.667, 0.529"
+  ]
+}

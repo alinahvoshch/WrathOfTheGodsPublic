@@ -14,7 +14,7 @@ float normalMapCrispness;
 // https://iquilezles.org/articles/palettes/
 float3 Palette(float t, float3 a, float3 b, float3 c, float3 d)
 {
-    return a + b * sin(6.28318 * (c * t + d) + 1.5707);
+    return a + b * cos((c * t + d) * 6.28318);
 }
 
 float TriangleWave(float x)

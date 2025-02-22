@@ -1,20 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\tModLoader.targets" />
-  <PropertyGroup>
-    <AssemblyName>NoxusBoss</AssemblyName>
-    <TargetFramework>net6.0</TargetFramework>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>latest</LangVersion>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="SubworldLibrary">
-      <HintPath>..\NoxusBoss\bin\Debug\net6.0\SubworldLibrary.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+
+	<!-- Import tModLoader mod properties -->
+	<Import Project="..\tModLoader.targets" />
+
+	<!-- General -->
+	<PropertyGroup>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	  <Nullable>enable</Nullable>
+	</PropertyGroup>
+	<PropertyGroup>
+    	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    	  <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>    
+	</PropertyGroup>
+
+	<!-- Warning suppression -->
+	<PropertyGroup>
+	  <NoWarn>MSB3270</NoWarn>
+	</PropertyGroup>
+
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+	  <Exec Command="dotnet build ./WoTGAssetRebuilder/&#xD;&#xA;dotnet ./WoTGAssetRebuilder/bin/Debug/net8.0/WoTGAssetRebuilder.dll &quot;../NoxusBoss/Assets/&quot; &quot;../NoxusBoss/Assets/GennedAssets.cs&quot; &quot;NoxusBoss&quot;" />
+	</Target>
+
+	<ItemGroup>
+	  <Reference Include="BossChecklist">
+	    <HintPath>ModReferences\BossChecklist.dll</HintPath>
+	  </Reference>
+	  <Reference Include="CalamityMod">
+	    <HintPath>ModReferences\CalamityMod.dll</HintPath>
+	  </Reference>
+	  <Reference Include="CalRemix">
+	    <HintPath>ModReferences\CalRemix.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Luminance">
+	    <HintPath>ModReferences\Luminance.dll</HintPath>
+	  </Reference>
+	  <Reference Include="MonoStereo.Dependencies">
+	    <HintPath>ModReferences\MonoStereo.Dependencies.dll</HintPath>
+	  </Reference>
+	  <Reference Include="MonoStereoMod">
+	    <HintPath>ModReferences\MonoStereoMod.dll</HintPath>
+	  </Reference>
+	  <Reference Include="StructureHelper">
+	    <HintPath>ModReferences\StructureHelper.dll</HintPath>
+	  </Reference>
+	  <Reference Include="SubworldLibrary">
+	    <HintPath>ModReferences\SubworldLibrary.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<!-- References -->
+
 </Project>

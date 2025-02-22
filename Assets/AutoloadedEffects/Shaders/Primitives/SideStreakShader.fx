@@ -16,7 +16,7 @@ struct VertexShaderOutput
 {
     float4 Position : SV_POSITION;
     float4 Color : COLOR0;
-    float3 TextureCoordinates : TEXCOORD0;
+    float2 TextureCoordinates : TEXCOORD0;
 };
 
 VertexShaderOutput VertexShaderFunction(in VertexShaderInput input)
@@ -27,6 +27,7 @@ VertexShaderOutput VertexShaderFunction(in VertexShaderInput input)
     
     output.Color = input.Color;
     output.TextureCoordinates = input.TextureCoordinates;
+    output.TextureCoordinates.y = (output.TextureCoordinates.y - 0.5) / input.TextureCoordinates.z + 0.5;
 
     return output;
 }
@@ -41,9 +42,6 @@ float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
     float innerBrightnessIntensity = 2.7;
     float4 color = input.Color;
     float2 coords = input.TextureCoordinates;
-    
-    // Account for texture distortion artifacts in accordance with the primitive distortion fixes.
-    coords.y = (coords.y - 0.5) / input.TextureCoordinates.z + 0.5;
     
     if (flipY)
         coords.y = 1 - coords.y;

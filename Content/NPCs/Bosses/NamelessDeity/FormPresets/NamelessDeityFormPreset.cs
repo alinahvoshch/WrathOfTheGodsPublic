@@ -1,114 +1,22 @@
-﻿using System;
-using Microsoft.Xna.Framework.Graphics;
-using NoxusBoss.Common.DataStructures;
-using ReLogic.Content;
+﻿using Microsoft.Xna.Framework.Graphics;
+using Terraria;
 
-namespace NoxusBoss.Content.NPCs.Bosses.NamelessDeity.FormPresets
+namespace NoxusBoss.Content.NPCs.Bosses.NamelessDeity.FormPresets;
+
+public class NamelessDeityFormPreset
 {
-    public class NamelessDeityFormPreset
-    {
-        public bool UseCensor;
+    /// <summary>
+    /// Whether this preset is active based on the player's name.
+    /// </summary>
+    public bool IsActive => Data.ValidPlayerNames.Any(n => Main.LocalPlayer.name.Equals(n, StringComparison.OrdinalIgnoreCase));
 
-        public Func<bool> UsageCondition;
+    /// <summary>
+    /// The optional shader overlay effect applied on top of this preset.
+    /// </summary>
+    public Action<Texture2D>? ShaderOverlayEffect;
 
-        public Action<Texture2D> ShaderOverlayEffect;
-
-        public int[] PreferredAntlerTextures;
-
-        public int[] PreferredArmTextures;
-
-        public int[] PreferredFinTextures;
-
-        public int[] PreferredFlowerTextures;
-
-        public int[] PreferredForearmTextures;
-
-        public int[] PreferredHandTextures;
-
-        public int[] PreferredVineTextures;
-
-        public int[] PreferredWheelTextures;
-
-        public int[] PreferredWingTextures;
-
-        public Referenced<Asset<Texture2D>> CensorReplacementTexture;
-
-        public NamelessDeityFormPreset(Func<bool> usageCondition)
-        {
-            UsageCondition = usageCondition;
-            UseCensor = true;
-        }
-
-        public NamelessDeityFormPreset WithDisabledCensor()
-        {
-            UseCensor = false;
-            return this;
-        }
-
-        public NamelessDeityFormPreset WithCensorReplacement(Referenced<Asset<Texture2D>> censor)
-        {
-            CensorReplacementTexture = censor;
-            return this;
-        }
-
-        public NamelessDeityFormPreset WithCustomShader(Action<Texture2D> shaderOverlayEffect)
-        {
-            ShaderOverlayEffect = shaderOverlayEffect;
-            return this;
-        }
-
-        public NamelessDeityFormPreset WithAntlerPreference(params int[] preferredAntlerTextures)
-        {
-            PreferredAntlerTextures = preferredAntlerTextures;
-            return this;
-        }
-
-        public NamelessDeityFormPreset WithArmPreference(params int[] preferredArmTextures)
-        {
-            PreferredArmTextures = preferredArmTextures;
-            return this;
-        }
-
-        public NamelessDeityFormPreset WithFinPreference(params int[] preferredFinTextures)
-        {
-            PreferredFinTextures = preferredFinTextures;
-            return this;
-        }
-
-        public NamelessDeityFormPreset WithFlowerPreference(params int[] preferredFlowerTextures)
-        {
-            PreferredFlowerTextures = preferredFlowerTextures;
-            return this;
-        }
-
-        public NamelessDeityFormPreset WithForearmPreference(params int[] preferredForearmTextures)
-        {
-            PreferredForearmTextures = preferredForearmTextures;
-            return this;
-        }
-
-        public NamelessDeityFormPreset WithHandPreference(params int[] preferredHandTextures)
-        {
-            PreferredHandTextures = preferredHandTextures;
-            return this;
-        }
-
-        public NamelessDeityFormPreset WithVinePreference(params int[] preferredVineTextures)
-        {
-            PreferredVineTextures = preferredVineTextures;
-            return this;
-        }
-
-        public NamelessDeityFormPreset WithWheelPreference(params int[] preferredWheelTextures)
-        {
-            PreferredWheelTextures = preferredWheelTextures;
-            return this;
-        }
-
-        public NamelessDeityFormPreset WithWingPreference(params int[] preferredWingTextures)
-        {
-            PreferredWingTextures = preferredWingTextures;
-            return this;
-        }
-    }
+    /// <summary>
+    /// The loadable data associated with this preset.
+    /// </summary>
+    public NamelessDeityLoadablePresetData Data;
 }

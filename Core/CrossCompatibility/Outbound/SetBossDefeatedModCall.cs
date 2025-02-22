@@ -1,39 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Luminance.Core.ModCalls;
+﻿using Luminance.Core.ModCalls;
+using NoxusBoss.Content.NPCs.Bosses.Avatar.FirstPhaseForm;
+using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
+using NoxusBoss.Content.NPCs.Bosses.Draedon;
+using NoxusBoss.Content.NPCs.Bosses.NamelessDeity;
+using NoxusBoss.Core.World.WorldSaving;
 using static NoxusBoss.Core.CrossCompatibility.Outbound.GetBossDefeatedModCall;
 
-namespace NoxusBoss.Core.CrossCompatibility.Outbound
+namespace NoxusBoss.Core.CrossCompatibility.Outbound;
+
+public class SetBossDefeatedModCall : ModCall
 {
-    public class SetBossDefeatedModCall : ModCall
+    public override IEnumerable<string> GetCallCommands()
     {
-        public override IEnumerable<string> GetCallCommands()
-        {
-            yield return "GetBossDefeated";
-        }
+        yield return "GetBossDefeated";
+    }
 
-        public override IEnumerable<Type> GetInputTypes()
-        {
-            yield return typeof(string);
-            yield return typeof(bool);
-        }
+    public override IEnumerable<Type> GetInputTypes()
+    {
+        yield return typeof(string);
+        yield return typeof(bool);
+    }
 
-        protected override object SafeProcess(params object[] argsWithoutCommand)
-        {
-            string caseInvariantInput = ((string)argsWithoutCommand[0]).ToLower();
-            bool setValue = (bool)argsWithoutCommand[1];
+    protected override object SafeProcess(params object[] argsWithoutCommand)
+    {
+        string caseInvariantInput = ((string)argsWithoutCommand[0]).ToLower();
+        bool setValue = (bool)argsWithoutCommand[1];
 
-            if (GodlessSpawnNames.Contains(caseInvariantInput))
-                WorldSaveSystem.HasDefeatedNoxusEgg = setValue;
+        if (MarsNames.Contains(caseInvariantInput))
+            BossDownedSaveSystem.SetDefeatState<MarsBody>(setValue);
 
-            if (EntropicGodNames.Contains(caseInvariantInput))
-                WorldSaveSystem.HasDefeatedNoxus = setValue;
+        if (RiftNames.Contains(caseInvariantInput))
+            BossDownedSaveSystem.SetDefeatState<AvatarRift>(setValue);
 
-            if (NamelessDeityNames.Contains(caseInvariantInput))
-                WorldSaveSystem.HasDefeatedNamelessDeity = setValue;
+        if (AvatarOfEmptinessNames.Contains(caseInvariantInput))
+            BossDownedSaveSystem.SetDefeatState<AvatarOfEmptiness>(setValue);
 
-            return new();
-        }
+        if (NamelessDeityNames.Contains(caseInvariantInput))
+            BossDownedSaveSystem.SetDefeatState<NamelessDeityBoss>(setValue);
+
+        return new object();
     }
 }

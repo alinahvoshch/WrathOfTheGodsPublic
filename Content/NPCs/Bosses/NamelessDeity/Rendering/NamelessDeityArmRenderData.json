@@ -1,0 +1,26 @@
+{
+  "Hand1": {
+    "ForearmOrigin": "134, 208",
+    "OffsetFactor": 1.0
+  },
+  "Hand2": {
+    "ForearmOrigin": "80, 224",
+    "OffsetFactor": 1.0
+  },
+  "Hand3": {
+    "ForearmOrigin": "148, 252",
+    "OffsetFactor": 1.0
+  },
+  "Hand4": {
+    "ForearmOrigin": "120, 234",
+    "OffsetFactor": 1.125
+  },
+  "Hand5": {
+    "ForearmOrigin": "140, 198",
+    "OffsetFactor": 1.0
+  },
+  "HealthyPreset/Hand": {
+    "ForearmOrigin": "239, 475",
+    "OffsetFactor": 1.0
+  }
+}

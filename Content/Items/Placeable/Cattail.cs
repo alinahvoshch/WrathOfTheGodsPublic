@@ -1,62 +1,64 @@
-﻿using Mono.Cecil.Cil;
+﻿using Luminance.Core.Hooking;
+using Mono.Cecil.Cil;
 using MonoMod.Cil;
-using NoxusBoss.Core;
-using NoxusBoss.Core.CrossCompatibility.Inbound;
-using NoxusBoss.Core.Graphics.SpecificEffectManagers;
-using NoxusBoss.Core.MiscSceneManagers;
+using NoxusBoss.Assets;
+using NoxusBoss.Content.Rarities;
+using NoxusBoss.Content.Tiles;
+using NoxusBoss.Core.World.GameScenes.Cattail;
+using NoxusBoss.Core.World.WorldSaving;
 using Terraria;
 using Terraria.Audio;
-using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NoxusBoss.Content.Items.Placeable
+namespace NoxusBoss.Content.Items.Placeable;
+
+public class Cattail : ModItem
 {
-    public class Cattail : ModItem, IToastyQoLChecklistItemSupport
+    public override string Texture => GetAssetPath("Content/Items/Placeable", Name);
+
+    public override void SetStaticDefaults()
     {
-        public ToastyQoLRequirement Requirement => ToastyQoLRequirementRegistry.PostNamelessDeity;
+        Item.ResearchUnlockCount = 50;
 
-        public static readonly SoundStyle CelebrationSound = new SoundStyle("NoxusBoss/Assets/Sounds/Item/CattailPlacementCelebration") with { SoundLimitBehavior = SoundLimitBehavior.IgnoreNew };
-
-        public override void SetStaticDefaults()
+        new ManagedILEdit("Play Special Sound for Cattail", Mod, edit =>
         {
-            Item.ResearchUnlockCount = 50;
-            new ManagedILEdit("Play Special Sound for Cattail", edit =>
-            {
-                IL_Player.PlaceThing_Tiles_PlaceIt += edit.SubscriptionWrapper;
-            }, PlayAwesomeSoundForCattail).Apply();
+            IL_Player.PlaceThing_Tiles_PlaceIt += edit.SubscriptionWrapper;
+        }, edit =>
+        {
+            IL_Player.PlaceThing_Tiles_PlaceIt -= edit.SubscriptionWrapper;
+        }, PlayAwesomeSoundForCattail).Apply();
+    }
+
+    private static void PlayAwesomeSoundForCattail(ILContext context, ManagedILEdit edit)
+    {
+        ILCursor cursor = new ILCursor(context);
+
+        if (!cursor.TryGotoNext(i => i.MatchCallOrCallvirt<Player>("PlaceThing_Tiles_PlaceIt_KillGrassForSolids")))
+        {
+            edit.LogFailure("The Player.PlaceThing_Tiles_PlaceIt_KillGrassForSolids call could not be found.");
+            return;
         }
 
-        private void PlayAwesomeSoundForCattail(ILContext context, ManagedILEdit edit)
+        cursor.Emit(OpCodes.Ldarg_3);
+        cursor.EmitDelegate((int tileType) =>
         {
-            ILCursor cursor = new(context);
-
-            if (!cursor.TryGotoNext(i => i.MatchCallOrCallvirt<Player>("PlaceThing_Tiles_PlaceIt_KillGrassForSolids")))
+            if (tileType == ModContent.TileType<CattailTile>() && !WorldSaveSystem.HasPlacedCattail)
             {
-                edit.LogFailure("The Player.PlaceThing_Tiles_PlaceIt_KillGrassForSolids call could not be found.");
-                return;
+                SoundEngine.PlaySound(GennedAssets.Sounds.Item.CattailPlacementCelebration with { SoundLimitBehavior = SoundLimitBehavior.IgnoreNew });
+                CattailAnimationSystem.StartAnimation();
+                WorldSaveSystem.HasPlacedCattail = true;
             }
+        });
+    }
 
-            cursor.Emit(OpCodes.Ldarg_3);
-            cursor.EmitDelegate((int tileType) =>
-            {
-                if (tileType == TileID.Cattail && !WorldSaveSystem.HasPlacedCattail)
-                {
-                    SoundEngine.PlaySound(CelebrationSound);
-                    CattailAnimationSystem.StartAnimation();
-                    WorldSaveSystem.HasPlacedCattail = true;
-                }
-            });
-        }
-
-        public override void SetDefaults()
-        {
-            Item.DefaultToPlaceableTile(TileID.Cattail);
-            Item.width = 16;
-            Item.height = 10;
-            Item.UseCalamityRedRarity();
-            Item.value = Item.sellPrice(100, 0, 0, 0);
-            Item.consumable = true;
-        }
+    public override void SetDefaults()
+    {
+        Item.DefaultToPlaceableTile(ModContent.TileType<CattailTile>());
+        Item.width = 16;
+        Item.height = 10;
+        Item.rare = ModContent.RarityType<NamelessDeityRarity>();
+        Item.value = Item.sellPrice(100, 0, 0, 0);
+        Item.consumable = true;
     }
 }
 

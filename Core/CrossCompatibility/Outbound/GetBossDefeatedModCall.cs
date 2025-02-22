@@ -1,57 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Luminance.Core.ModCalls;
+﻿using Luminance.Core.ModCalls;
+using NoxusBoss.Content.NPCs.Bosses.Avatar.FirstPhaseForm;
+using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
+using NoxusBoss.Content.NPCs.Bosses.Draedon;
+using NoxusBoss.Content.NPCs.Bosses.NamelessDeity;
+using NoxusBoss.Core.World.WorldSaving;
 
-namespace NoxusBoss.Core.CrossCompatibility.Outbound
+namespace NoxusBoss.Core.CrossCompatibility.Outbound;
+
+public class GetBossDefeatedModCall : ModCall
 {
-    public class GetBossDefeatedModCall : ModCall
+    internal static string[] MarsNames =
+    [
+        "mars"
+    ];
+
+    internal static string[] RiftNames =
+    [
+        "godlessspawn",
+        "godless spawn",
+        "noxusegg",
+        "noxus egg",
+        "rift",
+        "noxus rift",
+        "avatar rift"
+    ];
+
+    internal static string[] AvatarOfEmptinessNames =
+    [
+        "avatarofemptiness",
+        "entropic god",
+        "noxus",
+    ];
+
+    internal static string[] NamelessDeityNames =
+    [
+        "namelessdeity",
+        "nameless deity",
+    ];
+
+    public override IEnumerable<string> GetCallCommands()
     {
-        internal static string[] GodlessSpawnNames =
-        [
-            "godlessspawn",
-            "godless spawn",
-            "noxusegg",
-            "noxus egg",
-        ];
+        yield return "GetBossDefeated";
+    }
 
-        internal static string[] EntropicGodNames =
-        [
-            "entropicgod",
-            "entropic god",
-            "noxus",
-        ];
+    public override IEnumerable<Type> GetInputTypes()
+    {
+        yield return typeof(string);
+    }
 
-        internal static string[] NamelessDeityNames =
-        [
-            "namelessdeity",
-            "nameless deity",
-        ];
+    protected override object SafeProcess(params object[] argsWithoutCommand)
+    {
+        string caseInvariantInput = ((string)argsWithoutCommand[0]).ToLower();
 
-        public override IEnumerable<string> GetCallCommands()
-        {
-            yield return "GetBossDefeated";
-        }
+        if (MarsNames.Contains(caseInvariantInput))
+            return BossDownedSaveSystem.HasDefeated<MarsBody>();
 
-        public override IEnumerable<Type> GetInputTypes()
-        {
-            yield return typeof(string);
-        }
+        if (RiftNames.Contains(caseInvariantInput))
+            return BossDownedSaveSystem.HasDefeated<AvatarRift>();
 
-        protected override object SafeProcess(params object[] argsWithoutCommand)
-        {
-            string caseInvariantInput = ((string)argsWithoutCommand[0]).ToLower();
+        if (AvatarOfEmptinessNames.Contains(caseInvariantInput))
+            return BossDownedSaveSystem.HasDefeated<AvatarOfEmptiness>();
 
-            if (GodlessSpawnNames.Contains(caseInvariantInput))
-                return WorldSaveSystem.HasDefeatedNoxusEgg;
+        if (NamelessDeityNames.Contains(caseInvariantInput))
+            return BossDownedSaveSystem.HasDefeated<NamelessDeityBoss>();
 
-            if (EntropicGodNames.Contains(caseInvariantInput))
-                return WorldSaveSystem.HasDefeatedNoxus;
-
-            if (NamelessDeityNames.Contains(caseInvariantInput))
-                return WorldSaveSystem.HasDefeatedNamelessDeity;
-
-            return false;
-        }
+        return false;
     }
 }

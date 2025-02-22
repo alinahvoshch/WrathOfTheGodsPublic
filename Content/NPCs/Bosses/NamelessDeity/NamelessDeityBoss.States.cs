@@ -1,165 +1,134 @@
-﻿using System;
-using System.Linq;
-using Luminance.Common.StateMachines;
+﻿using Luminance.Common.StateMachines;
 using Microsoft.Xna.Framework;
-using NoxusBoss.Core.CrossCompatibility.Inbound;
+using NoxusBoss.Content.NPCs.Bosses.NamelessDeity.Rendering;
+using NoxusBoss.Content.NPCs.Bosses.NamelessDeity.SpecificEffectManagers;
+using NoxusBoss.Core.CrossCompatibility.Inbound.BossChecklist;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace NoxusBoss.Content.NPCs.Bosses.NamelessDeity
+namespace NoxusBoss.Content.NPCs.Bosses.NamelessDeity;
+
+public partial class NamelessDeityBoss : ModNPC, IBossChecklistSupport
 {
-    public partial class NamelessDeityBoss : ModNPC, IBossChecklistSupport, IToastyQoLChecklistBossSupport
+    private PushdownAutomata<EntityAIState<NamelessAIType>, NamelessAIType> stateMachine;
+
+    public PushdownAutomata<EntityAIState<NamelessAIType>, NamelessAIType> StateMachine
     {
-        private PushdownAutomata<EntityAIState<NamelessAIType>, NamelessAIType> stateMachine;
-
-        public PushdownAutomata<EntityAIState<NamelessAIType>, NamelessAIType> StateMachine
+        get
         {
-            get
-            {
-                if (stateMachine is null)
-                    LoadStates();
-                return stateMachine;
-            }
-            set => stateMachine = value;
+            if (stateMachine is null)
+                LoadStates();
+            return stateMachine!;
+        }
+        set => stateMachine = value;
+    }
+
+    public ref int AITimer => ref StateMachine.CurrentState.Time;
+
+    public void LoadStates()
+    {
+        // Initialize the AI state machine.
+        StateMachine = new(new(NamelessAIType.Awaken));
+        StateMachine.OnStateTransition += ResetGenericVariables;
+
+        // Register all nameless deity states in the machine.
+        for (int i = 0; i < (int)NamelessAIType.Count; i++)
+            StateMachine.RegisterState(new((NamelessAIType)i));
+
+        // Load state transitions.
+        AutomatedMethodInvokeAttribute.InvokeWithAttribute(this);
+    }
+
+    public void ResetGenericVariables(bool stateWasPopped, EntityAIState<NamelessAIType> oldState)
+    {
+        GeneralHoverOffset = Vector2.Zero;
+        NPC.Opacity = 1f;
+
+        // Reset generic AI variables if the state was popped.
+        // If it wasn't popped, these should be retained for the purpose of preserving AI information when going back to the previous state.
+        if (stateWasPopped)
+        {
+            NPC.ai[2] = NPC.ai[3] = 0f;
         }
 
-        public ref int AttackTimer => ref StateMachine.CurrentState.Time;
-
-        public void LoadStates()
+        // Reset hands.
+        for (int i = 0; i < Hands.Count; i++)
         {
-            // Initialize the AI state machine.
-            StateMachine = new(new(NamelessAIType.Awaken));
-            StateMachine.OnStateTransition += ResetGenericVariables;
-
-            // Register all nameless deity states in the machine.
-            for (int i = 0; i < (int)NamelessAIType.Count; i++)
-                StateMachine.RegisterState(new((NamelessAIType)i));
-
-            // Load state transitions.
-            LoadStateTransitions();
+            NamelessDeityHand hand = Hands[i];
+            hand.HasArms = true;
+            hand.HandType = NamelessDeityHandType.Standard;
+            hand.ArmInverseKinematicsFlipOverride = null;
         }
 
-        public void ResetGenericVariables(bool stateWasPopped, EntityAIState<NamelessAIType> oldState)
+        // Reset things when preparing for entering the new phase.
+        if (CurrentState == NamelessAIType.EnterPhase2)
         {
-            GeneralHoverOffset = Vector2.Zero;
-            NPC.Opacity = 1f;
+            CurrentPhase = 1;
+            WaitingForPhase2Transition = false;
+            ClearAllProjectiles();
+        }
+        if (CurrentState == NamelessAIType.EnterPhase3)
+        {
+            CurrentPhase = 2;
+            ClearAllProjectiles();
+        }
 
-            // Reset generic AI variables and the Z position if the state was popped.
-            // If it wasn't popped, these should be retained for the purpose of preserving AI information when going back to the previous state.
-            if (stateWasPopped)
-            {
-                NPC.ai[2] = NPC.ai[3] = 0f;
-                ZPosition = 0f;
-            }
+        // Mark the Moment of Creation attack as witnessed if it was just selected.
+        if (CurrentState == NamelessAIType.MomentOfCreation)
+            HasExperiencedFinalAttack = true;
 
-            // Reset robe usage visuals.
-            for (int i = 0; i < Hands.Count; i++)
-                Hands[i].HasArms = true;
+        // Reset texture variants if Nameless isn't visible.
+        if (NPC.Opacity <= 0.01f || TeleportVisualsAdjustedScale.Length() <= 0.05f || !NPC.WithinRange(Target.Center, 1100f))
+            RerollAllSwappableTextures();
 
-            // Reset things when preparing for entering the new phase.
-            if (CurrentState == NamelessAIType.EnterPhase2)
-            {
-                CurrentPhase = 1;
-                WaitingForPhase2Transition = false;
-                ClearAllProjectiles();
-            }
-            if (CurrentState == NamelessAIType.EnterPhase3)
-            {
-                CurrentPhase = 2;
-                ClearAllProjectiles();
-            }
-
-            // Mark the Moment of Creation attack as witnessed if it was just selected.
-            if (CurrentState == NamelessAIType.MomentOfCreation)
-                HasExperiencedFinalAttack = true;
-
-            // Reset texture variants if Nameless isn't visible.
-            if (NPC.Opacity <= 0.01f || TeleportVisualsAdjustedScale.Length() <= 0.05f || !NPC.WithinRange(Target.Center, 1100f))
-                RerollAllSwappableTextures();
-
+        if (oldState is null || oldState.Identifier != NamelessAIType.SunBlenderBeams)
             DestroyAllHands();
-            TargetClosest();
-            NPC.netUpdate = true;
-        }
+        TargetClosest();
+        NPC.netUpdate = true;
 
-        public void ForceNextAttack(NamelessAIType state)
+        if (TestOfResolveSystem.IsActive && (oldState is null || oldState.Identifier != NamelessAIType.Teleport))
         {
-            if (IsAttackState(CurrentState))
-                StateMachine.StateStack.Push(StateMachine.StateRegistry[state]);
+            // Recalculate Nameless' difficulty factor.
+            // This should gradually increase further and further as time passes.
+            // Minute 0: Base difficulty starts at 1. Self-explanatory.
+            // Minute 1: Base difficulty gradually climbs to 1.25. Similar to the base fight, but with a slight boost. After this, the phase 2 attacks can occur.
+            // Minute 2: Base difficulty gradually climbs to 1.55. Similar to the base fight, but with a slight boost. Shortly before this, the phase 3 attacks can occur, unlocking everything.
+            // Minute 3.5: Base difficulty gradually reaches 2.3. The attacks begin ramping up.
+            // Minute 6: Base difficulty reaches 3.5. The attacks are now extremely difficult.
+            // Minute 6 and onwards: The difficulty continues to slowly climb until the player dies.
+            float minutesPassed = FightTimer / 3600f;
+            DifficultyFactor = 1f;
+            DifficultyFactor += InverseLerp(0f, 1f, minutesPassed) * 0.25f;
+            DifficultyFactor += InverseLerp(1f, 2f, minutesPassed) * 0.3f;
+            DifficultyFactor += InverseLerp(2f, 3.5f, minutesPassed) * 0.75f;
+            DifficultyFactor += InverseLerp(3.5f, 6f, minutesPassed) * 1.2f;
+            if (minutesPassed > 6f)
+                DifficultyFactor += Pow(minutesPassed - 6f, 0.71f);
+
+            // Relax the difficulty factor.
+            DifficultyFactor = Pow(DifficultyFactor, 0.4f);
+            if (minutesPassed > 12f)
+                DifficultyFactor += (minutesPassed - 12f) * 0.174f;
         }
+    }
 
-        public void LoadStateTransitions()
+    public void ForceNextAttack(NamelessAIType state)
+    {
+        if (IsAttackState(CurrentState))
+            StateMachine.StateStack.Push(StateMachine.StateRegistry[state]);
+    }
+
+    public static bool IsAttackState(NamelessAIType state) => Phase1Cycle.Contains(state) || Phase2Cycle.Contains(state) || Phase3Cycle.Contains(state);
+
+    public static void ApplyToAllStatesWithCondition(Action<NamelessAIType> action, Func<NamelessAIType, bool> condition)
+    {
+        for (int i = 0; i < (int)NamelessAIType.Count; i++)
         {
-            // Load introductory states.
-            LoadStateTransitions_Awaken();
-            LoadStateTransitions_OpenScreenTear();
-            LoadStateTransitions_RoarAnimation();
+            NamelessAIType attack = (NamelessAIType)i;
+            if (!condition(attack))
+                continue;
 
-            // Load Phase 1 attack states.
-            LoadStateTransitions_ConjureExplodingStars();
-            LoadStateTransitions_ArcingEyeStarbursts();
-            LoadStateTransitions_RealityTearDaggers();
-            LoadStateTransitions_PerpendicularPortalLaserbeams();
-            LoadStateTransitions_SunBlenderBeams();
-            LoadStateTransitions_CrushStarIntoQuasar();
-
-            // Load Phase 2 attack states.
-            LoadStateTransitions_VergilScreenSlices();
-            LoadStateTransitions_RealityTearPunches();
-            LoadStateTransitions_InwardStarPattenedExplosions();
-            LoadStateTransitions_BackgroundStarJumpscares();
-            LoadStateTransitions_SwordConstellation();
-
-            // Load Phase 3 attack states.
-            LoadStateTransitions_DarknessWithLightSlashes();
-            LoadStateTransitions_SuperCosmicLaserbeam();
-            LoadStateTransitions_ClockConstellation();
-            LoadStateTransitions_MomentOfCreation();
-
-            // Load GFB attack states.
-            LoadStateTransitions_Glock();
-
-            // Load phase transition states.
-            LoadStateTransitions_Phase2TransitionStart();
-            LoadStateTransitions_Phase2TransitionEnd();
-            LoadStateTransitions_Phase3TransitionStart();
-            LoadStateTransitions_Phase3TransitionEnd();
-            LoadStateTransitions_RodOfHarmonyRant();
-
-            // Load death animation states.
-            LoadStateTransitions_DeathAnimations();
-
-            // Load the cycle reset state.
-            LoadStateTransitions_ResetCycle();
-
-            // Load intermediate AI states.
-            LoadStateTransitions_Teleport();
-        }
-
-        public static bool IsAttackState(NamelessAIType state) => Phase1Cycle.Contains(state) || Phase2Cycle.Contains(state) || Phase3Cycle.Contains(state);
-
-        public static void ApplyToAllStatesWithCondition(Action<NamelessAIType> action, Func<NamelessAIType, bool> condition)
-        {
-            for (int i = 0; i < (int)NamelessAIType.Count; i++)
-            {
-                NamelessAIType attack = (NamelessAIType)i;
-                if (!condition(attack))
-                    continue;
-
-                action(attack);
-            }
-        }
-
-        public static void ApplyToAllStatesExcept(Action<NamelessAIType> action, params NamelessAIType[] exceptions)
-        {
-            for (int i = 0; i < (int)NamelessAIType.Count; i++)
-            {
-                NamelessAIType attack = (NamelessAIType)i;
-                if (exceptions.Contains(attack))
-                    continue;
-
-                action(attack);
-            }
+            action(attack);
         }
     }
 }

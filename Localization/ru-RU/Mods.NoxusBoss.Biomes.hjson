@@ -1,0 +1,9 @@
+EternalGardenBiome: {
+	DisplayName: Векожизный сад
+	TownNPCDialogueName: биом векожизного сада
+}
+
+DeadUniverseBiome: {
+	DisplayName: Мёртвая вселенная
+	TownNPCDialogueName: мёртвая вселенная
+}

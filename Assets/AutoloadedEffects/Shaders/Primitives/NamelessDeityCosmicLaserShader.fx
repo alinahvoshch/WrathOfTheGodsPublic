@@ -5,7 +5,7 @@ sampler darknessTexture : register(s4);
 sampler starsTexture : register(s5);
 sampler darkeningNoiseTexture : register(s6);
 
-float globalTime;
+float scrollTime;
 float uStretchReverseFactor;
 float scrollOffset;
 float scrollSpeedFactor;
@@ -69,10 +69,10 @@ float OpacityFromCutoffInterpolant(float cutoffInterpolant, float edgeOffset, fl
 float CalculateBackLineInterpolant(float2 coords, float2 zeroCenteredCoords)
 {
     // Calculate various noise values. These are used to give variance to the overall light smash line.
-    float noise1 = tex2D(edgeFadingNoiseBackLineTexture, coords * 0.6 + float2(globalTime * -1.34, 0)).r;
-    float noise2 = tex2D(edgeFadingNoiseBackLineTexture, coords * 1.42 + float2(globalTime * -1.97, 0)).r;
-    float noise3 = tex2D(edgeFadingNoiseBackLineTexture, coords * 9.3 + float2(globalTime * -3.67, 0)).r;
-    float noise4 = tex2D(edgeFadingNoiseBackLineTexture, coords * 5 - float2(globalTime * 2.27, noise2)).r;
+    float noise1 = tex2D(edgeFadingNoiseBackLineTexture, coords * 0.6 + float2(scrollTime * -1.34, 0)).r;
+    float noise2 = tex2D(edgeFadingNoiseBackLineTexture, coords * 1.42 + float2(scrollTime * -1.97, 0)).r;
+    float noise3 = tex2D(edgeFadingNoiseBackLineTexture, coords * 9.3 + float2(scrollTime * -3.67, 0)).r;
+    float noise4 = tex2D(edgeFadingNoiseBackLineTexture, coords * 5 - float2(scrollTime * 2.27, noise2)).r;
     
     // For ease of use, store player distance values in a 2D vector.
     // X = distance relative to the length of the laser.
@@ -96,7 +96,7 @@ float CalculateBackLineInterpolant(float2 coords, float2 zeroCenteredCoords)
 
 float4 CalculateSpaceColor(float2 coords)
 {
-    float time = globalTime * 0.2;
+    float time = scrollTime * 0.2;
     float4 fadeMapColor1 = tex2D(laserColorTexture, float2(coords.x * 2 - time * 1.6, coords.y));
     float4 fadeMapColor2 = tex2D(laserColorTexture, float2(coords.x * 3 - time * 0.8, coords.y * 0.5));
     float opacity = (1 + fadeMapColor1.g);
@@ -127,11 +127,11 @@ float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
     
     // Alter the laser such that pixels at the edges are more squished. Also apply scrolling.
     float squishFactor = 1 - saturate(pow(distance(coords.y, 0.5) * 2, 15)) * 0.3;
-    float2 scrolledCoords = coords + float2(coords.y * 0.015 + globalTime * -0.55, 0);
+    float2 scrolledCoords = coords + float2(coords.y * 0.015 + scrollTime * -0.55, 0);
     float2 cylindricalCoords = (frac(scrolledCoords) - 0.5) * float2(1, squishFactor) + 0.5;
     
     // Make the coordinates have a bit of a sideways slant, to help reinforce the visual that the laser is a cylinder.
-    cylindricalCoords += float2(-0.4, 0.56) * globalTime;
+    cylindricalCoords += float2(-0.4, 0.56) * scrollTime;
     
     // Calculate the texture of the laser based on the aforementioned cylindrical coordinates.
     float4 spaceColor = CalculateSpaceColor(cylindricalCoords) * pow(QuadraticBump(coords.y), 0.51);
@@ -139,7 +139,7 @@ float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
     // Calculate noise values.
     float noise1 = tex2D(edgeFadingNoiseTexture, cylindricalCoords * 0.6).r;
     float noise2 = tex2D(edgeFadingNoiseTexture, cylindricalCoords * 1.42).r;
-    float noise3 = tex2D(edgeFadingNoiseTexture, coords * 7 - float2(globalTime * 2.97, noise2)).r;
+    float noise3 = tex2D(edgeFadingNoiseTexture, coords * 7 - float2(scrollTime * 2.97, noise2)).r;
     
     float4 finalColor = saturate(baseColor * spaceColor);
     float3 backColor = startingLightBrightness - dot(finalColor.rgb, float3(0.3, 0.59, 0.11)) * maxLightTexturingDarkness;

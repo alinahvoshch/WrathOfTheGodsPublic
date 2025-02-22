@@ -29,7 +29,7 @@ VertexShaderOutput VertexShaderFunction(in VertexShaderInput input)
     float rotationOriginCosine = cos(spinRotation);
     float2x2 rotationMatrix = float2x2(rotationCosine, -rotationSine, rotationSine, rotationCosine);
     float2x2 circularRotationMatrix = float2x2(rotationOriginCosine, -rotationOriginSine, rotationOriginSine, rotationOriginCosine);
-    float2x2 scalingMatrix = float2x2(3, 0, 0, 1);
+    float2x2 scalingMatrix = float2x2(2.8, 0, 0, 1);
     
     output.Color = input.Color;
     

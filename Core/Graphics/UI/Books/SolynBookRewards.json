@@ -1,0 +1,648 @@
+{
+  "AbsenceNotice": [
+    {
+      "ItemName": "HeartreachPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "LifeforcePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "GardenFountain",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarblessedPlatform",
+      "MinStack": 8,
+      "MaxStack": 8,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "AcidicPrayerbook": [
+    {
+      "ItemName": "EndurancePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "RagePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarlitCampfire",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 6,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "AncientWritings": [
+    {
+      "ItemName": "CalmingPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "WrathPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "FallenStar",
+      "MinStack": 35,
+      "MaxStack": 50,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 6,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "AppleThesis": [
+    {
+      "ItemName": "CalmingPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "HeartreachPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "FallenStar",
+      "MinStack": 15,
+      "MaxStack": 20,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 6,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "BibleOfSlime": [
+    {
+      "ItemName": "BattlePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "WrathPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "FallenStar",
+      "MinStack": 15,
+      "MaxStack": 20,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarblessedPlatform",
+      "MinStack": 2,
+      "MaxStack": 2,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "BookOfMiracles": [
+    {
+      "ItemName": "StarKite",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarlitForge",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "Cactome": [
+    {
+      "ItemName": "BattlePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "GravityNormalizerPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarlitCampfire",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarblessedPlatform",
+      "MinStack": 4,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "CloverManual": [
+    {
+      "ItemName": "HeartreachPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "GreaterLuckPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CalmingPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarblessedPlatform",
+      "MinStack": 7,
+      "MaxStack": 7,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "DubiousBrochureCorruption": [
+    {
+      "ItemName": "RagePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "BattlePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 6,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "DubiousBrochureCrimson": [
+    {
+      "ItemName": "WrathPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "BattlePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 6,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "DubiousSpellbook": [
+    {
+      "ItemName": "GravityNormalizerPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "LifeforcePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "GardenFountain",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "GenderDye",
+      "MinStack": 4,
+      "MaxStack": 6,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "ExoBlueprints": [
+    {
+      "ItemName": "GravityNormalizerPotion",
+      "MinStack": 8,
+      "MaxStack": 12,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "ExoPrism",
+      "MinStack": 96,
+      "MaxStack": 124,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 50,
+      "MaxStack": 64,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "SuperstarDye",
+      "MinStack": 4,
+      "MaxStack": 6,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "FishingCatalogue": [
+    {
+      "ItemName": "InterstellarBait",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CratePotion",
+      "MinStack": 9,
+      "MaxStack": 12,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "SonarPotion",
+      "MinStack": 7,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 6,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "SuperstarDye",
+      "MinStack": 4,
+      "MaxStack": 6,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "FuturisticTreatise": [
+    {
+      "ItemName": "PerversePurse",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarlitForge",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "GenderDye",
+      "MinStack": 4,
+      "MaxStack": 6,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "HowToFly": [
+    {
+      "ItemName": "GravityNormalizerPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "EndurancePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StaffOfRejuvenation",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "InscrutableTexts": [
+    {
+      "ItemName": "HeartreachPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CalmingPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 6,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarblessedPlatform",
+      "MinStack": 5,
+      "MaxStack": 5,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "InstructionManual": [
+    {
+      "ItemName": "HeartreachPotion",
+      "MinStack": 8,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CalmingPotion",
+      "MinStack": 8,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 30,
+      "MaxStack": 42,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "Luminite",
+      "MinStack": 474,
+      "MaxStack": 596,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarblessedPlatform",
+      "MinStack": 5,
+      "MaxStack": 5,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "InvisibleInkDissertation": [
+    {
+      "ItemName": "GreaterLuckPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "LifeforcePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "PerversePurse",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "OminousStorybook": [
+    {
+      "ItemName": "GoodApple",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "Worldbuilding",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "SolynStatue",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 285,
+      "MaxStack": 400,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "Otherworldly1": [
+    {
+      "ItemName": "GreaterLuckPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "LifeforcePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarblessedPlatform",
+      "MinStack": 3,
+      "MaxStack": 3,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "Otherworldly2": [
+    {
+      "ItemName": "BattlePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CalmingPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 6,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "Otherworldly3": [
+    {
+      "ItemName": "RagePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "WrathPotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 6,
+      "MaxStack": 10,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "SuperstarDye",
+      "MinStack": 4,
+      "MaxStack": 5,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "Otherworldly6": [
+    {
+      "ItemName": "PerversePurse",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarblessedPlatform",
+      "MinStack": 24,
+      "MaxStack": 24,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "RageOfTheDeities": [
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 50,
+      "MaxStack": 64,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "EndurancePotion",
+      "MinStack": 15,
+      "MaxStack": 20,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "HeartreachPotion",
+      "MinStack": 15,
+      "MaxStack": 20,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "WrathPotion",
+      "MinStack": 15,
+      "MaxStack": 20,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "RagePotion",
+      "MinStack": 15,
+      "MaxStack": 20,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "GreaterLuckPotion",
+      "MinStack": 15,
+      "MaxStack": 20,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "SeamapCollection": [
+    {
+      "ItemName": "Dreamcatcher",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "SulfuricLeaflet": [
+    {
+      "ItemName": "BattlePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StaffOfRejuvenation",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarblessedPlatform",
+      "MinStack": 6,
+      "MaxStack": 6,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "TwentyTwome": [
+    {
+      "ItemName": "LifeforcePotion",
+      "MinStack": 2,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarKite",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    },
+    {
+      "ItemName": "StarblessedPlatform",
+      "MinStack": 4,
+      "MaxStack": 4,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "UnfinishedColoringBook": [
+    {
+      "ItemName": "StarblessedPlatform",
+      "MinStack": 12,
+      "MaxStack": 12,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ],
+  "WulfrumAssemblyGuide": [
+    {
+      "ItemName": "CinnamonRollyn",
+      "MinStack": 2,
+      "MaxStack": 2,
+      "GiftedDirectlyFromSolyn": false
+    }
+  ]
+}

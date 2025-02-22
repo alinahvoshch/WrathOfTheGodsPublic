@@ -1,0 +1,168 @@
+{
+  "AberrantWritings": {
+    "Rarity": 1,
+    "TexturePath": "../AberrantWritings"
+  },
+  "AbsenceNotice": {
+    "Rarity": 2,
+    "TexturePath": "../AbsenceNotice"
+  },
+  "AcidicPrayerbook": {
+    "Rarity": 1,
+    "TexturePath": "../AcidicPrayerbook"
+  },
+  "AncientWritings": {
+    "Rarity": 1,
+    "TexturePath": "../AncientWritings"
+  },
+  "AppleThesis": {
+    "Rarity": 1,
+    "TexturePath": "../AppleThesis"
+  },
+  "BestPriceBestiary": {
+    "Rarity": 1,
+    "TexturePath": "../BestPriceBestiary"
+  },
+  "BibleOfSlime": {
+    "Rarity": 1,
+    "TexturePath": "../BibleOfSlime"
+  },
+  "BookOfMiracles": {
+    "Rarity": 3,
+    "TexturePath": "../BookOfMiracles"
+  },
+  "Cactome": {
+    "Rarity": 1,
+    "TexturePath": "../Cactome"
+  },
+  "CloverManual": {
+    "Rarity": 3,
+    "TexturePath": "../CloverManual"
+  },
+  "DecayingTome": {
+    "Rarity": 1,
+    "TexturePath": "../DecayingTome"
+  },
+  "DubiousBrochureCorruption": {
+    "Rarity": 1,
+    "TexturePath": "../DubiousBrochureCorruption"
+  },
+  "DubiousBrochureCrimson": {
+    "Rarity": 1,
+    "TexturePath": "../DubiousBrochureCrimson"
+  },
+  "DubiousSpellbook": {
+    "Rarity": 2,
+    "TexturePath": "../DubiousSpellbook"
+  },
+  "DustyDiary": {
+    "Rarity": 1,
+    "TexturePath": "../DustyDiary"
+  },
+  "ExoBlueprints": {
+    "Rarity": 2,
+    "TexturePath": "../ExoBlueprints"
+  },
+  "FanaticalRamblings": {
+    "Rarity": 0,
+    "TexturePath": "../FanaticalRamblings"
+  },
+  "FishingCatalogue": {
+    "Rarity": 2,
+    "TexturePath": "../FishingCatalogue"
+  },
+  "FrostyPamphlet": {
+    "Rarity": 1,
+    "TexturePath": "../FrostyPamphlet"
+  },
+  "FuturisticTreatise": {
+    "Rarity": 3,
+    "TexturePath": "../FuturisticTreatise"
+  },
+  "HiTechInstructionManual": {
+    "Rarity": 1,
+    "TexturePath": "../HiTechInstructionManual"
+  },
+  "HowToFly": {
+    "Rarity": 2,
+    "TexturePath": "../HowToFly"
+  },
+  "InscrutableTexts": {
+    "Rarity": 1,
+    "TexturePath": "../InscrutableTexts"
+  },
+  "InstructionManual": {
+    "Rarity": 2,
+    "TexturePath": "../InstructionManual"
+  },
+  "InvisibleInkDissertation": {
+    "Rarity": 2,
+    "TexturePath": "../InvisibleInkDissertation"
+  },
+  "MagicLexicon": {
+    "Rarity": 1,
+    "TexturePath": "../MagicLexicon"
+  },
+  "Otherworldly1": {
+    "Rarity": 1,
+    "TexturePath": "../Otherworldly1"
+  },
+  "Otherworldly2": {
+    "Rarity": 1,
+    "TexturePath": "../Otherworldly2"
+  },
+  "Otherworldly3": {
+    "Rarity": 2,
+    "TexturePath": "../Otherworldly3"
+  },
+  "Otherworldly4": {
+    "Rarity": 2,
+    "TexturePath": "../Otherworldly4"
+  },
+  "Otherworldly5": {
+    "Rarity": 3,
+    "TexturePath": "../Otherworldly5"
+  },
+  "Otherworldly6": {
+    "Rarity": 3,
+    "TexturePath": "../Otherworldly6"
+  },
+  "OminousStorybook": {
+    "Rarity": 4,
+    "TexturePath": "../OminousStorybook"
+  },
+  "RageOfTheDeities": {
+    "Rarity": 1,
+    "TexturePath": "../RageOfTheDeities"
+  },
+  /*
+  "SanguineWildlife": {
+    "Rarity": 2,
+    "TexturePath": "../SanguineWildlife"
+  },
+  */
+  "SeamapCollection": {
+    "Rarity": 2,
+    "TexturePath": "../SeamapCollection"
+  },
+  "SulfuricLeaflet": {
+    "Rarity": 2,
+    "TexturePath": "../SulfuricLeaflet"
+  },
+  "TheBookOfShaders": {
+    "Rarity": 3,
+    "TexturePath": "../TheBookOfShaders"
+  },
+  "TwentyTwome": {
+    "Rarity": 2,
+    "TexturePath": "../TwentyTwome"
+  },
+  "UnfinishedColoringBook": {
+    "Rarity": 2,
+    "TexturePath": "../UnfinishedColoringBook"
+  },
+  "WulfrumAssemblyGuide": {
+    "Rarity": 1,
+    "TexturePath": "../WulfrumAssemblyGuide"
+  }
+}

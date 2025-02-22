@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Luminance.Core.ModCalls;
 using NoxusBoss.Content.NPCs.Bosses.NamelessDeity.SpecificEffectManagers;
 
-namespace NoxusBoss.Core.CrossCompatibility.Outbound
+namespace NoxusBoss.Core.CrossCompatibility.Outbound;
+
+public class RemoveNamelessDeathAnimationCall : ModCall
 {
-    // This is super niche but Toasty asked for it for an addon mod of his.
-    public class RemoveNamelessDeathAnimationCall : ModCallProvider
+    public override IEnumerable<string> GetCallCommands()
     {
-        public override IEnumerable<string> CallCommands
-        {
-            get
-            {
-                yield return "MakeNextNamelessDeathAnimationNotHappen";
-            }
-        }
+        yield return "MakeNextNamelessDeathAnimationNotHappen";
+    }
 
-        public override string Name => "MakeNextNamelessDeathAnimationNotHappen";
+    public override IEnumerable<Type> GetInputTypes() => Array.Empty<Type>();
 
-        public override IEnumerable<Type> InputTypes => Array.Empty<Type>();
-
-        protected override object Process(params object[] args)
-        {
-            NamelessDeathAnimationSkipSystem.SkipNextDeathAnimation = true;
-            return new();
-        }
+    protected override object SafeProcess(params object[] argsWithoutCommand)
+    {
+        NamelessDeathAnimationSkipSystem.SkipNextDeathAnimation = true;
+        return new object();
     }
 }

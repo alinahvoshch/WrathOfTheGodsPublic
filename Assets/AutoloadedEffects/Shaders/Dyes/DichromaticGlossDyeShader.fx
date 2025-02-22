@@ -35,13 +35,21 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     // Get the pixel's color on the base texture.
     float4 color = tex2D(baseTexture, coords);
     
-    float brightness = dot(color.rgb, float3(0.3, 0.59, 0.11)) - 0.5;
-    float redInterpolant = smoothstep(0.6, 0.4, framedCoords.x);
+    float brightness = dot(color.rgb, float3(0.3, 0.59, 0.11));
     
+    // Make colors to the right pink/red, make colors to the left cyan.
+    float redInterpolant = smoothstep(0.6, 0.4, framedCoords.x);    
     if (uDirection == -1)
         redInterpolant = 1 - redInterpolant;
-    float3 blend = lerp(uColor, uSecondaryColor, redInterpolant) * uSaturation + brightness;
+    
+    // Calculate the blend color based on the aforementioned positional interpolant, the saturation value, and the brightness of the original pixel.
+    float3 blend = lerp(float3(0, 0.56, 1), float3(1, 0, 0.74), redInterpolant) * 0.6 + brightness - 0.5;
     float4 blendedColor = float4(AddGlowBlend(blend, color.rgb), 1) * color.a;
+    
+    // Apply darkening based on the luminosity of the sample color, to ensure that lighting is accounted for.
+    float sampleColorLumoniosity = dot(sampleColor.rgb, float3(0.3, 0.6, 0.1));
+    blendedColor.rgb *= sampleColorLumoniosity;
+    
     return blendedColor * sampleColor.a;
 }
 

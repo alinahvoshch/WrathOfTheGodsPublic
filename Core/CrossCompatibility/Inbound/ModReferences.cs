@@ -1,78 +1,85 @@
 ﻿using Terraria.ModLoader;
 
-namespace NoxusBoss.Core.CrossCompatibility.Inbound
+namespace NoxusBoss.Core.CrossCompatibility.Inbound;
+
+public class ModReferences : ModSystem
 {
-    public class ModReferences : ModSystem
+    public static Mod Calamity
     {
-        public static Mod BaseCalamity
-        {
-            get;
-            internal set;
-        }
+        get;
+        internal set;
+    }
 
-        public static Mod BossChecklist
-        {
-            get;
-            private set;
-        }
+    public static Mod BossChecklistMod
+    {
+        get;
+        private set;
+    }
 
-        // Goozma mod.
-        public static Mod CalamityHunt
-        {
-            get;
-            private set;
-        }
+    // Goozma mod.
+    public static Mod CalamityHuntMod
+    {
+        get;
+        private set;
+    }
 
-        // Chaotic evil mod.
-        public static Mod CalamityRemix
-        {
-            get;
-            private set;
-        }
+    // Chaotic evil mod.
+    public static Mod CalamityRemixMod
+    {
+        get;
+        private set;
+    }
 
-        public static Mod Infernum
-        {
-            get;
-            private set;
-        }
+    public static Mod InfernumMod
+    {
+        get;
+        private set;
+    }
 
-        public static Mod NycrosNohitMod
-        {
-            get;
-            private set;
-        }
+    public static Mod OreExcavator
+    {
+        get;
+        private set;
+    }
 
-        public static Mod ToastyQoL
-        {
-            get;
-            private set;
-        }
+    public static Mod NycrosNohitMod
+    {
+        get;
+        private set;
+    }
 
-        public static Mod Wikithis
-        {
-            get;
-            private set;
-        }
+    public static Mod RealisticSky
+    {
+        get;
+        private set;
+    }
 
-        public override void Load()
-        {
-            // Check for relevant mods.
-            if (ModLoader.TryGetMod("BossChecklist", out Mod bcl))
-                BossChecklist = bcl;
-            if (ModLoader.TryGetMod("CalamityMod", out Mod cal))
-                BaseCalamity = cal;
-            if (ModLoader.TryGetMod("CalamityHunt", out Mod calHunt))
-                CalamityHunt = calHunt;
-            if (ModLoader.TryGetMod("CalRemix", out Mod calRemix))
-                CalamityRemix = calRemix;
-            if (ModLoader.TryGetMod("InfernumMode", out Mod inf))
-                Infernum = inf;
-            if (ModLoader.TryGetMod("EfficientNohits", out Mod nycros))
-                NycrosNohitMod = nycros;
-            if (ModLoader.TryGetMod("ToastyQoL", out Mod tQoL))
-                ToastyQoL = tQoL;
-            if (ModLoader.TryGetMod("Wikithis", out Mod wikithis))
-                Wikithis = wikithis;
-        }
+    public static Mod Wikithis
+    {
+        get;
+        private set;
+    }
+
+    public override void Load()
+    {
+        // Check for relevant mods.
+        if (ModLoader.TryGetMod("BossChecklist", out Mod bcl))
+            BossChecklistMod = bcl;
+        if (ModLoader.TryGetMod("CalamityMod", out Mod cal))
+            Calamity = cal;
+        if (ModLoader.TryGetMod("CalamityHunt", out Mod calHunt))
+            CalamityHuntMod = calHunt;
+        if (ModLoader.TryGetMod("CalRemix", out Mod calRemix))
+            CalamityRemixMod = calRemix;
+        if (ModLoader.TryGetMod("InfernumMode", out Mod inf))
+            InfernumMod = inf;
+        if (ModLoader.TryGetMod("OreExcavator", out Mod veinminer))
+            OreExcavator = veinminer;
+        if (ModLoader.TryGetMod("EfficientNohits", out Mod nycros))
+            NycrosNohitMod = nycros;
+        if (ModLoader.TryGetMod("RealisticSky", out Mod sky))
+            RealisticSky = sky;
+        if (ModLoader.TryGetMod("Wikithis", out Mod wikithis))
+            Wikithis = wikithis;
     }
 }

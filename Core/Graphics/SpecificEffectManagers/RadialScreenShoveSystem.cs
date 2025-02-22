@@ -1,70 +1,74 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Luminance.Core.Graphics;
+using Microsoft.Xna.Framework;
 using NoxusBoss.Core.Configuration;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace NoxusBoss.Core.Graphics.SpecificEffectManagers
-{
-    public class RadialScreenShoveScene : ModSceneEffect
-    {
-        public override bool IsSceneEffectActive(Player player) => NoxusBossConfig.Instance.VisualOverlayIntensity >= 0.01f && GetFromCalamityConfig("Screenshake", true) && RadialScreenShoveSystem.DistortionPower >= 0.01f;
+namespace NoxusBoss.Core.Graphics.SpecificEffectManagers;
 
-        public override void SpecialVisuals(Player player, bool isActive)
-        {
-            player.ManageSpecialBiomeVisuals("NoxusBoss:LightWaveScreenShove", isActive);
-        }
+[Autoload(Side = ModSide.Client)]
+public class RadialScreenShoveSystem : ModSystem
+{
+    public static Vector2 DistortionCenter
+    {
+        get;
+        set;
     }
 
-    [Autoload(Side = ModSide.Client)]
-    public class RadialScreenShoveSystem : ModSystem
+    public static float DistortionPower
     {
-        public static Vector2 DistortionCenter
+        get;
+        set;
+    }
+
+    public static int DistortionTimer
+    {
+        get;
+        set;
+    }
+
+    public static int DistortionLifetime
+    {
+        get;
+        set;
+    }
+
+    public static float DistortionCompletionRatio => DistortionTimer / (float)DistortionLifetime;
+
+    public override void PostUpdateProjectiles()
+    {
+        // Increment the distortion timer if it's active. Once its reaches its natural maximum the effect ceases.
+        if (DistortionTimer >= 1)
         {
-            get;
-            set;
+            DistortionTimer++;
+            if (DistortionTimer >= DistortionLifetime)
+                DistortionTimer = 0;
         }
 
-        public static float DistortionPower
-        {
-            get;
-            set;
-        }
+        DistortionPower = Convert01To010(DistortionCompletionRatio) * (1f - DistortionCompletionRatio);
 
-        public static int DistortionTimer
-        {
-            get;
-            set;
-        }
+        if (DistortionTimer <= 0)
+            return;
 
-        public static int DistortionLifetime
-        {
-            get;
-            set;
-        }
+        float distortionPowerForShader = DistortionPower * WoTGConfig.Instance.VisualOverlayIntensity * 0.11f;
+        if (Main.gamePaused)
+            distortionPowerForShader = 0f;
 
-        public static float DistortionCompletionRatio => DistortionTimer / (float)DistortionLifetime;
+        ManagedScreenFilter shoveShader = ShaderManager.GetFilter("NoxusBoss.RadialScreenShoveShader");
+        shoveShader.TrySetParameter("blurPower", WoTGConfig.Instance.VisualOverlayIntensity * 0.5f);
+        shoveShader.TrySetParameter("pulseTimer", Main.GlobalTimeWrappedHourly * 21f);
+        shoveShader.TrySetParameter("distortionPower", distortionPowerForShader);
+        shoveShader.TrySetParameter("distortionCenter", WorldSpaceToScreenUV(DistortionCenter));
+        shoveShader.Activate();
+    }
 
-        public override void PostUpdateProjectiles()
-        {
-            // Increment the distortion timer if it's active. Once its reaches its natural maximum the effect ceases.
-            if (DistortionTimer >= 1)
-            {
-                DistortionTimer++;
-                if (DistortionTimer >= DistortionLifetime)
-                    DistortionTimer = 0;
-            }
+    public static void Start(Vector2 distortionCenter, int distortionTime)
+    {
+        if (WoTGConfig.Instance.PhotosensitivityMode)
+            return;
 
-            DistortionPower = Convert01To010(DistortionCompletionRatio);
-        }
-
-        public static void Start(Vector2 distortionCenter, int distortionTime)
-        {
-            if (NoxusBossConfig.Instance.PhotosensitivityMode)
-                return;
-
-            DistortionCenter = distortionCenter;
-            DistortionTimer = 1;
-            DistortionLifetime = distortionTime;
-        }
+        DistortionCenter = distortionCenter;
+        DistortionTimer = 1;
+        DistortionLifetime = distortionTime;
     }
 }

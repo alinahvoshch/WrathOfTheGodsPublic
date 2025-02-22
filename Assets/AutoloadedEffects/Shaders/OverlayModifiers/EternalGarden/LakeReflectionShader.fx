@@ -18,12 +18,10 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     float4 color = tex2D(baseTexture, coords) * 1.1;
     color += float4(-accentNoise * 0.6, accentNoise, 0.18, 0) * color.a;
     
+    float2 baseCoords = coords;
+    
     // Store the height for the given pixel for ease of calculations.
     float height = 1 - coords.y;
-    
-    // Without this a mysterious line appears for some reason at the top of the lake texture.
-    if (coords.y <= 0.2 || coords.y >= 0.97)
-        return 0;
     
     // Calculate the base for the reflection coordinates.
     // This awkwardly interpolation is necessary because background drawcode is funny and draws the same lake texture 5 times to create the
@@ -65,7 +63,9 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     
     // Combine colors.
     float opacity = (1 - pow(height, 0.4)) * reflectionOpacityFactor;
-    return color * sampleColor * (1 + gaudyBullshitMode * 0.4) + reflectionColor * opacity * (gaudyBullshitMode * 1.67 + 1.48);
+    float4 result = color * sampleColor * (1 + gaudyBullshitMode * 0.4) + reflectionColor * opacity * (gaudyBullshitMode * 1.67 + 1.48);
+    
+    return saturate(result) * tex2D(baseTexture, baseCoords).a;
 }
 
 technique Technique1

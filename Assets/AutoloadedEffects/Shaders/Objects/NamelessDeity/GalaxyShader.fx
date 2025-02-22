@@ -1,6 +1,6 @@
 sampler noiseTexture : register(s0);
 
-float globalTime;
+float time;
 float2x2 transformation;
 
 float InverseLerp(float from, float to, float x)
@@ -23,7 +23,7 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     
     // Create spiral arms based on the classic DoG galaxy spin effect.
     float distanceFromCenter = length(coords - 0.5);
-    float angle = distanceFromCenter * 11.6 - globalTime * 0.94;
+    float angle = distanceFromCenter * 11.6 - time * 0.94;
     color += tex2D(noiseTexture, RotatedBy(coords - 0.5, angle) + 0.5);
     
     // Make the galaxy fade out at the edges.

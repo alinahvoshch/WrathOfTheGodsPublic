@@ -37,11 +37,6 @@ VertexShaderOutput VertexShaderFunction(in VertexShaderInput input)
     return output;
 }
 
-float InverseLerp(float from, float to, float x)
-{
-    return saturate((x - from) / (to - from));
-}
-
 float QuadraticBump(float x)
 {
     return x * (4 - x * 4);
@@ -60,7 +55,7 @@ float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
     
     // Calculate color-affecting interpolants.
     float darknessNoise = tex2D(noiseTexture, coords * float2(2, 1) + darknessScrollOffset + float2(globalTime * -darknessNoiseScrollSpeed, 0));
-    float fadeToWhite = InverseLerp(0.24 - darknessNoise * 0.15, 0, baseCoords.x) * 0.85;
+    float fadeToWhite = smoothstep(0.24 - darknessNoise * 0.15, 0, baseCoords.x) * 0.85;
     float brightnessNoise = tex2D(noiseTexture, coords * float2(2, 1) + brightnessScrollOffset + float2(globalTime * -brightnessNoiseScrollSpeed, 0));
     
     // Apply darkness effects.
@@ -72,24 +67,25 @@ float4 PixelShaderFunction(VertexShaderOutput input) : COLOR0
     
     // Increase the contrast of the color a good bit, based on the brightness interpolant.
     // This "splits" the color bands to their extremes the higher the power is.
-    float contrastPower = brightnessNoise * 0.75 + 1.15;
+    float contrastPower = brightnessNoise * 0.75 + 1.95;
     finalColor = finalColor * contrastPower + (1 - contrastPower) * 0.5;
     
     // Calculate the highlight. This allows dark parts to have a bit of interesting texturing.
     float3 highlight = (1 - tex2D(highlightNoiseTexture, coords * float2(1.5, 1) + float2(0, globalTime * -0.06))) * lerp(0.5, 5, pow(darknessNoise, 3));
     
     // Calculate the edge-fade opacity.
-    float opacity = InverseLerp(0, 0.2, coords.y) * InverseLerp(1, 0.8, coords.y) * 0.7;
+    float opacity = smoothstep(0, 0.2, coords.y) * smoothstep(1, 0.8, coords.y) * 0.7;
     
     // Calculate the final color, applying additive blending if parameters request it.
     fadeToWhite += pow(QuadraticBump(baseCoords.y), 5 + darknessNoise * 50);
     float4 result = lerp(float4(finalColor + pow(highlight, 3.6), 1), 2, fadeToWhite) * opacity;
     result.a *= 1 - drawAdditively;
     
-    // Ensure that the laser doesn't have a flat, unnatural end.
-    float endFade = InverseLerp(0.97, 0.85, baseCoords.x + darknessNoise * 0.07);
+    // Ensure that the laser doesn't have a flat, unnatural start and end.
+    float startFade = smoothstep(0.01, 0.05, baseCoords.x);
+    float endFade = smoothstep(0.97, 0.85, baseCoords.x + darknessNoise * 0.07);
     
-    return result * endFade;
+    return saturate(result) * startFade * endFade;
 }
 
 technique Technique1

@@ -1,0 +1,257 @@
+{
+  "Aster": {
+    "UseCensor": true,
+    "BodyReplacementTexture": null,
+    "MothReplacementTexture": null,
+    "CensorReplacementTexture": null,
+    "ValidPlayerNames": [
+      "Aster"
+    ],
+    "PreferredAntlerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Antlers5"
+    ],
+    "PreferredArmTextures": null,
+    "PreferredFinTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Fins5"
+    ],
+    "PreferredFlowerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/SideFlower5"
+    ],
+    "PreferredForearmTextures": null,
+    "PreferredHandTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Hand5"
+    ],
+    "PreferredVineTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/MattikHasSinnedAgainstGod"
+    ],
+    "PreferredWheelTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Wheel3"
+    ],
+    "PreferredWingTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Wings3"
+    ]
+  },
+
+  "Healthy": {
+    "UseCensor": true,
+    "BodyReplacementTexture": "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/HealthyPreset/DivineBody",
+    "MothReplacementTexture": "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/HealthyPreset/Cicada",
+    "CensorReplacementTexture": "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/HealthyPreset/Censor",
+    "ValidPlayerNames": [
+      "Healthy"
+    ],
+    "PreferredAntlerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/HealthyPreset/None"
+    ],
+    "PreferredArmTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/HealthyPreset/Arm"
+    ],
+    "PreferredFinTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/HealthyPreset/None"
+    ],
+    "PreferredFlowerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/SideFlower5"
+    ],
+    "PreferredForearmTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/HealthyPreset/Forearm"
+    ],
+    "PreferredHandTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/HealthyPreset/Hand"
+    ],
+    "PreferredVineTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/HealthyPreset/Vines"
+    ],
+    "PreferredWheelTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/HealthyPreset/Wheel"
+    ],
+    "PreferredWingTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/HealthyPreset/Wings"
+    ]
+  },
+
+  "LGL": {
+    "UseCensor": true,
+    "BodyReplacementTexture": null,
+    "MothReplacementTexture": null,
+    "CensorReplacementTexture": "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/FishGivingMiddleFinger",
+    "ValidPlayerNames": [
+      "LGL"
+    ],
+    "PreferredAntlerTextures": null,
+    "PreferredArmTextures": null,
+    "PreferredFinTextures": null,
+    "PreferredFlowerTextures": null,
+    "PreferredForearmTextures": null,
+    "PreferredHandTextures": null,
+    "PreferredVineTextures": null,
+    "PreferredWheelTextures": null,
+    "PreferredWingTextures": null
+  },
+
+  "Lucille": {
+    "UseCensor": false,
+    "BodyReplacementTexture": null,
+    "MothReplacementTexture": null,
+    "CensorReplacementTexture": null,
+    "ValidPlayerNames": [
+      "Lucille"
+    ],
+    "PreferredAntlerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Antlers5"
+    ],
+    "PreferredArmTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Arm2"
+    ],
+    "PreferredFinTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Fins5"
+    ],
+    "PreferredFlowerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/SideFlower7"
+    ],
+    "PreferredForearmTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Forearm5"
+    ],
+    "PreferredHandTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Hand5"
+    ],
+    "PreferredVineTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Vines5"
+    ],
+    "PreferredWheelTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Wheel2"
+    ],
+    "PreferredWingTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Wings2"
+    ]
+  },
+
+  "Lynel": {
+    "UseCensor": true,
+    "BodyReplacementTexture": null,
+    "MothReplacementTexture": null,
+    "CensorReplacementTexture": null,
+    "ValidPlayerNames": [
+      "Lynel"
+    ],
+    "PreferredAntlerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/AntlersLynel"
+    ],
+    "PreferredArmTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Arm2"
+    ],
+    "PreferredFinTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Fins4"
+    ],
+    "PreferredFlowerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/SideFlowerLynel"
+    ],
+    "PreferredForearmTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Forearm2"
+    ],
+    "PreferredHandTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Hand2"
+    ],
+    "PreferredVineTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Vines5"
+    ],
+    "PreferredWheelTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Wheel2"
+    ],
+    "PreferredWingTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Wings4"
+    ]
+  },
+
+  "Moonburn": {
+    "UseCensor": true,
+    "BodyReplacementTexture": null,
+    "MothReplacementTexture": null,
+    "CensorReplacementTexture": null,
+    "ValidPlayerNames": [
+      "Moonburn"
+    ],
+    "PreferredAntlerTextures": null,
+    "PreferredArmTextures": null,
+    "PreferredFinTextures": null,
+    "PreferredFlowerTextures": null,
+    "PreferredForearmTextures": null,
+    "PreferredHandTextures": null,
+    "PreferredVineTextures": null,
+    "PreferredWheelTextures": null,
+    "PreferredWingTextures": null
+  },
+
+  "Myra": {
+    "UseCensor": true,
+    "BodyReplacementTexture": null,
+    "MothReplacementTexture": null,
+    "CensorReplacementTexture": null,
+    "ValidPlayerNames": [
+      "Myra"
+    ],
+    "PreferredAntlerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Antlers2"
+    ],
+    "PreferredArmTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Arm5"
+    ],
+    "PreferredFinTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Fins1"
+    ],
+    "PreferredFlowerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/SideFlower2"
+    ],
+    "PreferredForearmTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Forearm1"
+    ],
+    "PreferredHandTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Hand5"
+    ],
+    "PreferredVineTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Vines5"
+    ],
+    "PreferredWheelTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Wheel6"
+    ],
+    "PreferredWingTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Wings2"
+    ]
+  },
+
+  "Snake": {
+    "UseCensor": true,
+    "BodyReplacementTexture": null,
+    "MothReplacementTexture": null,
+    "CensorReplacementTexture": "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/XRayCensorSketch",
+    "ValidPlayerNames": [
+      "Snake"
+    ],
+    "PreferredAntlerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Antlers7"
+    ],
+    "PreferredArmTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Arm5"
+    ],
+    "PreferredFinTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Fins2"
+    ],
+    "PreferredFlowerTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/SideFlower6"
+    ],
+    "PreferredForearmTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Forearm1"
+    ],
+    "PreferredHandTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Hand2"
+    ],
+    "PreferredVineTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Vines2"
+    ],
+    "PreferredWheelTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Wheel6"
+    ],
+    "PreferredWingTextures": [
+      "NoxusBoss/Assets/Textures/Content/NPCs/Bosses/NamelessDeity/Wings1"
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+NoxusEggCutscene.DisplayName: ???
+
+AvatarRift: {
+	DisplayName: ???
+	DisplayNameSingular: ???
+
+	BossChecklistIntegration: {
+		SpawnInfo: Соберите и активируйте Генезис
+		DespawnMessage: "[c/EA0023:Разлом пропадает в мгновение ока.]"
+	}
+}
+
+AvatarOfEmptiness: {
+	DisplayName: Аватар пустоты
+	DisplayNameSingular: Аватар пустоты
+
+	BossChecklistIntegration: {
+		SpawnInfo: Соберите и активируйте Генезис
+		DespawnMessage: "[c/EA0023:Гротескная форма Великой тьмы пропадает в мгновение ока.]"
+	}
+
+	InfernumCompatibility.Title: Ярчайшая Звезда В Идеальном Мире
+	ParadiseReclaimedText: поднебесная возвращена
+}
+
+NamelessDeityBoss: {
+	DisplayName: Безымянное божество
+	DisplayNameSingular: Безымянное божество
+	SillyDeathCountSuffix: ", мучитель нохиттеров"
+	TestOfResolveName: БЕСКОНЕЧНОЕ БОЖЕСТВО
+
+	BossChecklistIntegration: {
+		SpawnInfo: Используйте [i:CalamityMod/Terminus] после того, как его взор откроется
+		DespawnMessage: "[c/FF463D:Испытание было провалено.]"
+	}
+
+	InfernumCompatibility.Title: ??????????????????????????????????????????????????
+}
+
+DismalSeeker.DisplayName: Мрачный искатель
+Fogwood.DisplayName: Туманодрево
+Mirrorwalker.DisplayName: Зазеркалец
+DarkHarbinger.DisplayName: Тёмный предвестник
+Frightweaver.DisplayName: Страхоткач
+# These names do not have to be translated, since when displayed ingame they are drawn in a divine language anyway via a special font.
+Aelithrysuwl.DisplayName: Aelithrysuwl
+Vivajuyfylae.DisplayName: Vivajuyfylae
+
+Solyn: {
+	DisplayName: Солин
+
+	TownNPCMood: {
+		Content: Извините, переводчики, игнорируйте это. Они нигде не используются, но TML требует их.
+		NoHome: Извините, переводчики, игнорируйте это. Они нигде не используются, но TML требует их.
+		FarFromHome: Извините, переводчики, игнорируйте это. Они нигде не используются, но TML требует их.
+		LoveSpace: Извините, переводчики, игнорируйте это. Они нигде не используются, но TML требует их.
+		DislikeCrowded: Извините, переводчики, игнорируйте это. Они нигде не используются, но TML требует их.
+		HateCrowded: Извините, переводчики, игнорируйте это. Они нигде не используются, но TML требует их.
+		LikeNPC_Princess: Извините, переводчики, игнорируйте это. Они нигде не используются, но TML требует их.
+		Princess_LovesNPC: Извините, переводчики, игнорируйте это. Они нигде не используются, но TML требует их.
+	}
+}
+
+MarsBody: {
+	DisplayName: КСГ-07 Марс
+
+	BossChecklistIntegration: {
+		SpawnInfo: Свяжитесь с Дрэйдоном в компании Солин и начните специальный квест
+		DespawnMessage: "[c/9BFFFF:Всё точно в пределах моих рассчётов.]"
+	}
+
+	InfernumCompatibility.Title:
+		'''
+		Титан Тепличных Условий
+		Марс
+		'''
+}
+
+CeaselessVoidRift: {
+	DisplayName: ???
+	MapIconText: Загадочный разлом
+}
+
+QuestDraedon.DisplayName: Дрэйдон
+BattleSolyn.DisplayName: Солин
+TrappingHolographicForcefield.DisplayName: Проецированное силовое поле

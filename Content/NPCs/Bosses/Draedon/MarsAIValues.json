@@ -1,0 +1,366 @@
+{
+  "BrutalBarrage_BasicReboundTime": {
+    "NormalValue": 95.0,
+    "ExpertValue": 95.0,
+    "RevengeanceValue": 95.0,
+    "DeathValue": 95.0,
+    "GFBValue": 95.0
+  },
+  "BrutalBarrage_DashCount": {
+    "NormalValue": 4.0,
+    "ExpertValue": 4.0,
+    "RevengeanceValue": 4.0,
+    "DeathValue": 4.0,
+    "GFBValue": 6.0
+  },
+  "BrutalBarrage_DashTime": {
+    "NormalValue": 45.0,
+    "ExpertValue": 45.0,
+    "RevengeanceValue": 45.0,
+    "DeathValue": 40.0,
+    "GFBValue": 36.0
+  },
+  "BrutalBarrage_ForcefieldGrindTime": {
+    "NormalValue": 86.0,
+    "ExpertValue": 86.0,
+    "RevengeanceValue": 81.0,
+    "DeathValue": 72.0,
+    "GFBValue": 72.0
+  },
+  "BrutalBarrage_MaxDashSpeed": {
+    "NormalValue": 37.5,
+    "ExpertValue": 41.0,
+    "RevengeanceValue": 45.0,
+    "DeathValue": 50.0,
+    "GFBValue": 67.0
+  },
+  "BrutalBarrage_PostDashAccelerateTime": {
+    "NormalValue": 8.0,
+    "ExpertValue": 8.0,
+    "RevengeanceValue": 8.0,
+    "DeathValue": 8.0,
+    "GFBValue": 8.0
+  },
+  "BrutalBarrage_ReelBackTime": {
+    "NormalValue": 70.0,
+    "ExpertValue": 70.0,
+    "RevengeanceValue": 70.0,
+    "DeathValue": 70.0,
+    "GFBValue": 55.0
+  },
+  "BrutalBarrage_SolynForcefieldWidth": {
+    "NormalValue": 400.0,
+    "ExpertValue": 400.0,
+    "RevengeanceValue": 350.0,
+    "DeathValue": 300.0,
+    "GFBValue": 240.0
+  },
+  "CarvedLaserbeam_MarsRedirectTime": {
+    "NormalValue": 40.0,
+    "ExpertValue": 40.0,
+    "RevengeanceValue": 40.0,
+    "DeathValue": 40.0,
+    "GFBValue": 40.0
+  },
+  "CarvedLaserbeam_LaserChargeUpTime": {
+    "NormalValue": 150.0,
+    "ExpertValue": 150.0,
+    "RevengeanceValue": 150.0,
+    "DeathValue": 150.0,
+    "GFBValue": 150.0
+  },
+  "CarvedLaserbeam_LaserWidth": {
+    "NormalValue": 360.0,
+    "ExpertValue": 360.0,
+    "RevengeanceValue": 360.0,
+    "DeathValue": 385.0,
+    "GFBValue": 450.0
+  },
+  "CarvedLaserbeam_LaserSafeZoneWidth": {
+    "NormalValue": 215.0,
+    "ExpertValue": 192.0,
+    "RevengeanceValue": 176.0,
+    "DeathValue": 165.0,
+    "GFBValue": 90.0
+  },
+  "CarvedLaserbeam_LaserShootTime": {
+    "NormalValue": 600.0,
+    "ExpertValue": 600.0,
+    "RevengeanceValue": 600.0,
+    "DeathValue": 600.0,
+    "GFBValue": 600.0
+  },
+  "ContactDamage": {
+    "NormalValue": 240.0,
+    "ExpertValue": 300.0,
+    "RevengeanceValue": 350.0,
+    "DeathValue": 350.0,
+    "GFBValue": 600.0
+  },
+  "Defense": {
+    "NormalValue": 100.0,
+    "ExpertValue": 100.0,
+    "RevengeanceValue": 100.0,
+    "DeathValue": 100.0,
+    "GFBValue": 100.0
+  },
+  "NormalWeaponDamageReduction": {
+    "NormalValue": 0.95,
+    "ExpertValue": 0.95,
+    "RevengeanceValue": 0.95,
+    "DeathValue": 0.97,
+    "GFBValue": 0.99999
+  },
+  "ExoelectricDisintegrationRayDamage": {
+    "NormalValue": 350.0,
+    "ExpertValue": 450.0,
+    "RevengeanceValue": 450.0,
+    "DeathValue": 700.0,
+    "GFBValue": 1000.0
+  },
+  "EnergyWeaveSequence_MarsInterceptionTime": {
+    "NormalValue": 40.0,
+    "ExpertValue": 40.0,
+    "RevengeanceValue": 40.0,
+    "DeathValue": 40.0,
+    "GFBValue": 40.0
+  },
+  "EnergyWeaveSequence_FieldSummonDelay": {
+    "NormalValue": 54.0,
+    "ExpertValue": 54.0,
+    "RevengeanceValue": 54.0,
+    "DeathValue": 54.0,
+    "GFBValue": 54.0
+  },
+  "EnergyWeaveSequence_PostImpactStunTime": {
+    "NormalValue": 75.0,
+    "ExpertValue": 75.0,
+    "RevengeanceValue": 75.0,
+    "DeathValue": 75.0,
+    "GFBValue": 56.0
+  },
+  "EnergyWeaveSequence_SolynRedirectTime": {
+    "NormalValue": 45.0,
+    "ExpertValue": 45.0,
+    "RevengeanceValue": 45.0,
+    "DeathValue": 45.0,
+    "GFBValue": 45.0
+  },
+  "FirstPhaseMissileRailgunCombo_MissileDownTime": {
+    "NormalValue": 150.0,
+    "ExpertValue": 150.0,
+    "RevengeanceValue": 150.0,
+    "DeathValue": 120.0,
+    "GFBValue": 10.0
+  },
+  "FirstPhaseMissileRailgunCombo_MissileFireTime": {
+    "NormalValue": 360.0,
+    "ExpertValue": 360.0,
+    "RevengeanceValue": 360.0,
+    "DeathValue": 360.0,
+    "GFBValue": 450.0
+  },
+  "FirstPhaseMissileRailgunCombo_MissileShootRate": {
+    "NormalValue": 26.0,
+    "ExpertValue": 26.0,
+    "RevengeanceValue": 26.0,
+    "DeathValue": 26.0,
+    "GFBValue": 23.0
+  },
+  "FirstPhaseMissileRailgunCombo_ShootDelay": {
+    "NormalValue": 4.0,
+    "ExpertValue": 4.0,
+    "RevengeanceValue": 4.0,
+    "DeathValue": 4.0,
+    "GFBValue": 3.0
+  },
+  "FirstPhaseMissileRailgunCombo_ShootTime": {
+    "NormalValue": 12.0,
+    "ExpertValue": 12.0,
+    "RevengeanceValue": 12.0,
+    "DeathValue": 12.0,
+    "GFBValue": 12.0
+  },
+  "FirstPhaseMissileRailgunCombo_TelegraphAimSpeed": {
+    "NormalValue": 0.24,
+    "ExpertValue": 0.24,
+    "RevengeanceValue": 0.24,
+    "DeathValue": 0.24,
+    "GFBValue": 0.3425
+  },
+  "FirstPhaseMissileRailgunCombo_TelegraphDelay": {
+    "NormalValue": 104.0,
+    "ExpertValue": 92.0,
+    "RevengeanceValue": 83.0,
+    "DeathValue": 72.0,
+    "GFBValue": 44.0
+  },
+  "FirstPhaseMissileRailgunCombo_TelegraphTime": {
+    "NormalValue": 32.0,
+    "ExpertValue": 32.0,
+    "RevengeanceValue": 32.0,
+    "DeathValue": 32.0,
+    "GFBValue": 27.0
+  },
+  "ForcefieldHP": {
+    "NormalValue": 285000.0,
+    "ExpertValue": 332700.0,
+    "RevengeanceValue": 400000.0,
+    "DeathValue": 472500.0,
+    "GFBValue": 920000.0
+  },
+  "FortifiedMissileDamage": {
+    "NormalValue": 250.0,
+    "ExpertValue": 350.0,
+    "RevengeanceValue": 350.0,
+    "DeathValue": 400.0,
+    "GFBValue": 400.0
+  },
+  "Phase2LifeRatio": {
+    "NormalValue": 0.6666667,
+    "ExpertValue": 0.6666667,
+    "RevengeanceValue": 0.666667,
+    "DeathValue": 0.666667,
+    "GFBValue": 0.666667
+  },
+  "Phase3LifeRatio": {
+    "NormalValue": 0.5,
+    "ExpertValue": 0.5,
+    "RevengeanceValue": 0.5,
+    "DeathValue": 0.5,
+    "GFBValue": 0.65
+  },
+  "Phase4LifeRatio": {
+    "NormalValue": 0.1,
+    "ExpertValue": 0.1,
+    "RevengeanceValue": 0.1,
+    "DeathValue": 0.1,
+    "GFBValue": 0.1
+  },
+  "RailgunBlastDamage": {
+    "NormalValue": 300.0,
+    "ExpertValue": 400.0,
+    "RevengeanceValue": 400.0,
+    "DeathValue": 600.0,
+    "GFBValue": 850.0
+  },
+  "SolynHomingStarBoltDamage": {
+    "NormalValue": 4000.0,
+    "ExpertValue": 4000.0,
+    "RevengeanceValue": 3350.0,
+    "DeathValue": 2800.0,
+    "GFBValue": 2400.0
+  },
+  "TagTeamBeamBaseDamage": {
+    "NormalValue": 1900.0,
+    "ExpertValue": 1900.0,
+    "RevengeanceValue": 1900.0,
+    "DeathValue": 1900.0,
+    "GFBValue": 1600.0
+  },
+  "TagTeamBeamMouseAimSpeed": {
+    "NormalValue": 1.25,
+    "ExpertValue": 1.25,
+    "RevengeanceValue": 1.25,
+    "DeathValue": 1.25,
+    "GFBValue": 1.25
+  },
+  "TeslaFieldDamage": {
+    "NormalValue": 250.0,
+    "ExpertValue": 350.0,
+    "RevengeanceValue": 350.0,
+    "DeathValue": 400.0,
+    "GFBValue": 400.0
+  },
+  "TeachPlayerAboutTeamAttack_LaserPushForce": {
+    "NormalValue": 2.34,
+    "ExpertValue": 2.34,
+    "RevengeanceValue": 2.34,
+    "DeathValue": 2.34,
+    "GFBValue": 2.34
+  },
+  "TeachPlayerAboutTeamAttack_MarsFlyOffTime": {
+    "NormalValue": 54.0,
+    "ExpertValue": 54.0,
+    "RevengeanceValue": 54.0,
+    "DeathValue": 54.0,
+    "GFBValue": 54.0
+  },
+  "TotalHP": {
+    "NormalValue": 4500000.0,
+    "ExpertValue": 5600000.0,
+    "RevengeanceValue": 7200000.0,
+    "DeathValue": 8100000.0,
+    "GFBValue": 16500000.0
+  },
+  "UpgradedMissileRailgunCombo_AttackDuration": {
+    "NormalValue": 720.0,
+    "ExpertValue": 660.0,
+    "RevengeanceValue": 600.0,
+    "DeathValue": 600.0,
+    "GFBValue": 600.0
+  },
+  "UpgradedMissileRailgunCombo_MissileDownTime": {
+    "NormalValue": 150.0,
+    "ExpertValue": 150.0,
+    "RevengeanceValue": 150.0,
+    "DeathValue": 120.0,
+    "GFBValue": 10.0
+  },
+  "UpgradedMissileRailgunCombo_MissileFireTime": {
+    "NormalValue": 420.0,
+    "ExpertValue": 420.0,
+    "RevengeanceValue": 420.0,
+    "DeathValue": 420.0,
+    "GFBValue": 420.0
+  },
+  "UpgradedMissileRailgunCombo_MissileShootRate": {
+    "NormalValue": 24.0,
+    "ExpertValue": 21.0,
+    "RevengeanceValue": 20.0,
+    "DeathValue": 20.0,
+    "GFBValue": 12.0
+  },
+  "UpgradedMissileRailgunCombo_ShootDelay": {
+    "NormalValue": 1.0,
+    "ExpertValue": 1.0,
+    "RevengeanceValue": 1.0,
+    "DeathValue": 1.0,
+    "GFBValue": 1.0
+  },
+  "UpgradedMissileRailgunCombo_ShootTime": {
+    "NormalValue": 12.0,
+    "ExpertValue": 12.0,
+    "RevengeanceValue": 12.0,
+    "DeathValue": 12.0,
+    "GFBValue": 12.0
+  },
+  "UpgradedMissileRailgunCombo_TelegraphAimSpeed": {
+    "NormalValue": 0.29,
+    "ExpertValue": 0.29,
+    "RevengeanceValue": 0.29,
+    "DeathValue": 0.29,
+    "GFBValue": 0.467
+  },
+  "UpgradedMissileRailgunCombo_TelegraphDelay": {
+    "NormalValue": 72.0,
+    "ExpertValue": 60.0,
+    "RevengeanceValue": 51.0,
+    "DeathValue": 51.0,
+    "GFBValue": 6.0
+  },
+  "UpgradedMissileRailgunCombo_TelegraphTime": {
+    "NormalValue": 28.0,
+    "ExpertValue": 26.0,
+    "RevengeanceValue": 24.0,
+    "DeathValue": 23.0,
+    "GFBValue": 16.0
+  },
+  "UnstableMatterDamage": {
+    "NormalValue": 250.0,
+    "ExpertValue": 350.0,
+    "RevengeanceValue": 350.0,
+    "DeathValue": 400.0,
+    "GFBValue": 600.0
+  }
+}

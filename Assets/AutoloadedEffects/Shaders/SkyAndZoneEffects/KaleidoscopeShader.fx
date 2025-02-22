@@ -1,6 +1,6 @@
 sampler kaleidoscopeTexture : register(s0);
 
-float globalTime;
+float time;
 float totalSplits;
 float distanceBandingFactor;
 float animationSpeed;
@@ -38,7 +38,7 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     // Calculate the angle at which the texture should be sampled. This is calculated in such a way that the result swirls around slowly over time.
     float splitAngleSlice = 6.283 / totalSplits;
     float splitAngle = mod(angleFromCenter, splitAngleSlice);
-    splitAngle = abs(splitAngle - splitAngleSlice * 0.5) - globalTime * animationSpeed;
+    splitAngle = abs(splitAngle - splitAngleSlice * 0.5) - time * animationSpeed;
     
     float offsetAngle = splitAngle + distanceFromCenter * distanceBandingFactor;
     float2 distortedCoords = float2(cos(offsetAngle), sin(offsetAngle)) * distanceFromCenter;

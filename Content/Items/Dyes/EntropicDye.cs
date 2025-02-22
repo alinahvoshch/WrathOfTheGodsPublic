@@ -1,48 +1,30 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Luminance.Core.Graphics;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using NoxusBoss.Core.CrossCompatibility.Inbound;
+using NoxusBoss.Content.Rarities;
 using ReLogic.Content;
 using Terraria;
-using Terraria.Graphics.Shaders;
-using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace NoxusBoss.Content.Items.Dyes
+namespace NoxusBoss.Content.Items.Dyes;
+
+public class EntropicDye : BaseDye
 {
-    public class EntropicDye : ModItem, IToastyQoLChecklistItemSupport
+    public static readonly Color BaseShaderColor = new Color(72, 48, 122);
+
+    public override void RegisterShader()
     {
-        public ToastyQoLRequirement Requirement => ToastyQoLRequirementRegistry.PostNoxus;
+        Asset<Texture2D> dyeTexture = ModContent.Request<Texture2D>("NoxusBoss/Assets/Textures/Content/Items/Dyes/EntropicDyeTexture", AssetRequestMode.ImmediateLoad);
+        ManagedShader dyeShader = ShaderManager.GetShader("NoxusBoss.EntropicDyeShader");
+        dyeShader.TrySetParameter("uColor", BaseShaderColor.ToVector3());
+        dyeShader.SetTexture(dyeTexture, 1, SamplerState.LinearWrap);
+        dyeShader.CreateDyeBindings(Type);
+    }
 
-        public static readonly Color BaseShaderColor = new(72, 48, 122);
-
-        public static int DyeID
-        {
-            get;
-            private set;
-        }
-
-        public override void SetStaticDefaults()
-        {
-            Item.ResearchUnlockCount = 3;
-
-            if (!Main.dedServ)
-            {
-                Effect shader = ModContent.Request<Effect>("NoxusBoss/Assets/AutoloadedEffects/Shaders/Dyes/EntropicDyeShader", AssetRequestMode.ImmediateLoad).Value;
-                Asset<Texture2D> dyeTexture = ModContent.Request<Texture2D>("NoxusBoss/Content/Items/Dyes/EntropicDyeTexture", AssetRequestMode.ImmediateLoad);
-                GameShaders.Armor.BindShader(Type, new ArmorShaderData(new Ref<Effect>(shader), ManagedShader.DefaultPassName)).UseImage(dyeTexture).UseColor(BaseShaderColor);
-            }
-        }
-
-        public override void SetDefaults()
-        {
-            // Cache and restore the dye ID.
-            // This is necessary because CloneDefaults will automatically reset the dye ID in accordance with whatever it's copied, when in reality the BindShader
-            // call already determined what ID this dye should use.
-            DyeID = Item.dye;
-            Item.CloneDefaults(ItemID.AcidDye);
-            Item.dye = DyeID;
-            Item.UseVioletRarity();
-            Item.value = Item.sellPrice(0, 12, 0, 0);
-        }
+    public override void SetDefaults()
+    {
+        base.SetDefaults();
+        Item.rare = ModContent.RarityType<AvatarRarity>();
+        Item.value = Item.sellPrice(0, 12, 0, 0);
     }
 }

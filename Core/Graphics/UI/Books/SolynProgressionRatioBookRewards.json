@@ -1,0 +1,11 @@
+{
+  "UniversalPylonReward": {
+    "BookProgressionPercentage": 75.0,
+    "Reward": {
+      "ItemName": "UniversalPylon",
+      "MinStack": 1,
+      "MaxStack": 1,
+      "GiftedDirectlyFromSolyn": false
+    }
+  }
+}

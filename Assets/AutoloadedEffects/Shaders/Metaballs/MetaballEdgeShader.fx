@@ -18,6 +18,21 @@ float2 convertFromScreenCoords(float2 coords)
     return coords / screenSize;
 }
 
+float4 GaussianBlur(float2 coords, float4 sampleColor)
+{
+    float4 result = 0;
+    for (int i = -3; i < 4; i++)
+    {
+        for (int j = -3; j < 4; j++)
+        {
+            float weight = blurWeights[abs(i) + abs(j)];
+            result += tex2D(baseTextureSampler, coords + float2(i, j) * blurOffset) * weight;
+        }
+    }
+    
+    return result * sampleColor;
+}
+
 float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD0) : COLOR0
 {
     // Calculate the base color. This is the calculated from the raw objects in the metaball render target.

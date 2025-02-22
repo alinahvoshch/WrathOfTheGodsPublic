@@ -46,6 +46,9 @@ float4 PixelShaderFunction(float4 sampleColor : COLOR0, float2 coords : TEXCOORD
     result.rgb *= lerp(0.6, 2.4, brightness);
     result.rgb = pow(result.rgb, 1.6);
     
+    float sampleColorLumoniosity = dot(sampleColor.rgb, float3(0.3, 0.6, 0.1));
+    result.rgb *= sampleColorLumoniosity;
+    
     return result * color.a * sampleColor.a;
 }
 

@@ -1,0 +1,1124 @@
+{
+  // Unless otherwise specified, values pertaining to times or durations in this file are expressed in frames.
+  // 60 frames equates to one second of time.
+  "AbsoluteZeroOutburst_BackgroundDisappearStartTime": {
+    "NormalValue": 60.0,
+    "ExpertValue": 60.0,
+    "RevengeanceValue": 60.0,
+    "DeathValue": 60.0,
+    "GFBValue": 60.0
+  },
+  "AbsoluteZeroOutburst_ExplodeDelay": {
+    "NormalValue": 75.0,
+    "ExpertValue": 75.0,
+    "RevengeanceValue": 75.0,
+    "DeathValue": 75.0,
+    "GFBValue": 75.0
+  },
+  "AbsoluteZeroOutburst_LilyFreezeTime": {
+    "NormalValue": 360.0,
+    "ExpertValue": 360.0,
+    "RevengeanceValue": 360.0,
+    "DeathValue": 270.0,
+    "GFBValue": 270.0
+  },
+  "AbsoluteZeroOutburst_LilyGlowTime": {
+    "NormalValue": 240.0,
+    "ExpertValue": 240.0,
+    "RevengeanceValue": 240.0,
+    "DeathValue": 240.0,
+    "GFBValue": 240.0
+  },
+  "AbsoluteZeroOutburstPunishment_AttackTransitionDelay": {
+    "NormalValue": 180.0,
+    "ExpertValue": 180.0,
+    "RevengeanceValue": 180.0,
+    "DeathValue": 180.0,
+    "GFBValue": 180.0
+  },
+  "AbsoluteZeroOutburstPunishment_LeaveTime": {
+    "NormalValue": 90.0,
+    "ExpertValue": 90.0,
+    "RevengeanceValue": 90.0,
+    "DeathValue": 90.0,
+    "GFBValue": 90.0
+  },
+  "AbsoluteZeroOutburstPunishment_MaxPlayerHPToKeep": {
+    "NormalValue": 50.0,
+    "ExpertValue": 50.0,
+    "RevengeanceValue": 50.0,
+    "DeathValue": 5.0,
+    "GFBValue": 5.0
+  },
+  "AbsoluteZeroOutburstPunishment_MinPlayerHPToKeep": {
+    "NormalValue": 10.0,
+    "ExpertValue": 10.0,
+    "RevengeanceValue": 10.0,
+    "DeathValue": 1.0,
+    "GFBValue": 1.0
+  },
+  "AbsoluteZeroOutburstPunishment_ShatterDelay": {
+    "NormalValue": 180.0,
+    "ExpertValue": 180.0,
+    "RevengeanceValue": 180.0,
+    "DeathValue": 150.0,
+    "GFBValue": 150.0
+  },
+  "AnnihilationSphereMaxPlayerDPS": {
+    "NormalValue": 500.0,
+    "ExpertValue": 600.0,
+    "RevengeanceValue": 700.0,
+    "DeathValue": 1000.0,
+    "GFBValue": 1000.0
+  },
+  "AnnihilationSphereMinPlayerDPS": {
+    "NormalValue": 40.0,
+    "ExpertValue": 50.0,
+    "RevengeanceValue": 60.0,
+    "DeathValue": 65.0,
+    "GFBValue": 65.0
+  },
+  "AntimatterBlastDamage": {
+    "NormalValue": 275.0,
+    "ExpertValue": 425.0,
+    "RevengeanceValue": 425.0,
+    "DeathValue": 475.0,
+    "GFBValue": 475.0
+  },
+  "AntishadowOnslaught_ChaseSpeedInterpolant": {
+    "NormalValue": 0.033,
+    "ExpertValue": 0.033,
+    "RevengeanceValue": 0.033,
+    "DeathValue": 0.035,
+    "GFBValue": 0.035
+  },
+  "AntishadowOnslaught_StakeFallSpeed": {
+    "NormalValue": 15.0,
+    "ExpertValue": 15.0,
+    "RevengeanceValue": 15.0,
+    "DeathValue": 16.0,
+    "GFBValue": 16.0
+  },
+  "AntishadowOnslaught_StakeSummonRate": {
+    "NormalValue": 12.0,
+    "ExpertValue": 12.0,
+    "RevengeanceValue": 12.0,
+    "DeathValue": 12.0,
+    "GFBValue": 12.0
+  },
+  "AntishadowOnslaught_WeaponSummonDelay": {
+    "NormalValue": 100.0,
+    "ExpertValue": 100.0,
+    "RevengeanceValue": 100.0,
+    "DeathValue": 100.0,
+    "GFBValue": 100.0
+  },
+  "AntishadowOnslaught_WeaponSummonTime": {
+    "NormalValue": 750.0,
+    "ExpertValue": 750.0,
+    "RevengeanceValue": 750.0,
+    "DeathValue": 750.0,
+    "GFBValue": 750.0
+  },
+  "AntishadowWeaponDamage": {
+    "NormalValue": 360.0,
+    "ExpertValue": 500.0,
+    "RevengeanceValue": 500.0,
+    "DeathValue": 550.0,
+    "GFBValue": 550.0
+  },
+  "ArmPortalStrikes_AttackDelay": {
+    "NormalValue": 45.0,
+    "ExpertValue": 45.0,
+    "RevengeanceValue": 45.0,
+    "DeathValue": 45.0,
+    "GFBValue": 45.0
+  },
+  "ArmPortalStrikes_AttackDuration": {
+    "NormalValue": 510.0,
+    "ExpertValue": 510.0,
+    "RevengeanceValue": 510.0,
+    "DeathValue": 450.0,
+    "GFBValue": 450.0
+  },
+  "ArmPortalStrikes_PortalLifetime": {
+    "NormalValue": 139.0,
+    "ExpertValue": 139.0,
+    "RevengeanceValue": 139.0,
+    "DeathValue": 139.0,
+    "GFBValue": 139.0
+  },
+  "ArmPortalStrikes_PortalSummonRate": {
+    "NormalValue": 2.0,
+    "ExpertValue": 2.0,
+    "RevengeanceValue": 2.0,
+    "DeathValue": 2.0,
+    "GFBValue": 2.0
+  },
+  "ArmStrikeDamage": {
+    "NormalValue": 300.0,
+    "ExpertValue": 400.0,
+    "RevengeanceValue": 400.0,
+    "DeathValue": 450.0,
+    "GFBValue": 450.0
+  },
+  "BloodBlobDamage": {
+    "NormalValue": 275.0,
+    "ExpertValue": 425.0,
+    "RevengeanceValue": 425.0,
+    "DeathValue": 475.0,
+    "GFBValue": 475.0
+  },
+  "BloodiedFountainBlasts_AttackDuration": {
+    "NormalValue": 480.0,
+    "ExpertValue": 480.0,
+    "RevengeanceValue": 480.0,
+    "DeathValue": 480.0,
+    "GFBValue": 480.0
+  },
+  "BloodiedFountainBlasts_BloodBlobDamageBoost": {
+    "NormalValue": 400.0,
+    "ExpertValue": 400.0,
+    "RevengeanceValue": 400.0,
+    "DeathValue": 450.0,
+    "GFBValue": 450.0
+  },
+  "BloodiedFountainBlasts_BloodFireDelay": {
+    "NormalValue": 60.0,
+    "ExpertValue": 60.0,
+    "RevengeanceValue": 60.0,
+    "DeathValue": 60.0,
+    "GFBValue": 60.0
+  },
+  "BloodiedFountainBlasts_BloodHorizontalCoverage": {
+    "NormalValue": 1900.0,
+    "ExpertValue": 1900.0,
+    "RevengeanceValue": 1900.0,
+    "DeathValue": 1900.0,
+    "GFBValue": 1900.0
+  },
+  "BloodiedFountainBlasts_BloodReleaseRate": {
+    "NormalValue": 3.0,
+    "ExpertValue": 3.0,
+    "RevengeanceValue": 3.0,
+    "DeathValue": 3.0,
+    "GFBValue": 3.0
+  },
+  "BloodiedFountainBlasts_GetUnderSolynGracePeriod": {
+    "NormalValue": 120.0,
+    "ExpertValue": 120.0,
+    "RevengeanceValue": 120.0,
+    "DeathValue": 112.0,
+    "GFBValue": 112.0
+  },
+  "BloodiedFountainBlasts_HeavyRainTime": {
+    "NormalValue": 210.0,
+    "ExpertValue": 210.0,
+    "RevengeanceValue": 210.0,
+    "DeathValue": 210.0,
+    "GFBValue": 210.0
+  },
+  "BloodiedFountainBlasts_MaxSolynXOffset": {
+    "NormalValue": 320.0,
+    "ExpertValue": 320.0,
+    "RevengeanceValue": 320.0,
+    "DeathValue": 400.0,
+    "GFBValue": 400.0
+  },
+  "BloodiedFountainBlasts_SolynForcefieldWidth": {
+    "NormalValue": 440.0,
+    "ExpertValue": 440.0,
+    "RevengeanceValue": 412.0,
+    "DeathValue": 285.0,
+    "GFBValue": 285.0
+  },
+  "BloodiedWeep_WeepDuration": {
+    "NormalValue": 406.0,
+    "ExpertValue": 406.0,
+    "RevengeanceValue": 406.0,
+    "DeathValue": 300.0,
+    "GFBValue": 300.0
+  },
+  "BloodiedWeep_WeepEndTime": {
+    "NormalValue": 45.0,
+    "ExpertValue": 45.0,
+    "RevengeanceValue": 45.0,
+    "DeathValue": 45.0,
+    "GFBValue": 45.0
+  },
+  "BloodiedWeep_WeepStartTime": {
+    "NormalValue": 45.0,
+    "ExpertValue": 45.0,
+    "RevengeanceValue": 45.0,
+    "DeathValue": 45.0,
+    "GFBValue": 45.0
+  },
+  "BloodTorrentDamage": {
+    "NormalValue": 432.0,
+    "ExpertValue": 650.0,
+    "RevengeanceValue": 650.0,
+    "DeathValue": 720.0,
+    "GFBValue": 720.0
+  },
+  "CometDamage": {
+    "NormalValue": 275.0,
+    "ExpertValue": 425.0,
+    "RevengeanceValue": 425.0,
+    "DeathValue": 475.0,
+    "GFBValue": 475.0
+  },
+  "DefaultDR_Rift": {
+    "NormalValue": 0.7,
+    "ExpertValue": 0.7,
+    "RevengeanceValue": 0.7,
+    "DeathValue": 0.7,
+    "GFBValue": 0.7
+  },
+  "DefaultDR_Avatar": {
+    "NormalValue": 0.3,
+    "ExpertValue": 0.3,
+    "RevengeanceValue": 0.3,
+    "DeathValue": 0.3,
+    "GFBValue": 0.3
+  },
+  "DefaultHP_Rift": {
+    "NormalValue": 6425670.0,
+    "ExpertValue": 7200000.0,
+    "RevengeanceValue": 8400000.0,
+    "DeathValue": 8500000.0,
+    "GFBValue": 20000000.0
+  },
+  "DefaultHP_Avatar": {
+    "NormalValue": 9300000.0,
+    "ExpertValue": 10000000.0,
+    "RevengeanceValue": 12000000.0,
+    "DeathValue": 13472000.0,
+    "GFBValue": 74000000.0
+  },
+  "DisgustingStarDamage": {
+    "NormalValue": 250.0,
+    "ExpertValue": 400.0,
+    "RevengeanceValue": 400.0,
+    "DeathValue": 450.0,
+    "GFBValue": 450.0
+  },
+  "DyingStarBurstDamage": {
+    "NormalValue": 350.0,
+    "ExpertValue": 450.0,
+    "RevengeanceValue": 450.0,
+    "DeathValue": 550.0,
+    "GFBValue": 550.0
+  },
+  "DyingStarsWind_AttackTransitionDelay": {
+    "NormalValue": 90.0,
+    "ExpertValue": 90.0,
+    "RevengeanceValue": 90.0,
+    "DeathValue": 90.0,
+    "GFBValue": 90.0
+  },
+  "DyingStarsWind_CollapseDelay": {
+    "NormalValue": 62.0,
+    "ExpertValue": 62.0,
+    "RevengeanceValue": 62.0,
+    "DeathValue": 62.0,
+    "GFBValue": 62.0
+  },
+  "DyingStarsWind_CrackDelay": {
+    "NormalValue": 84.0,
+    "ExpertValue": 84.0,
+    "RevengeanceValue": 84.0,
+    "DeathValue": 84.0,
+    "GFBValue": 84.0
+  },
+  "DyingStarsWind_DeathCoolTime": {
+    "NormalValue": 54.0,
+    "ExpertValue": 54.0,
+    "RevengeanceValue": 54.0,
+    "DeathValue": 54.0,
+    "GFBValue": 54.0
+  },
+  "DyingStarsWind_DeathDelay": {
+    "NormalValue": 162.0,
+    "ExpertValue": 162.0,
+    "RevengeanceValue": 162.0,
+    "DeathValue": 162.0,
+    "GFBValue": 162.0
+  },
+  "DyingStarsWind_GrowDelay": {
+    "NormalValue": 20.0,
+    "ExpertValue": 20.0,
+    "RevengeanceValue": 20.0,
+    "DeathValue": 20.0,
+    "GFBValue": 20.0
+  },
+  "DyingStarsWind_GrowToFullSizeTime": {
+    "NormalValue": 72.0,
+    "ExpertValue": 72.0,
+    "RevengeanceValue": 72.0,
+    "DeathValue": 72.0,
+    "GFBValue": 72.0
+  },
+  "DyingStarsWind_IronChunkBurstAngle": {
+    "NormalValue": 0.28,
+    "ExpertValue": 0.28,
+    "RevengeanceValue": 0.28,
+    "DeathValue": 0.372,
+    "GFBValue": 0.372
+  },
+  "DyingStarsWind_ShatterDelay": {
+    "NormalValue": 48.0,
+    "ExpertValue": 48.0,
+    "RevengeanceValue": 48.0,
+    "DeathValue": 48.0,
+    "GFBValue": 48.0
+  },
+  "DyingStarsWind_ShootDelay": {
+    "NormalValue": 150.0,
+    "ExpertValue": 150.0,
+    "RevengeanceValue": 150.0,
+    "DeathValue": 150.0,
+    "GFBValue": 150.0
+  },
+  "DyingStarsWind_TelegraphTime": {
+    "NormalValue": 39.0,
+    "ExpertValue": 39.0,
+    "RevengeanceValue": 39.0,
+    "DeathValue": 31.0,
+    "GFBValue": 31.0
+  },
+  "DyingStarsWind_VerticalSpeedTrackingFactor": {
+    "NormalValue": 0.85,
+    "ExpertValue": 0.85,
+    "RevengeanceValue": 0.85,
+    "DeathValue": 0.9,
+    "GFBValue": 0.9
+  },
+  "EnterBloodWhirlpool_DarknessEndTime": {
+    "NormalValue": 150.0,
+    "ExpertValue": 150.0,
+    "RevengeanceValue": 150.0,
+    "DeathValue": 150.0,
+    "GFBValue": 150.0
+  },
+  "EnterBloodWhirlpool_DarknessStartTime": {
+    "NormalValue": 105.0,
+    "ExpertValue": 105.0,
+    "RevengeanceValue": 105.0,
+    "DeathValue": 105.0,
+    "GFBValue": 105.0
+  },
+  "EnterBloodWhirlpool_StateDuration": {
+    "NormalValue": 180.0,
+    "ExpertValue": 180.0,
+    "RevengeanceValue": 180.0,
+    "DeathValue": 180.0,
+    "GFBValue": 180.0
+  },
+  "Erasure_ChargeUpTime": {
+    "NormalValue": 60.0,
+    "ExpertValue": 60.0,
+    "RevengeanceValue": 60.0,
+    "DeathValue": 42.0,
+    "GFBValue": 42.0
+  },
+  "Erasure_WaitTime": {
+    "NormalValue": 92.0,
+    "ExpertValue": 92.0,
+    "RevengeanceValue": 92.0,
+    "DeathValue": 78.0,
+    "GFBValue": 78.0
+  },
+  "FreezingWaveMaxRadius": {
+    "NormalValue": 3700.0,
+    "ExpertValue": 3900.0,
+    "RevengeanceValue": 4150.0,
+    "DeathValue": 4600.0,
+    "GFBValue": 4600.0
+  },
+  "FrostColumnDamage": {
+    "NormalValue": 350.0,
+    "ExpertValue": 550.0,
+    "RevengeanceValue": 550.0,
+    "DeathValue": 625.0,
+    "GFBValue": 625.0
+  },
+  "FrostScreenSmash_CreateFrostTime": {
+    "NormalValue": 36.0,
+    "ExpertValue": 36.0,
+    "RevengeanceValue": 36.0,
+    "DeathValue": 36.0,
+    "GFBValue": 36.0
+  },
+  "FrostScreenSmash_EnterBackgroundTime": {
+    "NormalValue": 94.0,
+    "ExpertValue": 94.0,
+    "RevengeanceValue": 94.0,
+    "DeathValue": 94.0,
+    "GFBValue": 94.0
+  },
+  "FrostScreenSmash_ForegroundDashDuration": {
+    "NormalValue": 20.0,
+    "ExpertValue": 20.0,
+    "RevengeanceValue": 20.0,
+    "DeathValue": 20.0,
+    "GFBValue": 20.0
+  },
+  "FrostScreenSmash_SmashCount": {
+    "NormalValue": 3.0,
+    "ExpertValue": 4.0,
+    "RevengeanceValue": 5.0,
+    "DeathValue": 6.0,
+    "GFBValue": 6.0
+  },
+  "FrostScreenSmash_SmashForegroundAgainDelay": {
+    "NormalValue": 63.0,
+    "ExpertValue": 63.0,
+    "RevengeanceValue": 63.0,
+    "DeathValue": 63.0,
+    "GFBValue": 63.0
+  },
+  "FrostScreenSmash_TelegraphCastDelay": {
+    "NormalValue": 45.0,
+    "ExpertValue": 45.0,
+    "RevengeanceValue": 45.0,
+    "DeathValue": 40.0,
+    "GFBValue": 40.0
+  },
+  "FrostScreenSmash_TelegraphWaitTime": {
+    "NormalValue": 48.0,
+    "ExpertValue": 48.0,
+    "RevengeanceValue": 48.0,
+    "DeathValue": 48.0,
+    "GFBValue": 48.0
+  },
+  "FrostScreenSmash_TwinkleCount": {
+    "NormalValue": 10.0,
+    "ExpertValue": 10.0,
+    "RevengeanceValue": 10.0,
+    "DeathValue": 13.0,
+    "GFBValue": 13.0
+  },
+  "IceBlastDamage": {
+    "NormalValue": 275.0,
+    "ExpertValue": 425.0,
+    "RevengeanceValue": 425.0,
+    "DeathValue": 475.0,
+    "GFBValue": 475.0
+  },
+  "IdealFightDurationInMinutes": {
+    "NormalValue": 4.75,
+    "ExpertValue": 4.75,
+    "RevengeanceValue": 4.75,
+    "DeathValue": 5.0,
+    "GFBValue": 5.0
+  },
+  "IronDamage": {
+    "NormalValue": 250.0,
+    "ExpertValue": 350.0,
+    "RevengeanceValue": 350.0,
+    "DeathValue": 420.0,
+    "GFBValue": 420.0
+  },
+  "LilyStars_AttackDuration": {
+    "NormalValue": 360.0,
+    "ExpertValue": 360.0,
+    "RevengeanceValue": 360.0,
+    "DeathValue": 360.0,
+    "GFBValue": 360.0
+  },
+  "LilyStars_ChargeUpDuration": {
+    "NormalValue": 126.0,
+    "ExpertValue": 126.0,
+    "RevengeanceValue": 126.0,
+    "DeathValue": 126.0,
+    "GFBValue": 126.0
+  },
+  "LilyStars_MaximumFlySpeedBoostFactor": {
+    "NormalValue": 0.67,
+    "ExpertValue": 0.67,
+    "RevengeanceValue": 0.67,
+    "DeathValue": 0.67,
+    "GFBValue": 0.67
+  },
+  "MoltenBlobDamage": {
+    "NormalValue": 300.0,
+    "ExpertValue": 420.0,
+    "RevengeanceValue": 420.0,
+    "DeathValue": 485.0,
+    "GFBValue": 485.0
+  },
+  "ParadiseReclaimed_NamelessAppearTime": {
+    "NormalValue": 225.0,
+    "ExpertValue": 225.0,
+    "RevengeanceValue": 225.0,
+    "DeathValue": 225.0,
+    "GFBValue": 225.0
+  },
+  "ParadiseReclaimed_ReturnHomeTime": {
+    "NormalValue": 450.0,
+    "ExpertValue": 450.0,
+    "RevengeanceValue": 450.0,
+    "DeathValue": 450.0,
+    "GFBValue": 450.0
+  },
+  "ParadiseReclaimed_SolynDialogueDelay": {
+    "NormalValue": 180.0,
+    "ExpertValue": 180.0,
+    "RevengeanceValue": 180.0,
+    "DeathValue": 180.0,
+    "GFBValue": 180.0
+  },
+  "ParadiseReclaimed_SolynDialogueDelay2": {
+    "NormalValue": 555.0,
+    "ExpertValue": 555.0,
+    "RevengeanceValue": 555.0,
+    "DeathValue": 555.0,
+    "GFBValue": 555.0
+  },
+  "ParadiseReclaimed_SolynDialogueDelay3": {
+    "NormalValue": 780.0,
+    "ExpertValue": 780.0,
+    "RevengeanceValue": 780.0,
+    "DeathValue": 780.0,
+    "GFBValue": 780.0
+  },
+  "ParadiseReclaimed_SolynDialogueTime": {
+    "NormalValue": 870.0,
+    "ExpertValue": 870.0,
+    "RevengeanceValue": 870.0,
+    "DeathValue": 870.0,
+    "GFBValue": 870.0
+  },
+  "ParadiseReclaimed_StaticChaseTime": {
+    "NormalValue": 810.0,
+    "ExpertValue": 810.0,
+    "RevengeanceValue": 810.0,
+    "DeathValue": 810.0,
+    "GFBValue": 810.0
+  },
+  "ParadiseReclaimed_StaticSubmergeTime": {
+    "NormalValue": 375.0,
+    "ExpertValue": 375.0,
+    "RevengeanceValue": 375.0,
+    "DeathValue": 375.0,
+    "GFBValue": 375.0
+  },
+  "ParadiseReclaimed_SubmergeKillDistance": {
+    "NormalValue": 744.0,
+    "ExpertValue": 744.0,
+    "RevengeanceValue": 744.0,
+    "DeathValue": 744.0,
+    "GFBValue": 744.0
+  },
+  "Phase3LifeRatio": {
+    "NormalValue": 0.6,
+    "ExpertValue": 0.6,
+    "RevengeanceValue": 0.6,
+    "DeathValue": 0.6,
+    "GFBValue": 0.6
+  },
+  "Phase3TransitionScream_ChargeUpTime": {
+    "NormalValue": 60.0,
+    "ExpertValue": 60.0,
+    "RevengeanceValue": 60.0,
+    "DeathValue": 60.0,
+    "GFBValue": 60.0
+  },
+  "Phase3TransitionScream_MaxScreenBlurTime": {
+    "NormalValue": 40.0,
+    "ExpertValue": 40.0,
+    "RevengeanceValue": 40.0,
+    "DeathValue": 40.0,
+    "GFBValue": 40.0
+  },
+  "Phase3TransitionScream_MaxShoveSpeed": {
+    "NormalValue": 42.5,
+    "ExpertValue": 42.5,
+    "RevengeanceValue": 42.5,
+    "DeathValue": 42.5,
+    "GFBValue": 42.5
+  },
+  "Phase3TransitionScream_ScreenBlurTime": {
+    "NormalValue": 60.0,
+    "ExpertValue": 60.0,
+    "RevengeanceValue": 60.0,
+    "DeathValue": 60.0,
+    "GFBValue": 60.0
+  },
+  "Phase3TransitionScream_WaveReleaseRate": {
+    "NormalValue": 5.0,
+    "ExpertValue": 5.0,
+    "RevengeanceValue": 5.0,
+    "DeathValue": 5.0,
+    "GFBValue": 5.0
+  },
+  "Phase4LifeRatio": {
+    "NormalValue": 0.333,
+    "ExpertValue": 0.333,
+    "RevengeanceValue": 0.333,
+    "DeathValue": 0.375,
+    "GFBValue": 0.375
+  },
+  "RealityShatter_AttackTransitionDelay": {
+    "NormalValue": 90.0,
+    "ExpertValue": 90.0,
+    "RevengeanceValue": 90.0,
+    "DeathValue": 90.0,
+    "GFBValue": 90.0
+  },
+  "RealityShatter_CometShootSpeed": {
+    "NormalValue": 8.0,
+    "ExpertValue": 8.0,
+    "RevengeanceValue": 8.0,
+    "DeathValue": 10.25,
+    "GFBValue": 10.25
+  },
+  "RealityShatter_CometWallHeight": {
+    "NormalValue": 4800.0,
+    "ExpertValue": 4800.0,
+    "RevengeanceValue": 4800.0,
+    "DeathValue": 4800.0,
+    "GFBValue": 4800.0
+  },
+  "RealityShatter_CometWallReleaseDelay": {
+    "NormalValue": 75.0,
+    "ExpertValue": 75.0,
+    "RevengeanceValue": 75.0,
+    "DeathValue": 75.0,
+    "GFBValue": 75.0
+  },
+  "RealityShatter_CometWallReleaseRate": {
+    "NormalValue": 19.0,
+    "ExpertValue": 19.0,
+    "RevengeanceValue": 19.0,
+    "DeathValue": 17.0,
+    "GFBValue": 17.0
+  },
+  "RealityShatter_CometWallReleaseTime": {
+    "NormalValue": 210.0,
+    "ExpertValue": 210.0,
+    "RevengeanceValue": 210.0,
+    "DeathValue": 210.0,
+    "GFBValue": 210.0
+  },
+  "RealityShatter_CometWallSpacing": {
+    "NormalValue": 270.0,
+    "ExpertValue": 270.0,
+    "RevengeanceValue": 270.0,
+    "DeathValue": 250.0,
+    "GFBValue": 250.0
+  },
+  "RealityShatter_CrackVerticalOffsetFromPlayer": {
+    "NormalValue": 336.0,
+    "ExpertValue": 336.0,
+    "RevengeanceValue": 336.0,
+    "DeathValue": 336.0,
+    "GFBValue": 336.0
+  },
+  "RealityShatter_DownwardSlamAcceleration": {
+    "NormalValue": 1.7,
+    "ExpertValue": 1.7,
+    "RevengeanceValue": 1.7,
+    "DeathValue": 2.05,
+    "GFBValue": 2.05
+  },
+  "RealityShatter_EndingDownwardSlamSpeed": {
+    "NormalValue": 107.0,
+    "ExpertValue": 107.0,
+    "RevengeanceValue": 107.0,
+    "DeathValue": 107.0,
+    "GFBValue": 107.0
+  },
+  "RealityShatter_ImpactVisualsTime": {
+    "NormalValue": 54.0,
+    "ExpertValue": 54.0,
+    "RevengeanceValue": 54.0,
+    "DeathValue": 54.0,
+    "GFBValue": 54.0
+  },
+  "RealityShatter_StartingDownwardSlamSpeed": {
+    "NormalValue": 56.0,
+    "ExpertValue": 56.0,
+    "RevengeanceValue": 56.0,
+    "DeathValue": 56.0,
+    "GFBValue": 56.0
+  },
+  "RealityShatter_TearOpenDelay": {
+    "NormalValue": 57.0,
+    "ExpertValue": 57.0,
+    "RevengeanceValue": 57.0,
+    "DeathValue": 57.0,
+    "GFBValue": 57.0
+  },
+  "RealityShatter_TelegraphTime": {
+    "NormalValue": 77.0,
+    "ExpertValue": 77.0,
+    "RevengeanceValue": 77.0,
+    "DeathValue": 77.0,
+    "GFBValue": 77.0
+  },
+  "RedirectingRubbleDamage": {
+    "NormalValue": 350.0,
+    "ExpertValue": 450.0,
+    "RevengeanceValue": 450.0,
+    "DeathValue": 500.0,
+    "GFBValue": 500.0
+  },
+  "ReleaseOtherworldlyThorns_ThornLifetime": {
+    "NormalValue": 149.0,
+    "ExpertValue": 149.0,
+    "RevengeanceValue": 149.0,
+    "DeathValue": 149.0,
+    "GFBValue": 149.0
+  },
+  "ReleaseOtherworldlyThorns_ThornReachTelegraphTime": {
+    "NormalValue": 60.0,
+    "ExpertValue": 60.0,
+    "RevengeanceValue": 56.0,
+    "DeathValue": 47.0,
+    "GFBValue": 47.0
+  },
+  "ReleaseOtherworldlyThorns_ThornDisappearTime": {
+    "NormalValue": 36.0,
+    "ExpertValue": 36.0,
+    "RevengeanceValue": 36.0,
+    "DeathValue": 36.0,
+    "GFBValue": 36.0
+  },
+  "ReleaseOtherworldlyThorns_MinimumReach": {
+    "NormalValue": 1500.0,
+    "ExpertValue": 1500.0,
+    "RevengeanceValue": 1500.0,
+    "DeathValue": 1500.0,
+    "GFBValue": 1500.0
+  },
+  "ReleaseOtherworldlyThorns_MaximumReach": {
+    "NormalValue": 2050.0,
+    "ExpertValue": 2050.0,
+    "RevengeanceValue": 2050.0,
+    "DeathValue": 2050.0,
+    "GFBValue": 2050.0
+  },
+  "ReleaseOtherworldlyThorns_PeekOutTelegraphLengthFactor": {
+    "NormalValue": 0.3,
+    "ExpertValue": 0.3,
+    "RevengeanceValue": 0.3,
+    "DeathValue": 0.3,
+    "GFBValue": 0.3
+  },
+  "ReleaseOtherworldlyThorns_PortalCoverage": {
+    "NormalValue": 2600.0,
+    "ExpertValue": 2600.0,
+    "RevengeanceValue": 2600.0,
+    "DeathValue": 2425.0,
+    "GFBValue": 2425.0
+  },
+  "RubbleDamage": {
+    "NormalValue": 250.0,
+    "ExpertValue": 400.0,
+    "RevengeanceValue": 400.0,
+    "DeathValue": 450.0,
+    "GFBValue": 450.0
+  },
+  "RubbleGravitySlam_GravityDelay": {
+    "NormalValue": 36.0,
+    "ExpertValue": 36.0,
+    "RevengeanceValue": 36.0,
+    "DeathValue": 30.0,
+    "GFBValue": 30.0
+  },
+  "RubbleGravitySlam_HandWaveDelay": {
+    "NormalValue": 40.0,
+    "ExpertValue": 40.0,
+    "RevengeanceValue": 40.0,
+    "DeathValue": 40.0,
+    "GFBValue": 40.0
+  },
+  "RubbleGravitySlam_RubbleAccelerateWaitTime": {
+    "NormalValue": 100.0,
+    "ExpertValue": 100.0,
+    "RevengeanceValue": 100.0,
+    "DeathValue": 100.0,
+    "GFBValue": 100.0
+  },
+  "RubbleGravitySlam_RubbleCount": {
+    "NormalValue": 19.0,
+    "ExpertValue": 19.0,
+    "RevengeanceValue": 19.0,
+    "DeathValue": 25.0,
+    "GFBValue": 25.0
+  },
+  "RubbleGravitySlam_StrongGravityTime": {
+    "NormalValue": 78.0,
+    "ExpertValue": 78.0,
+    "RevengeanceValue": 78.0,
+    "DeathValue": 72.0,
+    "GFBValue": 72.0
+  },
+  "SendPlayerToMyUniverse_MaximumSuckTime": {
+    "NormalValue": 960.0,
+    "ExpertValue": 960.0,
+    "RevengeanceValue": 960.0,
+    "DeathValue": 960.0,
+    "GFBValue": 960.0
+  },
+  "SolynHomingStarBoltDamage": {
+    "NormalValue": 725.0,
+    "ExpertValue": 725.0,
+    "RevengeanceValue": 725.0,
+    "DeathValue": 680.0,
+    "GFBValue": 680.0
+  },
+  "StellarRemnantDamage": {
+    "NormalValue": 325.0,
+    "ExpertValue": 500.0,
+    "RevengeanceValue": 500.0,
+    "DeathValue": 600.0,
+    "GFBValue": 600.0
+  },
+  "StolenPlanetoidDamage": {
+    "NormalValue": 500.0,
+    "ExpertValue": 700.0,
+    "RevengeanceValue": 700.0,
+    "DeathValue": 750.0,
+    "GFBValue": 750.0
+  },
+  "SuckPlayerIn_MaxSuctionAcceleration": {
+    "NormalValue": 1.27,
+    "ExpertValue": 1.27,
+    "RevengeanceValue": 1.27,
+    "DeathValue": 1.27,
+    "GFBValue": 1.27
+  },
+  "SuckPlayerIn_StrongSuctionDistanceThreshold": {
+    "NormalValue": 1540.0,
+    "ExpertValue": 1540.0,
+    "RevengeanceValue": 1540.0,
+    "DeathValue": 1540.0,
+    "GFBValue": 1540.0
+  },
+  "SuckPlayerIn_WeakSuctionDistanceThreshold": {
+    "NormalValue": 750.0,
+    "ExpertValue": 750.0,
+    "RevengeanceValue": 750.0,
+    "DeathValue": 750.0,
+    "GFBValue": 750.0
+  },
+  "SuckPlayerIn_WeakSuctionAccelerationFactor": {
+    "NormalValue": 0.3,
+    "ExpertValue": 0.3,
+    "RevengeanceValue": 0.3,
+    "DeathValue": 0.385,
+    "GFBValue": 0.385
+  },
+  "Teleport_TeleportDuration": {
+    "NormalValue": 46.0,
+    "ExpertValue": 46.0,
+    "RevengeanceValue": 46.0,
+    "DeathValue": 46.0,
+    "GFBValue": 46.0
+  },
+  "TerminationLifeRatio": {
+    "NormalValue": 0.7274,
+    "ExpertValue": 0.7274,
+    "RevengeanceValue": 0.7274,
+    "DeathValue": 0.7274,
+    "GFBValue": 0.7274
+  },
+  "TravelThroughVortex_StarShootDelay": {
+    "NormalValue": 90.0,
+    "ExpertValue": 90.0,
+    "RevengeanceValue": 90.0,
+    "DeathValue": 90.0,
+    "GFBValue": 90.0
+  },
+  "TravelThroughVortex_TravelTime": {
+    "NormalValue": 1440.0,
+    "ExpertValue": 1440.0,
+    "RevengeanceValue": 1440.0,
+    "DeathValue": 1440.0,
+    "GFBValue": 1440.0
+  },
+  "Unclog_BlobSpawnRate": {
+    "NormalValue": 6.0,
+    "ExpertValue": 6.0,
+    "RevengeanceValue": 6.0,
+    "DeathValue": 5.0,
+    "GFBValue": 5.0
+  },
+  "Unclog_BloodSpewDuration": {
+    "NormalValue": 525.0,
+    "ExpertValue": 525.0,
+    "RevengeanceValue": 525.0,
+    "DeathValue": 525.0,
+    "GFBValue": 525.0
+  },
+  "Unclog_WeepStartTime": {
+    "NormalValue": 90.0,
+    "ExpertValue": 90.0,
+    "RevengeanceValue": 90.0,
+    "DeathValue": 90.0,
+    "GFBValue": 90.0
+  },
+  "UniversalAnnihilation_AnnihilationSphereAppearDelay": {
+    "NormalValue": 60.0,
+    "ExpertValue": 60.0,
+    "RevengeanceValue": 60.0,
+    "DeathValue": 60.0,
+    "GFBValue": 60.0
+  },
+  "UniversalAnnihilation_AnnihilationSphereExpandTime": {
+    "NormalValue": 822.0,
+    "ExpertValue": 822.0,
+    "RevengeanceValue": 822.0,
+    "DeathValue": 822.0,
+    "GFBValue": 822.0
+  },
+  "UniversalAnnihilation_MaxStarOrbitRadius": {
+    "NormalValue": 12000.0,
+    "ExpertValue": 12000.0,
+    "RevengeanceValue": 12000.0,
+    "DeathValue": 12000.0,
+    "GFBValue": 12000.0
+  },
+  "UniversalAnnihilation_MinStarOrbitRadius": {
+    "NormalValue": 2000.0,
+    "ExpertValue": 2000.0,
+    "RevengeanceValue": 2000.0,
+    "DeathValue": 2000.0,
+    "GFBValue": 2000.0
+  },
+  "UniversalAnnihilation_StarChargeUpTime": {
+    "NormalValue": 90.0,
+    "ExpertValue": 90.0,
+    "RevengeanceValue": 90.0,
+    "DeathValue": 90.0,
+    "GFBValue": 90.0
+  },
+  "UniversalAnnihilation_StarExplodeDelay": {
+    "NormalValue": 30.0,
+    "ExpertValue": 30.0,
+    "RevengeanceValue": 30.0,
+    "DeathValue": 30.0,
+    "GFBValue": 30.0
+  },
+  "UniversalAnnihilation_StellarRemnantClumpingFactor": {
+    "NormalValue": 0.26,
+    "ExpertValue": 0.26,
+    "RevengeanceValue": 0.26,
+    "DeathValue": 0.31,
+    "GFBValue": 0.32
+  },
+  "UniversalAnnihilation_StellarRemnantCount": {
+    "NormalValue": 150.0,
+    "ExpertValue": 170.0,
+    "RevengeanceValue": 175.0,
+    "DeathValue": 200.0,
+    "GFBValue": 200.0
+  },
+  "VoidBlotDamage": {
+    "NormalValue": 275.0,
+    "ExpertValue": 375.0,
+    "RevengeanceValue": 375.0,
+    "DeathValue": 475.0,
+    "GFBValue": 475.0
+  },
+  "WhirlingIceStorm_ArcticBlastDamageGracePeriod": {
+    "NormalValue": 76.0,
+    "ExpertValue": 76.0,
+    "RevengeanceValue": 76.0,
+    "DeathValue": 60.0,
+    "GFBValue": 60.0
+  },
+  "WhirlingIceStorm_AttackDuration": {
+    "NormalValue": 870.0,
+    "ExpertValue": 870.0,
+    "RevengeanceValue": 870.0,
+    "DeathValue": 720.0,
+    "GFBValue": 720.0
+  },
+  "WhirlingIceStorm_BlastReleaseRate": {
+    "NormalValue": 10.0,
+    "ExpertValue": 10.0,
+    "RevengeanceValue": 9.0,
+    "DeathValue": 8.0,
+    "GFBValue": 8.0
+  },
+  "WhirlingIceStorm_FrostColumnReleaseRate": {
+    "NormalValue": 240.0,
+    "ExpertValue": 240.0,
+    "RevengeanceValue": 240.0,
+    "DeathValue": 160.0,
+    "GFBValue": 160.0
+  },
+  "WhirlingIceStorm_FrostIllusionReleaseRate": {
+    "NormalValue": 270.0,
+    "ExpertValue": 270.0,
+    "RevengeanceValue": 270.0,
+    "DeathValue": 270.0,
+    "GFBValue": 270.0
+  },
+  "WhirlingIceStorm_InitialArcticBlastCount": {
+    "NormalValue": 16.0,
+    "ExpertValue": 16.0,
+    "RevengeanceValue": 17.0,
+    "DeathValue": 22.0,
+    "GFBValue": 22.0
+  },
+  "WorldSmash_AttackTransitionDelay": {
+    "NormalValue": 100.0,
+    "ExpertValue": 100.0,
+    "RevengeanceValue": 100.0,
+    "DeathValue": 100.0,
+    "GFBValue": 100.0
+  },
+  "WorldSmash_EnterBackgroundTime": {
+    "NormalValue": 24.0,
+    "ExpertValue": 24.0,
+    "RevengeanceValue": 24.0,
+    "DeathValue": 24.0,
+    "GFBValue": 24.0
+  },
+  "WorldSmash_ExplodeDistance": {
+    "NormalValue": 850.0,
+    "ExpertValue": 850.0,
+    "RevengeanceValue": 850.0,
+    "DeathValue": 850.0,
+    "GFBValue": 850.0
+  },
+  "WorldSmash_FlyOffTime": {
+    "NormalValue": 48.0,
+    "ExpertValue": 48.0,
+    "RevengeanceValue": 40.0,
+    "DeathValue": 36.0,
+    "GFBValue": 36.0
+  },
+  "WorldSmash_PlanetoidDescentTime": {
+    "NormalValue": 22.0,
+    "ExpertValue": 22.0,
+    "RevengeanceValue": 22.0,
+    "DeathValue": 22.0,
+    "GFBValue": 22.0
+  },
+  "WorldSmash_PlanetoidSmashCount": {
+    "NormalValue": 3.0,
+    "ExpertValue": 3.0,
+    "RevengeanceValue": 3.0,
+    "DeathValue": 4.0,
+    "GFBValue": 4.0
+  },
+  "WorldSmash_SlowDownDistance": {
+    "NormalValue": 1200.0,
+    "ExpertValue": 1200.0,
+    "RevengeanceValue": 1200.0,
+    "DeathValue": 1200.0,
+    "GFBValue": 1200.0
+  },
+  "WorldSmash_SlowDownTime": {
+    "NormalValue": 32.0,
+    "ExpertValue": 32.0,
+    "RevengeanceValue": 32.0,
+    "DeathValue": 32.0,
+    "GFBValue": 32.0
+  }
+}
