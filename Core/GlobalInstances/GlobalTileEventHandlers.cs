@@ -126,6 +126,14 @@ public class GlobalTileEventHandlers : GlobalTile
         return true;
     }
 
+    public override bool CanReplace(int i, int j, int type, int tileTypeBeingPlaced)
+    {
+        if (IsTileUnbreakable(i, j))
+            return false;
+
+        return true;
+    }
+
     public override void RandomUpdate(int i, int j, int type) => RandomUpdateEvent?.Invoke(i, j, type);
 
     public override void KillTile(int i, int j, int type, ref bool fail, ref bool effectOnly, ref bool noItem)

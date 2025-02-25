@@ -3,7 +3,7 @@ using NoxusBoss.Content.Rarities;
 using NoxusBoss.Content.Tiles.GenesisComponents;
 using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
 using NoxusBoss.Core.GlobalInstances;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.SolynEvents;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -38,7 +38,7 @@ public class TheAntiseed : ModItem
             AddTile(TileID.WorkBenches).
             AddIngredient<DarkPlasma>(3).
             AddIngredient(ItemID.Seed).
-            AddCondition(Language.GetText("Mods.NoxusBoss.Conditions.ObtainedBefore"), () => CeaselessVoidQuestSystem.Completed).
+            AddCondition(Language.GetText("Mods.NoxusBoss.Conditions.ObtainedBefore"), () => ModContent.GetInstance<AntiseedEvent>().Finished).
             Register();
     }
 }

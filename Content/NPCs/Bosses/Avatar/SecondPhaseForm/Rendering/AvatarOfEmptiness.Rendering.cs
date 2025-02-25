@@ -356,6 +356,7 @@ public partial class AvatarOfEmptiness
             LegScale = Vector2.One;
             HeadOpacity = 1f;
             HeadScaleFactor = 1f;
+            MaskFrame = 23;
 
             LeftArmPosition = NPC.Center + new Vector2(-600f, 300f);
             RightArmPosition = NPC.Center + new Vector2(600f, 300f);

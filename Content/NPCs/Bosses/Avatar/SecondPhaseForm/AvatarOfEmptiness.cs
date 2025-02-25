@@ -1284,20 +1284,30 @@ public partial class AvatarOfEmptiness : ModNPC
         // Make the music fade out if the player is inside of the distortion.
         float distortionRadiusCutoff = 1250f;
         float distortionRadiusIntensityRange = 4000f;
-        float distanceFromCenter = (DesiredDistortionCenterOverride ?? NPC.Center).Distance(Main.LocalPlayer.Center);
+        float distanceFromCenter = (DesiredDistortionCenterOverride ?? NPC.Center).Distance(Target.Center);
         float modifiedDistanceFromCenter = (distanceFromCenter - distortionRadiusCutoff) * IdealDistortionIntensity;
         if (IdealDistortionIntensity >= 0.01f)
         {
             float distortionSoundFade = Utils.Remap(modifiedDistanceFromCenter, 450f, distortionRadiusIntensityRange * 1.5f, 1f, 0.001f);
             SoundMufflingSystem.MuffleFactor = MathF.Min(SoundMufflingSystem.MuffleFactor, distortionSoundFade);
 
+            float remap = Utils.Remap(modifiedDistanceFromCenter, 450f, distortionRadiusIntensityRange * 1.25f, 1f, 0.01f);
+
             // Hurt the target if they stray too far from the Avatar.
-            if (Utils.Remap(modifiedDistanceFromCenter, 450f, distortionRadiusIntensityRange * 1.25f, 1f, 0.01f) < 0.3f)
+            if (remap < 0.3f)
             {
                 if (NPC.HasPlayerTarget)
                     Main.player[NPC.target].Hurt(PlayerDeathReason.ByNPC(NPC.whoAmI), Main.rand.Next(900, 950), 0);
                 else if (NPC.HasNPCTarget)
                     Main.npc[NPC.TranslatedTargetIndex].SimpleStrikeNPC(1500, 0);
+            }
+            if (CurrentState == AvatarAIType.TravelThroughVortex && NPC.HasPlayerTarget)
+            {
+                while (remap < 0.4f)
+                {
+                    remap = Utils.Remap(modifiedDistanceFromCenter, 450f, distortionRadiusIntensityRange * 1.25f, 1f, 0.01f);
+                    Main.player[NPC.TranslatedTargetIndex].Center += Main.player[NPC.TranslatedTargetIndex].SafeDirectionTo(NPC.Center) * 2f;
+                }
             }
         }
 

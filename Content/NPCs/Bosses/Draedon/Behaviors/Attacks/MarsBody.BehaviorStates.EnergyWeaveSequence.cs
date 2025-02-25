@@ -8,6 +8,7 @@ using NoxusBoss.Content.NPCs.Bosses.Draedon.Projectiles;
 using NoxusBoss.Content.NPCs.Bosses.Draedon.Projectiles.SolynProjectiles;
 using NoxusBoss.Content.NPCs.Friendly;
 using NoxusBoss.Content.Particles;
+using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -118,6 +119,10 @@ public partial class MarsBody
             Vector2 hoverDestination = Target.Center - Vector2.UnitY * 350f;
             NPC.SmoothFlyNear(hoverDestination, 0.04f, 0.92f);
         }
+
+        // Grant the target infinite flight.
+        Target.wingTime = Target.wingTimeMax;
+        CalamityCompatibility.GrantInfiniteCalFlight(Target);
 
         // Release electric fields that block the player's attempt at reaching Solyn.
         bool hasBegunCreatingFields = AITimer >= EnergyWeaveSequence_SolynRedirectTime + EnergyWeaveSequence_MarsInterceptionTime + EnergyWeaveSequence_FieldSummonDelay;

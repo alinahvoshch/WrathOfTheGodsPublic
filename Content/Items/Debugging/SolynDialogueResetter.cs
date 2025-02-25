@@ -1,4 +1,4 @@
-﻿using NoxusBoss.Core.Graphics.UI.SolynDialogue;
+﻿using NoxusBoss.Core.DialogueSystem;
 using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
 using Terraria;
 using Terraria.ID;
@@ -26,8 +26,7 @@ public class SolynDialogueResetter : DebugItem
         if (Main.myPlayer == NetmodeID.MultiplayerClient || p.itemAnimation != p.itemAnimationMax - 1)
             return false;
 
-        ConversationDataSaveSystem.seenConversations.Clear();
-        ConversationDataSaveSystem.seenDialogue.Clear();
+        DialogueSaveSystem.seenDialogue.Clear();
         RandomSolynSpawnSystem.SolynHasAppearedBefore = false;
         return null;
     }

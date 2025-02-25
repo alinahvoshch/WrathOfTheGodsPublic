@@ -228,6 +228,10 @@ public class RiftEclipseBloodMoonRainSystem : ModSystem
         Main.spriteBatch.ResetToDefault();
     }
 
+    public override void OnWorldLoad() => AmbienceLoopSoundInstance?.Stop();
+
+    public override void OnWorldUnload() => AmbienceLoopSoundInstance?.Stop();
+
     public override void PreUpdateEntities()
     {
         RainParticleSystem.UpdateAll();

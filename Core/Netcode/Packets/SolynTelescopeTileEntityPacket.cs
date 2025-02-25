@@ -1,5 +1,5 @@
 ﻿using NoxusBoss.Content.Tiles.TileEntities;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.SolynEvents;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 
@@ -25,7 +25,6 @@ public class SolynTelescopeTileEntityPacket : Packet
         if (TileEntity.ByID.TryGetValue(tileEntityID, out TileEntity? te) && te is TESolynTelescope telescope)
             telescope.IsRepaired = isRepaired;
 
-        if (isRepaired)
-            StargazingQuestSystem.TelescopeRepaired = true;
+        ModContent.GetInstance<StargazingEvent>().SafeSetStage(1);
     }
 }

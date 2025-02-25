@@ -905,6 +905,8 @@ public partial class MarsBody : ModNPC, IBossDowned
 
         if (resisted)
             modifiers.FinalDamage *= 1f - NormalWeaponDamageReduction;
+        if (projectile.DamageType == DamageClass.Summon)
+            modifiers.SetMaxDamage(1);
     }
 
     public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using NoxusBoss.Core.Graphics.UI.Books;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.SolynEvents;
 using NoxusBoss.Core.World.WorldGeneration;
 using NoxusBoss.Core.World.WorldSaving;
 using Terraria;
@@ -90,7 +90,7 @@ public partial class SolynBooksSystem : ModSystem
             SolynBookExchangeRegistry.MakeSolynRedeemBook("DustyDiary");
         if (Main.rand.NextBool(findChance) && bookCollectionInterpolant >= 0.5f)
             SolynBookExchangeRegistry.MakeSolynRedeemBook("Otherworldly3");
-        if (Main.rand.NextBool(findChance) && bookCollectionInterpolant >= 0.55f && PermafrostKeepQuestSystem.Completed)
+        if (Main.rand.NextBool(findChance) && bookCollectionInterpolant >= 0.55f && ModContent.GetInstance<PermafrostKeepEvent>().Finished)
             SolynBookExchangeRegistry.MakeSolynRedeemBook("FrostyPamphlet");
         if (Main.rand.NextBool(findChance) && bookCollectionInterpolant >= 0.6f)
             SolynBookExchangeRegistry.MakeSolynRedeemBook("AberrantWritings");

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using NoxusBoss.Content.NPCs.Bosses.Draedon.DraedonDialogue;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.SolynEvents;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,13 +25,14 @@ public partial class QuestDraedon : ModNPC
         {
             NPC.TargetClosest();
 
-            string localizationSuffix = DraedonCombatQuestSystem.HasSpokenToDraedonBefore ? "Successive" : string.Empty;
+            bool hasSpokenToDraedonBefore = MarsCombatEvent.HasSpokenToDraedonBefore;
+            string localizationSuffix = hasSpokenToDraedonBefore ? "Successive" : string.Empty;
             DraedonWorldDialogueManager.CreateNew($"Mods.NoxusBoss.Dialog.DraedonAcceptanceResponse{localizationSuffix}", NPC.spriteDirection, NPC.Top - Vector2.UnitY * 32f, 150);
 
             // Mark Draedon as having been talked to, so that successive dialogue doesn't go on for a whole minute again.
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                DraedonCombatQuestSystem.HasSpokenToDraedonBefore = true;
+                MarsCombatEvent.HasSpokenToDraedonBefore = true;
                 NetMessage.SendData(MessageID.WorldData);
             }
         }

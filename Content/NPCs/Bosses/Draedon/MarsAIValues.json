@@ -70,11 +70,11 @@
     "GFBValue": 150.0
   },
   "CarvedLaserbeam_LaserWidth": {
-    "NormalValue": 360.0,
-    "ExpertValue": 360.0,
-    "RevengeanceValue": 360.0,
-    "DeathValue": 385.0,
-    "GFBValue": 450.0
+    "NormalValue": 510.0,
+    "ExpertValue": 510.0,
+    "RevengeanceValue": 510.0,
+    "DeathValue": 560.0,
+    "GFBValue": 700.0
   },
   "CarvedLaserbeam_LaserSafeZoneWidth": {
     "NormalValue": 215.0,

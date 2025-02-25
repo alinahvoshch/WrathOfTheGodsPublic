@@ -7,7 +7,7 @@ using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
 using NoxusBoss.Core.GlobalInstances;
 using NoxusBoss.Core.Netcode;
 using NoxusBoss.Core.Netcode.Packets;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.SolynEvents;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -92,10 +92,10 @@ public partial class QuestDraedon : ModNPC
     {
         if (Main.netMode != NetmodeID.MultiplayerClient && npc.type == ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Draedon>())
         {
-            bool replaceDraedon = DraedonCombatQuestSystem.MarsBeingSummoned && !NPC.AnyNPCs(Type);
+            bool replaceDraedon = MarsCombatEvent.MarsBeingSummoned && !NPC.AnyNPCs(Type);
             if (replaceDraedon)
             {
-                DraedonCombatQuestSystem.MarsBeingSummoned = false;
+                MarsCombatEvent.MarsBeingSummoned = false;
                 if (Main.netMode == NetmodeID.Server)
                     PacketManager.SendPacket<MarsSummonStatusPacket>();
 

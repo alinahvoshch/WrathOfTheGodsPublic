@@ -7,14 +7,12 @@ using NoxusBoss.Assets.Fonts;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.FirstPhaseForm;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
 using NoxusBoss.Content.NPCs.Bosses.NamelessDeity.SpecificEffectManagers;
-using NoxusBoss.Content.NPCs.Friendly;
 using NoxusBoss.Content.Particles;
 using NoxusBoss.Core.DataStructures.ShapeCurves;
 using NoxusBoss.Core.Graphics;
 using NoxusBoss.Core.Graphics.SpecificEffectManagers;
-using NoxusBoss.Core.Graphics.UI.SolynDialogue;
+using NoxusBoss.Core.SolynEvents;
 using NoxusBoss.Core.World.GameScenes.RiftEclipse;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
 using NoxusBoss.Core.World.Subworlds;
 using NoxusBoss.Core.World.WorldSaving;
 using Terraria;
@@ -587,21 +585,11 @@ public class StargazingScene : ModSystem
             {
                 IsActive = false;
                 SolynIsPresent = false;
+                ModContent.GetInstance<StargazingEvent>().SafeSetStage(2);
 
-                foreach (NPC npc in Main.ActiveNPCs)
-                {
-                    if (npc.type == ModContent.NPCType<Solyn>())
-                    {
-                        Main.LocalPlayer.SetTalkNPC(npc.whoAmI);
-                        npc.As<Solyn>().CurrentConversation = SolynDialogRegistry.SolynQuest_Stargaze_AfterRift;
-                        npc.As<Solyn>().StateMachine.StateStack.Clear();
-                        npc.As<Solyn>().StateMachine.StateStack.Push(npc.As<Solyn>().StateMachine.StateRegistry[Solyn.SolynAIType.SpeakToPlayer]);
-                        npc.As<Solyn>().AITimer = 12;
-                        npc.netUpdate = true;
-                    }
-                }
+                if (SolynEvent.Solyn is not null)
+                    Main.LocalPlayer.SetTalkNPC(SolynEvent.Solyn.NPC.whoAmI);
 
-                StargazingQuestSystem.Completed = true;
                 TotalScreenOverlaySystem.OverlayColor = Color.Black;
                 TotalScreenOverlaySystem.OverlayInterpolant = 1f;
             }

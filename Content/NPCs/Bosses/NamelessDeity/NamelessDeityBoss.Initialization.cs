@@ -415,11 +415,12 @@ public partial class NamelessDeityBoss : ModNPC, IBossChecklistSupport, IInfernu
 
         bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[]
         {
-            new DynamicFlavorTextBestiaryInfoElement(bestiaryKeys, FontRegistry.Instance.NamelessDeityText),
             new MoonLordPortraitBackgroundProviderBestiaryInfoElement(),
             new NPCPortraitInfoElement(50),
             new NamePlateInfoElement(string.Empty, NPC.netID)
         });
+        if (Main.netMode != NetmodeID.Server)
+            bestiaryEntry.Info.Add(new DynamicFlavorTextBestiaryInfoElement(bestiaryKeys, FontRegistry.Instance.NamelessDeityText));
     }
     #endregion Initialization
 

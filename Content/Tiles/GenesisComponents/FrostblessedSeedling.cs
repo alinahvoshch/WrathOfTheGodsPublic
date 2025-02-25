@@ -4,8 +4,8 @@ using NoxusBoss.Assets;
 using NoxusBoss.Content.Dusts;
 using NoxusBoss.Content.Items.GenesisComponents;
 using NoxusBoss.Content.Particles;
+using NoxusBoss.Core.SolynEvents;
 using NoxusBoss.Core.SoundSystems;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -91,7 +91,7 @@ public class FrostblessedSeedling : ModTile, ICustomPlacementSound
 
     public override bool CanExplode(int i, int j) => false;
 
-    public override bool CanKillTile(int i, int j, ref bool blockDamaged) => PermafrostKeepQuestSystem.Completed;
+    public override bool CanKillTile(int i, int j, ref bool blockDamaged) => ModContent.GetInstance<PermafrostKeepEvent>().Finished;
 
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
     {

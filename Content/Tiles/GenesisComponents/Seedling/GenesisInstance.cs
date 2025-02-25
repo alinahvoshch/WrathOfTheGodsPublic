@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using NoxusBoss.Assets;
 using NoxusBoss.Core.Graphics.GenesisEffects;
 using NoxusBoss.Core.Graphics.LightingMask;
-using NoxusBoss.Core.Graphics.UI.SolynDialogue;
+using NoxusBoss.Core.SolynEvents;
 using NoxusBoss.Core.World.TileDisabling;
 using NoxusBoss.Core.World.WorldSaving;
 using Terraria;
@@ -115,10 +115,7 @@ public class GenesisInstance
 
         // Record if a Genesis instance was completed.
         if (!WorldSaveSystem.HasCompletedGenesis && TotalNearbyPlants >= GrowingGenesisRenderSystem.GrowthStageNeededToUse)
-        {
             WorldSaveSystem.HasCompletedGenesis = true;
-            SolynDialogSystem.RerollConversationForSolyn();
-        }
 
         // Grow this Genesis, waiting if necessary.
         if (GrowthDelayCountdown <= 0)
@@ -179,7 +176,7 @@ public class GenesisInstance
         if (GrowthStage == 0f)
             morphInterpolant = 1f;
 
-        bool canBeActivated = GrowthStage >= GrowingGenesisRenderSystem.GrowthStageNeededToUse && WorldSaveSystem.CanUseGenesis && !GenesisVisualsSystem.EffectActive;
+        bool canBeActivated = GrowthStage >= GrowingGenesisRenderSystem.GrowthStageNeededToUse && ModContent.GetInstance<GenesisCompletionEvent>().Stage >= 2 && !GenesisVisualsSystem.EffectActive;
         Color outlineColor = canBeActivated && Main.LocalPlayer.WithinRange(Anchor.ToWorldCoordinates(), 300f) ? new Color(255, 255, 47) : Color.Transparent;
 
         ManagedShader overlayShader = ShaderManager.GetShader("NoxusBoss.BaseGenesisOverlayShader");
@@ -209,7 +206,7 @@ public class GenesisInstance
             Vector2 position = Anchor.ToWorldCoordinates();
             Rectangle clickArea = new Rectangle((int)(position.X - 60f), (int)(position.Y - 300f), 120, 300);
             bool clicked = Main.mouseRight && Main.mouseRightRelease && Utils.CenteredRectangle(Main.MouseWorld, Vector2.One).Intersects(clickArea) && Main.LocalPlayer.WithinRange(Anchor.ToWorldCoordinates(), 300f);
-            if (clicked && GrowthStage >= GrowingGenesisRenderSystem.GrowthStageNeededToUse && WorldSaveSystem.CanUseGenesis)
+            if (clicked && GrowthStage >= GrowingGenesisRenderSystem.GrowthStageNeededToUse && ModContent.GetInstance<GenesisCompletionEvent>().Stage >= 2)
                 GenesisVisualsSystem.Start(position + new Vector2(-20f, -390f));
         }
     }

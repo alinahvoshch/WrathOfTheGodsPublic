@@ -2,7 +2,7 @@
 using NoxusBoss.Content.NPCs.Bosses.Draedon.DraedonDialogue;
 using NoxusBoss.Content.NPCs.Friendly;
 using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.SolynEvents;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -58,8 +58,8 @@ public partial class QuestDraedon : ModNPC
         if (speakTimer >= EndingDialogue.Duration)
         {
             ChangeAIState(DraedonAIType.Leave);
-            DraedonCombatQuestSystem.Ongoing = false;
-            DraedonCombatQuestSystem.Completed = true;
+            ModContent.GetInstance<MarsCombatEvent>().SafeSetStage(2);
+            SolynEvent.Solyn?.SwitchState(SolynAIType.WaitToTeleportHome);
         }
     }
 }

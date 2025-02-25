@@ -1,5 +1,4 @@
-﻿using Luminance.Common.StateMachines;
-using Luminance.Core.Graphics;
+﻿using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using NoxusBoss.Core.World.WorldGeneration;
 using Terraria;
@@ -10,53 +9,35 @@ namespace NoxusBoss.Content.NPCs.Friendly;
 
 public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 {
-    /// <summary>
-    /// Whether Solyn is considered close to a player.
-    /// </summary>
-    public bool CloseToPlayer
+    public int WanderAbout_StuckTimer
     {
-        get
-        {
-            Player closest = Main.player[Player.FindClosest(NPC.Center, 1, 1)];
-            return NPC.WithinRange(closest.Center, 150f);
-        }
+        get;
+        set;
     }
 
-    /// <summary>
-    /// How long Solyn has been stuck during her wander about state, in frames.
-    /// </summary>
-    public ref float WanderAbout_StuckTimer => ref NPC.ai[0];
-
-    [AutomatedMethodInvoke]
-    public void LoadStateTransitions_WanderAbout()
+    public Vector2 WanderDestination
     {
-        StateMachine.RegisterTransition(SolynAIType.WanderAbout, SolynAIType.StandStill, false, () =>
-        {
-            bool reachedDestination = AITimer >= 10 && NPC.WithinRange(WanderDestination, 150f);
-            return reachedDestination || WanderAbout_StuckTimer >= 150f || CloseToPlayer;
-        }, () =>
-        {
-            WanderAbout_StuckTimer = 0f;
-
-            Player closest = Main.player[Player.FindClosest(NPC.Center, 1, 1)];
-            if (CloseToPlayer)
-            {
-                NPC.velocity.X = 0f;
-                NPC.spriteDirection = (closest.Center.X - NPC.Center.X).NonZeroSign();
-            }
-        });
-
-        StateMachine.RegisterStateBehavior(SolynAIType.WanderAbout, DoBehavior_WanderAbout);
+        get;
+        set;
     }
 
-    /// <summary>
-    /// Performs Solyn's wandering about state.
-    /// </summary>
     public void DoBehavior_WanderAbout()
     {
+        if (ShouldGoEepy)
+            SwitchState(SolynAIType.EnterTentToSleep);
+
         float walkSpeed = 1.2f;
         float walkAccelerationInterpolant = 0.15f;
         bool onGround = Abs(NPC.velocity.Y) <= 0.3f && Collision.SolidCollision(NPC.BottomLeft, NPC.width, 16, true);
+
+        bool reachedDestination = AITimer >= 10 && NPC.WithinRange(WanderDestination, 150f);
+        bool doneWandering = reachedDestination || WanderAbout_StuckTimer >= 150f || CloseToPlayer;
+        if (doneWandering)
+        {
+            WanderAbout_StuckTimer = 0;
+            SwitchState(SolynAIType.StandStill);
+            return;
+        }
 
         // Keep the kite out.
         ReelInKite = false;
@@ -81,7 +62,9 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
                 // Pick a random horizontal offset to move towards, taking care to not stray too far away from the initial spawn position, so that Solyn doesn't outright leave the town and get lost.
                 float horizontalOffset = Main.rand.NextFloat(400f, 750f) * Main.rand.NextFromList(-1f, 1f);
                 WanderDestination = NPC.Center + Vector2.UnitX * horizontalOffset;
-                WanderDestination = new Vector2(Lerp(WanderDestination.X, SpawnPositionX, Main.rand.NextFloat(0.5f)), WanderDestination.Y);
+
+                if (SolynCampsiteWorldGen.TentPosition != Vector2.Zero)
+                    WanderDestination = new Vector2(Lerp(WanderDestination.X, SolynCampsiteWorldGen.TentPosition.X, Main.rand.NextFloat(0.5f)), WanderDestination.Y);
 
                 Vector2 startingDestination = WanderDestination;
 
@@ -115,7 +98,7 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
             WanderAbout_StuckTimer++;
         }
         else
-            WanderAbout_StuckTimer = 0f;
+            WanderAbout_StuckTimer = 0;
 
         // Walk towards the wander destination.
         if (onGround)

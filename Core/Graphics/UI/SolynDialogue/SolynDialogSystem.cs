@@ -54,62 +54,6 @@ public class SolynDialogSystem : ModSystem
         return true;
     }
 
-    /// <summary>
-    /// Chooses a random Solyn conversation to use.
-    /// </summary>
-    public static Conversation ChooseSolynConversation()
-    {
-        // Collect the initial list of possible conversations, and gradually whittle down from there, starting with manual condition criteria.
-        var possibleConversations = SolynDialogRegistry.SolynConversations.Where(c => c.AppearanceCondition() && (!c.HasBeenSeen() || c.CanBeRepeatedCondition())).ToList();
-        if (possibleConversations.Count == 0)
-            return SolynDialogRegistry.SolynErrorDialogue;
-
-        // Order by conversation priority.
-        possibleConversations = possibleConversations.OrderByDescending(c => c.Priority).ToList();
-
-        // Determine the highest found priority in the conversation list, and prune all list items that do not have that highest priority value.
-        ConversationPriority highestPriority = possibleConversations.First().Priority;
-        possibleConversations = possibleConversations.Where(c => c.Priority >= highestPriority).ToList();
-
-        // Error case: If no start-able conversation could be found for some reason, display a special conversation that indicates that an error occurred.
-        if (possibleConversations.Count == 0)
-            return SolynDialogRegistry.SolynErrorDialogue;
-
-        // Pick randomly from the remaining assortment of possible conversations.
-        return Main.rand.Next(possibleConversations.ToList());
-    }
-
-    /// <summary>
-    /// Rerolls Solyn's current conversation.
-    /// </summary>
-    public static void RerollConversationForSolyn()
-    {
-        int solynID = ModContent.NPCType<Solyn>();
-        foreach (NPC solyn in Main.ActiveNPCs)
-        {
-            if (solyn.type != solynID)
-                continue;
-
-            solyn.As<Solyn>().CurrentConversation = ChooseSolynConversation();
-            solyn.As<Solyn>().CurrentConversation.Start();
-        }
-    }
-
-    /// <summary>
-    /// Changes Solyn's current conversation.
-    /// </summary>
-    public static void ForceChangeConversationForSolyn(Conversation conversation)
-    {
-        int solynID = ModContent.NPCType<Solyn>();
-        foreach (NPC solyn in Main.ActiveNPCs)
-        {
-            if (solyn.type != solynID)
-                continue;
-
-            solyn.As<Solyn>().CurrentConversation = conversation;
-            solyn.As<Solyn>().CurrentConversation.Start();
-        }
-    }
 
     /// <summary>
     /// Shows the dialogue UI.

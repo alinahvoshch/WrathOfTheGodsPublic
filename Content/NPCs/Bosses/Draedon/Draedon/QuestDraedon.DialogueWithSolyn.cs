@@ -1,7 +1,7 @@
 ﻿using NoxusBoss.Content.NPCs.Bosses.Draedon.DraedonDialogue;
 using NoxusBoss.Content.NPCs.Friendly;
 using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.SolynEvents;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -40,7 +40,7 @@ public partial class QuestDraedon : ModNPC
         new DialogueChain(SecondsToFrames(0.33f)).
         AddWithAutomaticTiming("Mods.NoxusBoss.Dialog.SolynDraedonInteractionSuccessive", false);
 
-    public static DialogueChain InitialInteractionDialogue => DraedonCombatQuestSystem.HasSpokenToDraedonBefore ? InitialInteractionDialogue_Successive : InitialInteractionDialogue_FirstTime;
+    public static DialogueChain InitialInteractionDialogue => MarsCombatEvent.HasSpokenToDraedonBefore ? InitialInteractionDialogue_Successive : InitialInteractionDialogue_FirstTime;
 
     /// <summary>
     /// The AI method that makes Draedon and Solyn talk before the battle begins.
@@ -61,7 +61,7 @@ public partial class QuestDraedon : ModNPC
         // This, along with some code in the corresponding UI, are what determine if Draedon will transition to the next state.
         WaitingOnPlayerResponse = speakTimer >= InitialInteractionDialogue.Duration - 45;
 
-        bool sitDown = speakTimer >= 210 && !DraedonCombatQuestSystem.HasSpokenToDraedonBefore;
+        bool sitDown = speakTimer >= 210 && !MarsCombatEvent.HasSpokenToDraedonBefore;
 
         if (Frame <= 10f)
         {

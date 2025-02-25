@@ -95,6 +95,9 @@ public class CelestialDreamcatcher : ModProjectile, IProjOwnedByBoss<NamelessDei
             return;
         }
 
+        // Stay in the world.
+        Projectile.Center = Vector2.Clamp(Projectile.Center, Vector2.One * 480f, new Vector2(Main.maxTilesX, Main.maxTilesY) * 16f - Vector2.One * 480f);
+
         int namelessAITimer = namelessModNPC.AITimer;
         bool attacking = namelessAITimer >= EnterPhase2_AttackPlayer_ShootDelay && namelessAITimer <= EnterPhase2_AttackPlayer_ShootDelay + EnterPhase2_AttackPlayer_ShootTime;
         int wrappedTimer = (int)Time % (EnterPhase2_AttackPlayer_PurifyingMatterSuckRate + EnterPhase2_AttackPlayer_PurifyingMatterExpelRate);

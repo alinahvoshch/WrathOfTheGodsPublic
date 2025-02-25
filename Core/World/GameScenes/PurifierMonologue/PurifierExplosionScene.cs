@@ -17,7 +17,7 @@ public class PurifierExplosionScene : ModSceneEffect
         }
     }
 
-    public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
+    public override SceneEffectPriority Priority => (SceneEffectPriority)100;
 
     public override bool IsSceneEffectActive(Player player)
     {

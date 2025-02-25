@@ -401,18 +401,18 @@ public class RiftEclipseSnowSystem : ModSystem
 
         List<Point> snowPoints = [];
 
-        for (int i = 0; i < Main.maxTilesX; i++)
+        for (int i = 5; i < Main.maxTilesX - 5; i++)
         {
-            Point p = FindGroundVertical(new(i, (int)Main.worldSurface - 250));
+            Point p = FindGroundVertical(new Point(i, (int)Main.worldSurface - 250));
             Point above = new Point(p.X, p.Y - 1);
             Point below = new Point(p.X, p.Y + 1);
 
             if (p.Y <= Main.worldSurface - 230)
                 continue;
 
-            Tile t = Main.tile[p];
-            Tile aboveTile = Main.tile[above];
-            Tile belowTile = Main.tile[below];
+            Tile t = Framing.GetTileSafely(p);
+            Tile aboveTile = Framing.GetTileSafely(above);
+            Tile belowTile = Framing.GetTileSafely(below);
             if (!Main.tileSolid[belowTile.TileType] && !Main.tileSolidTop[belowTile.TileType])
                 continue;
 
@@ -425,7 +425,7 @@ public class RiftEclipseSnowSystem : ModSystem
                 continue;
 
             // Place or destroy snow.
-            int checkTileID = Main.tile[p].TileType;
+            int checkTileID = t.TileType;
             bool plant = checkTileID == TileID.Plants || checkTileID == TileID.Plants2;
             bool plantJungle = checkTileID == TileID.JunglePlants || checkTileID == TileID.JunglePlants2;
             bool plantCorrupt = checkTileID == TileID.CorruptPlants;
@@ -434,13 +434,13 @@ public class RiftEclipseSnowSystem : ModSystem
             bool plantDesert = checkTileID == TileID.SeaOats || checkTileID == TileID.Cactus;
             bool thorn = checkTileID == TileID.CorruptThorns || checkTileID == TileID.CrimsonThorns || checkTileID == TileID.JungleThorns;
             bool pebble = checkTileID == TileID.SmallPiles || checkTileID == TileID.LargePiles;
-            bool tileCanBeDestroyed = plant || plantJungle || plantCorrupt || plantCrimson || plantHallow || plantDesert || thorn || pebble || !Main.tile[p].HasTile || checkTileID == snowID;
+            bool tileCanBeDestroyed = plant || plantJungle || plantCorrupt || plantCrimson || plantHallow || plantDesert || thorn || pebble || !t.HasTile || checkTileID == snowID;
             if (placingSnow && aboveTile.TileType != snowID && tileCanBeDestroyed)
             {
                 if (checkTileID != snowID)
                     WorldGen.KillTile(p.X, p.Y);
-                Main.tile[p].TileType = (ushort)snowID;
-                Main.tile[p].Get<TileWallWireStateData>().HasTile = true;
+                Framing.GetTileSafely(p).TileType = (ushort)snowID;
+                Framing.GetTileSafely(p).Get<TileWallWireStateData>().HasTile = true;
                 snowPoints.Add(p);
             }
             if (destroyingSnow && aboveTile.TileType == snowID)

@@ -1,4 +1,5 @@
-﻿using NoxusBoss.Content.NPCs.Bosses.Draedon;
+﻿using NoxusBoss.Content.NPCs.Bosses.Avatar.FirstPhaseForm;
+using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
 using NoxusBoss.Core.World.Subworlds;
 using Terraria;
 using Terraria.ModLoader;
@@ -8,12 +9,12 @@ namespace NoxusBoss.Content.NPCs.Friendly;
 public partial class BattleSolyn : ModNPC
 {
     /// <summary>
-    /// Makes Solyn fight Mars.
+    /// Makes Solyn fight the Avatar of Emptiness.
     /// </summary>
-    public void DoBehavior_FightMars()
+    public void DoBehavior_FightAvatar()
     {
-        bool marsIsAbsent = MarsBody.Myself is null;
-        if (marsIsAbsent || EternalGardenUpdateSystem.WasInSubworldLastUpdateFrame)
+        bool avatarIsAbsent = AvatarRift.Myself is null && AvatarOfEmptiness.Myself is null;
+        if (avatarIsAbsent || EternalGardenUpdateSystem.WasInSubworldLastUpdateFrame)
         {
             // Immediately vanish if this isn't actually Solyn.
             if (FakeGhostForm)
@@ -23,9 +24,8 @@ public partial class BattleSolyn : ModNPC
             }
 
             // If this is actually Solyn, turn into her non-battle form again.
+            // TODO -- Return to following player.
             NPC.Transform(ModContent.NPCType<Solyn>());
-            NPC.As<Solyn>().StateMachine.StateStack.Clear();
-            NPC.As<Solyn>().StateMachine.StateStack.Push(NPC.As<Solyn>().StateMachine.StateRegistry[Solyn.SolynAIType.FollowPlayerToCodebreaker]);
             return;
         }
 
@@ -34,6 +34,10 @@ public partial class BattleSolyn : ModNPC
         NPC.immortal = true;
         NPC.noGravity = true;
         NPC.noTileCollide = true;
-        MarsBody.Myself?.As<MarsBody>().SolynAction?.Invoke(this);
+
+        if (AvatarOfEmptiness.Myself is not null)
+            AvatarOfEmptiness.Myself.As<AvatarOfEmptiness>().SolynAction?.Invoke(this);
+        else
+            AvatarRift.Myself?.As<AvatarRift>().SolynAction?.Invoke(this);
     }
 }

@@ -1,9 +1,4 @@
-﻿using Luminance.Common.StateMachines;
-using Luminance.Core.Graphics;
-using Microsoft.Xna.Framework;
-using NoxusBoss.Content.Projectiles.Kites;
-using NoxusBoss.Core.Fixes;
-using NoxusBoss.Core.Graphics.UI.SolynDialogue;
+﻿using Luminance.Core.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -11,23 +6,19 @@ namespace NoxusBoss.Content.NPCs.Friendly;
 
 public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 {
-    [AutomatedMethodInvoke]
-    public void LoadStateTransitions_StandStill()
-    {
-        StateMachine.RegisterTransition(SolynAIType.StandStill, SolynAIType.WanderAbout, false, () =>
-        {
-            // Frequently attempt to do something else if possible, to minimize the amount of time just standing in place like a weirdo.
-            return AITimer % SecondsToFrames(2f) == 0 && !LetOutKite && !CloseToPlayer && AITimer >= 10;
-        });
+    public bool CloseToPlayer => Main.player[Player.FindClosest(NPC.Center, 1, 1)].WithinRange(NPC.Center, 150f);
 
-        StateMachine.RegisterStateBehavior(SolynAIType.StandStill, DoBehavior_StandStill);
-    }
-
-    /// <summary>
-    /// Performs Solyn's stand-still state.
-    /// </summary>
     public void DoBehavior_StandStill()
     {
+        if (ShouldGoEepy)
+        {
+            SwitchState(SolynAIType.EnterTentToSleep);
+            return;
+        }
+
+        if (AITimer % 120 == 119 && !CloseToPlayer)
+            SwitchState(SolynAIType.WanderAbout);
+
         // Horizontally decelerate.
         NPC.velocity.X *= 0.85f;
 
@@ -48,7 +39,8 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
             NPC.netUpdate = true;
         }
 
-        // Let out a kite on a windy day.
+        // TODO -- Let out a kite on a windy day.
+        /*
         bool windyDayConversation = CurrentConversation == SolynDialogRegistry.SolynWindyDay;
         if (windyDayConversation && !LetOutKite && Main.myPlayer == closest.whoAmI)
         {
@@ -56,6 +48,7 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
             NewProjectileBetter(NPC.GetSource_FromAI(), NPC.Center, Vector2.UnitY * -3f, ModContent.ProjectileType<StarKiteProjectile>(), 0, 0f, -1, NPC.whoAmI + 500);
             LetOutKite = true;
         }
+        */
 
         PerformStandardFraming();
     }

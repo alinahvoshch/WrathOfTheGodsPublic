@@ -2,10 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using NoxusBoss.Assets;
 using NoxusBoss.Content.Tiles.TileEntities;
-using NoxusBoss.Core.Graphics.UI.SolynDialogue;
+using NoxusBoss.Core.DialogueSystem;
 using NoxusBoss.Core.Netcode;
 using NoxusBoss.Core.Netcode.Packets;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.SolynEvents;
 using NoxusBoss.Core.World.GameScenes.Stargazing;
 using Terraria;
 using Terraria.Audio;
@@ -41,7 +41,7 @@ public class SolynTelescopeTile : ModTile
     /// <summary>
     /// Whether players can repair Solyn's telescope or not.
     /// </summary>
-    public static bool AnyoneCanRepairTelescope => SolynDialogRegistry.SolynQuest_Stargaze.NodeSeen("Player1") || SolynDialogRegistry.SolynQuest_Stargaze.NodeSeen("Solyn3");
+    public static bool AnyoneCanRepairTelescope => DialogueManager.FindByRelativePrefix("StargazeQuest").SeenBefore("Player1");
 
     /// <summary>
     /// Whether telescopes are gold or not.
@@ -134,11 +134,8 @@ public class SolynTelescopeTile : ModTile
             }
 
             telescope.IsRepaired = true;
-            if (!StargazingQuestSystem.TelescopeRepaired)
-            {
-                SolynDialogSystem.ForceChangeConversationForSolyn(SolynDialogRegistry.SolynQuest_Stargaze_Completed);
-                StargazingQuestSystem.TelescopeRepaired = true;
-            }
+            ModContent.GetInstance<StargazingEvent>().SafeSetStage(1);
+
             if (Main.netMode != NetmodeID.SinglePlayer)
                 PacketManager.SendPacket<SolynTelescopeTileEntityPacket>(telescope.ID);
 

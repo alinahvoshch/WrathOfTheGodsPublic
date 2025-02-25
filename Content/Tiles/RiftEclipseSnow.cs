@@ -30,6 +30,7 @@ public class RiftEclipseSnow : ModTile
     {
         Main.tileSolid[Type] = false;
         Main.tileBlockLight[Type] = false;
+        TileID.Sets.BreakableWhenPlacing[Type] = true;
         DustType = DustID.SnowBlock;
         HitSound = SoundID.Item48 with { Pitch = -0.2f, Volume = 0.4f };
 

@@ -5,12 +5,13 @@ using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using NoxusBoss.Assets;
+using NoxusBoss.Content.Items.MiscOPTools;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.FirstPhaseForm;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.SpecificEffectManagers;
 using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
+using NoxusBoss.Core.SolynEvents;
 using NoxusBoss.Core.World.GameScenes.AvatarUniverseExploration;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -34,12 +35,12 @@ public class CeaselessVoidRift : ModNPC
     /// <summary>
     /// Whether the player is currently interacting with the rift with their mouse.
     /// </summary>
-    public bool InteractingWithRift => MouseOverSelf && Main.LocalPlayer.WithinRange(NPC.Center, NPC.Size.Length() * NPC.scale * 0.45f) && Time >= 120f;
+    public bool InteractingWithRift => MouseOverSelf && Main.LocalPlayer.WithinRange(NPC.Center, NPC.Size.Length() * NPC.scale * 0.45f) && Time >= 120f && !Main.mapFullscreen;
 
     /// <summary>
     /// Whether this rift can be entered.
     /// </summary>
-    public static bool CanEnterRift => CeaselessVoidQuestSystem.Completed;
+    public static bool CanEnterRift => ModContent.GetInstance<AntiseedEvent>().Finished;
 
     public override string Texture => MiscTexturesRegistry.InvisiblePixelPath;
 
@@ -49,6 +50,7 @@ public class CeaselessVoidRift : ModNPC
         NPCID.Sets.TrailingMode[NPC.type] = 3;
         NPCID.Sets.TrailCacheLength[NPC.type] = 50;
         NPCID.Sets.MPAllowedEnemies[Type] = true;
+        EmptinessSprayer.NPCsToNotDelete[Type] = true;
 
         // Apply miracleblight immunities.
         CalamityCompatibility.MakeImmuneToMiracleblight(NPC);

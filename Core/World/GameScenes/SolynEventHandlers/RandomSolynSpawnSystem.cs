@@ -110,8 +110,7 @@ public class RandomSolynSpawnSystem : ModSystem
         int solyn = NPC.NewNPC(new EntitySource_WorldEvent(), (int)spawnPosition.X, (int)spawnPosition.Y, ModContent.NPCType<Solyn>(), 1, Target: player.whoAmI);
         if (Main.npc.IndexInRange(solyn))
         {
-            Main.npc[solyn].As<Solyn>().StateMachine.StateStack.Clear();
-            Main.npc[solyn].As<Solyn>().StateMachine.StateStack.Push(Main.npc[solyn].As<Solyn>().StateMachine.StateRegistry[Solyn.SolynAIType.FallFromTheSky]);
+            Main.npc[solyn].As<Solyn>().CurrentState = SolynAIType.FallFromTheSky;
             Main.npc[solyn].velocity = new Vector2(player.direction * 7.5f, 6f);
         }
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using NoxusBoss.Content.NPCs.Bosses.Draedon.Draedon;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.SolynEvents;
 using ReLogic.Graphics;
 using Terraria;
 using Terraria.Audio;
@@ -71,7 +71,7 @@ public class DraedonAcceptanceUISystem : ModSystem
             return false;
 
         string text = Language.GetTextValue("Mods.NoxusBoss.Dialog.PlayerDraedonAcceptance");
-        if (DraedonCombatQuestSystem.HasSpokenToDraedonBefore)
+        if (MarsCombatEvent.HasSpokenToDraedonBefore)
             text = Language.GetTextValue("Mods.NoxusBoss.Dialog.PlayerDraedonAcceptanceSuccessive");
 
         DynamicSpriteFont font = FontAssets.DeathText.Value;

@@ -5,6 +5,7 @@ using CalamityMod.NPCs.Polterghast;
 using NoxusBoss.Assets;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.SpecificEffectManagers;
 using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
+using NoxusBoss.Core.GlobalInstances;
 using NoxusBoss.Core.World.TileDisabling;
 using Terraria;
 using Terraria.Audio;
@@ -61,6 +62,7 @@ public class AvatarUniverseExplorationSystem : ModSystem
 
         OnEnter += ClearDungeonEnemies;
         OnEnter += ClearGoreAndDust;
+        GlobalItemEventHandlers.CanUseItemEvent += DisableTeleportItems;
     }
 
     public override void OnWorldLoad()
@@ -75,6 +77,21 @@ public class AvatarUniverseExplorationSystem : ModSystem
         wantsToEnterAvatarUniverse = false;
         InAvatarUniverse = false;
         EnteringRift = false;
+    }
+
+    private static bool DisableTeleportItems(Item item, Player player)
+    {
+        if (InAvatarUniverse)
+        {
+            int itemID = item.type;
+            bool mirror = itemID == ItemID.MagicMirror || itemID == ItemID.IceMirror || itemID == ItemID.CellPhone;
+            bool conch = itemID == ItemID.MagicConch || itemID == ItemID.DemonConch;
+            bool teleportPotion = itemID == ItemID.RecallPotion || itemID == ItemID.TeleportationPotion || itemID == ItemID.PotionOfReturn;
+            if (mirror || conch || teleportPotion)
+                return false;
+        }
+
+        return true;
     }
 
     private static void RegisterDungeonEnemies()
@@ -140,7 +157,7 @@ public class AvatarUniverseExplorationSystem : ModSystem
         DungeonNPCIDs.Add(ModContent.NPCType<Polterghast>());
     }
 
-    private static void ClearDungeonEnemies()
+    internal static void ClearDungeonEnemies()
     {
         foreach (NPC npc in Main.ActiveNPCs)
         {

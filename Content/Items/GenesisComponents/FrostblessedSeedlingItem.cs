@@ -3,7 +3,7 @@ using NoxusBoss.Content.Rarities;
 using NoxusBoss.Content.Tiles.GenesisComponents;
 using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
 using NoxusBoss.Core.GlobalInstances;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.SolynEvents;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -37,7 +37,7 @@ public class FrostblessedSeedlingItem : ModItem
             AddTile(TileID.WorkBenches).
             AddIngredient<CryonicBar>(5).
             AddIngredient(ItemID.Seed).
-            AddCondition(Language.GetText("Mods.NoxusBoss.Conditions.ObtainedBefore"), () => PermafrostKeepQuestSystem.Completed).
+            AddCondition(Language.GetText("Mods.NoxusBoss.Conditions.ObtainedBefore"), () => ModContent.GetInstance<PermafrostKeepEvent>().Finished).
             Register();
     }
 }

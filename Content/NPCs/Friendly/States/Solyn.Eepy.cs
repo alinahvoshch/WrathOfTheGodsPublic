@@ -1,11 +1,9 @@
 ﻿using Luminance.Common.Easings;
-using Luminance.Common.StateMachines;
-using Luminance.Core.Cutscenes;
 using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using NoxusBoss.Content.Particles;
-using NoxusBoss.Core.Graphics.UI.SolynDialogue;
-using NoxusBoss.Core.World.GameScenes.Stargazing;
+using NoxusBoss.Core.DialogueSystem;
+using NoxusBoss.Core.SolynEvents;
 using NoxusBoss.Core.World.WorldGeneration;
 using Terraria;
 using Terraria.ModLoader;
@@ -15,59 +13,25 @@ namespace NoxusBoss.Content.NPCs.Friendly;
 public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 {
     /// <summary>
-    /// Whether Solyn should try to go to sleep or not.
+    /// Whether Solyn should try to rest.
     /// </summary>
     public bool ShouldGoEepy
     {
         get
         {
-            if (CurrentConversation == SolynDialogRegistry.SolynQuest_Stargaze_AfterRift && !SolynDialogRegistry.SolynQuest_Stargaze_AfterRift.NodeSeen("Talk9"))
-                return false;
-            if (CutsceneManager.IsActive(ModContent.GetInstance<BecomeDuskScene>()))
-                return false;
-            if (CutsceneManager.IsActive(ModContent.GetInstance<UseTelescopeScene>()))
+            if (Main.dayTime)
                 return false;
 
-            return !Main.dayTime;
+            if (ModContent.GetInstance<SolynIntroductionEvent>().Stage == 0)
+            {
+                bool doneWithIntroDialogue = DialogueManager.FindByRelativePrefix("SolynIntroduction").SeenBefore("Talk8");
+                return Main.rand.NextBool(120) && doneWithIntroDialogue;
+            }
+
+            return true;
         }
     }
 
-    [AutomatedMethodInvoke]
-    public void LoadStateTransitions_Eepy()
-    {
-        StateMachine.RegisterTransition(SolynAIType.WanderAbout, SolynAIType.EnterTentToSleep, false, () =>
-        {
-            bool talkingToAnyone = false;
-            foreach (Player player in Main.ActivePlayers)
-            {
-                if (!player.dead && player.talkNPC == NPC.whoAmI)
-                {
-                    talkingToAnyone = true;
-                    break;
-                }
-            }
-
-            return ShouldGoEepy && NPC.WithinRange(SolynCampsiteWorldGen.TentPosition, 700f) && !talkingToAnyone && !StargazingScene.IsActive && !ModContent.GetInstance<BecomeDuskScene>().IsActive;
-        });
-        StateMachine.RegisterTransition(SolynAIType.EnterTentToSleep, SolynAIType.Eepy, false, () =>
-        {
-            return ShouldGoEepy && NPC.WithinRange(SolynCampsiteWorldGen.TentPosition, 40f);
-        });
-        StateMachine.RegisterTransition(SolynAIType.Eepy, SolynAIType.WanderAbout, false, () =>
-        {
-            return !ShouldGoEepy;
-        }, () =>
-        {
-            CurrentConversation = SolynDialogSystem.ChooseSolynConversation();
-        });
-
-        StateMachine.RegisterStateBehavior(SolynAIType.EnterTentToSleep, DoBehavior_EnterTentToSleep);
-        StateMachine.RegisterStateBehavior(SolynAIType.Eepy, DoBehavior_Eepy);
-    }
-
-    /// <summary>
-    /// Performs Solyn's tent entering state.
-    /// </summary>
     public void DoBehavior_EnterTentToSleep()
     {
         float walkSpeed = 1.2f;
@@ -112,15 +76,24 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         Collision.StepUp(ref NPC.position, ref NPC.velocity, NPC.width, NPC.height, ref _, ref NPC.gfxOffY);
 
         PerformStandardFraming();
+
+        // Teleport to the tent if nobody is looking.
+        if (!Main.player[Player.FindClosest(NPC.Center, 1, 1)].WithinRange(NPC.Center, 1900f))
+        {
+            NPC.Center = SolynCampsiteWorldGen.TentPosition;
+            NPC.netUpdate = true;
+        }
+
+        if (NPC.WithinRange(SolynCampsiteWorldGen.TentPosition, 40f))
+            SwitchState(SolynAIType.Eepy);
+        if (Main.dayTime)
+            SwitchState(SolynAIType.StandStill);
     }
 
-    /// <summary>
-    /// Performs Solyn's sleeping behavior.
-    /// </summary>
     public void DoBehavior_Eepy()
     {
         NPC.velocity.X *= 0.8f;
-        Frame = 23f;
+        Frame = 23;
         NPC.Center = SolynCampsiteWorldGen.TentPosition + Vector2.UnitX * 46f;
         NPC.Opacity = 0f;
 
@@ -134,5 +107,8 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
             SleepParticle zzz = new SleepParticle(NPC.Top + new Vector2(-30f, -24f), zzzVelocity, zzzColor, 0.5f, Main.rand.Next(90, 150));
             zzz.Spawn();
         }
+
+        if (!ShouldGoEepy)
+            SwitchState(SolynAIType.StandStill);
     }
 }

@@ -3,7 +3,6 @@ using Luminance.Core.Graphics;
 using NoxusBoss.Assets;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
 using NoxusBoss.Core.GlobalInstances;
-using NoxusBoss.Core.Graphics.UI.SolynDialogue;
 using NoxusBoss.Core.World.WorldSaving;
 using Terraria;
 using Terraria.Audio;
@@ -137,9 +136,6 @@ public class PostMLRiftAppearanceSystem : BaseAvatarAppearanceSystem
         EventTimer++;
         if (EventTimer >= ambienceDuration - 180)
         {
-            if (SolynDialogRegistry.SolynQuest_DormantKey_AtSeed.HasBeenSeen())
-                SolynDialogSystem.ForceChangeConversationForSolyn(SolynDialogRegistry.SolynQuest_GenesisReveal);
-
             RiftEclipseSky.MoveOverSunInterpolant = 1f;
             RiftEclipseSky.ReducedHorizontalOffset = false;
             AvatarHasCoveredMoon = true;

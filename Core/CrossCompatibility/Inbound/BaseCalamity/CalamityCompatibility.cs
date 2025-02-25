@@ -70,7 +70,7 @@ public class CalamityCompatibility : ModSystem
     [JITWhenModsEnabled(ModName)]
     public static void SetLifeMaxByMode_ApplyCalBossHPBoost(NPC npc)
     {
-        long effectiveNewHP = npc.lifeMax + (long)Round(npc.lifeMax * CalamityConfig.Instance.BossHealthBoost);
+        long effectiveNewHP = npc.lifeMax + (long)Math.Round(npc.lifeMax * (double)(CalamityConfig.Instance.BossHealthBoost * 0.01));
         effectiveNewHP = Utils.Clamp(effectiveNewHP, 1, int.MaxValue);
         npc.lifeMax = (int)effectiveNewHP;
     }

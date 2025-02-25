@@ -173,6 +173,8 @@ public class EternalGardenNew : Subworld
     {
         TagCompound savedWorldData = specialTag ?? SubworldSystem.ReadCopiedWorldData<TagCompound>($"GardenSavedWorldData_{suffix}");
 
+        ModContent.GetInstance<BossDownedSaveSystem>().LoadWorldData(savedWorldData);
+
         HasMetNamelessDeity = savedWorldData.ContainsKey("HasMetNamelessDeity");
 
         CommonCalamityVariables.RevengeanceModeActive = savedWorldData.ContainsKey("RevengeanceMode");

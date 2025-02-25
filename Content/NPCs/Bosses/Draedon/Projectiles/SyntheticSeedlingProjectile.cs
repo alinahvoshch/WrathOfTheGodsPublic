@@ -1,6 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using NoxusBoss.Content.Items.GenesisComponents;
+using NoxusBoss.Content.NPCs.Bosses.Draedon.Draedon;
+using NoxusBoss.Content.NPCs.Friendly;
+using NoxusBoss.Core.SolynEvents;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -68,6 +71,12 @@ public class SyntheticSeedlingProjectile : ModProjectile
 
     public override void OnKill(int timeLeft)
     {
+        if (!NPC.AnyNPCs(ModContent.NPCType<QuestDraedon>()))
+        {
+            ModContent.GetInstance<MarsCombatEvent>().SafeSetStage(2);
+            SolynEvent.Solyn?.SwitchState(SolynAIType.WaitToTeleportHome);
+        }
+
         if (Main.netMode != NetmodeID.MultiplayerClient)
             Item.NewItem(Projectile.GetSource_Death(), Projectile.Hitbox, ModContent.ItemType<SyntheticSeedling>());
     }

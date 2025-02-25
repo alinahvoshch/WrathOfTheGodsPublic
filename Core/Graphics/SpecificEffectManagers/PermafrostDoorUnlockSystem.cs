@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using NoxusBoss.Assets;
 using NoxusBoss.Content.Projectiles;
 using NoxusBoss.Content.Tiles;
+using NoxusBoss.Core.SolynEvents;
 using NoxusBoss.Core.World.WorldGeneration;
 using Terraria;
 using Terraria.Audio;
@@ -49,6 +50,7 @@ public class PermafrostDoorUnlockSystem : ModSystem
                 ScreenShakeSystem.StartShakeAtPoint(p.ToWorldCoordinates(), 10f);
 
                 PermafrostKeepWorldGen.DoorHasBeenUnlocked = true;
+                ModContent.GetInstance<PermafrostKeepEvent>().SafeSetStage(2);
                 if (Main.netMode == NetmodeID.Server)
                     NetMessage.SendData(MessageID.WorldData);
 

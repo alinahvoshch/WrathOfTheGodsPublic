@@ -132,11 +132,11 @@ public class LilyStar : ModProjectile, IProjOwnedByBoss<AvatarOfEmptiness>
 
     public Color ModifyColor(Color baseColor)
     {
-        float backgroundInterpolant = InverseLerp(0.3f, 2.3f, ZPosition);
+        float backgroundInterpolant = InverseLerp(0.3f, 1.3f, ZPosition);
 
         // Make colors darker and more translucent near the background to help sell the illusion that they're in the background and not simply downscaled.
         float opacity = Lerp(1f, 0.39f, backgroundInterpolant) * Projectile.Opacity;
-        baseColor = Color.Lerp(baseColor, new(51, 12, 89), backgroundInterpolant * 0.65f);
+        baseColor = Color.Lerp(baseColor, new(51, 12, 89), backgroundInterpolant * (VortexTravelVariant ? 0.2f : 0.65f));
         baseColor.A = 0;
 
         return baseColor * opacity;

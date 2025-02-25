@@ -8,6 +8,7 @@ using NoxusBoss.Content.NPCs.Friendly;
 using NoxusBoss.Content.Particles;
 using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
 using NoxusBoss.Core.Graphics.SpecificEffectManagers;
+using NoxusBoss.Core.World.WorldSaving;
 using ReLogic.Utilities;
 using Terraria;
 using Terraria.Audio;
@@ -223,6 +224,9 @@ public partial class MarsBody
         // Die when done attacking.
         if (relativeTimer >= CarvedLaserbeam_LaserShootTime)
         {
+            Main.BestiaryTracker.Kills.RegisterKill(NPC);
+            BossDownedSaveSystem.SetDefeatState<MarsBody>(true);
+
             SoundEngine.PlaySound(GennedAssets.Sounds.NPCKilled.MarsDeath).WithVolumeBoost(1.25f);
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
@@ -236,11 +240,11 @@ public partial class MarsBody
         Vector2 perpendicularLaserDirection = (CarvedLaserbeam_LaserbeamDirection + PiOver2).ToRotationVector2();
         float horizontalDistanceFromLaser = Abs(SignedDistanceToLine(Target.Center, CorePosition, perpendicularLaserDirection));
         float idealDirection = CarvedLaserbeam_LaserbeamDirection;
-        if (horizontalDistanceFromLaser >= CarvedLaserbeam_LaserWidth)
+        if (horizontalDistanceFromLaser >= CarvedLaserbeam_LaserWidth * 0.67f)
             idealDirection = CorePosition.AngleTo(Target.Center);
 
         // Use momentum with the laser redirect.
-        float idealAngularVelocity = WrapAngle(idealDirection - CarvedLaserbeam_LaserbeamDirection) * InverseLerp(0.7f, 1.5f, horizontalDistanceFromLaser / CarvedLaserbeam_LaserWidth) * 0.08f;
+        float idealAngularVelocity = WrapAngle(idealDirection - CarvedLaserbeam_LaserbeamDirection) * InverseLerp(0.4f, 1.5f, horizontalDistanceFromLaser / CarvedLaserbeam_LaserWidth) * 0.08f;
 
         CarvedLaserbeam_LaserbeamAngularVelocity = Lerp(CarvedLaserbeam_LaserbeamAngularVelocity, idealAngularVelocity, 0.1f);
         CarvedLaserbeam_LaserbeamDirection += CarvedLaserbeam_LaserbeamAngularVelocity;

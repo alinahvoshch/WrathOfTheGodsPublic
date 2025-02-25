@@ -109,6 +109,8 @@ public class GrowingGenesisRenderSystem : ModSystem
 
         if (distanceToClosestPoint >= Main.screenWidth * 1.5f)
             return;
+        if (Main.LocalPlayer.gravity == -1f)
+            return;
 
         float timeIncrement = 0.01667f;
         float electricityHeight = 12f;
@@ -214,6 +216,8 @@ public class GrowingGenesisRenderSystem : ModSystem
         ushort[] byteData = tag.GetList<ushort>("GenesisMergeData").ToArray();
         Span<GenesisGrassMergeData> loadedTileData = new Span<GenesisGrassMergeData>(Unsafe.As<ushort[], GenesisGrassMergeData[]>(ref byteData));
         Span<GenesisGrassMergeData> tileData = new Span<GenesisGrassMergeData>(Main.tile.GetData<GenesisGrassMergeData>());
-        loadedTileData.CopyTo(tileData);
+
+        if (loadedTileData.Length <= tileData.Length)
+            loadedTileData.CopyTo(tileData);
     }
 }

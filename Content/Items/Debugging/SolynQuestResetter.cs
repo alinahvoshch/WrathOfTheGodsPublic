@@ -1,7 +1,8 @@
-﻿using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+﻿using NoxusBoss.Core.SolynEvents;
 using NoxusBoss.Core.World.WorldGeneration;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace NoxusBoss.Content.Items.Debugging;
 
@@ -26,18 +27,8 @@ public class SolynQuestResetter : DebugItem
         if (Main.myPlayer == NetmodeID.MultiplayerClient || p.itemAnimation != p.itemAnimationMax - 1)
             return false;
 
-        StargazingQuestSystem.Completed = false;
-
-        PermafrostKeepQuestSystem.KeepVisibleOnMap = false;
-        PermafrostKeepQuestSystem.Ongoing = false;
-        PermafrostKeepQuestSystem.Completed = false;
-
-        CeaselessVoidQuestSystem.Ongoing = false;
-        CeaselessVoidQuestSystem.Completed = false;
-
-        DraedonCombatQuestSystem.Ongoing = false;
-        DraedonCombatQuestSystem.Completed = false;
-        DraedonCombatQuestSystem.HasSpokenToDraedonBefore = false;
+        foreach (SolynEvent solynEvent in ModContent.GetContent<SolynEvent>())
+            solynEvent.Stage = 0;
 
         PermafrostKeepWorldGen.PlayerGivenKey = false;
         p.GetValueRef<bool>(PermafrostKeepWorldGen.PlayerWasGivenKeyVariableName).Value = false;

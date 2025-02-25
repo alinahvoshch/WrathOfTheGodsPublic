@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using NoxusBoss.Assets;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.DialogueSystem;
 using NoxusBoss.Core.World.TileDisabling;
 using NoxusBoss.Core.World.WorldGeneration;
 using Terraria;
@@ -16,7 +16,10 @@ public class PermafrostKeepMapIconLayer : ModMapLayer
 {
     public override void Draw(ref MapOverlayDrawContext context, ref string text)
     {
-        if (!PermafrostKeepQuestSystem.KeepVisibleOnMap || TileDisablingSystem.TilesAreUninteractable || PermafrostKeepWorldGen.KeepArea == Rectangle.Empty)
+        if (!DialogueManager.FindByRelativePrefix("DormantKeyDiscussion").SeenBefore("Conversation7"))
+            return;
+
+        if (TileDisablingSystem.TilesAreUninteractable || PermafrostKeepWorldGen.KeepArea == Rectangle.Empty)
             return;
 
         Texture2D icon = GennedAssets.Textures.Map.PermafrostKeepMapIcon;

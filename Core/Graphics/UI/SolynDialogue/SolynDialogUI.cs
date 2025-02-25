@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using NoxusBoss.Assets;
 using NoxusBoss.Assets.Fonts;
+using NoxusBoss.Core.DialogueSystem;
 using NoxusBoss.Core.World.Subworlds;
 using ReLogic.Content;
 using Terraria;
@@ -90,17 +91,11 @@ public class SolynDialogUI : UIState
     /// <summary>
     /// The current node of the dialogue tree that's being displayed.
     /// </summary>
-    public DialogueNode? CurrentDialogueNode
+    public Dialogue CurrentDialogueNode
     {
         get;
         set;
     }
-
-    /// <summary>
-    /// The children for the <see cref="CurrentDialogueNode"/> that are viewable.
-    /// </summary>
-    public List<DialogueNode>? ChildDialogueNodes =>
-        CurrentDialogueNode?.Children.Where(c => c.Condition()).ToList() ?? null;
 
     /// <summary>
     /// The UI handler for dialogue said by Solyn.
@@ -145,15 +140,6 @@ public class SolynDialogUI : UIState
     {
         get;
         private set;
-    }
-
-    /// <summary>
-    /// The dialogue that should be chosen at the start of the dialogue. This is local and may vary from player to player.
-    /// </summary>
-    public static DialogueNode ConversationStartingNode
-    {
-        get;
-        internal set;
     }
 
     public static float DividerScale => 1f;
@@ -253,36 +239,40 @@ public class SolynDialogUI : UIState
 
     private void ContinueToNextLine()
     {
-        var childrenNodes = ChildDialogueNodes;
+        var childrenNodes = CurrentDialogueNode.Children;
         if (childrenNodes is null)
             return;
 
         bool anyChildren = childrenNodes.Count >= 1;
         if (ContinueButtonOpacity >= 0.75f)
         {
-            Action? oldClickAwayAction = CurrentDialogueNode?.ClickAwayAction;
+            Dialogue oldNode = CurrentDialogueNode;
 
             bool textChanged = true;
             if (anyChildren)
             {
                 if (DialogueText == ResponseToSay || ResponseToSay is null)
                 {
-                    CurrentDialogueNode?.InvokeEndAction();
                     CurrentDialogueNode = childrenNodes.First();
-                    ResponseToSay = CurrentDialogueNode.ResponseText;
+                    ResponseToSay = CurrentDialogueNode.Text;
                 }
                 else
                 {
                     DialogueText = ResponseToSay;
+                    oldNode.InvokeClickAction();
                     textChanged = false;
                 }
             }
             else
             {
+                oldNode.InvokeClickAction();
+                if (!DialogueSaveSystem.seenDialogue.Contains(oldNode.TextKey))
+                    DialogueSaveSystem.seenDialogue.Add(oldNode.TextKey);
+
                 SolynDialogSystem.HideUI();
                 Main.LocalPlayer.SetTalkNPC(-1);
             }
-            oldClickAwayAction?.Invoke();
+            oldNode.InvokeEndAction();
 
             if (textChanged)
                 ResetDialogueData();
@@ -293,30 +283,28 @@ public class SolynDialogUI : UIState
     {
         if (ResponseToSay is not null)
             DialogueText = ResponseToSay;
-        CurrentDialogueNode?.InvokeEndAction();
     }
 
     private void SelectPlayerResponse(string text)
     {
         // If the dialogue has no children on the dialogue tree, terminate immediately, since there's no dialogue to transfer to.
         // This should never happen in practice, but it's a useful sanity check.
-        var childrenNodes = ChildDialogueNodes;
+        var childrenNodes = CurrentDialogueNode.Children;
         if (childrenNodes is null || childrenNodes.Count == 0)
             return;
 
         for (int i = 0; i < childrenNodes.Count; i++)
         {
-            if (childrenNodes[i].ResponseText == text)
+            if (childrenNodes[i].Text == text)
             {
+                childrenNodes[i].InvokeClickAction();
                 childrenNodes[i].InvokeEndAction();
-                childrenNodes[i].EndActionHappened = true;
-
-                List<DialogueNode> availableChildren = childrenNodes[i].Children.Where(n => n.Condition()).ToList();
+                List<Dialogue> availableChildren = childrenNodes[i].Children.Where(n => n.SelectionCondition()).ToList();
 
                 if (availableChildren.Count == 1)
                 {
                     CurrentDialogueNode = availableChildren.First();
-                    ResponseToSay = CurrentDialogueNode.ResponseText;
+                    ResponseToSay = CurrentDialogueNode.Text;
                     ResetDialogueData();
                 }
                 break;
@@ -335,12 +323,8 @@ public class SolynDialogUI : UIState
 
     public override void Update(GameTime gameTime)
     {
-        if (ConversationStartingNode is null)
-            return;
-
         // Initialize dialogue if necessary.
-        CurrentDialogueNode ??= ConversationStartingNode;
-        ResponseToSay ??= CurrentDialogueNode.ResponseText;
+        ResponseToSay ??= CurrentDialogueNode.Text;
 
         // Pick text.
         DecideOnTextToDisplay();
@@ -365,13 +349,13 @@ public class SolynDialogUI : UIState
     {
         // Check if the dialog node has children that are spoken by the player.
         // These only appear once the dialogue has been said completely.
-        var childrenNodes = ChildDialogueNodes;
+        var childrenNodes = CurrentDialogueNode.Children;
         List<string> playerResponses = [];
         if (childrenNodes is not null && childrenNodes.Count != 0 && DialogueText == ResponseToSay)
         {
             playerResponses.AddRange(childrenNodes.Where(n => n.SpokenByPlayer).Select(n =>
             {
-                string text = n.ResponseText;
+                string text = n.Text;
                 if (n.ColorOverrideFunction is not null)
                     text = $"[c/{n.ColorOverrideFunction().Hex3()}:{text}]";
 
@@ -453,8 +437,8 @@ public class SolynDialogUI : UIState
         BackshadeOpacity = Clamp(BackshadeOpacity + 0.05f, 0f, 0.8f);
 
         // Make the continue button fade in if there's no player options.
-        bool continueButtonExists = PlayerResponseTextLines is null && PlayerTextOpacity <= 0f && (ChildDialogueNodes?.Where(c => !c.SpokenByPlayer).Any() ?? false);
-        if (PlayerResponseTextLines is null && PlayerTextOpacity <= 0f && ChildDialogueNodes is not null && ChildDialogueNodes.Count == 0)
+        bool continueButtonExists = PlayerResponseTextLines is null && PlayerTextOpacity <= 0f && (CurrentDialogueNode.Children?.Where(c => !c.SpokenByPlayer).Any() ?? false);
+        if (PlayerResponseTextLines is null && PlayerTextOpacity <= 0f && CurrentDialogueNode.Children is not null && CurrentDialogueNode.Children.Count == 0)
             continueButtonExists = true;
 
         ContinueButtonOpacity = Saturate(ContinueButtonOpacity + continueButtonExists.ToDirectionInt() * 0.08f);

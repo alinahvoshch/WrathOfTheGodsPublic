@@ -164,6 +164,9 @@ public partial class MarsBody
             NPC.netUpdate = true;
         }
 
+        if (AITimer % 900 == 899)
+            SolynWorldDialogueManager.CreateNew(Language.GetTextValue("Mods.NoxusBoss.Dialog.SolynUseMouseButtons"), -solynNPC.spriteDirection, solynNPC.Top - Vector2.UnitY * 32f, 120, true);
+
         HandleSolynPlayerTeamAttack(solyn);
     }
 

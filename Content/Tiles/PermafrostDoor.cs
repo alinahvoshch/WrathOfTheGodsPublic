@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using NoxusBoss.Assets;
 using NoxusBoss.Core.Graphics.SpecificEffectManagers;
-using NoxusBoss.Core.Graphics.UI.SolynDialogue;
+using NoxusBoss.Core.SolynEvents;
 using NoxusBoss.Core.World.WorldGeneration;
 using Terraria;
 using Terraria.DataStructures;
@@ -35,6 +35,8 @@ public class PermafrostDoor : ModTile
         private set;
     }
 
+    public static bool CanTryToUnlock => Main.LocalPlayer.GetValueRef<bool>(PermafrostKeepWorldGen.PlayerWasGivenKeyVariableName) && ModContent.GetInstance<PermafrostKeepEvent>().Stage >= 1;
+
     public override string Texture => GetAssetPath("Content/Tiles", Name);
 
     public override void SetStaticDefaults()
@@ -65,15 +67,11 @@ public class PermafrostDoor : ModTile
 
     public override bool CanKillTile(int i, int j, ref bool blockDamaged) => false;
 
-    public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
-    {
-        return Main.LocalPlayer.GetValueRef<bool>(PermafrostKeepWorldGen.PlayerWasGivenKeyVariableName) && SolynDialogRegistry.SolynQuest_DormantKey.HasBeenSeen();
-    }
+    public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => CanTryToUnlock;
 
     public override bool RightClick(int i, int j)
     {
-        if (Main.LocalPlayer.GetValueRef<bool>(PermafrostKeepWorldGen.PlayerWasGivenKeyVariableName) &&
-            SolynDialogRegistry.SolynQuest_DormantKey.HasBeenSeen())
+        if (CanTryToUnlock)
         {
             PermafrostDoorUnlockSystem.Start(new(i, j));
             return true;

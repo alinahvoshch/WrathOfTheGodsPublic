@@ -1,5 +1,6 @@
 ﻿using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
 using NoxusBoss.Content.NPCs.Bosses.NamelessDeity;
+using NoxusBoss.Core.SolynEvents;
 using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
 using SubworldLibrary;
 using Terraria;
@@ -46,12 +47,6 @@ public class WorldSaveSystem : ModSystem
         set;
     }
 
-    public static bool CanUseGenesis
-    {
-        get;
-        set;
-    }
-
     public static int GardenTreeSurfaceYOffset
     {
         get;
@@ -68,7 +63,6 @@ public class WorldSaveSystem : ModSystem
         HasMetNamelessDeity = false;
         OgsculeRulesOverTheUniverse = false;
         HasCompletedGenesis = false;
-        CanUseGenesis = false;
         HasPlacedCattail = false;
         GardenTreeSurfaceYOffset = 0;
         AvatarHasKilledOldDuke = false;
@@ -83,7 +77,6 @@ public class WorldSaveSystem : ModSystem
         HasMetNamelessDeity = false;
         OgsculeRulesOverTheUniverse = false;
         HasCompletedGenesis = false;
-        CanUseGenesis = false;
         HasPlacedCattail = false;
         GardenTreeSurfaceYOffset = 0;
         AvatarHasKilledOldDuke = false;
@@ -97,8 +90,6 @@ public class WorldSaveSystem : ModSystem
             tag["OgsculeRulesOverTheUniverse"] = true;
         if (HasCompletedGenesis)
             tag["HasCompletedGenesis"] = true;
-        if (CanUseGenesis)
-            tag["CanUseGenesis"] = true;
         if (HasPlacedCattail)
             tag["HasPlacedCattail"] = true;
         if (RandomSolynSpawnSystem.SolynHasAppearedBefore)
@@ -117,7 +108,6 @@ public class WorldSaveSystem : ModSystem
         HasMetNamelessDeity = tag.ContainsKey("HasMetNamelessDeity");
         OgsculeRulesOverTheUniverse = tag.ContainsKey("OgsculeRulesOverTheUniverse");
         HasCompletedGenesis = tag.ContainsKey("HasCompletedGenesis");
-        CanUseGenesis = tag.ContainsKey("CanUseGenesis");
         HasPlacedCattail = tag.ContainsKey("HasPlacedCattail");
         RandomSolynSpawnSystem.SolynHasAppearedBefore = tag.ContainsKey("SolynHasAppearedBefore");
         RandomSolynSpawnSystem.SolynHasBeenSpokenTo = tag.ContainsKey("SolynHasBeenSpokenTo");
@@ -137,7 +127,6 @@ public class WorldSaveSystem : ModSystem
         b1[4] = RandomSolynSpawnSystem.SolynHasBeenSpokenTo;
         b1[5] = AvatarHasKilledOldDuke;
         b1[6] = HasCompletedGenesis;
-        b1[7] = CanUseGenesis;
 
         writer.Write(b1);
         writer.Write(NamelessDeityDeathCount);
@@ -154,7 +143,6 @@ public class WorldSaveSystem : ModSystem
         RandomSolynSpawnSystem.SolynHasBeenSpokenTo = b1[4];
         AvatarHasKilledOldDuke = b1[5];
         HasCompletedGenesis = b1[6];
-        CanUseGenesis = b1[7];
 
         NamelessDeityDeathCount = reader.ReadInt32();
         GardenTreeSurfaceYOffset = reader.ReadInt32();
@@ -163,6 +151,6 @@ public class WorldSaveSystem : ModSystem
     public override void PreUpdateEntities()
     {
         if (BossDownedSaveSystem.HasDefeated<AvatarOfEmptiness>() || WorldVersionSystem.PreAvatarUpdateWorld)
-            CanUseGenesis = true;
+            ModContent.GetInstance<GenesisCompletionEvent>().SafeSetStage(2);
     }
 }

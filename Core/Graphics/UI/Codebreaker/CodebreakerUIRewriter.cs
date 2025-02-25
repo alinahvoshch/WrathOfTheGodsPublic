@@ -15,7 +15,7 @@ using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
 using NoxusBoss.Core.DataStructures;
 using NoxusBoss.Core.Netcode;
 using NoxusBoss.Core.Netcode.Packets;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+using NoxusBoss.Core.SolynEvents;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -104,8 +104,8 @@ public class CodebreakerUIRewriter : ModSystem
 
     private static void RemakeDraedonSummonUI(orig_HandleDraedonSummonButton orig, TECodebreaker codebreakerTileEntity, Vector2 drawPosition)
     {
-        bool marsTakesPriority = !DraedonCombatQuestSystem.HasSpokenToDraedonBefore && DraedonCombatQuestSystem.Ongoing;
-        bool displayMarsIcon = DraedonCombatQuestSystem.HasSpokenToDraedonBefore && !codebreakerTileEntity.ContainsBloodSample;
+        bool marsTakesPriority = !MarsCombatEvent.HasSpokenToDraedonBefore && ModContent.GetInstance<MarsCombatEvent>().Stage >= 1 && !ModContent.GetInstance<MarsCombatEvent>().Finished;
+        bool displayMarsIcon = MarsCombatEvent.HasSpokenToDraedonBefore && !codebreakerTileEntity.ContainsBloodSample;
 
         if (!marsTakesPriority)
             HandleDraedonSummonButton_StandardExoMechs(codebreakerTileEntity, drawPosition);
@@ -203,7 +203,7 @@ public class CodebreakerUIRewriter : ModSystem
                 CalamityWorld.DraedonSummonPosition = codebreakerTileEntity.Center + new Vector2(-8f, -100f);
                 SoundEngine.PlaySound(SummonSound, CalamityWorld.DraedonSummonPosition);
 
-                DraedonCombatQuestSystem.MarsBeingSummoned = true;
+                MarsCombatEvent.MarsBeingSummoned = true;
 
                 if (Main.netMode != NetmodeID.SinglePlayer)
                 {
@@ -229,7 +229,7 @@ public class CodebreakerUIRewriter : ModSystem
         // And display a text indicator that describes the function of the button.
         // The color of the text pulsates.
         string contactText = Language.GetTextValue("Mods.NoxusBoss.Dialog.SummonMarsButtonText");
-        if (!DraedonCombatQuestSystem.HasSpokenToDraedonBefore)
+        if (!MarsCombatEvent.HasSpokenToDraedonBefore)
             contactText = Language.GetTextValue("Mods.CalamityMod.UI.Summon");
 
         Color contactTextColor = Color.Lerp(Color.Wheat, Color.Cyan, Cos01(Main.GlobalTimeWrappedHourly * 7f) * 0.7f);

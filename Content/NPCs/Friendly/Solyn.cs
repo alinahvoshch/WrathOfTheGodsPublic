@@ -1,5 +1,4 @@
-﻿using Luminance.Common.StateMachines;
-using Luminance.Core.Graphics;
+﻿using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using NoxusBoss.Assets;
@@ -12,13 +11,12 @@ using NoxusBoss.Content.Particles;
 using NoxusBoss.Content.Tiles;
 using NoxusBoss.Core.CrossCompatibility.Inbound;
 using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
+using NoxusBoss.Core.DialogueSystem;
 using NoxusBoss.Core.Graphics.SpecificEffectManagers;
+using NoxusBoss.Core.Graphics.TentInterior;
 using NoxusBoss.Core.Graphics.UI.SolynDialogue;
-using NoxusBoss.Core.World.GameScenes.AvatarAppearances;
 using NoxusBoss.Core.World.GameScenes.AvatarUniverseExploration;
 using NoxusBoss.Core.World.GameScenes.EndCredits;
-using NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
-using NoxusBoss.Core.World.GameScenes.Stargazing;
 using NoxusBoss.Core.World.Subworlds;
 using NoxusBoss.Core.World.WorldGeneration;
 using Terraria;
@@ -26,8 +24,6 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.Events;
-using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
@@ -38,112 +34,24 @@ namespace NoxusBoss.Content.NPCs.Friendly;
 [AutoloadHead]
 public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 {
-    public enum SolynAIType
-    {
-        StandStill,
-        WanderAbout,
-        ConfettiTeleportMagicTrick,
-        SpeakToPlayer,
-        FallFromTheSky,
-        GetUpAfterStarFall,
-
-        FollowPlayer,
-        CryogenSummonNotice,
-        CryogenSummonAnimation,
-
-        WaitAtPermafrostKeep,
-        WalkAroundPermafrostKeep,
-        TeleportFromPermafrostKeep,
-
-        FollowPlayerToCodebreaker,
-        FollowPlayerToGenesis,
-        PontificateAboutGenesis,
-
-        IncospicuouslyFlyAwayToDungeon,
-        WaitNearCeaselessVoidRift,
-        FlyIntoRift,
-        WaitInsideRift,
-        ExitRift,
-
-        TeleportHome,
-        WalkHome,
-        EnterTentToSleep,
-        Eepy,
-
-        Shimmering,
-
-        EndCreditsCutscene,
-
-        Count
-    }
-
-    public enum PathfindingState
-    {
-        Walk,
-        Jump,
-        Fly
-    }
-
-    #region Fields and Properties
+    /// <summary>
+    /// Solyn's current frame on her overall sprite sheet.
+    /// </summary>
+    public int Frame;
 
     /// <summary>
-    /// Whether Solyn is currently wearing a hat or not.
+    /// A countdown value that determines whether Solyn should use a shocked expression.
     /// </summary>
-    public bool HasHat
+    public int ShockedExpressionCountdown
     {
         get;
         set;
     }
 
     /// <summary>
-    /// Whether Solyn jumped this frame.
+    /// The amount of afterimages Solyn should have.
     /// </summary>
-    public bool JustJumped
-    {
-        get;
-        set;
-    }
-
-    /// <summary>
-    /// Solyn's immunity frame countdown value.
-    /// </summary>
-    public int ImmunityFrameCounter
-    {
-        get;
-        set;
-    }
-
-    /// <summary>
-    /// The direction in which Solyn will fall to the ground.
-    /// </summary>
-    public int SkyFallDirection
-    {
-        get;
-        set;
-    }
-
-    /// <summary>
-    /// Whether Solyn was summoned from a star-fall or not.
-    /// </summary>
-    public bool SummonedByStarFall
-    {
-        get;
-        set;
-    }
-
-    /// <summary>
-    /// Whether Solyn can depart due to time.
-    /// </summary>
-    public bool CanDepart
-    {
-        get;
-        set;
-    }
-
-    /// <summary>
-    /// Whether Solyn can be spoken to or not.
-    /// </summary>
-    public bool CanBeSpokenTo
+    public int AfterimageCount
     {
         get;
         set;
@@ -159,42 +67,6 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
     }
 
     /// <summary>
-    /// Whether a forced, manual conversation is ongoing.
-    /// </summary>
-    public bool ForcedConversation
-    {
-        get;
-        set;
-    }
-
-    /// <summary>
-    /// Whether Solyn should forcefully take damage from hostile projectiles.
-    /// </summary>
-    public bool ForceDamageFromHostileProjectiles
-    {
-        get;
-        set;
-    }
-
-    /// <summary>
-    /// Whether Solyn has released a kite out or not.
-    /// </summary>
-    public bool LetOutKite
-    {
-        get;
-        set;
-    }
-
-    /// <summary>
-    /// Whether Solyn should reel in her used kite or not.
-    /// </summary>
-    public bool ReelInKite
-    {
-        get;
-        set;
-    }
-
-    /// <summary>
     /// Whether Solyn is actually Soulyn.
     /// </summary>
     public bool SoulForm
@@ -204,7 +76,7 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
     }
 
     /// <summary>
-    /// How much Solyn should be visually squished.
+    /// The amount of squish Solyn has currently.
     /// </summary>
     public float Squish
     {
@@ -213,137 +85,59 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
     }
 
     /// <summary>
-    /// How much Solyn's afterimages clump together.
+    /// The zoom-in interpolant Solyn should use for the current client due to talking with them.
     /// </summary>
-    public float AfterimageClumpInterpolant
+    public float ZoomInInterpolant
     {
         get;
         set;
     }
 
     /// <summary>
-    /// How much Solyn's afterimages glow.
+    /// Whether Solyn should reel in the kite she has or not.
     /// </summary>
-    public float AfterimageGlowInterpolant
+    public bool ReelInKite
     {
         get;
         set;
     }
 
     /// <summary>
-    /// Solyn's desired position to wander to.
+    /// Whether Solyn should fall through platforms or not.
     /// </summary>
-    public Vector2 WanderDestination
+    public bool DescendThroughSlopes
     {
         get;
         set;
     }
 
     /// <summary>
-    /// The conversation Solyn will use when speaking to the player.
+    /// Solyn's current state.
     /// </summary>
-    public Conversation CurrentConversation
+    public SolynAIType CurrentState
     {
         get;
         set;
     }
 
     /// <summary>
-    /// Solyn's AI state before she shimmered.
+    /// A general-purpose AI timer for Solyn.
     /// </summary>
-    public SolynAIType StateBeforeShimmering
+    public int AITimer
     {
         get;
         set;
     }
-
-    /// <summary>
-    /// The position of Solyn's hat.
-    /// </summary>
-    public Vector2 HatPosition => NPC.Center - Vector2.UnitY.RotatedBy(NPC.rotation) * NPC.scale * 34f;
-
-    /// <summary>
-    /// The amount of afterimages Solyn should draw.
-    /// </summary>
-    public int AfterimageCount
-    {
-        get;
-        set;
-    }
-
-    /// <summary>
-    /// The horizontal starting position Solyn was summoned at.
-    /// </summary>
-    /// <remarks>
-    /// Chiefly used for the purpose of ensuring Solyn doesn't wander too far from her starting position.
-    /// </remarks>
-    public float SpawnPositionX
-    {
-        get;
-        set;
-    }
-
-    /// <summary>
-    /// The amount by which indicator arrows should fly away due to there being nothing important to discuss.
-    /// </summary>
-    public float TextFlyAwayDistance
-    {
-        get;
-        set;
-    } = 1000f;
 
     /// <summary>
     /// Solyn's effective scale, taking into account her <see cref="Squish"/>.
     /// </summary>
     public Vector2 EffectiveScale => new Vector2(1f + Squish, 1f - Squish) * NPC.scale;
 
-    /// <summary>
-    /// The chance Solyn has to trip and fall every frame when running to follow the player.
-    /// </summary>
-    public static int TripFallChance => 9600;
-
-    /// <summary>
-    /// Whether Solyn has anything important to discuss currently.
-    /// </summary>
-    public static bool AnythingImportantToDiscuss
-    {
-        get
-        {
-            if (CommonCalamityVariables.CryogenDefeated && !SolynDialogRegistry.SolynQuest_DormantKey.NodeSeen("Start") && StargazingQuestSystem.Completed)
-                return true;
-            if (PostMLRiftAppearanceSystem.AvatarHasCoveredMoon && !SolynDialogRegistry.SolynQuest_GenesisReveal.NodeSeen("Start") && PermafrostKeepQuestSystem.Completed)
-                return true;
-            if (CommonCalamityVariables.ProvidenceDefeated && !SolynDialogRegistry.SolynQuest_CeaselessVoidBeforeBattle.NodeSeen("Start") && PermafrostKeepQuestSystem.Completed && SolynDialogRegistry.SolynQuest_GenesisReveal.NodeSeen("Start"))
-                return true;
-            if (CommonCalamityVariables.DraedonDefeated && !SolynDialogRegistry.SolynQuest_DraedonBeforeCombatSimulation.NodeSeen("Start") && CeaselessVoidQuestSystem.Completed && SolynDialogRegistry.SolynQuest_GenesisReveal.NodeSeen("Start"))
-                return true;
-
-            return false;
-        }
-    }
-
-    public PixelationPrimitiveLayer LayerToRenderTo => PixelationPrimitiveLayer.BeforeNPCs;
-
-    /// <summary>
-    /// The currently frame Solyn should use on her sprite sheet.
-    /// </summary>
-    public ref float Frame => ref NPC.localAI[0];
-
-    /// <summary>
-    /// The zoom-in interpolant Solyn should use for the current client due to talking with them.
-    /// </summary>
-    public ref float ZoomInInterpolant => ref NPC.localAI[1];
-
-    /// <summary>
-    /// How many frames of immunity Solyn receives upon taking damage.
-    /// </summary>
-    public static int ImmunityFramesGrantedOnHit => SecondsToFrames(0.45f);
+    #region Initialization
 
     public override string Texture => GetAssetPath("Content/NPCs/Friendly", Name);
 
-    #endregion Fields and Properties
-
-    #region Initialization
     public override void Load() => Mod.AddNPCHeadTexture(Type, $"{Texture}_Shimmer_Head");
 
     public override void SetStaticDefaults()
@@ -371,7 +165,6 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         }).WithoutClickability().WithDrawSizes(1420);
         itsPeak.Register();
 
-        On_Main.HoverOverNPCs += DisableSolynChat;
         On_Main.DrawNPCHeadFriendly += FlipMapHead;
     }
 
@@ -381,135 +174,6 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
             dir ^= SpriteEffects.FlipHorizontally;
 
         orig(entity, alpha, headScale, dir, townHeadId, x, y);
-    }
-
-    private void DisableSolynChat(On_Main.orig_HoverOverNPCs orig, Main self, Rectangle mouseRectangle)
-    {
-        // This is all dumb. Whatever.
-        int battleSolynID = ModContent.NPCType<BattleSolyn>();
-        Player player = Main.LocalPlayer;
-        for (int i = 0; i < Main.maxNPCs; i++)
-        {
-            NPC npc = Main.npc[i];
-            if (!(npc.active & (npc.shimmerTransparency == 0f || npc.CanApplyHunterPotionEffects())))
-                continue;
-
-            if (npc.type == Type && !npc.As<Solyn>().CanBeSpokenTo)
-                continue;
-            if (npc.type == battleSolynID)
-                continue;
-            if (!npc.ShowNameOnHover && npc.type != Type)
-                continue;
-
-            Main.instance.LoadNPC(npc.type);
-            npc.position += npc.netOffset;
-            Rectangle npcArea = new Rectangle((int)npc.Bottom.X - npc.frame.Width / 2, (int)npc.Bottom.Y - npc.frame.Height, npc.frame.Width, npc.frame.Height);
-            if (npc.type >= NPCID.WyvernHead && npc.type <= NPCID.WyvernTail)
-                npcArea = new Rectangle((int)(npc.Center.X - 32f), (int)(npc.Center.Y - 32f), 64, 64);
-
-            NPCLoader.ModifyHoverBoundingBox(npc, ref npcArea);
-
-            bool mouseOverNPC = mouseRectangle.Intersects(npcArea);
-            bool interactingWithNPC = mouseOverNPC || (Main.SmartInteractShowingGenuine && Main.SmartInteractNPC == i);
-
-            if (interactingWithNPC && ((npc.type != NPCID.Mimic && npc.type != NPCID.PresentMimic && npc.type != NPCID.IceMimic && npc.aiStyle != 87) || npc.ai[0] != 0f) && npc.type != NPCID.TargetDummy)
-            {
-                if (npc.type == NPCID.BoundTownSlimeOld)
-                {
-                    player.cursorItemIconEnabled = true;
-                    player.cursorItemIconID = 327;
-                    player.cursorItemIconText = "";
-                    player.noThrow = 2;
-                    if (!player.dead)
-                    {
-                        PlayerInput.SetZoom_MouseInWorld();
-                        if (Main.mouseRight && Main.npcChatRelease)
-                        {
-                            Main.npcChatRelease = false;
-                            if (PlayerInput.UsingGamepad)
-                            {
-                                player.releaseInventory = false;
-                            }
-                            if (player.talkNPC != i && !player.tileInteractionHappened && (bool)(typeof(Main).GetMethod("TryFreeingElderSlime", UniversalBindingFlags)?.Invoke(null, [i]) ?? false))
-                            {
-                                NPC.TransformElderSlime(i);
-                                SoundEngine.PlaySound(SoundID.Unlock);
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    bool flag3 = Main.SmartInteractShowingGenuine && Main.SmartInteractNPC == i;
-                    if (npc.townNPC || npc.type == NPCID.BoundGoblin || npc.type == NPCID.BoundWizard || npc.type == NPCID.BoundMechanic || npc.type == NPCID.WebbedStylist || npc.type == NPCID.SleepingAngler || npc.type == NPCID.BartenderUnconscious || npc.type == NPCID.SkeletonMerchant || npc.type == NPCID.GolferRescue)
-                    {
-                        Rectangle rectangle = new Rectangle((int)(player.position.X + (float)(player.width / 2) - (float)(Player.tileRangeX * 16)), (int)(player.position.Y + (float)(player.height / 2) - (float)(Player.tileRangeY * 16)), Player.tileRangeX * 16 * 2, Player.tileRangeY * 16 * 2);
-                        Rectangle value2 = new Rectangle((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height);
-                        if (rectangle.Intersects(value2))
-                        {
-                            flag3 = true;
-                        }
-                    }
-                    if (player.ownedProjectileCounts[651] > 0)
-                    {
-                        flag3 = false;
-                    }
-                    if (flag3 && !player.dead)
-                    {
-                        PlayerInput.SetZoom_MouseInWorld();
-                        Main.HoveringOverAnNPC = true;
-                        Main.instance.currentNPCShowingChatBubble = i;
-                        if (Main.mouseRight && Main.npcChatRelease)
-                        {
-                            Main.npcChatRelease = false;
-                            if (PlayerInput.UsingGamepad)
-                            {
-                                player.releaseInventory = false;
-                            }
-                            if (player.talkNPC != i && !player.tileInteractionHappened)
-                            {
-                                Main.CancelHairWindow();
-                                Main.SetNPCShopIndex(0);
-                                Main.InGuideCraftMenu = false;
-                                player.dropItemCheck();
-                                Main.npcChatCornerItem = 0;
-                                player.sign = -1;
-                                Main.editSign = false;
-                                player.SetTalkNPC(i);
-                                Main.playerInventory = false;
-                                player.chest = -1;
-                                Recipe.FindRecipes();
-                                Main.npcChatText = npc.GetChat();
-                                SoundEngine.PlaySound(SoundID.Chat);
-                            }
-                        }
-                    }
-                    if (mouseOverNPC && !player.mouseInterface)
-                    {
-                        player.cursorItemIconEnabled = false;
-                        string text = npc.GivenOrTypeName;
-                        int effectiveIndex = i;
-                        if (npc.realLife >= 0)
-                            effectiveIndex = npc.realLife;
-
-                        if (Main.npc[effectiveIndex].lifeMax > 1 && !Main.npc[effectiveIndex].dontTakeDamage)
-                            text = text + ": " + Main.npc[effectiveIndex].life + "/" + Main.npc[effectiveIndex].lifeMax;
-
-                        NPCNameFontSystem.npcIDForMouseTextHackZoom = Main.npc[effectiveIndex].type;
-                        Main.instance.MouseTextHackZoom(text);
-                        Main.mouseText = true;
-                        npc.position -= npc.netOffset;
-                        break;
-                    }
-                    if (interactingWithNPC)
-                    {
-                        npc.position -= npc.netOffset;
-                        break;
-                    }
-                }
-            }
-            npc.position -= npc.netOffset;
-        }
     }
 
     public override void SetDefaults()
@@ -557,12 +221,7 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 
     public override void OnSpawn(IEntitySource source)
     {
-        // Choose the conversation to use.
-        CurrentConversation = SolynDialogSystem.ChooseSolynConversation();
 
-        // Spawn with a hat if there's a party.
-        if (BirthdayParty.PartyIsUp)
-            HasHat = true;
     }
 
     public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
@@ -580,67 +239,20 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 
     public override void SendExtraAI(BinaryWriter writer)
     {
-        writer.Write(CurrentConversation?.IdentifierKey ?? string.Empty);
-
-        BitsByte b1 = new BitsByte()
-        {
-            [0] = SummonedByStarFall,
-            [1] = NPC.noGravity,
-            [2] = NPC.noTileCollide,
-            [3] = CanDepart,
-            [4] = WaitingToEnterCVRift
-        };
-
-        writer.Write(b1);
-        writer.Write((int)StateBeforeShimmering);
+        writer.Write((int)CurrentState);
+        writer.Write(AITimer);
+        writer.Write(WanderAbout_StuckTimer);
         writer.Write(SkyFallDirection);
-        writer.Write(SpawnPositionX);
         writer.WriteVector2(WanderDestination);
-        writer.WriteVector2(FollowPlayer_FlyDestinationOverride);
-        writer.WriteVector2(CurrentPathfindingDestination);
-        writer.WriteVector2(WaitNearCeaselessVoidRift_WaitPosition);
-
-        // Write state data.
-        var stateStack = (StateMachine?.StateStack ?? new Stack<EntityAIState<SolynAIType>>()).ToList();
-        writer.Write(stateStack.Count);
-        for (int i = stateStack.Count - 1; i >= 0; i--)
-        {
-            writer.Write(stateStack[i].Time);
-            writer.Write((byte)stateStack[i].Identifier);
-        }
     }
 
     public override void ReceiveExtraAI(BinaryReader reader)
     {
-        string conversationKey = reader.ReadString();
-        Conversation? conversation = SolynDialogRegistry.SolynConversations.FirstOrDefault(c => c.IdentifierKey == conversationKey);
-        if (conversation is not null)
-            CurrentConversation = conversation;
-
-        BitsByte b1 = reader.ReadByte();
-        SummonedByStarFall = b1[0];
-        NPC.noGravity = b1[1];
-        NPC.noTileCollide = b1[2];
-        CanDepart = b1[3];
-        WaitingToEnterCVRift = b1[4];
-
-        StateBeforeShimmering = (SolynAIType)reader.ReadInt32();
+        CurrentState = (SolynAIType)reader.ReadInt32();
+        AITimer = reader.ReadInt32();
+        WanderAbout_StuckTimer = reader.ReadInt32();
         SkyFallDirection = reader.ReadInt32();
-        SpawnPositionX = reader.ReadSingle();
         WanderDestination = reader.ReadVector2();
-        FollowPlayer_FlyDestinationOverride = reader.ReadVector2();
-        CurrentPathfindingDestination = reader.ReadVector2();
-        WaitNearCeaselessVoidRift_WaitPosition = reader.ReadVector2();
-
-        // Read state data.
-        int stateStackCount = reader.ReadInt32();
-        for (int i = 0; i < stateStackCount; i++)
-        {
-            int time = reader.ReadInt32();
-            byte stateType = reader.ReadByte();
-            StateMachine.StateStack.Push(StateMachine.StateRegistry[(SolynAIType)stateType]);
-            StateMachine.StateRegistry[(SolynAIType)stateType].Time = time;
-        }
     }
 
     #endregion Network Code
@@ -654,64 +266,37 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
             SolynCampsiteWorldGen.GenerateOnNewThread();
         }
 
-        PerformStateSafetyCheck();
-
         // Reset things every frame.
-        ReelInKite = CurrentConversation == SolynDialogRegistry.SolynWindyDay && Main.dayTime;
-        NPC.noGravity = false;
         NPC.immortal = true;
         NPC.gfxOffY = 0f;
         NPC.townNPC = true;
         NPC.hide = false;
         NPC.breath = 200;
         NPC.breathCounter = 0;
-        CanBeSpokenTo = true;
-        CanDepart = !EternalGardenUpdateSystem.WasInSubworldLastUpdateFrame;
-        ForcedConversation = false;
-        JustJumped = false;
-        HasBackglow = false;
-        DescendThroughSlopes = false;
-        ForceDamageFromHostileProjectiles = false;
-        AfterimageCount = 8;
-        AfterimageGlowInterpolant = 0.2f;
-        AfterimageClumpInterpolant = 0f;
         NPC.Opacity = Saturate(NPC.Opacity + 0.01f);
+        HasBackglow = false;
+        SoulForm = false;
         Squish *= 0.85f;
-        if (ImmunityFrameCounter > 0)
-            ImmunityFrameCounter--;
+        AfterimageCount = 8;
         if (EternalGardenUpdateSystem.WasInSubworldLastUpdateFrame)
         {
             SoulForm = true;
             HasBackglow = true;
         }
-        if (CurrentConversation?.RerollCondition() ?? false)
-            CurrentConversation = SolynDialogSystem.ChooseSolynConversation();
 
-        // FUCK FUCK FUCK
-        if (CurrentConversation == SolynDialogRegistry.SolynQuest_CeaselessVoidBeforeBattle && CommonCalamityVariables.CeaselessVoidDefeated)
-            CurrentConversation = SolynDialogRegistry.SolynQuest_CeaselessVoidAfterBattle;
+        if (CurrentState != SolynAIType.PuppeteeredByQuest)
+        {
+            NPC.noGravity = false;
+            DescendThroughSlopes = false;
+            CanBeSpokenTo = true;
+        }
 
         // Disallow an undefined sprite direction.
         // If it ends up being 0, it'll become 1 by default.
         // If it is not -1 or 1, it'll become the the sign of the original value.
         NPC.spriteDirection = (NPC.spriteDirection >= 0).ToDirectionInt();
 
-        StateMachine.PerformBehaviors();
-
-        if (ModContent.GetInstance<BecomeDuskScene>().IsActive || StargazingScene.IsActive || CurrentConversation == SolynDialogRegistry.SolynQuest_Stargaze || CurrentConversation == SolynDialogRegistry.SolynQuest_Stargaze_Completed)
-            CanDepart = false;
-
-        StateMachine.PerformStateTransitionCheck();
-
         RiftEclipseSnow.CreateSnowWalkEffects(NPC, false);
-
-        // Store the X spawn position on the first frame.
-        if (SpawnPositionX == 0f)
-        {
-            AITimer = 0;
-            SpawnPositionX = NPC.Center.X;
-            NPC.netUpdate = true;
-        }
 
         // Stay at home if the player is in the ceaseless void rift.
         if (AvatarUniverseExplorationSystem.InAvatarUniverse)
@@ -724,32 +309,63 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         DelegateMethods.v3_1 = new Vector3(0.3f, 0.367f, 0.45f) * 0.8f;
         Utils.PlotTileLine(NPC.Top, NPC.Bottom, NPC.width, DelegateMethods.CastLightOpen);
 
-        // Handle UI interactions.
-        HandleUIInteractions();
-
-        // Determine if Solyn has been spoken to or not.
-        if (Main.netMode != NetmodeID.MultiplayerClient && CurrentState == SolynAIType.SpeakToPlayer && !RandomSolynSpawnSystem.SolynHasBeenSpokenTo)
-            RandomSolynSpawnSystem.SolynHasBeenSpokenTo = true;
-
         // This is necessary to ensure that the map icon is correct.
         NPC.direction = -NPC.spriteDirection;
 
         // NOOOO SOLYN DON'T DESPAWN!
         NPC.timeLeft = 7200;
 
-        // Increment the AI timer.
-        PerformStateSafetyCheck();
-        AITimer++;
+        switch (CurrentState)
+        {
+            case SolynAIType.StandStill:
+                DoBehavior_StandStill();
+                break;
+            case SolynAIType.WanderAbout:
+                DoBehavior_WanderAbout();
+                break;
+            case SolynAIType.SpeakToPlayer:
+                DoBehavior_SpeakToPlayer();
+                break;
+            case SolynAIType.FallFromTheSky:
+                DoBehavior_FallFromTheSky();
+                break;
+            case SolynAIType.GetUpAfterStarFall:
+                DoBehavior_GetUpAfterStarFall();
+                break;
+            case SolynAIType.EnterTentToSleep:
+                DoBehavior_EnterTentToSleep();
+                break;
+            case SolynAIType.Eepy:
+                DoBehavior_Eepy();
+                break;
+            case SolynAIType.WaitToTeleportHome:
+                if (AITimer >= 60)
+                {
+                    TeleportTo(SolynCampsiteWorldGen.CampSitePosition);
+                    SwitchState(SolynAIType.StandStill);
+                }
+                break;
+        }
+
+        HandleConversationEffects();
 
         // Zoom in on Solyn based on the zoom interpolant.
-        if (CurrentState == SolynAIType.SpeakToPlayer)
-            CalamityCompatibility.ResetStealthBarOpacity(Main.LocalPlayer);
-
         if (ZoomInInterpolant > 0f)
         {
             CameraPanSystem.Zoom = Pow(ZoomInInterpolant, 0.7f) * 0.6f;
             CameraPanSystem.PanTowards(NPC.Center, ZoomInInterpolant);
+            CalamityCompatibility.ResetStealthBarOpacity(Main.LocalPlayer);
         }
+
+        // Increment the AI timer.
+        AITimer++;
+    }
+
+    public void SwitchState(SolynAIType state)
+    {
+        CurrentState = state;
+        AITimer = 0;
+        NPC.netUpdate = true;
     }
 
     public void UseStarFlyEffects()
@@ -759,38 +375,50 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         float starScaleInterpolant = Main.rand.NextFloat();
         int starLifetime = (int)Lerp(11f, 30f, starScaleInterpolant);
         float starScale = Lerp(0.2f, 0.4f, starScaleInterpolant) * NPC.scale;
-        Color starColor = Color.Lerp(new(1f, 0.41f, 0.51f), new(1f, 0.85f, 0.37f), Main.rand.NextFloat());
+        Color starColor = Color.Lerp(new Color(1f, 0.41f, 0.51f), new Color(1f, 0.85f, 0.37f), Main.rand.NextFloat());
         Vector2 starSpawnPosition = NPC.Center + new Vector2(NPC.spriteDirection * 10f, 8f) + Main.rand.NextVector2Circular(16f, 16f);
         Vector2 starVelocity = Main.rand.NextVector2Circular(3f, 3f) + NPC.velocity;
         TwinkleParticle star = new TwinkleParticle(starSpawnPosition, starVelocity, starColor, starLifetime, starPoints, new Vector2(Main.rand.NextFloat(0.4f, 1.6f), 1f) * starScale, starColor * 0.5f);
         star.Spawn();
 
-        Frame = 25f;
+        Frame = 25;
     }
 
-    public void HandleUIInteractions()
+    public void SpeakToPlayerEffects()
     {
+        string currentDialogueUsedByUI = ModContent.GetInstance<SolynDialogSystem>().DialogUI.CurrentDialogueNode?.TextKey ?? string.Empty;
+        if (!CurrentConversation.Tree.PossibleDialogue.Values.Any(d => d.TextKey == currentDialogueUsedByUI))
+            ModContent.GetInstance<SolynDialogSystem>().DialogUI.CurrentDialogueNode = CurrentConversation.RootSelectionFunction();
+
+        SolynDialogSystem.ShowUI();
+
+        // Zoom in on Solyn.
+        ZoomInInterpolant = Saturate(ZoomInInterpolant + 0.02f);
+
+        if (DialogueManager.FindByRelativePrefix("SolynIntroduction").SeenBefore("Question1") || CurrentConversation != DialogueManager.FindByRelativePrefix("SolynIntroduction"))
+            NPC.spriteDirection = (Main.LocalPlayer.Center.X - NPC.Center.X).NonZeroSign();
+
+        // Switch to the speak-to-player AI state.
+        if (CurrentState != SolynAIType.SpeakToPlayer && CurrentState != SolynAIType.PuppeteeredByQuest)
+        {
+            while (Collision.SolidCollision(NPC.BottomLeft, NPC.width, 2))
+                NPC.position.Y -= 2f;
+
+            AITimer = 0;
+            CurrentState = SolynAIType.SpeakToPlayer;
+            NPC.netUpdate = true;
+        }
+    }
+
+    public void HandleConversationEffects()
+    {
+        CurrentConversation ??= ConversationSelector.ChooseRandomSolynConversation(this);
+        ConversationSelector.Evaluate(this);
+
         // Toggle the UI as necessary.
         if ((Main.LocalPlayer.talkNPC == NPC.whoAmI && CanBeSpokenTo) || ForcedConversation)
         {
-            CurrentConversation ??= SolynDialogSystem.ChooseSolynConversation();
-            CurrentConversation.Start();
-            SolynDialogSystem.ShowUI();
-
-            // Zoom in on Solyn.
-            ZoomInInterpolant = Saturate(ZoomInInterpolant + (CurrentState == SolynAIType.FollowPlayer ? -0.06f : 0.02f));
-
-            // Switch to the speak-to-player AI state.
-            if (CurrentState != SolynAIType.SpeakToPlayer && CurrentState != SolynAIType.FollowPlayer && CurrentState != SolynAIType.CryogenSummonNotice && CurrentState != SolynAIType.CryogenSummonAnimation)
-            {
-                while (Collision.SolidCollision(NPC.BottomLeft, NPC.width, 2))
-                    NPC.position.Y -= 2f;
-
-                AITimer = 0;
-                StateMachine.StateStack.Clear();
-                StateMachine.StateStack.Push(StateMachine.StateRegistry[SolynAIType.SpeakToPlayer]);
-                NPC.netUpdate = true;
-            }
+            SpeakToPlayerEffects();
             return;
         }
 
@@ -810,69 +438,48 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 
     public override void SaveData(TagCompound tag)
     {
-        if (CurrentState == SolynAIType.FollowPlayer)
-            tag["FollowingPlayer"] = true;
-        if (CurrentState == SolynAIType.FollowPlayerToCodebreaker)
-            tag["FollowingPlayerToCodebreaker"] = true;
-        if (CurrentState == SolynAIType.FollowPlayerToGenesis)
-            tag["FollowPlayerToGenesis"] = true;
+        tag["State"] = (int)CurrentState;
     }
 
     public override void LoadData(TagCompound tag)
     {
-        bool followingPlayer = tag.TryGet("FollowingPlayer", out bool f) && f;
-        if (followingPlayer)
-        {
-            StateMachine.StateStack.Clear();
-            StateMachine.StateStack.Push(StateMachine.StateRegistry[SolynAIType.FollowPlayer]);
-        }
-
-        followingPlayer = tag.TryGet("FollowingPlayerToCodebreaker", out f) && f;
-        if (followingPlayer)
-        {
-            StateMachine.StateStack.Clear();
-            StateMachine.StateStack.Push(StateMachine.StateRegistry[SolynAIType.FollowPlayerToCodebreaker]);
-        }
-
-        followingPlayer = tag.TryGet("FollowPlayerToGenesis", out f) && f;
-        if (followingPlayer)
-        {
-            StateMachine.StateStack.Clear();
-            StateMachine.StateStack.Push(StateMachine.StateRegistry[SolynAIType.FollowPlayerToGenesis]);
-        }
+        CurrentState = (SolynAIType)tag.GetInt("State");
     }
 
     #endregion Saving
 
-    #region Collision
-
-    public override bool? CanFallThroughPlatforms()
-    {
-        if (DescendThroughSlopes)
-            return true;
-
-        return null;
-    }
-
-    public override bool? CanBeHitByProjectile(Projectile projectile)
-    {
-        if (projectile.hostile && ForceDamageFromHostileProjectiles && ImmunityFrameCounter <= 0)
-            return true;
-        return null;
-    }
-
-    public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone)
-    {
-        ImmunityFrameCounter = ImmunityFramesGrantedOnHit;
-    }
-
-    #endregion Collision
-
     #region Drawing
+
+    public override bool CanChat() => CanBeSpokenTo;
 
     // This is a bit clunky but it's necessary for Solyn to be interactable as a town NPC.
     // Her actual UI is drawn separately.
     public override string GetChat() => string.Empty;
+
+    /// <summary>
+    /// Makes Solyn teleport to a given position.
+    /// </summary>
+    /// <param name="teleportGroundPosition">Where Solyn's <see cref="Entity.Bottom"/> position should be teleported to.</param>
+    public void TeleportTo(Vector2 teleportGroundPosition)
+    {
+        // Create teleport particles at the starting position.
+        ExpandingGreyscaleCircleParticle circle = new ExpandingGreyscaleCircleParticle(NPC.Center, Vector2.Zero, Color.IndianRed, 8, 0.1f);
+        circle.Spawn();
+        MagicBurstParticle burst = new MagicBurstParticle(NPC.Center, Vector2.Zero, Color.Wheat, 20, 1.04f);
+        burst.Spawn();
+
+        // Play a teleport sound.
+        SoundEngine.PlaySound(GennedAssets.Sounds.Common.TeleportOut with { Volume = 0.5f, Pitch = 0.3f, MaxInstances = 5, PitchVariance = 0.16f }, NPC.Center);
+
+        // Teleport.
+        NPC.Bottom = teleportGroundPosition;
+
+        // Create teleport particles at the ending position.
+        circle = new(NPC.Center, Vector2.Zero, Color.IndianRed, 8, 0.1f);
+        circle.Spawn();
+        burst = new(NPC.Center, Vector2.Zero, Color.Wheat, 20, 1.04f);
+        burst.Spawn();
+    }
 
     public void PerformStandardFraming()
     {
@@ -880,7 +487,7 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         {
             int defaultFrame = 0;
             int blinkFrame = 20;
-            if (ShockedExpressionCountdown > 0)
+            if (ShockedExpressionCountdown >= 1)
             {
                 ShockedExpressionCountdown--;
                 defaultFrame = 42;
@@ -929,18 +536,16 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 
         // Set Solyn's frame.
         NPC.frame.Width = 62;
-        NPC.frame.X = (int)(Frame / Main.npcFrameCount[Type]) * NPC.frame.Width;
-        NPC.frame.Y = (int)(Frame % Main.npcFrameCount[Type]) * frameHeight;
+        NPC.frame.X = Frame / Main.npcFrameCount[Type] * NPC.frame.Width;
+        NPC.frame.Y = Frame % Main.npcFrameCount[Type] * frameHeight;
     }
 
-    // Have a perpetual slight bright glow at all times.
-    public override Color? GetAlpha(Color drawColor)
+    public override bool? CanFallThroughPlatforms()
     {
-        float immunityPulse = 1f - Cos01(TwoPi * ImmunityFrameCounter / ImmunityFramesGrantedOnHit * 2f);
-        Color baseColor = Color.Lerp(drawColor, Color.White, 0.2f);
-        Color immunityColor = Color.Lerp(drawColor, new(255, 0, 50), 0.9f);
-        Color color = Color.Lerp(baseColor, immunityColor, immunityPulse) * Lerp(1f, 0.3f, immunityPulse);
-        return color * NPC.Opacity * (1f - NPC.shimmerTransparency);
+        if (DescendThroughSlopes)
+            return true;
+
+        return null;
     }
 
     public override void ModifyTypeName(ref string typeName)
@@ -948,9 +553,8 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         if (Main.gameMenu)
             return;
 
-        // Choose Solyn's name.
         NPC.GivenName = string.Empty;
-        if (!SolynDialogRegistry.SolynNameIsKnown)
+        if (!DialogueManager.FindByRelativePrefix("SolynIntroduction").SeenBefore("Talk4"))
             typeName = "???";
     }
 
@@ -961,55 +565,28 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 
     public override void DrawBehind(int index)
     {
-        if (CurrentState == SolynAIType.FlyIntoRift)
-            Main.instance.DrawCacheNPCsOverPlayers.Add(index);
-
         if (ModContent.GetInstance<EndCreditsScene>().IsActive && NamelessDeityBoss.Myself is not null)
         {
             Main.instance.DrawCacheNPCsBehindNonSolidTiles.Add(index);
             return;
         }
 
-        SpecialLayeringSystem.DrawCacheOverTent.Add(index);
-    }
+        if (CurrentState == SolynAIType.FallFromTheSky)
+        {
+            Main.instance.DrawCacheNPCsOverPlayers.Add(index);
+            return;
+        }
 
-    public void RenderArrow()
-    {
-        float opacity = Pow(InverseLerp(350f, 0f, TextFlyAwayDistance), 2.5f);
-        Vector2 drawCenter = NPC.Center - Main.screenPosition - Vector2.UnitX * NPC.spriteDirection * 4f;
-
-        // Calculate jingle variables.
-        float jingleTime = Main.GlobalTimeWrappedHourly * 3.5f % 20f;
-        float jingleDecayFactor = Exp(MathF.Max(jingleTime - Pi, 0f) * -0.67f);
-        float jinglePeriodFactor = Sin(jingleTime * 2.2f);
-        float jingleInterpolant = jingleDecayFactor * jinglePeriodFactor;
-
-        // Draw the arrow that points at Permafrost.
-        float arrowDirection = PiOver2;
-        float arrowRotation = arrowDirection - PiOver2 + jingleInterpolant * 0.3f;
-        Vector2 arrowScale = new Vector2(1f - jingleInterpolant * 0.2f, 1f + jingleInterpolant * 0.15f) * (0.7f + Abs(jingleInterpolant) * 0.26f);
-
-        int arrowFrame = (int)(Main.GlobalTimeWrappedHourly * 11f) % 6;
-        float arrowHoverOffset = TextFlyAwayDistance + Abs(jingleInterpolant) * 36f + 80f;
-        Texture2D arrowTexture = GennedAssets.Textures.SolynTalkIndicator.TalkUIArrow.Value;
-        Rectangle arrowFrameArea = arrowTexture.Frame(1, 6, 0, arrowFrame);
-
-        Vector2 arrowDrawPosition = drawCenter - arrowDirection.ToRotationVector2() * arrowHoverOffset;
-        Main.EntitySpriteDraw(arrowTexture, arrowDrawPosition, arrowFrameArea, Color.White * opacity, arrowRotation, arrowFrameArea.Size() * 0.5f, arrowScale, 0);
+        if (SolynTentInteriorRenderer.CloseToTentTimer >= 1)
+            SpecialLayeringSystem.DrawCacheOverTent.Add(index);
+        else
+            Main.instance.DrawCacheNPCProjectiles.Add(index);
     }
 
     public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
     {
         if (Main.instance.currentNPCShowingChatBubble == NPC.whoAmI && !CanBeSpokenTo)
             Main.instance.currentNPCShowingChatBubble = -1;
-
-        if (!AnythingImportantToDiscuss && TextFlyAwayDistance < 4000f)
-            TextFlyAwayDistance = (TextFlyAwayDistance + 1.85f) * 1.09f;
-        else if (AnythingImportantToDiscuss)
-            TextFlyAwayDistance *= 0.81f;
-
-        if (TextFlyAwayDistance < 350f && CurrentState != SolynAIType.Eepy)
-            RenderArrow();
 
         Vector2 drawPosition = NPC.Center - screenPos + Vector2.UnitY * (NPC.gfxOffY - 6f);
         if (NPC.IsShimmerVariant)
@@ -1061,10 +638,9 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
             for (int i = AfterimageCount; i >= 0; i--)
             {
                 Vector2 afterimageDrawPosition = drawPosition + NPC.oldPos[i] - NPC.position;
-                afterimageDrawPosition = Vector2.Lerp(afterimageDrawPosition, drawPosition, AfterimageClumpInterpolant);
 
                 Color afterimageColor = new Color(0f, 0.25f, 1f, 0f);
-                Main.EntitySpriteDraw(texture, afterimageDrawPosition, frame, NPC.GetAlpha(afterimageColor) * (1f - i / (float)AfterimageCount) * AfterimageGlowInterpolant, NPC.rotation, frame.Size() * 0.5f, EffectiveScale, direction);
+                Main.EntitySpriteDraw(texture, afterimageDrawPosition, frame, NPC.GetAlpha(afterimageColor) * (1f - i / (float)AfterimageCount) * 0.2f, NPC.rotation, frame.Size() * 0.5f, EffectiveScale, direction);
             }
         }
 
@@ -1074,17 +650,10 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         if (SoulForm)
             Main.spriteBatch.ResetToDefault();
 
-        // Draw a party hat if necessary.
-        if (HasHat)
-        {
-            Texture2D hatTexture = ModContent.Request<Texture2D>("NoxusBoss/Assets/Textures/Content/NPCs/Friendly/SolynPartyHat").Value;
-            Main.EntitySpriteDraw(hatTexture, HatPosition - screenPos, null, NPC.GetAlpha(drawColor), NPC.rotation, hatTexture.Size() * 0.5f, EffectiveScale, direction);
-        }
-
         return false;
     }
 
-    public float StarFallTrailWidthFunction(float completionRatio) => EffectiveScale.X * Utils.Remap(completionRatio, 0f, 0.9f, 32f, 1f);
+    public float StarFallTrailWidthFunction(float completionRatio) => NPC.scale * Utils.Remap(completionRatio, 0f, 0.9f, 32f, 1f);
 
     public Color StarFallTrailColorFunction(float completionRatio) => NPC.GetAlpha(new(75, 128, 250)) * Sqrt(1f - completionRatio);
 

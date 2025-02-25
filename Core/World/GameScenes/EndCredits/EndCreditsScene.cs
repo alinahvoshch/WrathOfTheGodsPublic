@@ -279,8 +279,7 @@ public class EndCreditsScene : Cutscene
         // Oh there she is. Thank god.
         // Or is it thank Nameless? I don't know.
         NPC solyn = Main.npc[solynIndex];
-        solyn.As<Solyn>().StateMachine.StateStack.Clear();
-        solyn.As<Solyn>().StateMachine.StateStack.Push(solyn.As<Solyn>().StateMachine.StateRegistry[Solyn.SolynAIType.EndCreditsCutscene]);
+        solyn.As<Solyn>().CurrentState = SolynAIType.EndCreditsCutscene;
 
         Main.gamePaused = false;
 
@@ -326,11 +325,11 @@ public class EndCreditsScene : Cutscene
         // Ensure that Solyn blinks from time to time, rather than awkwardly starting into nothingness.
         if (Timer % 256 <= 5)
         {
-            ref float solynFrame = ref solyn.As<Solyn>().Frame;
+            ref int solynFrame = ref solyn.As<Solyn>().Frame;
             if (solynFrame == 0f)
-                solynFrame = 20f;
+                solynFrame = 20;
             if (solynFrame == 18f)
-                solynFrame = 41f;
+                solynFrame = 41;
         }
 
         CalamityCompatibility.ResetRippers(Main.LocalPlayer);
@@ -358,6 +357,10 @@ public class EndCreditsScene : Cutscene
         solyn.spriteDirection = solyn.velocity.X.NonZeroSign();
         solyn.As<Solyn>().PerformStandardFraming();
 
+        // I LOVE YOU HAMMERED BLOCKS!!
+        float _ = 0.3f;
+        Collision.StepUp(ref solyn.position, ref solyn.velocity, solyn.width, solyn.height, ref _, ref solyn.gfxOffY);
+
         // Wait until Solyn and the player are in position before letting the animation proceed further.
         if (Timer > CameraPanTime)
             Timer = CameraPanTime;
@@ -371,7 +374,7 @@ public class EndCreditsScene : Cutscene
         Main.LocalPlayer.velocity.X *= 0.85f;
         Main.LocalPlayer.direction = -1;
 
-        solyn.As<Solyn>().Frame = 18f;
+        solyn.As<Solyn>().Frame = 18;
         solyn.velocity.X *= 0.85f;
         solyn.spriteDirection = -1;
 
@@ -424,7 +427,7 @@ public class EndCreditsScene : Cutscene
         }
 
         int relativeTimer = Timer - CameraPanTime - InitialSitWaitTime;
-        solyn.As<Solyn>().Frame = relativeTimer <= 60 ? 20f : 0f;
+        solyn.As<Solyn>().Frame = relativeTimer <= 60 ? 20 : 0;
 
         var apples = AllProjectilesByID(appleID);
         if (apples.Count() < 2)
@@ -467,7 +470,7 @@ public class EndCreditsScene : Cutscene
         if (relativeTimer == AppleDislodgeTime + AppleTelekinesisTime + AppleBiteDelayTimeSolyn)
             solynsApple.As<EndCreditsGoodApple>().Bite();
         if (relativeTimer >= AppleDislodgeTime + AppleTelekinesisTime + AppleBiteDelayTimeSolyn && relativeTimer <= AppleDislodgeTime + AppleTelekinesisTime + AppleBiteDelayTimeSolyn + 9)
-            solyn.As<Solyn>().Frame = 20f;
+            solyn.As<Solyn>().Frame = 20;
 
         // Make the player bite their apple.
         if (relativeTimer == AppleDislodgeTime + AppleTelekinesisTime + AppleBiteDelayTimePlayer)
@@ -481,7 +484,7 @@ public class EndCreditsScene : Cutscene
     /// </summary>
     public void WaitAfterEatingApples(NPC solyn)
     {
-        solyn.As<Solyn>().Frame = 18f;
+        solyn.As<Solyn>().Frame = 18;
 
         if (Timer >= CameraPanTime + InitialSitWaitTime + AppleDislodgeTime + AppleTelekinesisTime + AppleBiteDelayTimePlayer + AppleBiteTransitionDelay + AppleBiteTransitionDelay + SecondSitWaitTime)
             State = CreditsState.NamelessGivesSolynAndPlayerHeadpats;
@@ -498,7 +501,7 @@ public class EndCreditsScene : Cutscene
         if (NamelessDeityBoss.Myself is not null && NamelessDeityBoss.Myself_CurrentState != NamelessDeityBoss.NamelessAIType.EndCreditsScene)
             NamelessDeityBoss.Myself.As<NamelessDeityBoss>().StateMachine.StateStack.Push(NamelessDeityBoss.Myself.As<NamelessDeityBoss>().StateMachine.StateRegistry[NamelessDeityBoss.NamelessAIType.EndCreditsScene]);
 
-        solyn.As<Solyn>().Frame = 18f;
+        solyn.As<Solyn>().Frame = 18;
 
         if (NamelessDeityBoss.Myself is null)
             return;
@@ -534,7 +537,7 @@ public class EndCreditsScene : Cutscene
 
             // Make Solyn blush after being patted.
             if (relativeTime % headpatPeriod >= headpatPeriod / 2 && relativeTime % headpatPeriod <= headpatPeriod / 2 + 10 && !doneDoingHeadpats)
-                solyn.As<Solyn>().Frame = 40f;
+                solyn.As<Solyn>().Frame = 40;
 
             nameless.Hands[0].HasArms = false;
             nameless.Hands[0].DirectionOverride = -1;
@@ -601,7 +604,7 @@ public class EndCreditsScene : Cutscene
         NamelessDeityBoss.Myself.dontTakeDamage = true;
 
         if (relativeTime >= 34)
-            solyn.As<Solyn>().Frame = 0f;
+            solyn.As<Solyn>().Frame = 0;
 
         if (relativeTime == NamelessAppearanceTime - SecondsToFrames(4.7f))
         {
@@ -667,7 +670,7 @@ public class EndCreditsScene : Cutscene
         NamelessDeityBoss.Myself.dontTakeDamage = true;
 
         if (relativeTime >= 40)
-            solyn.As<Solyn>().Frame = 18f;
+            solyn.As<Solyn>().Frame = 18;
 
         if (relativeTime >= NamelessFlyAwayTime)
             State = CreditsState.WaitAfterNamelessFliesAway;
@@ -678,7 +681,7 @@ public class EndCreditsScene : Cutscene
     /// </summary>
     public void WaitAfterNamelessFliesAway(NPC solyn)
     {
-        solyn.As<Solyn>().Frame = 18f;
+        solyn.As<Solyn>().Frame = 18;
 
         if (NamelessDeityBoss.Myself is not null)
             NamelessDeityBoss.Myself.velocity = Vector2.Zero;
@@ -711,14 +714,14 @@ public class EndCreditsScene : Cutscene
         if (AvatarOfEmptiness.Myself is not null && AvatarOfEmptiness.Myself.As<AvatarOfEmptiness>().CurrentState != AvatarOfEmptiness.AvatarAIType.EndCreditsScene && AvatarOfEmptiness.Myself.As<AvatarOfEmptiness>().CurrentState != AvatarOfEmptiness.AvatarAIType.Teleport)
             AvatarOfEmptiness.Myself.As<AvatarOfEmptiness>().StateMachine.StateStack.Push(AvatarOfEmptiness.Myself.As<AvatarOfEmptiness>().StateMachine.StateRegistry[AvatarOfEmptiness.AvatarAIType.EndCreditsScene]);
 
-        solyn.As<Solyn>().Frame = 18f;
+        solyn.As<Solyn>().Frame = 18;
 
         if (relativeTime >= 50)
             Main.LocalPlayer.direction = 1;
         if (relativeTime >= 80)
         {
             solyn.spriteDirection = 1;
-            solyn.As<Solyn>().Frame = 0f;
+            solyn.As<Solyn>().Frame = 0;
         }
 
         if (AvatarOfEmptiness.Myself is null)
@@ -765,7 +768,7 @@ public class EndCreditsScene : Cutscene
     public void ScreenFadesToBlack(NPC solyn)
     {
         int relativeTime = Timer - (CameraPanTime + InitialSitWaitTime + AppleDislodgeTime + AppleTelekinesisTime + AppleBiteDelayTimePlayer + AppleBiteTransitionDelay + AppleBiteTransitionDelay + SecondSitWaitTime + HeadpatTime + NamelessAppearanceTime + NamelessFlyAwayTime + ThirdSitWaitTime + ShyAvatarAnimationTime);
-        solyn.As<Solyn>().Frame = 18f;
+        solyn.As<Solyn>().Frame = 18;
 
         if (NamelessDeityBoss.Myself is not null)
             NamelessDeityBoss.Myself.Center = Main.LocalPlayer.Center - Vector2.UnitY * 7000f;

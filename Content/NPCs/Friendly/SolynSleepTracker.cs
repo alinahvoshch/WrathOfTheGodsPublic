@@ -22,6 +22,6 @@ public class SolynSleepTracker : ModSystem
         if (solynIndex == -1)
             return;
 
-        SolynIsAsleep = Main.npc[solynIndex].As<Solyn>().CurrentState == Solyn.SolynAIType.Eepy;
+        SolynIsAsleep = Main.npc[solynIndex].As<Solyn>().CurrentState == SolynAIType.Eepy;
     }
 }

@@ -1,10 +1,10 @@
 ﻿using NoxusBoss.Content.Items;
 using NoxusBoss.Content.Items.Dyes;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
+using NoxusBoss.Content.NPCs.Friendly;
 using NoxusBoss.Core.CrossCompatibility.Inbound;
 using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
 using NoxusBoss.Core.Graphics.SpecificEffectManagers;
-using NoxusBoss.Core.Graphics.UI.SolynDialogue;
 using NoxusBoss.Core.Netcode;
 using NoxusBoss.Core.Netcode.Packets;
 using NoxusBoss.Core.World.GameScenes.RiftEclipse;
@@ -310,7 +310,7 @@ public partial class GlobalNPCEventHandlers : GlobalNPC
     {
         if (RiftEclipseManagementSystem.RiftEclipseOngoing)
             chat = GetLine($"StylistChat.RiftEclipse{Main.rand.Next(7) + 1}");
-        else if (Main.rand.NextBool(7) && SolynDialogRegistry.SolynNameIsKnown)
+        else if (Main.rand.NextBool(7) && NPC.AnyNPCs(ModContent.NPCType<Solyn>()) && NPC.downedPlantBoss)
             chat = GetLine("StylistChat.Solyn");
     }
 

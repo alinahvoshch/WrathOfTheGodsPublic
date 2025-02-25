@@ -1,7 +1,7 @@
 ﻿using Luminance.Core.Cutscenes;
 using Terraria.Graphics;
 
-namespace NoxusBoss.Core.World.GameScenes.SolynEventHandlers;
+namespace NoxusBoss.Core.SolynEvents;
 
 public class SolynEnteringRiftScene : Cutscene
 {
@@ -13,7 +13,6 @@ public class SolynEnteringRiftScene : Cutscene
 
     public override void Update()
     {
-
     }
 
     public override void ModifyTransformMatrix(ref SpriteViewMatrix transform)

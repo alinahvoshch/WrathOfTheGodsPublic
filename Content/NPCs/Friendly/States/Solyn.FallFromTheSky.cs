@@ -1,8 +1,8 @@
-﻿using Luminance.Common.StateMachines;
-using Luminance.Core.Graphics;
+﻿using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
 using NoxusBoss.Assets;
 using NoxusBoss.Content.NPCs.Bosses.NamelessDeity;
+using NoxusBoss.Content.Particles;
 using NoxusBoss.Core.Graphics.GeneralScreenEffects;
 using Terraria;
 using Terraria.Audio;
@@ -13,50 +13,45 @@ namespace NoxusBoss.Content.NPCs.Friendly;
 public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 {
     /// <summary>
+    /// The horizontal direction in which Solyn falls.
+    /// </summary>
+    public int SkyFallDirection
+    {
+        get;
+        set;
+    }
+
+    /// <summary>
     /// How long it takes for Solyn to begin falling from the sky.
     /// </summary>
     public static int FallFromSky_CrashDelay => SecondsToFrames(3f);
 
-    [AutomatedMethodInvoke]
-    public void LoadStateTransitions_FallFromTheSky()
+    public void DoBehavior_FallFromTheSky()
     {
-        StateMachine.RegisterTransition(SolynAIType.FallFromTheSky, SolynAIType.GetUpAfterStarFall, false, () =>
-        {
-            Player player = Main.player[NPC.target];
-            bool collisionCheck = NPC.Bottom.Y >= player.Center.Y && Collision.SolidCollision(NPC.TopLeft, NPC.width, NPC.height + 16);
+        Player player = Main.player[NPC.target];
+        bool collisionCheck = NPC.Bottom.Y >= player.Center.Y && Collision.SolidCollision(NPC.TopLeft, NPC.width, NPC.height + 16);
 
-            // NOTE -- During this state Solyn can occasionally bug out and not actually collide with tiles correctly, causing her to slide forward at mach 23 for a while.
-            // This is a bug, and should be acknowledged as such. However, it is so darn funny that I am electing to not fix the problem.
-            // She does, however, crash into walls if necessary, so that she doesn't slide so far that the player can't find her without map assistance.
-            if (NPC.Bottom.Y < player.Center.Y && Collision.SolidCollision(NPC.TopLeft, NPC.width, 1))
-                collisionCheck = true;
-            if (!collisionCheck && Distance(NPC.Center.X, player.Center.X) >= 960f)
-                collisionCheck = true;
-            if (!collisionCheck && (NPC.Center.X <= 1000f || NPC.Center.X >= Main.maxTilesX * 16f - 1000f))
-                collisionCheck = true;
+        // NOTE -- During this state Solyn can occasionally bug out and not actually collide with tiles correctly, causing her to slide forward at mach 23 for a while.
+        // This is a bug, and should be acknowledged as such. However, it is so darn funny that I am electing to not fix the problem.
+        // She does, however, crash into walls if necessary, so that she doesn't slide so far that the player can't find her without map assistance.
+        if (NPC.Bottom.Y < player.Center.Y && Collision.SolidCollision(NPC.TopLeft, NPC.width, 1))
+            collisionCheck = true;
+        if (!collisionCheck && Distance(NPC.Center.X, player.Center.X) >= 960f)
+            collisionCheck = true;
+        if (!collisionCheck && (NPC.Center.X <= 1000f || NPC.Center.X >= Main.maxTilesX * 16f - 1000f))
+            collisionCheck = true;
 
-            return AITimer >= FallFromSky_CrashDelay && collisionCheck;
-        }, () =>
+        if (AITimer >= FallFromSky_CrashDelay && collisionCheck)
         {
             SoundEngine.PlaySound(GennedAssets.Sounds.Solyn.StarFallImpact, NPC.Center);
             GeneralScreenEffectSystem.RadialBlur.Start(NPC.Center, 0.5f, 10);
             ScreenShakeSystem.StartShakeAtPoint(NPC.Center, 16f);
 
-            // Collide with the ground.
             NPC.velocity.Y = 0f;
-        });
+            SwitchState(SolynAIType.GetUpAfterStarFall);
+        }
+        Frame = 21;
 
-        StateMachine.RegisterStateBehavior(SolynAIType.FallFromTheSky, DoBehavior_FallFromTheSky);
-    }
-
-    /// <summary>
-    /// Performs Solyn's fall-from-sky state.
-    /// </summary>
-    public void DoBehavior_FallFromTheSky()
-    {
-        Frame = 21f;
-
-        SummonedByStarFall = true;
         HasBackglow = true;
 
         // Disable natural gravity clamping.
@@ -69,7 +64,6 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         float startingCrashSpeed = 0.5f;
         float endingCrashSpeed = 80f;
         float crashAcceleration = 1.15f;
-        Player player = Main.player[NPC.target];
         Vector2 startingPosition = player.Center + new Vector2(SkyFallDirection * -550f, -440f);
 
         if (SkyFallDirection == 0)
@@ -149,5 +143,58 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
                     NPC.rotation += Pi;
             }
         }
+    }
+
+    public void DoBehavior_GetUpAfterStarFall()
+    {
+        NPC.velocity.X *= 0.8f;
+        while (Collision.SolidCollision(NPC.BottomLeft, NPC.width, 2))
+            NPC.position.Y -= 2f;
+
+        // Disable speaking.
+        CanBeSpokenTo = false;
+
+        if (AITimer == 1)
+        {
+            StrongBloom bloom = new StrongBloom(NPC.Center, Vector2.Zero, Color.Yellow, 0.7f, 8);
+            bloom.Spawn();
+
+            bloom = new(NPC.Center, Vector2.Zero, Color.HotPink * 0.85f, 1.3f, 10);
+            bloom.Spawn();
+
+            for (int i = 0; i < 24; i++)
+            {
+                int starPoints = Main.rand.Next(3, 9);
+                float starScaleInterpolant = Main.rand.NextFloat();
+                int starLifetime = (int)Lerp(30f, 67f, starScaleInterpolant);
+                float starScale = Lerp(0.42f, 0.7f, starScaleInterpolant) * NPC.scale;
+                Color starColor = Main.hslToRgb(Main.rand.NextFloat(), 0.9f, 0.64f);
+                starColor = Color.Lerp(starColor, Color.Wheat, 0.4f) * 0.4f;
+
+                Vector2 starVelocity = Main.rand.NextVector2Circular(12f, 3f) - Vector2.UnitY * Main.rand.NextFloat(4f, 7.5f);
+                TwinkleParticle star = new TwinkleParticle(NPC.Center, starVelocity, starColor, starLifetime, starPoints, new Vector2(Main.rand.NextFloat(0.4f, 1.6f), 1f) * starScale, starColor * 0.5f);
+                star.Spawn();
+            }
+
+            // Lose a bit of HP from the impact.
+            CombatText.NewText(NPC.Hitbox, CombatText.DamagedFriendly, 10, true);
+            NPC.life = Utils.Clamp(NPC.life - 10, 1, NPC.lifeMax);
+            NPC.netUpdate = true;
+
+            // Move forward.
+            NPC.velocity.X = NPC.spriteDirection * 40f;
+        }
+
+        NPC.rotation = 0f;
+
+        if (AITimer <= 154)
+            Frame = 24;
+        if (AITimer <= 120)
+            Frame = 23;
+        if (AITimer <= 30)
+            Frame = 22;
+
+        if (AITimer >= 154)
+            SwitchState(SolynAIType.StandStill);
     }
 }

@@ -50,7 +50,7 @@ public class SolynCampsiteWorldGen : ModSystem
     /// <summary>
     /// The closest that meteors can generate to Solyn's campsite.
     /// </summary>
-    public static int MinMeteorDistance => 72;
+    public static int MinMeteorDistance => 120;
 
     /// <summary>
     /// The radius of unbreakability surrounding Solyn's campsite.
@@ -60,7 +60,7 @@ public class SolynCampsiteWorldGen : ModSystem
     /// <summary>
     /// Attempts to find a position in the world where Solyn's camp site could be placed. Returns <see cref="Point.Zero"/> if none could be found.
     /// </summary>
-    public static Point FindGenerationSpot(bool generateGroundManually)
+    public static Point FindGenerationSpot()
     {
         for (int tries = 0; tries < 3200; tries++)
         {
@@ -171,6 +171,10 @@ public class SolynCampsiteWorldGen : ModSystem
             Tile sampleTile = Main.tile[samplePoint.X + WorldGen.genRand.Next(-CampsiteSurveyWidth / 2, CampsiteSurveyWidth / 2), samplePoint.Y + WorldGen.genRand.Next(10)];
             if (sampleTile.HasUnactuatedTile && (TileID.Sets.Crimson[sampleTile.TileType] || TileID.Sets.Corrupt[sampleTile.TileType] || TileID.Sets.DungeonBiome[sampleTile.TileType] >= 1))
                 return true;
+
+            // Reject tiles that are player-made, such as doors.
+            if (TileID.Sets.HousingWalls[sampleTile.TileType])
+                return true;
         }
 
         return false;
@@ -270,7 +274,7 @@ public class SolynCampsiteWorldGen : ModSystem
 
             while (!tile.HasTile || !Main.tileSolid[tile.TileType])
             {
-                WorldGen.KillTile(center.X + dx, y);
+                WorldGen.KillTile(center.X + dx, y, noItem: true);
                 WorldGen.PlaceTile(center.X + dx, y, tileToPlace);
 
                 y++;
@@ -297,12 +301,12 @@ public class SolynCampsiteWorldGen : ModSystem
 
             // Destroy piles and trees if they're in the way.
             if (Main.tile[new Point(campfirePosition.X, campfirePosition.Y - 1)].TileType == TileID.SmallPiles)
-                WorldGen.KillTile(campfirePosition.X, campfirePosition.Y - 1);
+                WorldGen.KillTile(campfirePosition.X, campfirePosition.Y - 1, noItem: true);
             for (int dy = 0; dy < 8; dy++)
             {
                 Point treeCheckPosition = new Point(campfirePosition.X, campfirePosition.Y + dy);
                 if ((Main.tile[treeCheckPosition].TileType == TileID.Trees || Main.tile[treeCheckPosition].TileType == TileID.Cactus || Main.tile[treeCheckPosition].TileType == TileID.PalmTree) && Abs(dx) <= 2f)
-                    WorldGen.KillTile(treeCheckPosition.X, treeCheckPosition.Y);
+                    WorldGen.KillTile(treeCheckPosition.X, treeCheckPosition.Y, noItem: true);
             }
 
             Point leftChairPosition = FindGroundVertical(new(campfirePosition.X - 4, campfirePosition.Y));
@@ -314,12 +318,12 @@ public class SolynCampsiteWorldGen : ModSystem
             {
                 for (int i = 2; i <= 4; i++)
                 {
-                    WorldGen.KillTile(campfirePosition.X - i, campfirePosition.Y);
-                    WorldGen.KillTile(campfirePosition.X + i, campfirePosition.Y);
+                    WorldGen.KillTile(campfirePosition.X - i, campfirePosition.Y, noItem: true);
+                    WorldGen.KillTile(campfirePosition.X + i, campfirePosition.Y, noItem: true);
                 }
 
-                WorldGen.KillTile(leftChairPosition.X, leftChairPosition.Y);
-                WorldGen.KillTile(rightChairPosition.X, rightChairPosition.Y);
+                WorldGen.KillTile(leftChairPosition.X, leftChairPosition.Y, noItem: true);
+                WorldGen.KillTile(rightChairPosition.X, rightChairPosition.Y, noItem: true);
 
                 TryToPlaceTile(leftChairPosition, TileID.Chairs, 27, 1, true);
                 TryToPlaceTile(rightChairPosition, TileID.Chairs, 27, -1, true);
@@ -350,11 +354,11 @@ public class SolynCampsiteWorldGen : ModSystem
     {
         // Destroy piles and trees if they're in the way.
         if (Main.tile[new Point(point.X, point.Y - 1)].TileType == TileID.SmallPiles)
-            WorldGen.KillTile(point.X, point.Y - 1);
+            WorldGen.KillTile(point.X, point.Y - 1, noItem: true);
         for (int dy = 0; dy < 8; dy++)
         {
             if (Main.tile[point].TileType == TileID.Trees || Main.tile[point].TileType == TileID.Cactus || Main.tile[point].TileType == TileID.PalmTree)
-                WorldGen.KillTile(point.X, point.Y);
+                WorldGen.KillTile(point.X, point.Y, noItem: true);
             point.Y++;
         }
     }
@@ -435,15 +439,13 @@ public class SolynCampsiteWorldGen : ModSystem
 
         generatingAlready = true;
 
-        bool generateGroundManually = true;
-        Point center = FindGenerationSpot(generateGroundManually);
+        Point center = FindGenerationSpot();
 
         // Should never happen, but just in case??
         if (center == Point.Zero)
             return;
 
-        if (generateGroundManually)
-            center = GenerateGround(center);
+        center = GenerateGround(center);
 
         CampSitePosition = center.ToWorldCoordinates();
 
@@ -593,7 +595,7 @@ public class SolynCampsiteWorldGen : ModSystem
 
     private bool DisallowMeteorsDestroyingTheCampsite(On_WorldGen.orig_meteor orig, int i, int j, bool ignorePlayers)
     {
-        if (CampSitePosition.X != 0f && Distance(i, CampSitePosition.X) <= MinMeteorDistance)
+        if (CampSitePosition.X != 0f && Distance(i, CampSitePosition.X / 16f) <= MinMeteorDistance)
             return false;
 
         return orig(i, j, ignorePlayers);

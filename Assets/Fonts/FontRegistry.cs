@@ -67,8 +67,6 @@ public class FontRegistry : ModSystem
                     return Mod.Assets.Request<DynamicSpriteFont>("Assets/Fonts/AvatarPoemTextRussian", AssetRequestMode.ImmediateLoad).Value;
 
             return Mod.Assets.Request<DynamicSpriteFont>("Assets/Fonts/AvatarPoemText", AssetRequestMode.ImmediateLoad).Value;
-
-            return FontAssets.MouseText.Value;
         }
     }
 

@@ -1,9 +1,9 @@
 displayName = Calamity: Wrath of the Gods
 author = Lucille Karma
-version = 1.2.0
+version = 1.2.5
 buildIgnore = .vs\*, Properties\*, *.csproj, *.user, obj\*, bin\*, *.config, .git\*, .github\*, LICENSE, README.md, .editorconfig, .gitignore, .gitattributes, Assets\Effects\Compiler\*, ModReferences\*, *.mp4
-dllReferences = MonoStereo.Dependencies
-modReferences = SubworldLibrary, Luminance, CalamityMod@2.0.4.1, StructureHelper
+dllReferences = MonoStereo.Dependencies, StructureHelper
+modReferences = SubworldLibrary, Luminance@1.0.9, CalamityMod@2.0.4.1
 weakReferences = MonoStereoMod, CalRemix, BossChecklist
 hideCode = false
 hideResources = false
