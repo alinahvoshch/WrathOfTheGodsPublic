@@ -62,7 +62,7 @@ public class SolynCampsiteWorldGen : ModSystem
     /// </summary>
     public static Point FindGenerationSpot()
     {
-        for (int tries = 0; tries < 3200; tries++)
+        for (int tries = 0; tries < 6400; tries++)
         {
             int x = (int)(WorldGen.genRand.NextFloat(0.047f, 0.46f) * Main.maxTilesX);
             if (WorldGen.genRand.NextBool())
@@ -104,7 +104,7 @@ public class SolynCampsiteWorldGen : ModSystem
             // Reject positions that are too bumpy.
             float averageBumpiness = topography.Average(t => Abs(t));
             float maximumDisrepancy = Abs(topography.Max() - topography.Min());
-            float leniencyCoefficient = Lerp(1f, 2.4f, (tries / 3200f).Squared());
+            float leniencyCoefficient = Lerp(1f, 2.8f, InverseLerp(0f, 3200f, tries).Squared());
             if (averageBumpiness >= leniencyCoefficient * 1.5f || maximumLocalBumpiness >= leniencyCoefficient * 3f || maximumDisrepancy >= leniencyCoefficient * 4f || totalHeightChanges >= leniencyCoefficient * 5f)
                 continue;
 

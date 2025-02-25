@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using NoxusBoss.Assets.Fonts;
+using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
 using NoxusBoss.Content.NPCs.Bosses.NamelessDeity;
 using NoxusBoss.Content.Tiles;
 using NoxusBoss.Core.Autoloaders;
@@ -151,6 +152,8 @@ public class EternalGardenNew : Subworld
             savedWorldData["RevengeanceMode"] = revengeanceMode;
         if (deathMode)
             savedWorldData["DeathMode"] = deathMode;
+        if (BossDownedSaveSystem.HasDefeated<AvatarOfEmptiness>())
+            savedWorldData["AvatarDefeated"] = true;
         if (BossDownedSaveSystem.HasDefeated<NamelessDeityBoss>())
             savedWorldData["NamelessDeityDefeated"] = true;
         if (Main.zenithWorld)
@@ -177,6 +180,8 @@ public class EternalGardenNew : Subworld
 
         HasMetNamelessDeity = savedWorldData.ContainsKey("HasMetNamelessDeity");
 
+        if (savedWorldData.ContainsKey("AvatarDefeated"))
+            BossDownedSaveSystem.SetDefeatState<NamelessDeityBoss>(true);
         if (savedWorldData.ContainsKey("NamelessDeityDefeated"))
             BossDownedSaveSystem.SetDefeatState<NamelessDeityBoss>(true);
 
