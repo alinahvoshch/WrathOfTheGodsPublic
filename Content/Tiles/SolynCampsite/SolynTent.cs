@@ -85,7 +85,7 @@ public class SolynTent : ModTile
             return true;
 
         Tile above = Framing.GetTileSafely(x, y - 1);
-        if (above.TileType == type && above.HasTile)
+        if (above.TileType == Type && above.HasTile)
             return true;
 
         return false;
