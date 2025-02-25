@@ -1,4 +1,3 @@
-# A '^' character corresponds to a long pause.
 SolynIntroduction: {
 	// Start: I... ^I failed...
 	// Talk1: I...
@@ -106,7 +105,7 @@ SolynBooksDialogue: {
 	// Solyn2: Some of them were a bit obscure in terms of word choice and subject matter, and a few were a bit... strange, at least from the perspective of others.
 	// Solyn3: But some of them were just fun reads!^ Something as simple as good novels truly do wonders for one's perspective on the world.
 	// Solyn4_Mage: I'm sure a mage like you would understand.
-	// Solyn4_OtherClass: But... I suppose maybe you're not the type to be interesting in that spiel.
+	// Solyn4_OtherClass: But... I suppose maybe you're not the type to be interested in that spiel.
 	// Player1_Mage: Solyn, we don't read books. We simply hold them in our hands to cast spells.
 	// Solyn5: Ah... nevermind.^ Just thinking aloud, I guess.
 }

@@ -1,6 +1,6 @@
 CuriousHandBuff: {
-	// DisplayName: Curious Hand
-	// Description: It strokes the shapes and textures of your world, unfamiliar with such experiences for eons
+	DisplayName: 奇异之手
+	Description: 以其描绘你的世界，从轮廓到质感。已经亿万年没有过了。
 }
 
 BlackHolePetBuff: {
@@ -14,31 +14,31 @@ StarPetBuff: {
 }
 
 BabyNamelessBuff: {
-	// DisplayName: Nameless Deity
-	// Description: Everything checks out
+	DisplayName: 无名光神
+	Description: 万物有数
 }
 
 NilkDebuff: {
-	// DisplayName: Nilk
-	// Description: ...
+	DisplayName: 谬奶
+	Description: ……
 }
 
 StarstrikinglySatiated: {
-	// DisplayName: Starstrikingly Satiated
-	// Description: Stellar improvements to all stats and increased life regeneration
+	DisplayName: 饱如巨星
+	Description: 所有属性爆炸提升，生命再生增加
 }
 
 Glaciated: {
-	// DisplayName: Glaciated
-	// Description: You can't move
+	DisplayName: 冰河世纪
+	Description: 你不能移动
 }
 
 InvincibilityBuff: {
-	// DisplayName: Flower Power
-	// Description: The lotus' blessing prevents you from being harmed
+	DisplayName: 花朵之力
+	Description: 莲花保佑你免受伤害
 }
 
 AntimatterAnnihilation: {
-	// DisplayName: Antimatter Annihilation
-	// Description: You don't matter
+	DisplayName: 反物质湮灭
+	Description: 你疑似太物质了
 }

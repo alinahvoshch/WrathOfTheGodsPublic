@@ -8,6 +8,8 @@ using NoxusBoss.Content.NPCs.Friendly;
 using NoxusBoss.Core.CrossCompatibility.Inbound;
 using NoxusBoss.Core.DialogueSystem;
 using NoxusBoss.Core.World.GameScenes.AvatarUniverseExploration;
+using NoxusBoss.Core.World.Subworlds;
+using SubworldLibrary;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -110,7 +112,7 @@ public class AntiseedEvent : SolynEvent
             Solyn?.SwitchState(SolynAIType.WaitToTeleportHome);
         };
 
-        ConversationSelector.PriorityConversationSelectionEvent += SelectIntroductionDialogue;
+        ConversationSelector.PriorityConversationSelectionEvent += SelectAntiseedDialogue;
     }
 
     public override void OnWorldLoad() => SolynHasPlayedRiftEnterSound = false;
@@ -126,8 +128,11 @@ public class AntiseedEvent : SolynEvent
     public override void LoadWorldData(TagCompound tag) =>
         WaitNearCeaselessVoidRift_WaitPosition = new Vector2(tag.GetFloat("WaitNearCeaselessVoidRift_WaitPositionX"), tag.GetFloat("WaitNearCeaselessVoidRift_WaitPositionY"));
 
-    private Conversation? SelectIntroductionDialogue()
+    private Conversation? SelectAntiseedDialogue()
     {
+        if (SubworldSystem.IsActive<EternalGardenNew>())
+            return null;
+
         if (CanStart && Stage == 0)
             return DialogueManager.FindByRelativePrefix("CeaselessVoidDiscussionBeforeBattle");
         if (Stage == 1)

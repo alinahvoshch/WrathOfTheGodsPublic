@@ -964,10 +964,10 @@ public class EndCreditsScene : Cutscene
         // Artists.
         drawLine(ref currentY, ArtistTitleColor, "ArtworkTitle", true);
         drawLine(ref currentY, ArtistNameColor, "Blockaroz");
+        drawLine(ref currentY, ArtistNameColor, "RedstoneBro");
         drawLine(ref currentY, ArtistNameColor, "IbanPlay");
         drawLine(ref currentY, ArtistNameColor, "Iris");
         drawLine(ref currentY, ArtistNameColor, "Moonburn");
-        drawLine(ref currentY, ArtistNameColor, "RedstoneBro");
         drawLine(ref currentY, ArtistNameColor, "Vaikyia");
         currentY += spacingBetweenSets;
 

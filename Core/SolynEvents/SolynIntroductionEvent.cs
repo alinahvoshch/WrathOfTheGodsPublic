@@ -1,5 +1,7 @@
 ﻿using NoxusBoss.Content.NPCs.Friendly;
 using NoxusBoss.Core.DialogueSystem;
+using NoxusBoss.Core.World.Subworlds;
+using SubworldLibrary;
 
 namespace NoxusBoss.Core.SolynEvents;
 
@@ -27,6 +29,9 @@ public class SolynIntroductionEvent : SolynEvent
 
     private Conversation? SelectIntroductionDialogue()
     {
+        if (SubworldSystem.IsActive<EternalGardenNew>())
+            return null;
+
         if (!Finished)
             return DialogueManager.FindByRelativePrefix("SolynIntroduction");
 

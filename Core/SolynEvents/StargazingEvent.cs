@@ -2,8 +2,11 @@
 using Luminance.Core.Graphics;
 using NoxusBoss.Content.Items;
 using NoxusBoss.Content.NPCs.Friendly;
+using NoxusBoss.Content.Tiles.TileEntities;
 using NoxusBoss.Core.DialogueSystem;
 using NoxusBoss.Core.World.GameScenes.Stargazing;
+using NoxusBoss.Core.World.Subworlds;
+using SubworldLibrary;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -68,6 +71,20 @@ public class StargazingEvent : SolynEvent
 
     public override void PostUpdateNPCs()
     {
+        // Check if the telescope got repaired anywhere in the world. If it did, advance the quest.
+        // This exists for backwards compatibility with old worlds.
+        if (Stage == 0 && !SubworldSystem.IsActive<EternalGardenNew>())
+        {
+            foreach (TileEntity te in TileEntity.ByID.Values)
+            {
+                if (te is TESolynTelescope telescope && telescope.IsRepaired)
+                {
+                    SafeSetStage(1);
+                    break;
+                }
+            }
+        }
+
         if (Stage >= 1 && !Finished && Solyn is not null)
         {
             if (Solyn.CurrentState != SolynAIType.PuppeteeredByQuest)
@@ -80,6 +97,9 @@ public class StargazingEvent : SolynEvent
 
     private Conversation? SelectStargazingDialogue()
     {
+        if (SubworldSystem.IsActive<EternalGardenNew>())
+            return null;
+
         // Wait for the introduction event to conclude before enabling this event.
         if (!ModContent.GetInstance<SolynIntroductionEvent>().Finished)
             return null;

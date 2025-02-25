@@ -5,7 +5,9 @@ using NoxusBoss.Content.NPCs.Bosses.Avatar.SpecificEffectManagers.SolynDialogue;
 using NoxusBoss.Content.NPCs.Friendly;
 using NoxusBoss.Content.Tiles.GenesisComponents.Seedling;
 using NoxusBoss.Core.DialogueSystem;
+using NoxusBoss.Core.World.Subworlds;
 using NoxusBoss.Core.World.WorldSaving;
+using SubworldLibrary;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -47,7 +49,7 @@ public class GenesisCompletionEvent : SolynEvent
 
     public override void PostUpdateNPCs()
     {
-        if (CanStart && !Finished && Solyn is not null)
+        if (CanStart && !Finished && Solyn is not null && !SubworldSystem.IsActive<EternalGardenNew>())
         {
             if (Solyn.CurrentState != SolynAIType.PuppeteeredByQuest)
                 Solyn.SwitchState(SolynAIType.PuppeteeredByQuest);

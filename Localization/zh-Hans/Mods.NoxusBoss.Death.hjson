@@ -1,6 +1,6 @@
-// AntimatterAnnihilation1: "{0} doesn't matter."
-// AntimatterAnnihilation2: "{0} was."
-// AntimatterAnnihilation3: "{0} experienced the Big Rip."
-// AntimatterAnnihilation4: "{0}'s atomic structure was disintegrated."
-// AntimatterAnnihilation5: The strong force wasn't strong enough for {0}.
-// TestOfResolveDeath: "{0} lasted {1} minute(s) and {2} second(s)."
+AntimatterAnnihilation1: "{0}疑似太物质了。"
+AntimatterAnnihilation2: 曾有{0}。
+AntimatterAnnihilation3: "{0}见证了大撕裂。"
+AntimatterAnnihilation4: "{0}的原子结构散轶了。"
+AntimatterAnnihilation5: 强大的力量对{0}来说不够强大。
+TestOfResolveDeath: "{0}坚持了{1}分{2}秒。"

@@ -353,7 +353,7 @@ public class SolynDialogUI : UIState
         List<string> playerResponses = [];
         if (childrenNodes is not null && childrenNodes.Count != 0 && DialogueText == ResponseToSay)
         {
-            playerResponses.AddRange(childrenNodes.Where(n => n.SpokenByPlayer).Select(n =>
+            playerResponses.AddRange(childrenNodes.Where(n => n.SpokenByPlayer && n.SelectionCondition()).Select(n =>
             {
                 string text = n.Text;
                 if (n.ColorOverrideFunction is not null)

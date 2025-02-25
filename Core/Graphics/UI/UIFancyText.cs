@@ -56,13 +56,13 @@ public class UIFancyText : UIElement
         /// A regex that searches for and identifies an italics pattern in the following format:<br></br>
         /// **Text**
         /// </summary>
-        public static readonly Regex ItalicsEmphasis = new Regex(@".*(\*\*[0-9a-zA-Z]+\*\*).*", RegexOptions.Compiled);
+        public static readonly Regex ItalicsEmphasis = new Regex(@".*(\*\*[0-9a-zа-яA-ZА-Я]+\*\*).*", RegexOptions.Compiled);
 
         /// <summary>
         /// A regex that searches for and identifies a color tag pattern in the following format:<br></br>
         /// [c/COLORHEX: Text]
         /// </summary>
-        public static readonly Regex ColorHexSpecifier = new Regex(@"\[c\/([0-9a-fA-F]{6})\:(.*)\]", RegexOptions.Compiled);
+        public static readonly Regex ColorHexSpecifier = new Regex(@"\[c\/([0-9a-fа-яA-FА-Я]{6})\:(.*)\]", RegexOptions.Compiled);
 
         private TextPart(string text, int lineIndex, bool italics, float textScale, DynamicSpriteFont font, Color color, float alreadyUsedHorixontalSpace = 0f)
         {

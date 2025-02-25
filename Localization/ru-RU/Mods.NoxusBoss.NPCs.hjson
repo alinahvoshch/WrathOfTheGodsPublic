@@ -62,7 +62,7 @@ Solyn: {
 }
 
 MarsBody: {
-	DisplayName: КСГ-07 Марс
+	DisplayName: КзГ-07 Марс
 
 	BossChecklistIntegration: {
 		SpawnInfo: Свяжитесь с Дрэйдоном в компании Солин и начните специальный квест

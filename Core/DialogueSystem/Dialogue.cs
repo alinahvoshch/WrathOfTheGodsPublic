@@ -70,7 +70,7 @@ public class Dialogue
     public Func<Color>? ColorOverrideFunction
     {
         get;
-        private set;
+        set;
     }
 
     /// <summary>

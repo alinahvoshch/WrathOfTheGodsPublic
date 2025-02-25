@@ -4,6 +4,6 @@ EternalGardenBiome: {
 }
 
 DeadUniverseBiome: {
-	// DisplayName: Dead Universe
-	// TownNPCDialogueName: the Dead Universe
+	DisplayName: 殁亡宇宙
+	TownNPCDialogueName: 殁亡宇宙
 }

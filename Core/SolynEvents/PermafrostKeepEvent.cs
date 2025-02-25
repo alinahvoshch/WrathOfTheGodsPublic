@@ -2,7 +2,9 @@
 using NoxusBoss.Content.NPCs.Friendly;
 using NoxusBoss.Core.DialogueSystem;
 using NoxusBoss.Core.Pathfinding;
+using NoxusBoss.Core.World.Subworlds;
 using NoxusBoss.Core.World.WorldGeneration;
+using SubworldLibrary;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -60,6 +62,9 @@ public class PermafrostKeepEvent : SolynEvent
 
     private Conversation? SelectKeepDialogue()
     {
+        if (SubworldSystem.IsActive<EternalGardenNew>())
+            return null;
+
         if (!CanStart || Finished)
             return null;
 

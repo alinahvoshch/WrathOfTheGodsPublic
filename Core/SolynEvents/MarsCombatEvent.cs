@@ -2,6 +2,8 @@
 using NoxusBoss.Content.NPCs.Friendly;
 using NoxusBoss.Core.CrossCompatibility.Inbound;
 using NoxusBoss.Core.DialogueSystem;
+using NoxusBoss.Core.World.Subworlds;
+using SubworldLibrary;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
@@ -46,11 +48,14 @@ public class MarsCombatEvent : SolynEvent
             SafeSetStage(1);
         };
 
-        ConversationSelector.PriorityConversationSelectionEvent += SelectIntroductionDialogue;
+        ConversationSelector.PriorityConversationSelectionEvent += SelectMarsDialogue;
     }
 
-    private Conversation? SelectIntroductionDialogue()
+    private Conversation? SelectMarsDialogue()
     {
+        if (SubworldSystem.IsActive<EternalGardenNew>())
+            return null;
+
         if (!Finished && CanStart)
             return DialogueManager.FindByRelativePrefix("DraedonBeforeCombatSimulation");
 

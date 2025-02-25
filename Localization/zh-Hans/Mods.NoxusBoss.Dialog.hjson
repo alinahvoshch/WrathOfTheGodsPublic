@@ -1,6 +1,6 @@
 TerminusHintLine1: 你做的很好。
 TerminusHintLine2: 现在，去找到终末石，你的最终试炼就在眼前。
-// NamelessDeityAscendText: Ascend.
+NamelessDeityAscendText: 上前。
 NamelessDeityEnterGardenText: 你的最终试炼开始了。
 NamelessDeityEndScreenText: 你已经通过了试炼。
 NamelessDeityEndScreenSkipText: 按住ESCAPE键以跳过！
@@ -34,107 +34,107 @@ PurifierEntertainingRantText:
 	无论如何！我很想继续说下去，但你的世界估计已经被彻底抹去了，我可不想说到一半突然被打断！
 	下次你有世界要重置时，我会再给你放一次这段独白。回头见！
 	'''
-/* LofiMusicCreditText:
+LofiMusicCreditText:
 	'''
-	Now Playing:
+	正在播放：
 	'worldgen.ogg'
 	By Moonburn
-	''' */
-OgsculeDontAnnoyCalDevsText: 这个终末石的效果不是灾厄本体加的，不要拿这个去打扰他们的开发者。
+	'''
+OgsculeDontAnnoyCalDevsText: 这个终末石的效果不是灾厄本体添加的，不要拿这个去打扰他们的开发者。
 SolynArriveUnknown: 一个神秘人来到了你的小镇……
 SolynDepartUnknown: 神秘人已离开……
-SolynArriveKnown: Solyn已到达！
-SolynDepartKnown: Solyn已离开！
+SolynArriveKnown: 索琳已到达！
+SolynDepartKnown: 索琳已离开！
 CloudSaveMessage: 如果你想用终末石，把云存档关了。它是子世界模组中加载页面定格bug的来源。
-// SolynParadiseReclaimed1: It's... calm.
-// SolynParadiseReclaimed2: And yet, it feels as though something terrible is coming...
-// SolynParadiseReclaimed3: Something... FROM BELOW!!
-// SolynParadiseReclaimedSaveText: I'll save you!
-// SolynRunAway: Run away!
-// SolynStayBelowMe: Stay below me!
-// SolynAvatarReaction1: Wait... what's going on??
-// SolynAvatarReaction2: OH GOD! WHAT THE HELL IS THAT?!!
-// OpenSolynQuestbook: Open Solyn's Questbook
-// TelescopeDaytimeText: It's too bright out right now!
-// TelescopeRepairFailText: Insufficient materials for repair!
-// AvatarPlayerDeathText: You have perished.
-// PermafrostKeepMapIconText: Mysterious Keep
-// SummonMarsButtonText: Summon (Mars)
+SolynParadiseReclaimed1: 很……平静。
+SolynParadiseReclaimed2: 然而，好像要发生可怕的事情了……
+SolynParadiseReclaimed3: 有什么……从下边来的！！
+SolynParadiseReclaimedSaveText: 我来救你！
+SolynRunAway: 快跑！
+SolynStayBelowMe: 保持在我下方！
+SolynAvatarReaction1: 等等，发生什么了？？
+SolynAvatarReaction2: 天哪！这是什么鬼？！！
+OpenSolynQuestbook: 打开索琳的任务册
+TelescopeDaytimeText: 现在天光太亮了！
+TelescopeRepairFailText: 修复的材料不足！
+AvatarPlayerDeathText: 你死了。
+PermafrostKeepMapIconText: 神秘堡垒
+SummonMarsButtonText: 召唤（玛尔斯）
 
 SolynDraedonInteraction: {
-	// Draedon1: Hmm! My esteemed test subject once again initiates contact, this time alongside their partner.
-	// Draedon2: Solyn, I presume?
-	// Solyn1: Wait... how do you know my name??
-	// Draedon3: The collection of all knowledge is my ultimate pursuit.
-	// Draedon4: It would be a mark against me as a scientist to not study your friend after our last encounter.
-	// Solyn2: What do you mean by-
-	// Draedon5: Speak no more.
-	// Draedon6: I know of and possess precisely what you two seek.
-	// Draedon7: However, it would be improper of me to simply hand it over.
-	// Draedon8: I wish to examine you in combat, together. A rare case study, you could say.
-	// Draedon9: You will fight against and defeat my strongest machine.
-	// Draedon10: And in exchange, I will grant you a special seedling for your floral superweapon.
-	// Draedon11: Do you accept this offer?
-	// Solyn3: It's been a long time since I've done combat.
-	// Solyn4: But... I accept. What about you?
+	Draedon1: 嗯！我可敬的实验对象又发起了联络，这次还带着同伴。
+	Draedon2: 叫索琳，对吧？
+	Solyn1: 等等……你怎么知道我的名字？？
+	Draedon3: 收集世上的一切知识就是我的终极追求。
+	Draedon4: 作为一个科学家，如果在上次相遇之后不去了解你的社交，这将成为我的污点。
+	Solyn2: 你是指——
+	Draedon5: 不用再说了。
+	Draedon6: 我不仅知道，而且拥有你们二人寻求的东西。
+	Draedon7: 然而，如果就这样交给你们，恐怕有失严肃。
+	Draedon8: 我希望你们一起接受试炼。你也可以说，这是一种特例研究。
+	Draedon9: 你们将与我最强大的机器战斗，并战胜它。
+	Draedon10: 作为交换，我将为你们的超级鲜花武器送上一株萌芽。
+	Draedon11: 你们接受这个提议吗？
+	Solyn3: 距离我上次战斗已经很久了。
+	Solyn4: 但是……我接受。你呢？
 }
 
-// SolynDraedonInteractionSuccessive: Are you ready?
-// PlayerDraedonAcceptance: I accept.
-// PlayerDraedonAcceptanceSuccessive: I am.
-// DraedonAcceptanceResponse: Excellent! They will arrive shortly.
-// DraedonAcceptanceResponseSuccessive: Excellent.
-// SolynGetToMe: Get to me!
-// SolynBreakForcefield: Break the forcefield with the star!
-// SolynBreakForcefield2: One more hit!
-// SolynUseMouseButtons: Hold LMB and RMB!
+SolynDraedonInteractionSuccessive: 准备好了吗？
+PlayerDraedonAcceptance: 我接受。
+PlayerDraedonAcceptanceSuccessive: 准备好了。
+DraedonAcceptanceResponse: 很好！它们很快就来了。
+DraedonAcceptanceResponseSuccessive: 很好。
+SolynGetToMe: 来我这儿！
+SolynBreakForcefield: 使用恒星来破坏力场！
+SolynBreakForcefield2: 再来一下！
+SolynUseMouseButtons: 按住左键和右键！
 
 DraedonEndingMonologue: {
-	// Draedon1: Marvelous.
-	// Draedon2: The data you two have provided me is immaculate.
-	// Solyn1: That was... surprisingly fun!
-	// Solyn2: But... where's the seedling?
-	// Draedon3: Worry not. I have already fulfilled my end of the bargain.
-	// Draedon4: That seed you now possess was my machine's sole energy source.
-	// Draedon5: I am eager to see how you use it.
-	// Draedon6: Good luck, and farewell.
+	Draedon1: 棒极了。
+	Draedon2: 你俩提供给我的数据非常完美。
+	Solyn1: 这个其实……超有意思的！
+	Solyn2: 不过……那颗萌芽呢？
+	Draedon3: 无需担心。我已经履行了我的承诺。
+	Draedon4: 你现在手中的那颗种子，是我机器的唯一能源。
+	Draedon5: 我期待看到你如何使用它。
+	Draedon6: 就此别过，祝你好运。
 }
 
-// DarkRiftVaniquishText: The dark rift, vanquished in an instant.
-/* SolynHandwrittenNoteFarewellText:
+DarkRiftVaniquishText: 暗之裂隙，降之于一瞬。
+SolynHandwrittenNoteFarewellText:
 	'''
-	Hey!
+	嘿！
 
-	I noticed how much effort you spent trying to keep my little bookshelf happy and full!
-	To be completely honest with you, I'm surprised you managed to find some of these books. The Bible of Slime? How silly!
+	你把我的小书架收拾得有趣又宽敞，肯定下了很大的功夫，我都发现啦！
+	跟你说句实话，这里面有些书你居然能找到，我都吓了一跳。什么《史莱姆圣经》？笑死我啦！
 
-	Anyway... if you're reading this, that means I'm no longer with you. Maybe something with the Genesis went horribly wrong. Whatever the case, I'm sure you already know the answer.
+	无论如何……你读到这个的时候，估计我已经不在了。也许是起源花除了什么大问题。不管发生了什么，我相信你已经找到了答案。
 
-	It's not much, and I'd have loved to show you in person, but... I want you to have my secret cinnamon roll recipe in my absence.
-	Think of me whenever you use it, and our time together.
+	我有一个小小的礼物，而且我本来是想当面交给你来着，但是……在我不在的这些日子，我想让你知道我的肉桂卷秘方。
+	希望你每次用到的时候，都能想起我，还有我们相伴的那些时光……
 
 
-	-Solyn
-	''' */
-// SolynBackstory1: As you've probably guessed, I'm... not from this world.
-// SolynBackstory2: My home is a place of lush overgrowth, beneath the gentle light of twin suns.
-// SolynBackstory3: My kind are peaceful, knowledgeable, and reverent.
-// SolynBackstory4: We have long held on to our traditions, singing songs to the melody of the stars.
-// SolynBackstory5: Whistling to the breeze of nature.
-// SolynBackstory6: As for me... seeking the elusive has always been an obsession of mine.
-/* SolynBackstory7:
+	——索琳
 	'''
-	The aching desire to know has burned ever since I was a young girl.
-	The desire to be close with our maker.
-	''' */
-// SolynBackstory8: In this regard, almost none have had the opportunities I've enjoyed.
-// SolynBackstory9: And yet... I can now only wonder if my old friends miss me as I miss them.
-// SolynTestBuildup1: I had the fortune of being born near in time to a special event in which all of our system's planets align.
-// SolynTestBuildup2: It is believed that when this happens, our creator briefly gazes upon our world.
-// SolynTestBuildup3: In that moment, I did something never done before.
-// SolynTestBuildup4: Using my assortment of occult artifacts and ancient magics, I beckoned an acknowledgement, desiring ultimate knowledge and understanding.
-// SolynTestBuildup5: It was clear that the opportunity would never again present itself to me.
-// SolynTestBuildup6: The next thing I knew... I was in the presence of an impossible being, surrounded by a natural beauty unlike any I had witnessed before.
-// SolynTestBuildup7: I sensed that in the pursuit of what I sought, my resolve would be tested.
-// SolynTestBuildup8: And then...
-// SolynTestBuildup9: I failed.
+SolynBackstory1: 也许你已经猜到了，我……并不来自这个世界。
+SolynBackstory2: 我的故乡密林丛生，有着两颗太阳的和暖照耀。
+SolynBackstory3: 我的同族热爱和平和知识，而且十分虔诚。
+SolynBackstory4: 我们有着源远流长的传统，随星之旋律而颂唱。
+SolynBackstory5: 随自然之息而漫歌。
+SolynBackstory6: 至于我……寻找难解的谜团一直是我的热爱所在。
+SolynBackstory7:
+	'''
+	求知的剧烈渴望从我幼时就已点燃。
+	渴望接近造物主。
+	'''
+SolynBackstory8: 在这方面，几乎没有人曾得到我如今的机遇。
+SolynBackstory9: 然而，我现在只是有点好奇，我的老朋友们是否像我想念他们一样想念我。
+SolynTestBuildup1: 我有幸生于合适的时代，可以见证我们恒星系的所有行星连成一线。
+SolynTestBuildup2: 大家相信，当这种情况发生时，我们的造物主将对我们的世界予以一瞥。
+SolynTestBuildup3: 那一次，我做了一件从未有人做过的事情。
+SolynTestBuildup4: 利用我的各种玄秘工具和魔法知识，我发出了呼唤，求取终极的知识和理解。
+SolynTestBuildup5: 很显然，这一契机再也不会出现在我面前。
+SolynTestBuildup6: 我知道的下一件事就是……我面前是一个不可思议的存在，周围环绕着一种我从未见过的自然美。
+SolynTestBuildup7: 我感受到，在追求这些的过程中，我的决心需要经受考验。
+SolynTestBuildup8: 然后……
+SolynTestBuildup9: 我失败了。

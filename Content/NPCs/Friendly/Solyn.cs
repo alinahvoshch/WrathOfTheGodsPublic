@@ -554,7 +554,7 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
             return;
 
         NPC.GivenName = string.Empty;
-        if (!DialogueManager.FindByRelativePrefix("SolynIntroduction").SeenBefore("Talk4"))
+        if (!DialogueManager.FindByRelativePrefix("SolynIntroduction").SeenBefore("Talk4") && !EternalGardenUpdateSystem.WasInSubworldLastUpdateFrame)
             typeName = "???";
     }
 

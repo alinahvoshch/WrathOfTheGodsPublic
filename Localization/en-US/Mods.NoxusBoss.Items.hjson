@@ -527,6 +527,7 @@ FrostblessedSeedlingItem: {
 	Tooltip:
 		'''
 		A cold, magical sprout from Permafrost's Keep
+		Must be planted on grass
 		[c/D22444:If nurtured correctly, its limitless potential will be unlocked]
 		'''
 }
@@ -536,6 +537,7 @@ TheAntiseed: {
 	Tooltip:
 		'''
 		An ancient seedling that was sealed away in a mysterious rift in an act of protection
+		Must be planted on grass
 		[c/D22444:Its powers may be combined with the Frostblessed Seedling when placed near it]
 		'''
 }
@@ -545,6 +547,7 @@ SyntheticSeedling: {
 	Tooltip:
 		'''
 		An artificial seed manufactured at the atomic level by Draedon for use as a sustainable source of energy
+		Must be planted on grass
 		[c/D22444:Its powers may be combined with the Frostblessed Seedling when placed near it]
 		'''
 }
@@ -554,6 +557,7 @@ PluripotentSprout: {
 	Tooltip:
 		'''
 		It's slimy, with a refulgent iridescence
+		Must be planted on grass
 		[c/D22444:Its powers may be combined with the Frostblessed Seedling when placed near it]
 		'''
 }
@@ -563,6 +567,7 @@ BlazingBud: {
 	Tooltip:
 		'''
 		A sprout of immense power. Screams, cries, and the unceasing crackle of hellfire can be faintly heard from it
+		Must be planted on grass
 		[c/D22444:Its powers may be combined with the Frostblessed Seedling when placed near it]
 		'''
 }
@@ -1016,7 +1021,7 @@ MagicLexicon: {
 
 Otherworldly1: {
 	DisplayName: Otherworldly Tome I
-	ObtainmentHint: "[c/F79BC6:You may find this book in pots]"
+	ObtainmentHint: "[c/F79BC6:I'll try to find this one on my own]"
 	Tooltip:
 		'''
 		It's written in a language that you don't understand
@@ -1026,7 +1031,7 @@ Otherworldly1: {
 
 Otherworldly2: {
 	DisplayName: Otherworldly Tome II
-	ObtainmentHint: "[c/F79BC6:This book may be extractinated]"
+	ObtainmentHint: "[c/F79BC6:I'll try to find this one on my own]"
 	Tooltip:
 		'''
 		It's written in a language that you don't understand
@@ -1036,7 +1041,7 @@ Otherworldly2: {
 
 Otherworldly3: {
 	DisplayName: Otherworldly Tome III
-	ObtainmentHint: "[c/F79BC6:This book may be found within a rare, vibrant slime]"
+	ObtainmentHint: "[c/F79BC6:I'll try to find this one on my own]"
 	Tooltip:
 		'''
 		It's written in a language that you don't understand
@@ -1066,7 +1071,7 @@ Otherworldly5: {
 
 Otherworldly6: {
 	DisplayName: Otherworldly Tome VI
-	ObtainmentHint: "[c/F79BC6:You may find this book within special chests in the dungeon]"
+	ObtainmentHint: "[c/F79BC6:I'll try to find this one on my own]"
 	Tooltip:
 		'''
 		It's written in a language that you don't understand
@@ -1172,4 +1177,14 @@ SeedOfWill: {
 ParadiseDye: {
 	DisplayName: Paradise Dye
 	Tooltip: ""
+}
+
+SolynQuestSkipper: {
+	DisplayName: Solyn Quest Skipper (DEBUG)
+	Tooltip: Marks all of Solyn's quests as complete, allowing you to immediately activate the Genesis
+}
+
+SolynTelescopeResetter: {
+	DisplayName: Solyn Telescope Resetter (DEBUG)
+	Tooltip: Resets the state of Solyn's telescope, making it repairable again
 }

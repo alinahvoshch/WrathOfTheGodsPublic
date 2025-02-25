@@ -1,73 +1,73 @@
 # A '^' character corresponds to a long pause.
 Bunny: {
-	// Name: Bunny Constellation
-	/* SolynDialogue:
+	Name: 兔兔星座
+	SolynDialogue:
 		'''
-		Bunnies! Adorable little things.
-		I wonder who it was that decided they should exist amidst the stars!
-		''' */
+		兔兔！可爱滴捏。
+		我想知道是谁决定让它们存在于这片星辰之中！
+		'''
 }
 
 EmptyPatchOfSpaceTfAreYouEvenDoing: {
-	// Name: Space
-	// SolynDialogue1: Space really is a fascinating thing, isn't it?
-	// SolynDialogue2: The boundlessness of it all, really! And the stars are all so stunning!
-	// SolynDialogue3: It beckons one to wonder about all the mysteries so far unsolved, and of our smallness.
-	// SolynDialogue4: But hey, maybe there IS some answer out there! ^Some force that explains all of this natural beauty...
-	// SolynDialogue5: Ah, but anyway, you^ really like that specific patch of space, huh? Haha!
-	// SolynDialogue6: You enjoying yourself?
-	// SolynDialogue7: Hey,^ uh,^ maybe we should see what else there is? That specific patch is nice and all, but it's really just a patch...
-	// SolynDialogue8: ...
-	// SolynDialogue9: Well... ^I suppose I'm not in a rush.
-	// SolynDialogue10: ...
-	// SolynDialogue11: ...
-	// SolynDialogue12: I... ^^really think we should really look at something else...
-	// SolynDialogue13: ...
+	Name: 太空
+	SolynDialogue1: 太空可真是个迷人的东西，不是吗？
+	SolynDialogue2: 真的，它无边无际！星辰也都是那么的迷人！
+	SolynDialogue3: 它感召着人们去思考所有尚未解决的问题，还有我们的渺小。
+	SolynDialogue4: 但是，嘿，也许有一些答案在那！^某种力量对所有的这些自然之美做出了解释......
+	SolynDialogue5: 啊，不管怎么说，你真的很喜欢那块特定的地方，不是吗？哈哈！
+	SolynDialogue6: 你玩的开心吗？
+	SolynDialogue7: 嘿，^ 呃，^ 也许我们应该看看还有什么别的东西？那一小块特定的区域很好，但实际上它就也只是一小块区域......
+	SolynDialogue8: ......
+	SolynDialogue9: 好吧...... ^我想我不赶时间。
+	SolynDialogue10: ......
+	SolynDialogue11: ......
+	SolynDialogue12: 我...... ^^我真的觉得我们应该去看看别的东西......
+	SolynDialogue13: ......
 }
 
 GalacticCenter: {
-	// Name: The Galactic Center
-	/* SolynDialogue:
+	Name: 银心
+	SolynDialogue:
 		'''
-		The galactic center?
-		^Well... truthfully, I'm not entirely sure what's up with it.^ But I have heard that it's rather violent in there.
-		^^I'm sure it'd be quite a sight to behold up close!
-		''' */
+		银心？
+		^好吧……说实话，我不知道它发生了什么。^但我听说那边挺不太平。
+		^^我相信近距离看一定很壮观！
+		'''
 }
 
 MeteorShower: {
-	// Name: Meteor Shower
-	/* SolynDialogue:
+	Name: 流星雨
+	SolynDialogue:
 		'''
-		Oh, wow!! A meteor shower!
-		Quick, make a wish!
-		''' */
+		哦，哇！！流星雨！
+		快许愿啊！
+		'''
 }
 
 Moon: {
-	// Name: The Moon
-	// SolynDialogue: The moon?? Sillyhead, you already know what that is!
-	/* SolynDialogueBloodMoon:
+	Name: 月亮
+	SolynDialogue: 月亮？？笨蛋，你已经知道它是啥了！
+	SolynDialogueBloodMoon:
 		'''
-		Some say that the light of the blood moon is enough to drive people insane...^
-		I dunno, do you feel insane right now? I know I don't!
-		''' */
+		有些人说血月的光芒足以让人疯掉......^
+		我不清楚，你觉得自己疯了吗？反正我知道我没有！
+		'''
 }
 
 Rift: {
-	// Name: ???
-	/* SolynDialogue:
+	Name: ？？？
+	SolynDialogue:
 		'''
-		Ooh! That's one of my favorites! That's the celestial rift of doom! It's really quite interes-^
-		Wait...^^ huh??
-		''' */
+		哦！那是我的最爱之一！一个代表着厄兆的天上的隙间！这可真是太——
+		等等......啊？？
+		'''
 }
 
 ScreamingNebula: {
-	// Name: The Screaming Nebula
-	/* SolynDialogue:
+	Name: 呼啸星云
+	SolynDialogue:
 		'''
-		That's the screaming nebula! It looks so beautiful up close like this...^^
-		You know... I'm not sure why they called it that. In space, there's no such thing as screaming, or sound for that matter!
-		''' */
+		那是呼啸星云！像这样近距离看起来真是太美了......^^
+		你知道的......我不知道他们为什么这么称呼它。在太空中可没呼啸或声音这回事！
+		'''
 }

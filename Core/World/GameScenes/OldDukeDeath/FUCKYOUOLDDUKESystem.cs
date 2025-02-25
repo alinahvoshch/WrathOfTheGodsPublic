@@ -4,6 +4,7 @@ using NoxusBoss.Assets;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.FirstPhaseForm;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
 using NoxusBoss.Core.CrossCompatibility.Inbound.BaseCalamity;
+using NoxusBoss.Core.CrossCompatibility.Inbound.Infernum;
 using NoxusBoss.Core.GlobalInstances;
 using NoxusBoss.Core.World.WorldSaving;
 using Terraria;
@@ -59,6 +60,10 @@ public class FUCKYOUOLDDUKESystem : ModSystem
 
     private bool KillOldDukeWrapper(NPC npc)
     {
+        // Just don't bother.
+        if (InfernumCompatibilitySystem.InfernumModeIsActive)
+            return true;
+
         // Override Old Duke's AI with a dedicated wrapper method.
         if (npc.type == OldDukeID && !BossDownedSaveSystem.HasDefeated<AvatarOfEmptiness>() && !WorldSaveSystem.AvatarHasKilledOldDuke)
         {
