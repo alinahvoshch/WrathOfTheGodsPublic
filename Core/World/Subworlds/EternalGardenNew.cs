@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using NoxusBoss.Assets.Fonts;
+using NoxusBoss.Content.NPCs.Bosses.NamelessDeity;
 using NoxusBoss.Content.Tiles;
 using NoxusBoss.Core.Autoloaders;
 using NoxusBoss.Core.CrossCompatibility.Inbound;
@@ -140,7 +141,6 @@ public class EternalGardenNew : Subworld
         // Ensure that world save data for the Avatar and Nameless are preserved.
         // Nameless is obvious, the main world should know if he was defeated in the subworld.
         // The Avatar's defeat is required to use the Terminus, so not having him marked as defeated and thus unable to use it to leave the subworld would be a problem.
-        ModContent.GetInstance<BossDownedSaveSystem>().SaveWorldData(savedWorldData);
         if (HasMetNamelessDeity)
             savedWorldData["HasMetNamelessDeity"] = true;
 
@@ -151,6 +151,8 @@ public class EternalGardenNew : Subworld
             savedWorldData["RevengeanceMode"] = revengeanceMode;
         if (deathMode)
             savedWorldData["DeathMode"] = deathMode;
+        if (BossDownedSaveSystem.HasDefeated<NamelessDeityBoss>())
+            savedWorldData["NamelessDeityDefeated"] = true;
         if (Main.zenithWorld)
             savedWorldData["GFB"] = Main.zenithWorld;
         savedWorldData["WorldVersionText"] = WorldVersionSystem.WorldVersionText;
@@ -173,9 +175,10 @@ public class EternalGardenNew : Subworld
     {
         TagCompound savedWorldData = specialTag ?? SubworldSystem.ReadCopiedWorldData<TagCompound>($"GardenSavedWorldData_{suffix}");
 
-        ModContent.GetInstance<BossDownedSaveSystem>().LoadWorldData(savedWorldData);
-
         HasMetNamelessDeity = savedWorldData.ContainsKey("HasMetNamelessDeity");
+
+        if (savedWorldData.ContainsKey("NamelessDeityDefeated"))
+            BossDownedSaveSystem.SetDefeatState<NamelessDeityBoss>(true);
 
         CommonCalamityVariables.RevengeanceModeActive = savedWorldData.ContainsKey("RevengeanceMode");
         CommonCalamityVariables.DeathModeActive = savedWorldData.ContainsKey("DeathMode");
