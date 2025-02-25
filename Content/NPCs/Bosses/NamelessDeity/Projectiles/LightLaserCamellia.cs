@@ -119,7 +119,7 @@ public class LightLaserCamellia : ModProjectile, IProjOwnedByBoss<NamelessDeityB
 
         Texture2D texture = GennedAssets.Textures.Projectiles.LightLaserCamellia.Value;
         Vector2 drawPosition = Projectile.Center - Main.screenPosition;
-        Rectangle frame = texture.Frame(1, Main.projFrames[Type], 0, Projectile.frame);
+        Rectangle frame = texture.Frame(2, 25, Projectile.frame / 25, Projectile.frame % 25);
         Vector2 origin = frame.Size() * new Vector2(0.5f, 0.75f);
         Vector2 scale = new Vector2(1f - Stretch * 0.6f, 1f + Stretch) * Projectile.scale;
 

@@ -76,6 +76,19 @@ public class SolynTent : ModTile
 
         PlayerDataManager.SaveDataEvent += SaveBookshelfInteraction;
         PlayerDataManager.LoadDataEvent += LoadBookshelfInteraction;
+        GlobalTileEventHandlers.IsTileUnbreakableEvent += MakeTilesBelowUnbreakable;
+    }
+
+    private bool MakeTilesBelowUnbreakable(int x, int y, int type)
+    {
+        if (Type == type)
+            return true;
+
+        Tile above = Framing.GetTileSafely(x, y - 1);
+        if (above.TileType == type && above.HasTile)
+            return true;
+
+        return false;
     }
 
     private static void SaveBookshelfInteraction(PlayerDataManager p, TagCompound tag)

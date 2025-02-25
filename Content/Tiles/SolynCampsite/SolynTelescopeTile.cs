@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using NoxusBoss.Assets;
 using NoxusBoss.Content.Tiles.TileEntities;
 using NoxusBoss.Core.DialogueSystem;
+using NoxusBoss.Core.GlobalInstances;
 using NoxusBoss.Core.Netcode;
 using NoxusBoss.Core.Netcode.Packets;
 using NoxusBoss.Core.SolynEvents;
@@ -92,7 +93,21 @@ public class SolynTelescopeTile : ModTile
         TileObjectData.addTile(Type);
         AddMapEntry(new Color(255, 255, 255));
 
+        GlobalTileEventHandlers.IsTileUnbreakableEvent += MakeTilesBelowUnbreakable;
+
         HitSound = SoundID.Tink;
+    }
+
+    private bool MakeTilesBelowUnbreakable(int x, int y, int type)
+    {
+        if (Type == type)
+            return true;
+
+        Tile above = Framing.GetTileSafely(x, y - 1);
+        if (above.TileType == type && above.HasTile)
+            return true;
+
+        return false;
     }
 
     public override bool CanExplode(int i, int j) => false;

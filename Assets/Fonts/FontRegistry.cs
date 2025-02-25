@@ -114,7 +114,12 @@ public class FontRegistry : ModSystem
                 return FontAssets.DeathText.Value;
 
             if (CanLoadFonts)
+            {
+                if (RussianGameCulture.IsActive)
+                    return Mod.Assets.Request<DynamicSpriteFont>("Assets/Fonts/SolynTextItalicsRussian", AssetRequestMode.ImmediateLoad).Value;
+
                 return Mod.Assets.Request<DynamicSpriteFont>("Assets/Fonts/SolynTextItalics", AssetRequestMode.ImmediateLoad).Value;
+            }
 
             return FontAssets.MouseText.Value;
         }
