@@ -2,11 +2,11 @@ MerchantChat: {
 	RiftEclipse_Morning1: 剑克纸！赶紧买一把。
 	RiftEclipse_Morning2: 你想要苹果？你想要胡萝卜？你想要菠萝？我们只有火把。
 	RiftEclipse_Morning3: 多么寒冷的清晨啊。幸运的是，赚钱这事可从来没有不合时宜这一说法！
-	RiftEclipse_Afternoon1: 自从天空出现了隙间后，每个人都对交易不那么感兴趣了。但是至少，我很高兴你貌似并不在乎它！
+	RiftEclipse_Afternoon1: 自从天空出现了裂隙后，每个人都对交易不那么感兴趣了。但是至少，我很高兴你貌似并不在乎它！
 	RiftEclipse_Afternoon2: 最近挺冷的。也许，我能让你对那些价格过高的衣服起一点兴趣？
-	RiftEclipse_Afternoon3: 看看我的雪块；他们全是雪。
+	RiftEclipse_Afternoon3: 看看我的雪块；它们全是雪。
 	RiftEclipse_Evening1: 朋友，快要天黑了。快做决定吧，不然就晚了。
-	// RiftEclipse_Evening2: You have no idea how much Snow Blocks sell for overseas.
+	RiftEclipse_Evening2: 你是不知道雪块能在国外卖多少钱。
 	RiftEclipse_Evening3: 不，我不会给你提供世界末日的专属折扣。
 	RiftEclipse_Nightfall1: 当然，一切都是那么的黑暗与可怕，但你考虑过买一些火把吗？
 	RiftEclipse_Nightfall2: 即使是世界末日也无法阻止资本主义，我们来做点交易吧。
@@ -44,7 +44,7 @@ DemolitionistChat: {
 	RiftEclipse7: 喂，你能签了这份不恶意捣乱的承诺书吗？
 	RiftEclipse8: 我能引起你对一堆燃烧碎石的兴趣吗？
 	RiftEclipse9: 莽撞？不，我比以前任何时候都充满活力！
-	RiftEclipse10: 干燥、不详的空气对我的炸药而言太棒了！
+	RiftEclipse10: 干燥、不祥的空气对我的炸药而言太棒了！
 	RiftEclipse11: 如果这个世界可以炸得一干二净，何须再净化它？
 	RiftEclipse12: 为什么大伙最近都这么关心我？我玩的很开心！
 }
@@ -56,7 +56,7 @@ DyeTraderChat: {
 	RiftEclipse4: 我觉得减饱和也有它自己的用处……
 	RiftEclipse5: 我的植物群无法忍受这种情况！
 	RiftEclipse6: 正是这种时刻让我们对这个世界的美丽心怀感激。
-	GoodDyeEasterEgg: 嘿……这种染料还不错。事实上很不错。
+	GoodDyeEasterEgg: 嘿……这种染料还不错。事实上是个好染料。
 }
 
 AnglerChat: {
@@ -76,7 +76,7 @@ ZoologistChat: {
 	RiftEclipse3: 这可真是太糟了！它让我毛骨悚然！
 	RiftEclipse4: 我想知道我哥哥会怎么看待这一切……
 	RiftEclipse5: 我的耳朵太太太太冷了！
-	RiftEclipseNight1: 你知道，我有点喜欢，甚至是怀念月亮了……
+	RiftEclipseNight1: 你知道，我有点有点，开始怀念月亮了……
 	RiftEclipseNight2: 一切似乎都是如此的……平静。
 	RiftEclipseNight3: 你想说点什么来打发时间吗？
 	RiftEclipseNight4: 我的直觉完全失控了，这一切都太诡异了！
@@ -86,7 +86,7 @@ DryadChat: {
 	RiftEclipse1: 这种呼啸的风并不自然。
 	RiftEclipse2: 似乎万物都开始枯萎了。
 	RiftEclipse3: 泰拉瑞亚比以往任何时刻都需要你！
-	RiftEclipse4: 我必须承认，其他人对这一切的理解给我留下了深刻的印象。
+	RiftEclipse4: 我必须承认，我还是更在意其他人是怎么顺滑地接受了这一切。
 	RiftEclipse5: 时间的沙漏在流逝，我们还要被它们冲洗多久？
 	RiftEclipse6: 直至现在，你的胜利是值得赞扬的。为了我们，我希望你能以某种方式拯救这个世界。
 	RiftEclipse7: 大自然正在颤抖……
@@ -101,7 +101,7 @@ DryadChat: {
 
 PainterChat: {
 	RiftEclipse1: 这些天以来，原材料都很难搞到。
-	RiftEclipse2: 空中的隙间……这让我大受鼓舞！它所创造的日落可能是黯淡的，但那微弱闪光的色彩将是世上最为璀璨的！
+	RiftEclipse2: 空中的裂隙……这让我大受鼓舞！它所创造的日落可能是黯淡的，但那微弱闪光的色彩将是世上最为璀璨的！
 	RiftEclipse3: 深色与亮色有着同等的价值。
 	RiftEclipse4: 我必须承认，这些天的情况有点阴沉。我更有理由去绘画了。
 	RiftEclipse5: 不不不……全都是不同的灰色！看看周围！
@@ -120,7 +120,7 @@ ArmsDealerChat: {
 	RiftEclipseNight: 许多东西都发生了改变，但将恶魔眼当做打靶练习对象可不在其中！
 	RiftEclipseSnow: 祝你在这种情况下仍能得到好运！
 	RiftEclipse_Demolitionist: 别告诉他说我说过这句话，但是{0}最近的样子吓到我了。他对任何事物都冷漠得可怕。
-	GFB: 嘿，伙计，你知道我们携带武器的权利是上帝赐予的吗？
+	GFB: 嘿，伙计，你知道上帝赐予了我们持枪权吗？
 }
 
 TavernkeepChat: {
@@ -142,14 +142,14 @@ StylistChat: {
 	RiftEclipse5: 哦，天哪！最近的闲话可变少了许多……
 	RiftEclipse6: 最近的奇怪天气让我不得不呆在屋子里！我可不想我的努力都付诸东流。
 	RiftEclipse7: 背部和侧面都很短，是吗？
-	// Solyn: That sweet girl, Solyn! I tried to improve her hair once, but that wild, star-shaped lick atop her head refused to budge!
+	Solyn: 是好姑娘索琳！我试过一次修建她的发型，但她狂野的星形呆毛怎么也不肯就范！
 }
 
 GoblinTinkererChat: {
-	// RiftEclipse1: Eldritch portal blocking the sun? I've got just the gadget for that!
-	// RiftEclipse2: So much for 'solar power'...
-	// RiftEclipse3: Cosmic horrors tipping the universal scales of power, eh? Gimme a couple minutes.
-	// RiftEclipse4: No sun? No problem! We'll make our own!
+	RiftEclipse1: 遮蔽太阳的诡异传送门？我也来做一个类似的！
+	RiftEclipse2: 看来“太阳能”就这么多了……
+	RiftEclipse3: 宇宙的恐怖颠覆了力量的平衡，呃？你等等。
+	RiftEclipse4: 没有太阳？没问题！我们自己做一个！
 }
 
 PartyGirlChat: {
@@ -186,7 +186,7 @@ WizardChat: {
 	SolynAcknowledgement: 你知道，Solyn看起来十分老练！也许她甚至知道一些我不知道的东西……
 }
 
-TravelingMerchantChat.RiftEclipse1: 我卖的商品来自可能根本就不存在的地方！
+TravelingMerchantChat.RiftEclipse1: 我卖的商品来自可能不会继续存在的地方！
 
 SkeletonMerchantChat: {
 	RiftEclipse1: 我听说已经下了一整天的冰雹了，我是不会在这样寒冷的天气里出去的！
@@ -200,8 +200,8 @@ SkeletonMerchantChat: {
 }
 
 ElderSlimeChat.RiftEclipse: 宇宙颤动，我们很快就会死于无情的寒冷之手，咕噜。
-/* PermafrostChat.Saved:
+PermafrostChat.Saved:
 	'''
-	I must thank you dearly for freeing me from that cold prison.
-	Here, take this, as a token of gratitude. I'm sure you'll find some use for it.
-	''' */
+	我非常感谢你把我从那个冰冷的监狱里解救出来。
+	给，拿着这个，作为感谢，我相信你会用得上的。
+	'''

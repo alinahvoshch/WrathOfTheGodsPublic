@@ -1,14 +1,14 @@
 Cryogen: {
-	// Title: Frostbound Fortune Foraging
-	// Description: Let's find some awesome relics in the snow biome!
+	Title: 冰封寻宝
+	Description: 去冰雪生物群系找到一处超棒的遗迹！
 }
 
 Stargaze: {
-	// Title: Stargazing
-	/* Description:
+	Title: 夜观星空
+	Description:
 		'''
-		We should do some stargazing!
-		The pleasant night insects, the natural beauty of the cosmos, and a nice opportunity to bond.
-		I don't know about you, but I think it'd be a grand time!
-		''' */
+		我们去看星星吧！
+		令人愉悦的夜虫，宇宙的自然之美，而且我们可以共处！
+		我还对你不太了解，但我觉得应该会有一段很好的时光！
+		'''
 }

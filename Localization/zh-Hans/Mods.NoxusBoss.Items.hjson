@@ -74,7 +74,7 @@ GoodApple: {
 }
 
 GoodAppleResetter: {
-	DisplayName: Good Apple重设器[DEBUG]
+	DisplayName: Good Apple重置器[DEBUG]
 	Tooltip: ""
 }
 
@@ -89,7 +89,7 @@ LoreAvatar: {
 		'''
 			阴糜范式。苦寒氤氲。蔓生向    一个    终结的         世界
 		黑暗存在，孑然一身。在破灭的  	时间中， 寻求燃尽，寻求探觅
-		扭曲镜像。寓言之挽。浑熵。于血泪交织中浮现
+		扭曲镜像。寓言之挽。熵。于血泪交织中浮现
 		瞬息的
 			呼吸
 		力瞳初藐。力拒外物以谜渺
@@ -125,8 +125,8 @@ LoreNamelessDeity: {
 }
 
 MetallicChunk: {
-	DisplayName: 金属块块
-	Tooltip: 病危宇宙的最后遗物
+	DisplayName: 金属块
+	Tooltip: 已死宇宙的最后残骸
 }
 
 NilkCarton: {
@@ -184,7 +184,7 @@ OblivionChime: {
 }
 
 StarCharm: {
-	DisplayName: 星之魔咒
+	DisplayName: 星星符章
 	Tooltip:
 		'''
 		放置于物品栏中时大幅增加被动幸运值和夜间落星概率
@@ -212,7 +212,6 @@ ThePurifier: {
 		一旦投掷，炸弹需要15秒才会引爆
 		如果你不小心把它扔出去了，可以保存并退出防止它爆炸
 		2012
-		[c/FF3F5D:警告：该物品会重置本世界的一切，将其恢复至初始状态，包括地形与游戏进度。请谨慎使用]
 		'''
 }
 
@@ -267,7 +266,7 @@ ScarletShadeDye: {
 }
 
 GoodDye: {
-	DisplayName: Good染料
+	DisplayName: 好染料
 	Tooltip: ""
 }
 
@@ -528,6 +527,7 @@ FrostblessedSeedlingItem: {
 	Tooltip:
 		'''
 		一株寒冷而富有魔力的幼苗，来自永冻的堡垒
+		必须在草上种植
 		[c/D22444:如果合理培植，它无尽的潜能就可被释放]
 		'''
 }
@@ -537,6 +537,7 @@ TheAntiseed: {
 	Tooltip:
 		'''
 		一株古老的萌芽，以守护之名封于神秘裂隙之内
+		必须在草上种植
 		[c/D22444:如果可以种在霜佑萌芽附近，其能量就可以结合]
 		'''
 }
@@ -546,6 +547,7 @@ SyntheticSeedling: {
 	Tooltip:
 		'''
 		一枚人造种子，由嘉登从原子层面精密制造而来，用作可持续能源供给
+		必须在草上种植
 		[c/D22444:如果可以种在霜佑萌芽附近，其能量就可以结合]
 		'''
 }
@@ -555,6 +557,7 @@ PluripotentSprout: {
 	Tooltip:
 		'''
 		黏滑弹韧，光耀万丈
+		必须在草上种植
 		[c/D22444:如果可以种在霜佑萌芽附近，其能量就可以结合]
 		'''
 }
@@ -564,7 +567,8 @@ BlazingBud: {
 	Tooltip:
 		'''
 		蕴含无边力量的幼苗。从中可以隐约听到无边狱焰、恸哭哀嚎。
-		[c/D22444:如果可以种在霜佑萌芽附近，二者的能量就可以结合]
+		必须在草上种植
+		[c/D22444:如果可以种在霜佑萌芽附近，其能量就可以结合]
 		'''
 }
 
@@ -857,7 +861,7 @@ AncientWritings: {
 		这是一本非常古老的书，主要讲述了一个所谓的恶魔诅咒，提供了一系列令人不安的细节来描述它的影响
 		随便翻开一页，是这样的一个章节：
 
-		'……当第五月动周期达至临界之夜，受诅者之肉身将蜕形暂解，其骨殖现世之瞬，必伴以剜魂蚀骨之痛……'
+		'……当第五月动周期达至临界之夜，受诅者之肉身将蜕形暂解，其骨殖现世之瞬，必伴以剜魂蚀骨之……'
 
 		你不打算再读下去了
 		'''
@@ -890,7 +894,7 @@ CloverManual: {
 
 DubiousBrochureCorruption: {
 	DisplayName: 《可疑的宣传册》
-	ObtainmentHint: "[c/F79BC6:你可以在腐化的裂隙深处找到这本书]"
+	ObtainmentHint: "[c/F79BC6:你可以在腐化的穴隙深处找到这本书]"
 	Tooltip:
 		'''
 		这本小册子里有一段轻松愉快的长篇大论，邀请游客参观腐化群系
@@ -1017,7 +1021,7 @@ MagicLexicon: {
 
 Otherworldly1: {
 	DisplayName: 《异界巨著 卷I》
-	ObtainmentHint: "[c/F79BC6:这本书可以在罐中找到]"
+	ObtainmentHint: "[c/F79BC6:我想自己找到这本书]"
 	Tooltip:
 		'''
 		这本书是用一种你不理解的语言写成的
@@ -1027,7 +1031,7 @@ Otherworldly1: {
 
 Otherworldly2: {
 	DisplayName: 《异界巨著 卷II》
-	ObtainmentHint: "[c/F79BC6:这本书可由提炼机提炼得来]"
+	ObtainmentHint: "[c/F79BC6:我想自己找到这本书]"
 	Tooltip:
 		'''
 		这本书是用一种你不理解的语言写成的
@@ -1037,7 +1041,7 @@ Otherworldly2: {
 
 Otherworldly3: {
 	DisplayName: 《异界巨著 卷III》
-	ObtainmentHint: "[c/F79BC6:这本书可以从一个稀有而活泼的史莱姆处得来]"
+	ObtainmentHint: "[c/F79BC6:我想自己找到这本书]"
 	Tooltip:
 		'''
 		这本书是用一种你不理解的语言写成的
@@ -1067,7 +1071,7 @@ Otherworldly5: {
 
 Otherworldly6: {
 	DisplayName: 《异界巨著 卷VI》
-	ObtainmentHint: "[c/F79BC6:也许你能在地牢的特殊箱子里找到这本书]"
+	ObtainmentHint: "[c/F79BC6:我想自己找到这本书]"
 	Tooltip:
 		'''
 		这本书是用一种你不理解的语言写成的
@@ -1102,11 +1106,11 @@ SulfuricLeaflet: {
 }
 
 TheBookOfShaders: {
-	DisplayName: 《Shader之书》
+	DisplayName: 《着色器之书》
 	ObtainmentHint: "[c/F79BC6:我想自己找到这本书]"
 	Tooltip:
 		'''
-		一本信息读物，介绍程序生成艺术和Shader的制作过程
+		一本信息读物，介绍程序生成艺术和着色器的制作过程
 		有足足七页都在辱骂像素化的神圣性
 		'''
 }
@@ -1181,6 +1185,6 @@ SolynQuestSkipper: {
 }
 
 SolynTelescopeResetter: {
-	// DisplayName: Solyn Telescope Resetter (DEBUG)
-	// Tooltip: Resets the state of Solyn's telescope, making it repairable again
+	DisplayName: 索琳望远镜重置器[DEBUG]
+	Tooltip: 恢复索琳望远镜的状态，以允许你重新修复它
 }

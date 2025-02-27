@@ -1,19 +1,19 @@
 GraphicalUniverseImager: {
-	// EternalGardenAurora: Garden Aurora
-	// NamelessDeityStars: Starry Heaven
-	// NamelessDeityKaleidoscope: Reality
-	// AvatarP1Background: Carmine Yonder
-	// AvatarP2Background: Turbulent Expanse
-	// BloodWhirlpool: Blood Whirlpool
-	// CryonicStatic: Frozen Stasis
-	// RiftEclipse: Rift Eclipse
-	// TerminusStairway: Tranquil Empyrean
-	// NoMusic: No Ambience
-	// AvatarMusic: Quiescence
+	EternalGardenAurora: 乐园华耀
+	NamelessDeityStars: 星夜天境
+	NamelessDeityKaleidoscope: 现 实
+	AvatarP1Background: 殷红远方
+	AvatarP2Background: 无边紊流
+	BloodWhirlpool: 鲜血涡旋
+	CryonicStatic: 寒冰永凝
+	RiftEclipse: 裂隙天蚀
+	TerminusStairway: 静穆灵霄
+	NoMusic: 无环境音
+	AvatarMusic: 沉 寂
 }
 
 SolynBookExchange: {
-	// BookObtainmentPercentage: "{0}% of books found!"
-	// CreditText: Found by [c/FF84D8:{0}]
-	// RarityText: "Rarity: "
+	BookObtainmentPercentage: 已找到{0}%的书籍！
+	CreditText: 由[c/FF84D8:{0}]找到
+	RarityText: 稀有度：
 }

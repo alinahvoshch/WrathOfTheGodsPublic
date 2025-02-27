@@ -195,6 +195,7 @@ public class PermafrostKeepWorldGen : ModSystem
                     Main.tile[i, j].Get<TileWallWireStateData>().HasTile = false;
             }
         }
+        GenVars.structures.AddProtectedStructure(KeepArea);
 
         Generator.GenerateStructure(path, new(generationCenter.Value.X, generationCenter.Value.Y), ModContent.GetInstance<NoxusBoss>());
 

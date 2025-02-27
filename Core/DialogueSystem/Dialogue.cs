@@ -105,13 +105,15 @@ public class Dialogue
     /// </summary>
     public void InvokeClickAction()
     {
-        bool seenBefore = true;
-        if (!DialogueSaveSystem.seenDialogue.Contains(TextKey))
+        bool clickedBefore = true;
+        if (!DialogueSaveSystem.clickedDialogue.Contains(TextKey))
         {
-            DialogueSaveSystem.seenDialogue.Add(TextKey);
-            seenBefore = false;
+            DialogueSaveSystem.clickedDialogue.Add(TextKey);
+            clickedBefore = false;
         }
+        if (!DialogueSaveSystem.seenDialogue.Contains(TextKey))
+            DialogueSaveSystem.seenDialogue.Add(TextKey);
 
-        ClickAction(seenBefore);
+        ClickAction(clickedBefore);
     }
 }

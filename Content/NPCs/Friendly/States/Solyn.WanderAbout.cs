@@ -1,5 +1,6 @@
 ﻿using Luminance.Core.Graphics;
 using Microsoft.Xna.Framework;
+using NoxusBoss.Core.World.Subworlds;
 using NoxusBoss.Core.World.WorldGeneration;
 using Terraria;
 using Terraria.ID;
@@ -65,6 +66,8 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 
                 if (SolynCampsiteWorldGen.TentPosition != Vector2.Zero)
                     WanderDestination = new Vector2(Lerp(WanderDestination.X, SolynCampsiteWorldGen.TentPosition.X, Main.rand.NextFloat(0.5f)), WanderDestination.Y);
+                if (EternalGardenUpdateSystem.WasInSubworldLastUpdateFrame)
+                    WanderDestination = new Vector2(Lerp(WanderDestination.X, Main.maxTilesX * 8f, Main.rand.NextFloat(0.5f)), WanderDestination.Y);
 
                 Vector2 startingDestination = WanderDestination;
 

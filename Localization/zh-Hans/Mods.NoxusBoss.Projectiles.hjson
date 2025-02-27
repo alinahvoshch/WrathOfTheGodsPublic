@@ -3,10 +3,10 @@ Antistar.DisplayName: 反恒星
 ArcingStarburst.DisplayName: 星爆
 ArcticBlast.DisplayName: 极寒冲击
 ArcticWindStreakVisual.DisplayName: 寒风
-// BabyNameless.DisplayName: Nameless Deity
+BabyNameless.DisplayName: 无名光神
 BackgroundStar.DisplayName: 星辰
 BlackHole.DisplayName: 黑洞
-BlackHoleHostile.DisplayName: 恒星
+BlackHoleHostile.DisplayName: 类星体
 BlackHolePet.DisplayName: 黑洞
 BloodBlob.DisplayName: 血凝块
 ClockConstellation.DisplayName: 柯罗诺斯之手
@@ -14,8 +14,8 @@ ControlledStar.DisplayName: 星辰
 ConvergingSupernovaEnergy.DisplayName: 超新星等离子体
 CosmicMagicCircle.DisplayName: 宏神之智
 CryostasisMistWall.DisplayName: 绝对零度
-// CuriousHand.DisplayName: Avatar of Emptiness Hand
-DarkField.DisplayName: 黑暗视野
+CuriousHand.DisplayName: 虚无化身之手
+DarkField.DisplayName: 黑暗力场
 DarkFireball.DisplayName: 暗之火球
 DarkPortal.DisplayName: 暗之门
 DarkWave.DisplayName: 暗之浪潮
@@ -23,7 +23,7 @@ DeadStar.DisplayName: 垂死之星
 DetachedCyanArm.DisplayName: 苍青之手
 DetachedRedArm.DisplayName: 赤色之手
 DetachedShadowArm.DisplayName: 遗忘之握
-// DimensionTwistedComet.DisplayName: Dimension-twisted Comet
+DimensionTwistedComet.DisplayName: 维度扭曲之彗
 DismalSeekerLantern.DisplayName: 阴郁之灯
 DisgustingStar.DisplayName: 憎恶异星
 DistortionField.DisplayName: 扭曲力场
@@ -44,11 +44,11 @@ LilyStar.DisplayName: 纯洁之星
 MoltenBlob.DisplayName: 熔滴
 NamelessDeityAfterimage.DisplayName: 余像
 NoxusNeuron.DisplayName: 神经元
-NoxusExplosion.DisplayName: 熵神爆破
-DarkGas.DisplayName: 熵神雾气
+NoxusExplosion.DisplayName: 黑暗爆破
+DarkGas.DisplayName: 黑暗之雾
 AvatarSlamTelegraph.DisplayName: 预警线
-EmptinessSprayerGas.DisplayName: 诺克萨斯喷雾雾气
-// EmptinessSprayerHoldout.DisplayName: Emptiness Sprayer
+EmptinessSprayerGas.DisplayName: 虚无喷雾雾气
+EmptinessSprayerHoldout.DisplayName: 虚无喷雾器
 PaleComet.DisplayName: 苍白彗星
 PortalArmCyan.DisplayName: 怪诞之臂
 PortalArmStrike.DisplayName: 怪诞之臂
@@ -78,64 +78,64 @@ TerminusProj.DisplayName: 终末石
 VergilScreenSlice.DisplayName: 审判斩切
 VoidBlot.DisplayName: 虚空印记
 WindStreakVisual.DisplayName: 风
-// StarPatternedStarburst.DisplayName: Star Patterned Starburst
-// FallingMeleeWeapon.DisplayName: Ancient Weapon
-// BloodTorrent.DisplayName: Blood Torrent
-// RedirectingRubble.DisplayName: Redirecting Rubble
-// FallenGoodApple.DisplayName: Good Apple
-// ArcticTornado.DisplayName: Arctic Tornado
-// ConvergingSnowEnergy.DisplayName: Snow Energy
-// FreezingWave.DisplayName: Freezing Wave
-// BackgroundBloodBlob.DisplayName: Blood Blob
-// ArcticBlastTornadoPiece.DisplayName: Arctic Blast
-// BloodStake.DisplayName: Blood Stake
-// DirectedArcticBlast.DisplayName: Arctic Blast
-// Snowflake.DisplayName: Snowflake
-// HomingStarBolt.DisplayName: Star Bolt
-// StarshapersWillHoldout.DisplayName: Starshapers Will
-// SolynProtectiveForcefield.DisplayName: Forcefield
-// FrostColumnTelegraph.DisplayName: Frost Column Telegraph
-// FrostColumn.DisplayName: Frost Column
-// StellarRemnant.DisplayName: Stellar Remnant
-// AnnihilationSphere.DisplayName: Annihilation
-// LargeIcicle.DisplayName: Large Icicle
-// SolynProtectiveForcefieldForPlayer.DisplayName: Forcefield
-// EndCreditsGoodApple.DisplayName: End Credits Good Apple
-// LotusOfCreationAppearanceVisual.DisplayName: Lotus Of Creation Appearance Visual
-// DreamcatcherBobber.DisplayName: Dreamcatcher Bobber
-// OtherworldlyThorn.DisplayName: Otherworldly Thorn
-// AntimatterBlast.DisplayName: Antimatter Blast
-// LightLaserFlower.DisplayName: Light Laser Flower
-// LightLaserElectricityArc.DisplayName: Light Laser Electricity Arc
-// PerversePurseHoldout.DisplayName: Perverse Purse
-// TerminusProjectiveBeam.DisplayName: Terminus Projective Beam
-// TerminusStairAppearanceBeam.DisplayName: Terminus Stair Appearance Beam
-// GenesisOmegaDeathray.DisplayName: Genesis Omega Deathray
-// GenesisConvergingEnergy.DisplayName: Genesis Converging Energy
-// PermafrostDoorConvergingEnergy.DisplayName: Permafrost Door Converging Energy
-// PsychedelicFeather.DisplayName: Psychedelic Feather
-// CelestialDreamcatcher.DisplayName: Celestial Dreamcatcher
-// PurifyingMatter.DisplayName: Purifying Matter
-// BinaryLightningArc.DisplayName: Binary Lightning Arc
-// LightLaserCamellia.DisplayName: Light Laser Camellia
-// BigNamelessPunchImpact.DisplayName: Big Nameless Punch Impact
-// CodeStarburst.DisplayName: Code Starburst
-// CodeCrack.DisplayName: Code Crack
-// DirectionalSolynForcefield.DisplayName: Directional Solyn Forcefield
-// MassiveElectricShockwave.DisplayName: Massive Electric Shockwave
-// SmallTeslaArc.DisplayName: Small Tesla Arc
-// TeslaField.DisplayName: Tesla Field
-// SolynImpact.DisplayName: Solyn Impact
-// ExoelectricDisintegrationRay.DisplayName: Exoelectric Disintegration Ray
-// DirectionalSolynForcefield2.DisplayName: Directional Solyn Forcefield
-// SolynSentientStar.DisplayName: Kirby Reference
-// TrappingHolographicForcefield.DisplayName: Trapping Holographic Forcefield
-// UnstableMatter.DisplayName: Unstable Matter
-// SolynTagTeamBeam.DisplayName: The Lesbeam
-// SolynTagTeamChargeUp.DisplayName: Charge-up Energy
-// RailGunCannonDeathray.DisplayName: Railgun Deathray Blast
-// MarsMissile.DisplayName: Fortified Missile
-// SyntheticSeedlingProjectile.DisplayName: Synthetic Seedling Projectile
-// CodeLightningArc.DisplayName: Code Lightning Arc
-// ElectricShockwave.DisplayName: Electric Shockwave
-// FallingObject.DisplayName: Falling Object
+StarPatternedStarburst.DisplayName: 星形星爆
+FallingMeleeWeapon.DisplayName: 远古神兵
+BloodTorrent.DisplayName: 血之洪流
+RedirectingRubble.DisplayName: 碎石
+FallenGoodApple.DisplayName: 好苹果
+ArcticTornado.DisplayName: 极地龙卷
+ConvergingSnowEnergy.DisplayName: 雪之能量
+FreezingWave.DisplayName: 急冻波
+BackgroundBloodBlob.DisplayName: 血滴
+ArcticBlastTornadoPiece.DisplayName: 极寒爆破
+BloodStake.DisplayName: 血柱
+DirectedArcticBlast.DisplayName: 极寒爆破
+Snowflake.DisplayName: 雪花
+HomingStarBolt.DisplayName: 星光束
+StarshapersWillHoldout.DisplayName: 塑星者之意志
+SolynProtectiveForcefield.DisplayName: 力场
+FrostColumnTelegraph.DisplayName: 霜柱预警线
+FrostColumn.DisplayName: 霜柱
+StellarRemnant.DisplayName: 恒星余迹
+AnnihilationSphere.DisplayName: 湮灭
+LargeIcicle.DisplayName: 巨大冰锥
+SolynProtectiveForcefieldForPlayer.DisplayName: 力场
+EndCreditsGoodApple.DisplayName: 片尾好苹果
+LotusOfCreationAppearanceVisual.DisplayName: 创世之莲外观视觉效果
+DreamcatcherBobber.DisplayName: 捕梦手浮标
+OtherworldlyThorn.DisplayName: 异界尖刺
+AntimatterBlast.DisplayName: 反物质爆炸
+LightLaserFlower.DisplayName: 激光之花
+LightLaserElectricityArc.DisplayName: 激光电弧
+PerversePurseHoldout.DisplayName: 人体工学钱包
+TerminusProjectiveBeam.DisplayName: 终末石射线
+TerminusStairAppearanceBeam.DisplayName: 终末石台阶光束
+GenesisOmegaDeathray.DisplayName: 起源花最终死亡射线
+GenesisConvergingEnergy.DisplayName: 起源花汇聚能量
+PermafrostDoorConvergingEnergy.DisplayName: 永冻之门汇聚能量
+PsychedelicFeather.DisplayName: 迷幻羽毛
+CelestialDreamcatcher.DisplayName: 宇宙捕梦网
+PurifyingMatter.DisplayName: 纯化物质
+BinaryLightningArc.DisplayName: 二进制闪电弧
+LightLaserCamellia.DisplayName: 激光山茶花
+BigNamelessPunchImpact.DisplayName: 无名光神大拳冲击
+CodeStarburst.DisplayName: 代码星爆
+CodeCrack.DisplayName: 代码破解
+DirectionalSolynForcefield.DisplayName: 方向性索琳力场
+MassiveElectricShockwave.DisplayName: 巨大电流冲击波
+SmallTeslaArc.DisplayName: 小特斯拉电弧
+TeslaField.DisplayName: 特斯拉力场
+SolynImpact.DisplayName: 索琳冲击
+ExoelectricDisintegrationRay.DisplayName: 电弱解耦射线
+DirectionalSolynForcefield2.DisplayName: 方向性索琳力场
+SolynSentientStar.DisplayName: 致敬卡比
+TrappingHolographicForcefield.DisplayName: 全息力场阱
+UnstableMatter.DisplayName: 不稳定物质
+SolynTagTeamBeam.DisplayName: 索琳射线
+SolynTagTeamChargeUp.DisplayName: 充能
+RailGunCannonDeathray.DisplayName: 电磁炮死亡射线爆炸
+MarsMissile.DisplayName: 加强导弹
+SyntheticSeedlingProjectile.DisplayName: 综构萌芽射弹
+CodeLightningArc.DisplayName: 代码闪电弧
+ElectricShockwave.DisplayName: 电光冲击波
+FallingObject.DisplayName: 坠落物

@@ -217,6 +217,8 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         // Act as a town NPC.
         NPC.friendly = true;
         NPC.townNPC = true;
+
+        TownNPCStayingHomeless = true;
     }
 
     public override void OnSpawn(IEntitySource source)
@@ -274,6 +276,7 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         NPC.breath = 200;
         NPC.breathCounter = 0;
         NPC.Opacity = Saturate(NPC.Opacity + 0.01f);
+        CanBeSpokenTo = true;
         HasBackglow = false;
         SoulForm = false;
         Squish *= 0.85f;
@@ -288,7 +291,6 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         {
             NPC.noGravity = false;
             DescendThroughSlopes = false;
-            CanBeSpokenTo = true;
         }
 
         // Disallow an undefined sprite direction.

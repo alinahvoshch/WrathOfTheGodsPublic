@@ -1,431 +1,431 @@
 Vocabulary: {
-	Determiner1: ""
-	Determiner2: ""
-	Verb1: 折射在
-	Verb2: 超出了
-	Verb3: 预言了
-	Verb4: 预见了
-	Verb5: 行走于
+	Determiner1: 这两句不显示，我要塞私货
+	Determiner2: 这光神传颂的程序写得真好，给翻译提供了很高的自由度，我以前都不知道
+	Verb1: 折射
+	Verb2: 超出
+	Verb3: 预言
+	Verb4: 预见
+	Verb5: 行走
 	Verb6: 燃烧
-	Verb7: 融合于
+	Verb7: 融合
 	Verb8: 上升
-	Verb9: 追寻着
-	Verb10: 踏在了
-	Verb11: 瞥见了
-	Verb12: 屈服于
-	Verb13: 发现了
+	Verb9: 追寻
+	Verb10: 踏足
+	Verb11: 瞥见
+	Verb12: 屈服
+	Verb13: 发现
 	Verb14: 解锁
-	Verb15: 寻找着
-	Verb16: 战胜了
-	Verb17: 航行于
-	Verb18: 编织着
-	Verb19: 回荡着
-	Verb20: 体验了
-	Verb21: 计算着
-	Verb22: 扩大了
-	Verb23: 开导了
-	Verb24: 介绍着
-	Verb25: 诞生于
-	Verb26: 统一了
-	Verb27: 登上了
-	Verb28: 找到了
-	Verb29: 提取了
-	Verb30: 测试了
-	Verb31: 打开了
-	Verb32: 挥动着
-	Verb33: 装饰着
-	Verb34: 盼望着
-	Verb35: 鉴赏着
-	Verb36: 躲避了
-	Verb37: 爱护着
-	Verb38: 发射了
-	Verb39: 得出了
-	Verb40: 照耀了
-	Verb41: 烧尽了
-	Verb42: 抹除了
-	Verb43: 清除了
-	Verb44: 出卖了
-	Verb45: 同意了
-	Verb46: 切除了
-	Verb47: 呼出了
-	Verb48: 计划着
-	Verb49: 理解了
-	Verb50: 覆盖着
-	Verb51: 喘着
-	Verb52: 遮住了
-	Verb53: 照亮了
-	Verb54: 招手示意着
-	Verb55: 构建了
-	Verb56: 创造了
-	Verb57: 祈祷着
-	Verb58: 掌控着
-	Verb59: 理解了
-	Verb60: 飞行着
-	Verb61: 熔化了
-	Verb62: 溶解了
-	Verb63: 忏悔了
-	Verb64: 征服了
-	Verb65: 流动着
-	Verb66: 分解着
-	Verb67: 激励了
-	Verb68: 赦免了
-	Verb69: 理解了
-	Verb70: 溺爱着
-	Verb71: 飘着
-	Verb72: 踉跄着
-	Verb73: 实现了
-	Verb74: 生成了
-	Verb75: 净化了
-	Verb76: 写下了
-	Verb77: 扣除了
-	Verb78: 削弱了
-	Verb79: 进步了
-	Verb80: 记着
-	Verb81: 翱翔着
-	Verb82: 面对了
-	Verb83: 不朽了
-	Verb84: 环绕着
-	Verb85: 分裂了
-	Verb86: 联合了
-	Verb87: 治愈了
-	Verb88: 承认了
-	Verb89: 吃惊于
-	Verb90: 缄默着
-	Verb91: 冻结了
-	Verb92: 合格了
-	Verb93: 擅长于
-	Verb94: 沉思着
-	Verb95: 治好了
-	Verb96: 重获新生了
-	Verb97: 区别对待着
-	Verb98: 爬行于
-	Verb99: 吞噬了
-	Verb100: 终结了
-	Verb101: 分裂了
-	Verb102: 阐明了
-	Verb103: 说明了
-	Verb104: 悼念着
-	Verb105: 繁盛了
-	Verb106: 糜烂了
-	Verb107: 应允了
-	Verb108: 默认了
-	Verb109: 布置了
-	Verb110: 渴望着
-	Verb111: 困扰了
-	Verb112: 栖身于
-	Verb113: 深思着
-	Verb114: 拒绝了
-	Verb115: 沉思着
-	Verb116: 瓦解了
-	Verb117: 出现了
-	Verb118: 哀悼着
-	Verb119: 忏悔了
-	Verb120: 嬉笑着
-	Verb121: 悸动着
-	Verb122: 统一着
-	Verb123: 颤抖着
-	Verb124: 臣服于
-	Verb125: 严惩了
-	Verb126: 生长着
-	Verb127: 跳动着
-	Verb128: 欺骗着
-	Verb129: 攻击着
-	Verb130: 警告着
-	Verb131: 允许了
-	Verb132: 忽视了
-	Verb133: 贬低了
-	Verb134: 超越了
-	Verb135: 组成了
-	Verb136: 破坏了
-	Verb137: 庆祝着
-	Verb138: 阐述着
-	Verb139: 承诺着
-	Verb140: 透露了
-	Verb141: 表演着
-	Verb142: 感受着
-	Verb143: 期望着
-	Verb144: 废除了
-	Verb145: 吹拂着
-	Verb146: 打开了
-	Verb147: 发生了
-	Verb148: 决定了
-	Verb149: 废除了
-	Verb150: 蠕动着
-	Adjective1: 不可名状的
-	Adjective2: 璀璨的
-	Adjective3: 短暂的
-	Adjective4: 伤感的
-	Adjective5: 幸福的
-	Adjective6: 永恒的
-	Adjective7: 扭曲的
-	Adjective8: 无所不知的
-	Adjective9: 无所不能的
-	Adjective10: 仁慈的
-	Adjective11: 希望的
-	Adjective12: 崇高的
-	Adjective13: 强壮的
-	Adjective14: 退环境的
-	Adjective15: 残忍的
-	Adjective16: 美丽的
-	Adjective17: 花里胡哨的
-	Adjective18: 短暂的
-	Adjective19: 灿烂的
-	Adjective20: 放荡的
-	Adjective21: 坚定的
-	Adjective22: 秘密的
-	Adjective23: 开明的
-	Adjective24: 固执的
-	Adjective25: 漫不经心的
-	Adjective26: 古老的
-	Adjective27: 神圣的
-	Adjective28: 错综复杂的
-	Adjective29: 谜一般的
-	Adjective30: 自省的
-	Adjective31: 敏捷的
-	Adjective32: 净化的
-	Adjective33: 醉人的
-	Adjective34: 坦诚的
-	Adjective35: 高兴的
-	Adjective36: 非凡的
-	Adjective37: 神化的
-	Adjective38: 太平的
-	Adjective39: 宁静的
-	Adjective40: 和平的
-	Adjective41: 笨拙的
-	Adjective42: 起杀心的
-	Adjective43: 异想天开的
-	Adjective44: 祝福的
-	Adjective45: 伊甸园的
-	Adjective46: 宇宙的
-	Adjective47: 古代的
-	Adjective48: 令人钦佩的
-	Adjective49: 光荣的
-	Adjective50: 寒冷的
-	Adjective51: 富有的
-	Adjective52: 永无过失的
-	Adjective53: 异常的
-	Adjective54: 忠诚的
-	Adjective55: 命中注定的
-	Adjective56: 清白的
-	Adjective57: 怪诞的
-	Adjective58: 华丽的
-	Adjective59: 无尽的
-	Adjective60: 玷污的
-	Adjective61: 机智的
-	Adjective62: 有瑕疵的
-	Adjective63: 末世的
-	Adjective64: 罪恶的
-	Adjective65: 单突触的
-	Adjective66: 突发的
-	Adjective67: 不可分割的
-	Adjective68: 忏悔的
-	Adjective69: 忽隐忽现的
-	Adjective70: 贪婪的
-	Adjective71: 抽象的
-	Adjective72: 复杂的
-	Adjective73: 神秘的
-	Adjective74: 幼龄的
-	Adjective75: 永恒的
-	Adjective76: 热情的
-	Adjective77: 超凡的
-	Adjective78: 放热的
-	Adjective79: 耀眼的
-	Adjective80: 条件反射的
-	Adjective81: 诱人的
-	Adjective82: 涅槃的
-	Adjective83: 单一的
-	Adjective84: 困倦的
-	Adjective85: 混乱的
-	Adjective86: 虚空的
-	Adjective87: 消褪的
-	Adjective88: 入迷的
-	Adjective89: 心甘情愿的
-	Adjective90: 梦幻般的
-	Adjective91: 诗歌般的
-	Adjective92: 骑士般的
-	Adjective93: 戒备的
-	Adjective94: 担忧的
-	Adjective95: 空洞的
-	Adjective96: 含铜的
-	Adjective97: 超动力的
-	Adjective98: 隐居的
-	Adjective99: 聪颖的
-	Adjective100: 彻底的
-	Adjective101: 精灵的
-	Adjective102: 田园诗般的
-	Adjective103: 年长的
-	Adjective104: 被克希洛克祝福的
-	Adjective105: 能胜任的
-	Adjective106: 冷漠的
-	Adjective107: 逼真的
-	Adjective108: 仓促的
-	Adjective109: 凶残的
-	Adjective110: 引人入胜的
-	Adjective111: 奇异的
-	Adjective112: 难忘的
-	Adjective113: 富有创造性的
-	Adjective114: 异国的
-	Adjective115: 野兽般的
-	Adjective116: 视若珍宝的
-	Adjective117: 孤独的
-	Adjective118: 不可阻挡的
-	Adjective119: 有害的
-	Adjective120: 六边的
-	Adjective121: 预编定的
-	Adjective122: 被劫持的
-	Adjective123: 富丽堂皇的
-	Adjective124: 智械的
-	Adjective125: 迷失方向的
-	Adjective126: 博学多识的
-	Adjective127: 骑士的
-	Adjective128: 古怪的
-	Adjective129: 语言学的
-	Adjective130: 抄写的
-	Adjective131: 不准确的
-	Adjective132: 毗连的
-	Adjective133: 目光长远的
-	Adjective134: 冥王星的
-	Adjective135: 暴力的
-	Adjective136: 染色的
-	Adjective137: 异教的
-	Adjective138: 遮天蔽日的
-	Adjective139: 邪恶的
-	Adjective140: 忠诚的
-	Adjective141: 玩忽职守的
-	Adjective142: 饰以珠宝的
-	Adjective143: 虔诚的
-	Adjective144: 耸人听闻的
-	Adjective145: 埋藏的
-	Adjective146: 多云的
-	Adjective147: 地狱的
-	Adjective148: 悲惨的
-	Adjective149: 险恶的
-	Adjective150: 殷勤的
-	Adjective151: 揣揣不安的
-	Adjective152: 无罪的
-	Adjective153: 愤慨的
-	Adjective154: 枯萎的
-	Adjective155: 庄严的
-	Adjective156: 悠闲的
-	Adjective157: 出乎意料的
-	Adjective158: 中伤的
-	Adjective159: 惯常的
-	Adjective160: 习俗的
-	Adjective161: 柔软的
-	Adjective162: 使命的
-	Adjective163: 糟糕的
-	Adjective164: 闪耀的
-	Adjective165: 恰好的
-	Adjective166: 畅通无阻的
-	Adjective167: 镜像的
-	Adjective168: 愿意的
-	Adjective169: 强大的
-	Adjective170: 不幸的
-	Adjective171: 象征性的
-	Adjective172: 无色的
-	Adjective173: 受鼓舞的
-	Adjective174: 传说般的
-	Adjective175: 自然的
-	Adjective176: 狭义的
-	Adjective177: 慷慨激昂的
-	Adjective178: 希腊的
-	Adjective179: 下定决心的
-	Adjective180: 幻想的
-	Adjective181: 清醒的
-	Adjective182: 难以捉摸的
-	Adjective183: 失望的
-	Adjective184: 未经测试的
-	Adjective185: 果断的
-	Adjective186: 好奇的
-	Adjective187: 怪异的
-	Adjective188: 有说服力的
-	Adjective189: 麻痹的
-	Adjective190: 愤怒的
-	Adjective191: 被遗忘的
-	Adjective192: 被背叛的
-	Adjective193: 微弱的
-	Adjective194: 乏味的
-	Adjective195: 恶意的
-	Adjective196: 短暂的
-	Adjective197: 浮夸的
-	Adjective198: 卑劣的
-	Adjective199: 代数的
-	Adjective200: 有说服力的
-	// Adjective201: maladaptive
-	// Adjective202: hypersulfuric
-	// Adjective203: alkaline
-	// Adjective204: translucent
-	// Adjective205: undulating
-	// Adjective206: maltese
-	// Adjective207: aeronautical
-	// Adjective208: fervorless
-	// Adjective209: quiescent
-	// Adjective210: unrecursive
-	// Adjective211: erudite
-	// Adjective212: digital
-	// Adjective213: emphatic
-	// Adjective214: bitheistic
-	// Adjective215: iconoclastic
-	// Adjective216: blittable
-	// Adjective217: hexadecimal
-	// Adjective218: unnamed
-	// Adjective219: perennial
-	// Adjective220: annexable
-	// Adjective221: unpartialed
-	// Adjective222: uncoronated
-	// Adjective223: oriental
-	// Adjective224: woven
-	// Adjective225: pyrrhic
-	// Adjective226: lordless
-	// Adjective227: posh
-	// Adjective228: acoustic
-	// Adjective229: harmonic
-	// Adjective230: languid
-	// Adjective231: shrewd
-	// Adjective232: ceaseless
-	// Adjective233: barmy
-	// Adjective234: picayune
-	// Adjective235: syllogistic
-	// Adjective236: contraband
-	// Adjective237: caramelized
-	// Adjective238: bicameral
-	// Adjective239: livid
-	// Adjective240: uncouth
-	// Adjective241: sordid
-	// Adjective242: contemptable
-	// Adjective243: impious
-	// Adjective244: exorbitant
-	// Adjective245: injured
-	// Adjective246: flagrant
-	// Adjective247: diegetic
-	// Adjective248: appellate
-	// Adjective249: eminent
-	// Adjective250: supreme
-	// Adjective251: stellular
-	// Adjective252: frontal
-	// Adjective253: sinuous
-	// Adjective254: lithe
-	// Adjective255: torrid
-	// Adjective256: obstreperous
-	// Adjective257: insuperable
-	// Adjective258: scurrilous
-	// Adjective259: esteemed
-	// Adjective260: supercilious
-	// Adjective261: procreant
-	// Adjective262: vainglorious
-	// Adjective263: cromulent
-	// Adjective264: blocky
-	// Adjective265: supple
-	// Adjective266: trite
-	// Adjective267: uncaring
-	// Adjective268: elementary
-	// Adjective269: dilapidated
-	// Adjective270: warm
-	// Adjective271: Eulerian
-	// Adjective272: scientific
-	// Adjective273: unified
-	// Adjective274: fateful
-	// Adjective275: omnilingual
+	Verb15: 寻找
+	Verb16: 战胜
+	Verb17: 航行
+	Verb18: 编织
+	Verb19: 回荡
+	Verb20: 体验
+	Verb21: 计算
+	Verb22: 扩大
+	Verb23: 开导
+	Verb24: 介绍
+	Verb25: 诞生
+	Verb26: 统一
+	Verb27: 登上
+	Verb28: 找到
+	Verb29: 提取
+	Verb30: 测试
+	Verb31: 打开
+	Verb32: 挥动
+	Verb33: 装饰
+	Verb34: 盼望
+	Verb35: 鉴赏
+	Verb36: 躲避
+	Verb37: 爱护
+	Verb38: 发射
+	Verb39: 得出
+	Verb40: 照耀
+	Verb41: 烧尽
+	Verb42: 抹除
+	Verb43: 清除
+	Verb44: 出卖
+	Verb45: 同意
+	Verb46: 切除
+	Verb47: 呼出
+	Verb48: 计划
+	Verb49: 理解
+	Verb50: 覆盖
+	Verb51: 喘
+	Verb52: 遮住
+	Verb53: 照亮
+	Verb54: 招手示意
+	Verb55: 构建
+	Verb56: 创造
+	Verb57: 祈祷
+	Verb58: 掌控
+	Verb59: 理解
+	Verb60: 飞行
+	Verb61: 熔化
+	Verb62: 溶解
+	Verb63: 忏悔
+	Verb64: 征服
+	Verb65: 流动
+	Verb66: 分解
+	Verb67: 激励
+	Verb68: 赦免
+	Verb69: 理解
+	Verb70: 溺爱
+	Verb71: 飘
+	Verb72: 踉跄
+	Verb73: 实现
+	Verb74: 生成
+	Verb75: 净化
+	Verb76: 书写
+	Verb77: 扣除
+	Verb78: 削弱
+	Verb79: 进步
+	Verb80: 记
+	Verb81: 翱翔
+	Verb82: 面对
+	Verb83: 不朽
+	Verb84: 环绕
+	Verb85: 分裂
+	Verb86: 联合
+	Verb87: 治愈
+	Verb88: 承认
+	Verb89: 吃惊
+	Verb90: 缄默
+	Verb91: 冻结
+	Verb92: 合格
+	Verb93: 擅长
+	Verb94: 沉思
+	Verb95: 治疗
+	Verb96: 重获新生
+	Verb97: 区别对待
+	Verb98: 爬行
+	Verb99: 吞噬
+	Verb100: 终结
+	Verb101: 分裂
+	Verb102: 阐明
+	Verb103: 说明
+	Verb104: 悼念
+	Verb105: 繁盛
+	Verb106: 糜烂
+	Verb107: 应允
+	Verb108: 默认
+	Verb109: 布置
+	Verb110: 渴望
+	Verb111: 困扰
+	Verb112: 栖身
+	Verb113: 深思
+	Verb114: 拒绝
+	Verb115: 沉思
+	Verb116: 瓦解
+	Verb117: 出现
+	Verb118: 哀悼
+	Verb119: 忏悔
+	Verb120: 嬉笑
+	Verb121: 悸动
+	Verb122: 统一
+	Verb123: 颤抖
+	Verb124: 臣服
+	Verb125: 严惩
+	Verb126: 生长
+	Verb127: 跳动
+	Verb128: 欺骗
+	Verb129: 攻击
+	Verb130: 警告
+	Verb131: 允许
+	Verb132: 忽视
+	Verb133: 贬低
+	Verb134: 超越
+	Verb135: 组成
+	Verb136: 破坏
+	Verb137: 庆祝
+	Verb138: 阐述
+	Verb139: 承诺
+	Verb140: 透露
+	Verb141: 表演
+	Verb142: 感受
+	Verb143: 期望
+	Verb144: 废除
+	Verb145: 吹拂
+	Verb146: 打开
+	Verb147: 发生
+	Verb148: 决定
+	Verb149: 废除
+	Verb150: 蠕动
+	Adjective1: 不可名状
+	Adjective2: 璀璨
+	Adjective3: 短暂
+	Adjective4: 伤感
+	Adjective5: 幸福
+	Adjective6: 永恒
+	Adjective7: 扭曲
+	Adjective8: 无所不知
+	Adjective9: 无所不能
+	Adjective10: 仁慈
+	Adjective11: 希望
+	Adjective12: 崇高
+	Adjective13: 强壮
+	Adjective14: 退环境
+	Adjective15: 残忍
+	Adjective16: 美丽
+	Adjective17: 花里胡哨
+	Adjective18: 短暂
+	Adjective19: 灿烂
+	Adjective20: 放荡
+	Adjective21: 坚定
+	Adjective22: 秘密
+	Adjective23: 开明
+	Adjective24: 固执
+	Adjective25: 漫不经心
+	Adjective26: 古老
+	Adjective27: 神圣
+	Adjective28: 错综复杂
+	Adjective29: 谜一般
+	Adjective30: 自省
+	Adjective31: 敏捷
+	Adjective32: 净化
+	Adjective33: 醉人
+	Adjective34: 坦诚
+	Adjective35: 高兴
+	Adjective36: 非凡
+	Adjective37: 神化
+	Adjective38: 太平
+	Adjective39: 宁静
+	Adjective40: 和平
+	Adjective41: 笨拙
+	Adjective42: 起杀心
+	Adjective43: 异想天开
+	Adjective44: 祝福
+	Adjective45: 伊甸园
+	Adjective46: 宇宙
+	Adjective47: 古代
+	Adjective48: 令人钦佩
+	Adjective49: 光荣
+	Adjective50: 寒冷
+	Adjective51: 富有
+	Adjective52: 永无过失
+	Adjective53: 异常
+	Adjective54: 忠诚
+	Adjective55: 命中注定
+	Adjective56: 清白
+	Adjective57: 怪诞
+	Adjective58: 华丽
+	Adjective59: 无尽
+	Adjective60: 玷污
+	Adjective61: 机智
+	Adjective62: 有瑕疵
+	Adjective63: 末世
+	Adjective64: 罪恶
+	Adjective65: 单突触
+	Adjective66: 突发
+	Adjective67: 不可分割
+	Adjective68: 忏悔
+	Adjective69: 忽隐忽现
+	Adjective70: 贪婪
+	Adjective71: 抽象
+	Adjective72: 复杂
+	Adjective73: 神秘
+	Adjective74: 幼龄
+	Adjective75: 永恒
+	Adjective76: 热情
+	Adjective77: 超凡
+	Adjective78: 放热
+	Adjective79: 耀眼
+	Adjective80: 条件反射
+	Adjective81: 诱人
+	Adjective82: 涅槃
+	Adjective83: 单一
+	Adjective84: 困倦
+	Adjective85: 混乱
+	Adjective86: 虚空
+	Adjective87: 消褪
+	Adjective88: 入迷
+	Adjective89: 心甘情愿
+	Adjective90: 梦幻般
+	Adjective91: 诗歌般
+	Adjective92: 骑士般
+	Adjective93: 戒备
+	Adjective94: 担忧
+	Adjective95: 空洞
+	Adjective96: 含铜
+	Adjective97: 超动力
+	Adjective98: 隐居
+	Adjective99: 聪颖
+	Adjective100: 彻底
+	Adjective101: 精灵
+	Adjective102: 田园诗般
+	Adjective103: 年长
+	Adjective104: 被克希洛克祝福
+	Adjective105: 能胜任
+	Adjective106: 冷漠
+	Adjective107: 逼真
+	Adjective108: 仓促
+	Adjective109: 凶残
+	Adjective110: 引人入胜
+	Adjective111: 奇异
+	Adjective112: 难忘
+	Adjective113: 富有创造性
+	Adjective114: 异国
+	Adjective115: 野兽般
+	Adjective116: 视若珍宝
+	Adjective117: 孤独
+	Adjective118: 不可阻挡
+	Adjective119: 有害
+	Adjective120: 六边
+	Adjective121: 预编定
+	Adjective122: 被劫持
+	Adjective123: 富丽堂皇
+	Adjective124: 智械
+	Adjective125: 迷失方向
+	Adjective126: 博学多识
+	Adjective127: 骑士
+	Adjective128: 古怪
+	Adjective129: 语言学
+	Adjective130: 抄写
+	Adjective131: 不准确
+	Adjective132: 毗连
+	Adjective133: 目光长远
+	Adjective134: 冥王星
+	Adjective135: 暴力
+	Adjective136: 染色
+	Adjective137: 异教
+	Adjective138: 遮天蔽日
+	Adjective139: 邪恶
+	Adjective140: 忠诚
+	Adjective141: 玩忽职守
+	Adjective142: 饰以珠宝
+	Adjective143: 虔诚
+	Adjective144: 耸人听闻
+	Adjective145: 埋藏
+	Adjective146: 多云
+	Adjective147: 地狱
+	Adjective148: 悲惨
+	Adjective149: 险恶
+	Adjective150: 殷勤
+	Adjective151: 揣揣不安
+	Adjective152: 无罪
+	Adjective153: 愤慨
+	Adjective154: 枯萎
+	Adjective155: 庄严
+	Adjective156: 悠闲
+	Adjective157: 出乎意料
+	Adjective158: 中伤
+	Adjective159: 惯常
+	Adjective160: 习俗
+	Adjective161: 柔软
+	Adjective162: 使命
+	Adjective163: 糟糕
+	Adjective164: 闪耀
+	Adjective165: 恰好
+	Adjective166: 畅通无阻
+	Adjective167: 镜像
+	Adjective168: 愿意
+	Adjective169: 强大
+	Adjective170: 不幸
+	Adjective171: 象征性
+	Adjective172: 无色
+	Adjective173: 受鼓舞
+	Adjective174: 传说般
+	Adjective175: 自然
+	Adjective176: 狭义
+	Adjective177: 慷慨激昂
+	Adjective178: 希腊
+	Adjective179: 下定决心
+	Adjective180: 幻想
+	Adjective181: 清醒
+	Adjective182: 难以捉摸
+	Adjective183: 失望
+	Adjective184: 未经测试
+	Adjective185: 果断
+	Adjective186: 好奇
+	Adjective187: 怪异
+	Adjective188: 有说服力
+	Adjective189: 麻痹
+	Adjective190: 愤怒
+	Adjective191: 被遗忘
+	Adjective192: 被背叛
+	Adjective193: 微弱
+	Adjective194: 乏味
+	Adjective195: 恶意
+	Adjective196: 短暂
+	Adjective197: 浮夸
+	Adjective198: 卑劣
+	Adjective199: 代数
+	Adjective200: 有说服力
+	Adjective201: 不适应
+	Adjective202: 酸性
+	Adjective203: 碱性
+	Adjective204: 透明
+	Adjective205: 波状
+	Adjective206: 马耳他
+	Adjective207: 航空
+	Adjective208: 不热情
+	Adjective209: 静止
+	Adjective210: 不循环
+	Adjective211: 博学
+	Adjective212: 数码
+	Adjective213: 坚强
+	Adjective214: 无神论
+	Adjective215: 反传统
+	Adjective216: 可复制
+	Adjective217: 十六进制
+	Adjective218: 无名
+	Adjective219: 反复
+	Adjective220: 可合并附加
+	Adjective221: 完全
+	Adjective222: 无冕
+	Adjective223: 东方
+	Adjective224: 交织
+	Adjective225: 微小
+	Adjective226: 无君主
+	Adjective227: 奢侈
+	Adjective228: 原声
+	Adjective229: 和声
+	Adjective230: 慵懒
+	Adjective231: 精明
+	Adjective232: 不停
+	Adjective233: 古怪
+	Adjective234: 微不足道
+	Adjective235: 演绎性
+	Adjective236: 违禁
+	Adjective237: 枫糖
+	Adjective238: 两院制
+	Adjective239: 青灰色
+	Adjective240: 陌生
+	Adjective241: 肮脏
+	Adjective242: 卑劣
+	Adjective243: 不敬
+	Adjective244: 过分
+	Adjective245: 受伤
+	Adjective246: 骇人听闻
+	Adjective247: 故事内
+	Adjective248: 上诉
+	Adjective249: 杰出
+	Adjective250: 至尊
+	Adjective251: 星星点点
+	Adjective252: 额前
+	Adjective253: 蜿蜒
+	Adjective254: 轻灵
+	Adjective255: 炎热
+	Adjective256: 吵闹
+	Adjective257: 不可逾越
+	Adjective258: 下流
+	Adjective259: 受人尊敬
+	Adjective260: 目中无人
+	Adjective261: 繁衍
+	Adjective262: 自负
+	Adjective263: 差强人意
+	Adjective264: 块状
+	Adjective265: 灵活
+	Adjective266: 陈腐
+	Adjective267: 不在意
+	Adjective268: 基础
+	Adjective269: 年久失修
+	Adjective270: 温暖
+	Adjective271: 欧拉式
+	Adjective272: 科学
+	Adjective273: 统一
+	Adjective274: 决定性
+	Adjective275: 全语言
 	Noun1: 教主
 	Noun2: 神明
 	Noun3: 存在
@@ -627,147 +627,147 @@ Vocabulary: {
 	Noun199: 观察员
 	Noun200: 科学家
 	Noun201: 终末之杖
-	// Noun202: medley
-	// Noun203: limmerick
-	// Noun204: karat
-	// Noun205: gonad
-	// Noun206: remit
-	// Noun207: espionage
-	// Noun208: coprolite
-	// Noun209: buttercup
-	// Noun210: carnation
-	// Noun211: lantana
-	// Noun212: zinnia
-	// Noun213: dahlia
-	// Noun214: lotus
-	// Noun215: lily
-	// Noun216: peony
-	// Noun217: tulip
-	// Noun218: orchid
-	// Noun219: rose
-	// Noun220: azalea
-	// Noun221: iris
-	// Noun222: daisy
-	// Noun223: chrysanthemum
-	// Noun224: petunia
-	// Noun225: crocus
-	// Noun226: freesia
-	// Noun227: amaryllis
-	// Noun228: quarry
-	// Noun229: equinox
-	// Noun230: deity
-	// Noun231: asymptote
-	// Noun232: roulette
-	// Noun233: christogram
-	// Noun234: welken
-	// Noun235: cadaver
-	// Noun236: paean
-	// Noun237: edifice
-	// Noun238: lime
-	// Noun239: gyro
-	// Noun240: camellia
-	// Noun241: tonic
-	// Noun242: maxim
-	// Noun243: reagent
-	// Noun244: flotsam
-	// Noun245: semaphore
-	// Noun246: ferrofluid
-	// Noun247: muse
-	// Noun248: jubilee
-	// Noun249: vadelect
-	// Noun250: antumbra
-	// Noun251: visage
-	// Noun252: mistletoe
-	// Noun253: heir
-	// Noun254: quintant
-	// Noun255: nougat
-	// Noun256: fabulist
-	// Noun257: moire
-	// Noun258: monarch
-	// Noun259: megafauna
-	// Noun260: cerise
-	// Noun261: egotheist
-	// Noun262: cymar
-	// Noun263: gale
-	// Noun264: helmsman
-	// Noun265: primrose
-	// Noun266: lilac
-	// Noun267: antiderivative
-	// Noun268: knot
-	// Noun269: lacquer
-	// Noun270: gloss
-	// Noun271: quandary
-	// Noun272: rotation
-	// Noun273: junta
-	// Noun274: fruit
-	// Noun275: arpeggio
-	// Noun276: synth
-	// Noun277: enjambment
-	// Noun278: braille
-	// Noun279: tritone
-	// Noun280: pomegranate
-	// Noun281: paradise
-	// Noun282: edict
-	// Noun283: dynasty
-	// Noun284: epoch
-	// Noun285: oracle
-	// Noun286: jade
-	// Noun287: cognate
-	// Noun288: duma
-	// Noun289: xyster
-	// Noun290: quip
-	// Noun291: parable
-	// Noun292: demesne
-	// Noun293: arc
-	// Noun294: hegemony
-	// Noun295: highway
-	// Noun296: song
-	// Noun297: campfire
-	// Noun298: wellspring
-	// Noun299: wax
-	// Noun300: aristocrat
-	Preposition1: ""
-	Preposition2: ""
-	Preposition3: ""
-	Preposition4: ""
-	Preposition5: ""
-	Preposition6: ""
-	Preposition7: ""
-	Preposition8: ""
-	Preposition9: ""
-	Preposition10: ""
-	Preposition11: ""
-	Preposition12: ""
-	Preposition13: ""
-	Preposition14: ""
-	Preposition15: ""
-	Preposition16: ""
-	Preposition17: ""
-	Preposition18: ""
-	Preposition19: ""
-	Preposition20: ""
-	Preposition21: ""
-	Preposition22: ""
-	Preposition23: ""
-	Preposition24: ""
-	Preposition25: ""
-	Preposition26: ""
-	Preposition27: ""
-	Preposition28: ""
-	Preposition29: ""
-	Preposition30: ""
-	Preposition31: ""
-	Preposition32: ""
-	Preposition33: ""
-	Preposition34: ""
-	Preposition35: ""
-	Preposition36: ""
-	Preposition37: ""
-	Preposition38: ""
-	Preposition39: ""
-	Preposition40: ""
-	Preposition41: ""
-	// Preposition42: through
+	Noun202: 混合物
+	Noun203: 五行打油诗
+	Noun204: 克拉
+	Noun205: 性腺
+	Noun206: 影响范围
+	Noun207: 间谍活动
+	Noun208: 粪化石
+	Noun209: 毛茛
+	Noun210: 康乃馨
+	Noun211: 马樱丹
+	Noun212: 百日菊
+	Noun213: 大丽花
+	Noun214: 莲花
+	Noun215: 百合花
+	Noun216: 牡丹
+	Noun217: 郁金香
+	Noun218: 兰花
+	Noun219: 玫瑰
+	Noun220: 杜鹃花
+	Noun221: 鸢尾花
+	Noun222: 雏菊
+	Noun223: 菊花
+	Noun224: 矮牵牛花
+	Noun225: 番红花
+	Noun226: 小苍兰
+	Noun227: 喇叭花
+	Noun228: 采石场
+	Noun229: 秋分
+	Noun230: 神祇
+	Noun231: 渐近线
+	Noun232: 轮盘赌
+	Noun233: 符号
+	Noun234: 苍穹
+	Noun235: 死尸
+	Noun236: 赞歌
+	Noun237: 大厦
+	Noun238: 石灰
+	Noun239: 陀螺仪
+	Noun240: 山茶花
+	Noun241: 主音
+	Noun242: 格言
+	Noun243: 试剂
+	Noun244: 浮物
+	Noun245: 旗语
+	Noun246: 磁流体
+	Noun247: 缪斯
+	Noun248: 禧年
+	Noun249: 本地化文件
+	Noun250: 伪本影
+	Noun251: 面容
+	Noun252: 槲寄生
+	Noun253: 继承人
+	Noun254: 五分仪
+	Noun255: 牛轧糖
+	Noun256: 虚构者
+	Noun257: 云纹
+	Noun258: 帝王
+	Noun259: 巨型动物群
+	Noun260: 樱桃色
+	Noun261: 自我神化者
+	Noun262: 深衣
+	Noun263: 狂风
+	Noun264: 舵手
+	Noun265: 报春花
+	Noun266: 紫丁香
+	Noun267: 反导数
+	Noun268: 绳结
+	Noun269: 漆器
+	Noun270: 光泽
+	Noun271: 困境
+	Noun272: 旋转
+	Noun273: 政务会
+	Noun274: 果实
+	Noun275: 琶音
+	Noun276: 合成器
+	Noun277: 跨行连续诗
+	Noun278: 盲文
+	Noun279: 三全音
+	Noun280: 石榴
+	Noun281: 天堂
+	Noun282: 敕令
+	Noun283: 王朝
+	Noun284: 纪元
+	Noun285: 神谕
+	Noun286: 翡翠
+	Noun287: 同源词
+	Noun288: 杜马
+	Noun289: 刮骨刀
+	Noun290: 俏皮话
+	Noun291: 寓言
+	Noun292: 领地
+	Noun293: 弧形
+	Noun294: 霸权
+	Noun295: 公路
+	Noun296: 歌曲
+	Noun297: 篝火
+	Noun298: 源泉
+	Noun299: 蜡
+	Noun300: 贵族
+	Preposition1: 按
+	Preposition2: 被
+	Preposition3: 比
+	Preposition4: 趁
+	Preposition5: 因
+	Preposition6: 从
+	Preposition7: 当
+	Preposition8: 对
+	Preposition9: 跟
+	Preposition10: 关于
+	Preposition11: 和
+	Preposition12: 及
+	Preposition13: 即
+	Preposition14: 将
+	Preposition15: 经
+	Preposition16: 就
+	Preposition17: 据
+	Preposition18: 凭
+	Preposition19: 让
+	Preposition20: 随
+	Preposition21: 替
+	Preposition22: 通过
+	Preposition23: 同
+	Preposition24: 往
+	Preposition25: 为
+	Preposition26: 向
+	Preposition27: 沿
+	Preposition28: 依照
+	Preposition29: 以
+	Preposition30: 为了
+	Preposition31: 因
+	Preposition32: 由于
+	Preposition33: 与
+	Preposition34: 于
+	Preposition35: 在
+	Preposition36: 按照
+	Preposition37: 对
+	Preposition38: 于
+	Preposition39: 为
+	Preposition40: 以
+	Preposition41: 为
+	Preposition42: 随
 	EasterEggSentence: 是的，虫潮开荒摸了
 	# This key is used for the purpose of defining the general layout of the language's grammar. Barring requirements below you can create any rules you want.
 	# This system relies on Phrase Structure Rules. It would be wise to research this independently to get a firmer grasp on how this works.
@@ -778,12 +778,12 @@ Vocabulary: {
 	# DETERMINER, NOUN, PREPOSITION, ADJECTIVE, and VERB keywords are all valid, and are auto-generated in the mod's code from the various words listed nearby.
 	PhraseStructureRules:
 		'''
-		SENTENCE = SUBJECT PREDICATE OBJECT, SUBJECT PREDICATE
-		SUBJECT = NOUNPHRASE
-		PREDICATE = VERBPHRASE
-		OBJECT = NOUNPHRASE, PREPOSITION NOUNPHRASE
-		NOUNPHRASE = DETERMINER ADJECTIVE NOUN, DETERMINER NOUN
-		VERBPHRASE = VERB PREPOSITION NOUNPHRASE
+		SENTENCE = NOUNPHRASE 的 SUBJECT PREDICATE, SUBJECT 并非 VERBPHRASE 而 PREDICATE, SUBJECT PREPOSITION OBJECT 而 VERBPHRASE, OBJECT 的 VERB 是 PREPOSITION 着 OBJECT 的
+		SUBJECT = NOUNPHRASE, NOUN 的 VERB, VERB
+		PREDICATE = VERBPHRASE, 是 ADJECTIVE 的
+		OBJECT = NOUNPHRASE, VERB NOUNPHRASE, VERB
+		NOUNPHRASE = ADJECTIVE 的 NOUN, ADJECTIVE 而 ADJECTIVE 的 NOUN, NOUN
+		VERBPHRASE = VERB 着 NOUNPHRASE, VERB 了 NOUNPHRASE, VERB 于 NOUNPHRASE, VERB 着, VERB 了
 		'''
 	# This was requested by the Chinese translators, whose language does not require spacing between the words. Set this to True or False depending on your needs.
 	IncludeSpacesBetweenWords: False

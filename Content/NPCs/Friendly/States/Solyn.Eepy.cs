@@ -78,7 +78,7 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
         PerformStandardFraming();
 
         // Teleport to the tent if nobody is looking.
-        if (!Main.player[Player.FindClosest(NPC.Center, 1, 1)].WithinRange(NPC.Center, 1900f))
+        if (!Main.player[Player.FindClosest(NPC.Center, 1, 1)].WithinRange(NPC.Center, 1900f) && SolynCampsiteWorldGen.TentPosition != Vector2.Zero && SolynCampsiteWorldGen.TentPosition != Vector2.One)
         {
             NPC.Center = SolynCampsiteWorldGen.TentPosition;
             NPC.netUpdate = true;

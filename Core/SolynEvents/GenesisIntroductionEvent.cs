@@ -1,4 +1,5 @@
 ﻿using NoxusBoss.Core.DialogueSystem;
+using NoxusBoss.Core.World.GameScenes.AvatarAppearances;
 using NoxusBoss.Core.World.GameScenes.RiftEclipse;
 using Terraria.ModLoader;
 
@@ -8,7 +9,7 @@ public class GenesisIntroductionEvent : SolynEvent
 {
     public override int TotalStages => 1;
 
-    public static bool CanStart => ModContent.GetInstance<PermafrostKeepEvent>().Finished && RiftEclipseManagementSystem.RiftEclipseOngoing;
+    public static bool CanStart => ModContent.GetInstance<PermafrostKeepEvent>().Finished && (RiftEclipseManagementSystem.RiftEclipseOngoing || ModContent.GetInstance<PostMLRiftAppearanceSystem>().Ongoing);
 
     public override void OnModLoad()
     {

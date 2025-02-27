@@ -84,7 +84,9 @@ public class RiftEclipseIce : ModTile
         bool shouldMelt = type == Type && !RiftEclipseManagementSystem.RiftEclipseOngoing;
         if (shouldMelt)
         {
+            byte originalLiquidQuantity = Main.tile[x, y].LiquidAmount;
             Main.tile[x, y].Clear(TileDataType.Tile | TileDataType.TilePaint);
+            Main.tile[x, y].Get<LiquidData>().Amount = originalLiquidQuantity;
             if (Main.netMode != NetmodeID.MultiplayerClient)
                 NetMessage.SendTileSquare(-1, x, y);
             return;

@@ -23,12 +23,12 @@ PurifierEntertainingRantText:
 	它有着某种形式的“区块”，即拆分成一个个子部分。但这实际上只适用于多人游戏，因为通过网络将整个世界传输到客户端将是非常糟糕的，并且很可能导致游戏崩溃。
 	这就是为什么当服务器即将崩溃时，你会从地图上掉下来，因为你超出了其中一个“区块”的界限，服务器无法向你发送其他区块。
 	回到世界生成上吧，一切东西都要在这个网格中进行。与《我的世界》不同，《泰拉瑞亚》的世界生成并非是一件在你移动的过程中逐步完成的事，它必须一次性完成。
-	此外，许多世界生成的步骤都是同步完成的，或者一次一个，而不是同时进行多个。
+	此外，许多世界生成的步骤都是同步完成的，也就是一次一个，而不是同时进行多个。
 	当然，后者不可能适用于所有情况，因为在很多情况下会发生冲突。但正如你想象的，在可能的情况下并行运行对于性能来说会有一定的提升。
 	有时候某些步骤并不是很有效，在某些情况下，一次安置液体的步骤需要几秒钟。
 	据我所知，沙漠化的步骤可以说是有着令人担忧的循环量。首先是整个沙漠的水平方向。
 	然后是从上到下的垂直方向。然后穿过整个沙漠的所有“集群”，再然后穿过集群内部的所有物块。
-	然而，我将这种效率低下的生成方式归结于mod作者们，而不是原版游戏（我也对此感到内疚）。
+	然而，我将这种效率低下的生成方式归结于mod作者们，而不是原版游戏（我自己也对此负有责任）。
 	在过去，我常用的奇怪做法是使用递归（也就是调用自身的函数，这解释起来有点奇怪）来计算硫磺海给定区域内所有的水，然后重复多次。
 	呃啊，这……简直是一团糟。
 	无论如何！我很想继续说下去，但你的世界估计已经被彻底抹去了，我可不想说到一半突然被打断！
@@ -38,7 +38,7 @@ LofiMusicCreditText:
 	'''
 	正在播放：
 	'worldgen.ogg'
-	By Moonburn
+	作者：Moonburn
 	'''
 OgsculeDontAnnoyCalDevsText: 这个终末石的效果不是灾厄本体添加的，不要拿这个去打扰他们的开发者。
 SolynArriveUnknown: 一个神秘人来到了你的小镇……
@@ -66,7 +66,7 @@ SolynDraedonInteraction: {
 	Draedon2: 叫索琳，对吧？
 	Solyn1: 等等……你怎么知道我的名字？？
 	Draedon3: 收集世上的一切知识就是我的终极追求。
-	Draedon4: 作为一个科学家，如果在上次相遇之后不去了解你的社交，这将成为我的污点。
+	Draedon4: 作为一个科学家，如果在上次相遇之后不去了解你们的社交，这将成为我的污点。
 	Solyn2: 你是指——
 	Draedon5: 不用再说了。
 	Draedon6: 我不仅知道，而且拥有你们二人寻求的东西。
@@ -85,7 +85,7 @@ PlayerDraedonAcceptanceSuccessive: 准备好了。
 DraedonAcceptanceResponse: 很好！它们很快就来了。
 DraedonAcceptanceResponseSuccessive: 很好。
 SolynGetToMe: 来我这儿！
-SolynBreakForcefield: 使用恒星来破坏力场！
+SolynBreakForcefield: 用星星来破坏力场！
 SolynBreakForcefield2: 再来一下！
 SolynUseMouseButtons: 按住左键和右键！
 
@@ -100,7 +100,7 @@ DraedonEndingMonologue: {
 	Draedon6: 就此别过，祝你好运。
 }
 
-DarkRiftVaniquishText: 暗之裂隙，降之于一瞬。
+DarkRiftVaniquishText: 暗之裂隙，败之于一瞬。
 SolynHandwrittenNoteFarewellText:
 	'''
 	嘿！

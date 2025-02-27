@@ -1188,6 +1188,6 @@ SolynQuestSkipper: {
 }
 
 SolynTelescopeResetter: {
-	// DisplayName: Solyn Telescope Resetter (DEBUG)
-	// Tooltip: Resets the state of Solyn's telescope, making it repairable again
+	DisplayName: Сброс телескопа Солин (DEBUG)
+	Tooltip: Сбрасывает статус телескопа Солин, делая его вновь нуждающимся в починке
 }

@@ -473,9 +473,18 @@ public class SolynCampsiteWorldGen : ModSystem
         On_WorldGen.meteor += DisallowMeteorsDestroyingTheCampsite;
         On_Player.PlaceThing_Tiles_PlaceIt += DisableBlockPlacement;
         On_Player.ItemCheck_UseMiningTools_ActuallyUseMiningTool += DisableGrassBreakage;
+        On_WorldGen.SpawnFallingBlockProjectile += PreventSandFromFalling;
         GlobalTileEventHandlers.IsTileUnbreakableEvent += MakeCampsiteUnbreakable;
         GlobalNPCEventHandlers.EditSpawnRateEvent += DisableSpawnsNearCampsite;
         GlobalTileEventHandlers.NearbyEffectsEvent += MakeTombsDisappearInProtectedSpot;
+    }
+
+    private bool PreventSandFromFalling(On_WorldGen.orig_SpawnFallingBlockProjectile orig, int i, int j, Tile tileCache, Tile tileTopCache, Tile tileBottomCache, int type)
+    {
+        if (generatingAlready)
+            return false;
+
+        return orig(i, j, tileCache, tileTopCache, tileBottomCache, type);
     }
 
     private TileObject DisableBlockPlacement(On_Player.orig_PlaceThing_Tiles_PlaceIt orig, Player self, bool newObjectType, TileObject data, int tileToCreate)

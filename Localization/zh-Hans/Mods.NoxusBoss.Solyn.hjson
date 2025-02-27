@@ -1,153 +1,153 @@
 SolynIntroduction: {
-	// Start: I... ^I failed...
-	// Talk1: I...
-	// Question1: Are you OK???
-	// Talk2: Oh! Hello. I... ^didn't see you there.
-	// Talk3: I... suppose so?
-	// Question2: Who are you?
-	// Talk4: I'm Solyn.
-	// Talk5: ...
-	// Talk6: Sorry, I just can't think straight.
-	// Talk7: We can talk later. Right now I... ^I need time.
-	// Question3: Alright, I'll give you some space.
-	// Talk8: Thanks. I appreciate it.
-	// Repeat: ...
+	Start: 我……^我失败了……
+	Talk1: 我……
+	Question1: 你还好吗？？？
+	Talk2: 啊！你好，我……^没注意到你在这儿。
+	Talk3: 我想……大概是这样？
+	Question2: 你是谁？
+	Talk4: 我叫索琳。
+	Talk5: ……
+	Talk6: 抱歉，我脑子现在一团浆糊。
+	Talk7: 待会再说吧，现在，我……^我需要一些时间。
+	Question3: 好的，我会给你点私人空间的。
+	Talk8: 多谢，我对此感激不尽。
+	Repeat: ……
 }
 
 SolynDawnDialogue: {
-	// Start: Good morning!^ A new day, a new big adventure.
-	// Player1: That's... a slightly bombastic way of putting it, Solyn.
-	// Solyn1: You never know. Some days are unexpectedly impactful.^ You can't be sure until it's finished.
-	// Player2: Well, either way. What are you up to?
-	// Solyn2: Not much. I just woke up recently.^ I had a somewhat interesting dream, though.
-	// Player3: What was it about?
-	// Dream1_Response1: Overall it was a jumbled mess, but there was one part that stuck out, at the very end.
-	// Dream1_Response2: I dreamt of an old mentor of mine. The two of us were speaking together again near the edge of a twilit pond.
-	// Dream1_Response3: But then, suddenly, out of nowhere, they stopped and stared towards the pond and started invoking a spell I'd never seen before.
-	// Dream1_Response4: Shortly after, the pond's water glimmered like stardust, making out an ancient visage. A visage familiar to me.
-	// Dream1_Response5: My mentor looked towards me again, seemingly anticipating a response.
-	// Dream1_Response6: And then, I awoke.
-	// Dream2_Response1: I dreamt of a landscape made of folded paper, beneath the empty light of a bright sepia sky.
-	// Dream2_Response2: I wandered for what seemed like an eternity, witnessing an assortment of strange, origami plants and structures dotting the surface.
-	// Dream2_Response3: Suddenly, I reached down and swept my hand, revealing an expanse of indeterminate depth beneath the paper I'd been walking on.
-	// Dream2_Response4: I stared endlessly into the abyss I had accidentally created, mystified by what had just happened.
-	// Dream2_Response5: Suddenly, a fractalline eye slowly opened, returning my gaze.
-	// Dream2_Response6: And then, I awoke.
-	// Dream3_Response1: Throughout the dream there was an idle drizzle as I was surrounded by the woodlands I'd considered home.
-	// Dream3_Response2: I walked through the forest, but found that none of my friends were present. I was alone.
-	// Dream3_Response3: As I approached a glade, I could make out sounds. Voices of myself and my loved ones- past, present, and future.
-	// Dream3_Response4: I then focused on the scent of the petrichor, and found myself struck with a kaleidoscopic burst of senses, witnessing time accelerate and curl in on itself.
-	// Dream3_Response5: Suddenly, an old friend of mine pierced the noises, informing me it was time to awaken.
-	// Dream3_Response6: I did as I was told.
-	// Dream4_Response1: Well... perhaps 'interesting' isn't the right descriptor.
-	// Dream4_Response2: I dreamt that I was walking through a misty forest with an eerie wind, surrounded by towering trees stripped of all their leaves.
-	// Dream4_Response3: After some time, I encountered... ^myself. It was as though I was walking towards a perfectly reflective mirror.
-	// Dream4_Response4: A breeze grew stronger and stronger as I walked towards the reflection, suddenly turning into a mighty gale.
-	// Dream4_Response5: As I reached to make contact with it, I realized its appearance had transformed into a ghastly shadow.
-	// Dream4_Response6: The instant our fingers touched, I woke up in a cold sweat.
-	// Dream5_Response1: Well... perhaps 'interesting' isn't the right descriptor.
-	// Dream5_Response2: The dream was about an old friend of mine.^ Things started off normal, talking about fun, obscure things as always.
-	// Dream5_Response3: But over time I discovered they were becoming increasingly translucent and difficult to hear, like a ghost.
-	// Dream5_Response4: I realized... ^with each blink I made they vanished more and more.^ And so, I strained to keep my eyes open for as long as possible.
-	// Dream5_Response5: Our conversation became bittersweet.^ In the end, I could faintly make out a wistful smile on their face.^ I knew that the next time I blinked, they'd be gone.
-	// Dream5_Response6: The last words I could make out were 'It's time to let go.'^ After this, I woke up.
-	// Player4: Truly fascinating how those work.
-	// Solyn3: ... Truly.
+	Start: 早上好！^新的一天，新的冒险。
+	Player1: 这就有点……浮夸了，索琳。
+	Solyn1: 你不懂啦。有时候就是会变得很惊险刺激。^除非等到结束，否则还真不好说。
+	Player2: 好吧，怎么都行。你有什么打算？
+	Solyn2: 不太有。我才刚起床。^不过，我倒是做了个有趣的梦。
+	Player3: 你梦见什么了？
+	Dream1_Response1: 大概是一大堆乱七八糟的东西，不过到最后里面有一个特别突出。
+	Dream1_Response2: 我梦到了我的一位老导师。我们两个当时在一个晚霞照耀的水池边聊天。
+	Dream1_Response3: 突然，没来由地，对方就不说话了，只是盯着湖面，然后放出了一道我从未见过的咒语。
+	Dream1_Response4: 很快，湖面就开始像星尘一样闪烁，构成一张古代的面容。我很熟悉这张脸。
+	Dream1_Response5: 我的导师又看向我，好像期待着我的回应。
+	Dream1_Response6: 然后，我就醒了。
+	Dream2_Response1: 我梦到一个地方，大地是一块巨大的折纸，而天空是乌贼墨色，明亮而空洞。
+	Dream2_Response2: 我就在那里走啊走，走了很久很久，发现有一些奇异的折纸植物和其他地形，在地表星星点点。
+	Dream2_Response3: 突然，我沉了下去，纸张扫过了我的双手，我发现我曾踏足的这张纸，下方有深不见底的虚空。
+	Dream2_Response4: 我久久凝视着我不慎创造的这片深渊，对发生的事情充满疑惑。
+	Dream2_Response5: 突然，一只状如分形枝杈的眼睛慢慢睁开，与我对视。
+	Dream2_Response6: 然后，我就醒了。
+	Dream3_Response1: 梦里我的家是一片树林，那里一直在下一场毛毛雨。
+	Dream3_Response2: 我走遍了这片树林，但我的朋友们一个都不在。我是孤身一人。
+	Dream3_Response3: 我靠近一片林中空地的时候，我隐约听到一些声音。有我自己的声音，还有所有我在意的人，来自过去、现在，还有未来。
+	Dream3_Response4: 然后我注意到一股泥土的气味，然后发现自己陷进了一种由各种感官刺激构成的万花筒中，时间加速，自我蜷曲。
+	Dream3_Response5: 突然，我一位挚友的声音越过了一切噪声，告诉我该醒来了。
+	Dream3_Response6: 然后我照做了。
+	Dream4_Response1: 好吧……也许“有趣”并不是一个合适的形容。
+	Dream4_Response2: 我梦到我走过一片充满迷雾的树林，时有一阵妖风吹过，周围高耸的树木都褪去了所有的叶子。
+	Dream4_Response3: 过了一段时间，我遇上了……^我自己。 就好像我在向一面完美的镜子走去一样。
+	Dream4_Response4: 当我向镜子走去的时候，周围的风变得越来越强烈，然后突然变成了一阵狂风。
+	Dream4_Response5: 当我触碰到它的时候，我发现它的形状变成了一个鬼魂般的影子。
+	Dream4_Response6: 就在我的手指与之接触的那一瞬，我冒着冷汗醒来了。
+	Dream5_Response1: 好吧……也许“有趣”并不是一个合适的形容。
+	Dream5_Response2: 这个梦是关于我的一位老友。^ 一开始还很正常，我们聊着各种趣闻轶事。
+	Dream5_Response3: 不过聊着聊着，我就发现对方变得越来越透明，声音也越来越不可辨认，就像一个鬼魂。
+	Dream5_Response4: 我发现……^我朋友的消失，是随着我的每一次眨眼而一步一步发生的。^ 所以，我就在努力保持眼睛睁着尽可能久。
+	Dream5_Response5: 我们的对话开始变得苦乐参半。^ 最后，我看到对方的脸上挂着一抹留恋的微笑。^ 我知道当我再眨一次眼，我朋友就消失了。
+	Dream5_Response6: 我最后能辨认出的一句话是，“是时候放手了。”^然后，我就醒了。
+	Player4: 这些事的发生确实很吸引人。
+	Solyn3: ……确实。
 }
 
 SolynSunnyDayDialogue: {
-	// Start: Hello!^ Quite sunny today, huh?
-	// Player1: I suppose so.
-	// Solyn1: Anything you plan to do with this great day?^ Frolic in the forests?^ Self-reflect in a glade?^ Acquire some vitamin D?
-	// Player2: Probably go into the caves and slay something.
-	// Solyn2: Ah, of course.
-	// Solyn3: That's a very 'you' thing to do, isn't it?
+	Start: 你好啊！^今天天气真好，嗯？
+	Player1: 但愿如此。
+	Solyn1: 这么美好的一天，你有什么打算？^去树林里玩？^去林中空地照镜子？^还是去获取一下维生素D？
+	Player2: 大概是下到洞穴层然后杀些怪。
+	Solyn2: 啊，当然。
+	Solyn3: 不愧是你，确实是你会做的那种事情。
 }
 
 SolynRainyDayDialogue: {
-	// Start: Hello!^ Quite a drizzle, huh?
-	// Player1: I suppose so.
-	// Solyn1: Anything you plan to do with this rainy day?^ Sit and think near a pond?^ Go on a short stroll?^ Or just stay inside and listen to the pattering of the rain?
-	// Player2: Probably go into the caves and slay something.
-	// Solyn2: Ah, of course.
-	// Solyn3: That's a very 'you' thing to do, isn't it?^ I'll admit I understand wanting to be somewhere dry right now.
+	Start: 你好啊！^好一场毛毛雨啊，嗯？
+	Player1: 但愿如此。
+	Solyn1: 阴雨蒙蒙的一天，你有什么打算？^坐在湖边思考？^到外面散散步？^还是留在室内听雨声？
+	Player2: 大概是下到洞穴层然后杀些怪。
+	Solyn2: 啊，当然。
+	Solyn3: 不愧是你，确实是你会做的那种事情。^我承认我现在理解了那种想找一块干燥的地方待着的心情。
 }
 
 SolynDuskDialogue: {
-	// Start: Dusk, huh?^ It really is quite a sight.
-	// Solyn1: But... I must say, it's not quite the same as home. ^The fiery splendor, the double sunset, the fold into countless shining stars...
-	// Solyn2: It's so similar, yet so... different. ^Really, you'd have to see it for yourself to understand.
-	// Solyn3: Either way, it's good to experience something new... I suppose.
+	Start: 黄昏，嗯？^风景真不错。
+	Solyn1: 不过……我必须说，跟我家那边还是差远了。^ 绚丽云霞，双重日落，然后慢慢过渡成无数耀眼的繁星……
+	Solyn2: 其实很像，不过……区别也很大。^ 我说真的，要想完全理解，你还是得亲眼看看。
+	Solyn3: 不过不管是哪种，体验新事物总是好事……应该吧。
 }
 
 SolynSlimeRainDialogue: {
-	// Start: How odd!^ Slime, dropping out of the sky like rain!^ It's so weird, yet so fascinating!
-	// Solyn1: How does it work?^ I've gotta know!^
-	// Player1: I... actually have no idea.
-	// Solyn2: Ha! Figures.
-	// Solyn3: I'd marvel at the odd scene, but the slimes are obviously not very nice.
-	// Solyn4: Stay vigilant, you don't want to end up partially digested.
+	Start: 好怪啊！^史莱姆就这么像雨一样从天上掉下来了！很奇异，很有意思！
+	Solyn1: 这到底是怎么发生的？^我得搞清楚！^
+	Player1: 我其实……完全没有主意。
+	Solyn2: 哈！猜到了。
+	Solyn3: 我会对奇异的场景感兴趣，不过这些史莱姆好像不是很友善。
+	Solyn4: 机灵点吧，可别有什么身体部位让史莱姆消化掉。
 }
 
 SolynStorageSailsDialogue: {
-	// Start: Say... have you ever heard of storage sails?
-	// Player1: I... can't say I have?
-	// Solyn1: Oh, they're so wonderful!^ Extremely plentiful back home!
-	// Solyn2: You know how certain ships rely on wind sails in order to move?^ It's like that, but the wind's energy is saved for later!
-	// Solyn3: They look so silly, too.^ Lattices in wooden wheel-like structures, with large plucked feathers on the end.^ If you'd seen them before, you'd get it.
-	// Player2: Alright, cool, so... what makes them work?
-	// Solyn4: I dunno!
+	Start: 诶……你听说过储能风帆吗？
+	Player1: 我暂且没有听说过的印象？
+	Solyn1: 哦！这个东西太棒了！^我家乡那边有很多！
+	Solyn2: 你知道有些船的移动是借助风力吧？^跟这个差不多，不过风能可以储存下来，以后再用！
+	Solyn3: 这玩意看起来也挺滑稽的。^ 是一种像木头轮子一样的东西组成的阵列结构，尾部插着一些大羽毛。^ 你要是见过就知道我的意思了。
+	Player2: 好吧，很酷，那么，它是怎么运行的？
+	Solyn4: 全都不知道！
 }
 
 SolynBooksDialogue: {
-	// Start: You know, it would've been nice if I could've at least brought along a few old possessions of mine before getting sent here.
-	// Solyn1: Back at home I had a sizeable collection of books.^ A few scrolls and old tomes too.
-	// Solyn2: Some of them were a bit obscure in terms of word choice and subject matter, and a few were a bit... strange, at least from the perspective of others.
-	// Solyn3: But some of them were just fun reads!^ Something as simple as good novels truly do wonders for one's perspective on the world.
-	// Solyn4_Mage: I'm sure a mage like you would understand.
-	// Solyn4_OtherClass: But... I suppose maybe you're not the type to be interested in that spiel.
-	// Player1_Mage: Solyn, we don't read books. We simply hold them in our hands to cast spells.
-	// Solyn5: Ah... nevermind.^ Just thinking aloud, I guess.
+	Start: 话说，要是我来这里的时候能多少带一点我自己的东西，那就太好了。
+	Solyn1: 我在自己家里有一大堆藏书呢。^ 还有一些是卷轴和大部头。
+	Solyn2: 有些书在题材和遣词造句上稍微有点晦涩，还有的很……奇怪，至少别人看来很奇怪。
+	Solyn3: 不过里面也有一些有趣的书！^像是优秀的小说，很简单的内容，却能让人对整个世界观都浮想联翩。
+	Solyn4_Mage: 我很确信像你这样的法师一定可以理解。
+	Solyn4_OtherClass: 不过……我觉得你好像不是那种会喜欢长篇大论的人。
+	Player1_Mage: 索琳，我们法师又不读书。我们只是把书拿在手里，用来施魔法。
+	Solyn5: 啊……好吧。^ 只是随便畅想一下，仅此而已。
 }
 
 SolynOneRedeemedBookDialogue: {
-	// Start: I saw you added a little something to my bookshelf!^ I'm really grateful.
-	// Solyn1: The scenery here really is beautiful, but I don't think I could keep staring at it all day.
+	Start: 我发现你好像在我的书架上放了点东西！^我很感谢。
+	Solyn1: 这里的风景确实很美，不过我也确实不能总是盯着它看。
 }
 
 SolynUnreadableBookDialogue: {
-	// Start: Like I said earlier, I really appreciate the books... but are you sure some of these actually count as such?
-	// Solyn1: ... At least they look pretty nice on the shelf.
+	Start: 就像我上次说的，我很感谢这些书……不过其中有些好像不太能读？
+	Solyn1: ……反正它们在书架上放着很好看。
 }
 
 SolynManyRedeemedBooksDialogue: {
-	// Start: Wow, my little library has really become quite the thing now. ^I can’t say how thankful I am!
-	// Solyn1: This really makes me feel more at home here. I used to have quite the collection of books...
+	Start: 哇，我的小书架现在像一座真的图书馆了。^ 我都不知道该怎么感谢你了！
+	Solyn1: 这真的让我在这儿也有了家的感觉。 我以前也有这么多的藏书……
 }
 
 SolynCompleteBookshelfDialogue: {
-	// Start: This is amazing!^ I don't have any room left on the shelf.
-	// Solyn1: We've really done so much since I got here. I hope I can fell this excited when we finish the Genesis, haha!
-	// Solyn2: Ah, speaking of the Genesis, I've been thinking... ^once it's done, I'd like to make a proper library here. With your help, of course.
+	Start: 好神奇！^我的书架都塞满了。
+	Solyn1: 我来这里之后，一起做了好多事呢。 我也希望到时候我们完成起源花的时候也有这么开心，哈哈！
+	Solyn2: 啊，说起起源花，我在想……^当它完成的时候，我想真在这里建成一座图书馆。 当然，还是需要你的帮助啦。
 }
 
-// SolynLategameDialogue.Start: We've made great progress towards the Genesis, but we can't slow down now.^ There's still work to be done.
+SolynLategameDialogue.Start: 我们为完成起源花做了很多工作，不过不能停下脚步。^ 还有很多工作要做呢。
 
 SolynWindyDayTalk: {
 	# If its a Windy Day, Solyn is seen holding a kite.
 	WindyStart: 啊，你回来了！你好呀！
 	WindyQuestion1: 风可真够大的，不是吗？
 	WindyResponse1: 确实！不久之前，我看见一些史莱姆们乘风而行。
-	WindyResponse2: 你知道的，这听起来有点傻，我看见史莱姆们乘着它们可爱的气球到处乱飞！我已经有过多次它们差点把自己黏在我风筝上的例子了，哈哈！
+	WindyResponse2: 你知道的，这听起来有点傻，我看见史莱姆们乘着它们可爱的气球到处乱飞！我已经看见过好多次它们差点把自己黏在我风筝上了，哈哈！
 	WindyQuestion2: 跟我讲讲吧，这风筝咋样？它看起来挺不错。
-	WindyResponse3: 哦，这个老玩意？我只是喜欢在大风天里用它，看着风筝在空中翱翔。
-	WindyResponse4: 有些空闲的时候，我们可以坐下来，让大自然为我们指引前路。
+	WindyResponse3: 哦，这个老玩意？我喜欢在大风天里放风筝，看着它在空中翱翔。
+	WindyResponse4: 有时候这挺令人放松的，可以坐下来，让大自然为我们指引前路。
 	WindyResponse5: 事实上……
 	WindyResponse6: 这个！
 	WindyResponse7: 为什么我们不一起玩玩呢？也许你可以从冒险中抽出一点时间休息一下。
 	WindyRepeatPlayerUsingKite: 哈哈！玩的开心吗？
 	WindyRepeatPlayerUsingKiteChangedMind: 啊，那么你改变主意了！我希望风儿可以起到不错的放松作用！
-	WindyRepeatDefault: 还没准备好？哈哈，好吧！那么，不管怎样，祝你玩得开心。
+	WindyRepeatDefault: 不喜欢？哈哈，好吧！那么，不管怎样，祝你玩得开心！
 }
 
 SolynPartyTalk: {
@@ -156,222 +156,222 @@ SolynPartyTalk: {
 	PartyResponse1: 我必须承认……我通常不喜欢参加派对。但我就是忍不住不去顺路看看！
 	PartyResponse2: 毕竟，每个人似乎都玩得很开心！
 	PartyResponse3: 自从我们第一次见面以来，你的小镇发展得如此之快，这着实令人钦佩啊！
-	PartyResponse4: 啊！不过，这确实让我想起了一些事情。你想看看魔术表演吗？我已经为它准备了一段时间了！
+	PartyResponse4: 啊！不过，这确实让我想起了一些事情。你想看看魔术表演吗？我已经准备了好一段时间了！
 	PartyQuestionYes: 那还用说？
-	PartyQuestionNo: 抱歉，现在不行。
-	PartyResponseYes1: 好，我试试看！^^^
+	PartyQuestionNo: 抱歉，下次吧。
+	PartyResponseYes1: 好，看这里——消失啦！^^^
 	PartyResponseYes2: 哎呦！好险！我差点就把彩纸屑塞进嘴里了，哈哈！
-	PartyResponseYes3: 不管怎样，我希望你能在开始你的另一个危险的冒险之前多享受一会儿派对，我也打算这么做！
+	PartyResponseYes3: 不管怎样，我希望你能好好享受派对，然后再去完成你那危险的伟业，我也打算这么做！
 	PartyResponseNo1: 啊，那有点不幸……
 	PartyResponseNo2: 但是我理解！你现在看起来有点忙。
 	PartyRepeat1: 我想我还是像往常一样在这儿待到傍晚吧。无论你打算去做什么，玩得开心！
-	SolynTada: 嗨呀！
+	SolynTada: 当当！
 	SolynHatText: 啊！我的帽子！
 }
 
 StargazeQuest: {
-	// Solyn1: Hello,^ what brings you here?
-	// Player1: I noticed your telescope was broken.
-	// Solyn2: Oh, yes, I had hoped to pass the time with some stargazing, but it seems I won't be able to.^ I lack the resources to repair it.
-	// Player2: I could fix it up for you.
-	// Solyn3: Oh! If you could fix it, I'd greatly appreciate it.^ Once it's repaired, we could go stargazing together.
-	// Repeat: Don't worry about me. I'm just taking in the surroundings.
+	Solyn1: 你好啊，^是哪阵风把你吹来的呀？
+	Player1: 我发现你的望远镜好像坏掉了。
+	Solyn2: 哦，确实，我本来想观星来打发时间，不过现在不能了。^ 我没有足够的资源，自己修不了。
+	Player2: 我可以帮你来修。
+	Solyn3: 哦！如果你可以修，那就太感谢啦。^ 等它修好了，我们就可以一起观星了。
+	Repeat: 没事不用管我。 我只是在感受周围的环境。
 }
 
 StargazeQuestCompletion: {
-	// Response1: Thank you!^ Astronomy has always been a great passion of mine, and I'm excited to share it with someone else.^ We can begin once night falls.
-	// Response2: ""
+	Response1: 谢谢你！^天文学一直是我的一大爱好，我也很乐意与他人分享。^ 我们入夜就开始吧。
+	Response2: ""
 }
 
 StargazeQuestSawRift: {
-	// Talk1: ^I've never seen anything quite like that before...
-	// Talk2: Whatever it is, I've got a bad feeling about it.
-	// Response1: Is there anything we'd be able to do about it?
-	// Talk3: Hmm...
-	// Talk4: I'd need to think that over a bit.
-	// Response2: Solyn, that was rhetorical.
-	// Talk5: I suppose you're right. I might just be getting worked up over nothing.
-	// Talk6: Either way... I'm glad that we got to enjoy the stars together. They were really beautiful tonight.
-	// Talk7: Hopefully we can enjoy them again sometime.
-	// Talk8: In the meantime though, have this.
-	// Talk9: A personal design of mine. I'm sure you'd be able to put it to good use.
-	// Talk10: Anyway, I'll be going to sleep momentarily. It's quite late!
+	Talk1: ^我从来没见过这种东西……
+	Talk2: 不管它是什么，我都有种不太好的感觉。
+	Response1: 我们能为此做些什么吗？
+	Talk3: 嗯……
+	Talk4: 我可能得好好想想。
+	Response2: 索琳，我只是说说。
+	Talk5: 也许你说的对。 我可能就只是在白忙活。
+	Talk6: 无论如何……跟你一起看星星我真的很开心。今晚的星星真的很好看。
+	Talk7: 真希望以后再来一次，一起看星星。
+	Talk8: 同时，给你这个。
+	Talk9: 我自己的设计，希望对你有用。
+	Talk10: 反正，我现在要去睡觉啦。 已经很晚了！
 }
 
 DormantKeyDiscussion: {
-	// Start: Hey! Something up?
-	// StartingQuestion: Permafrost gave me this key for freeing him. Would you happen to know anything about it?
-	// Conversation1: Hmm...
-	// Conversation2: That key doesn't strike me as ordinary. It's imbued with some form of magic spell.
-	// Conversation3: Ooh! That gives me an idea!
-	// Conversation4: An idea? What kind of idea?
-	// Conversation5: I'm picking up a faint magic signature identical to the one emitted by this key. It's somewhere deep within the frozen caverns.
-	// Conversation6: We should go and explore it. If it was locked, I'm sure we'll find some awesome things in there!
-	// Conversation7: Here. I'll mark its location on your map.
-	// Conversation8: I'll be there when you're ready, and then we can explore around a bit!
+	Start: 嘿！有什么事吗？
+	StartingQuestion: 我救出了永冻，他就给了我这把钥匙。也许你碰巧了解这个？
+	Conversation1: 嗯……
+	Conversation2: 这把钥匙在我看来确实不普通。它浸染着一种魔咒。
+	Conversation3: 哦！有想法了！
+	Conversation4: 有想法？什么想法？
+	Conversation5: 我找到了一个微弱的魔法信号，跟这把钥匙上的一模一样。是从某个冰封的洞穴里发出来的。
+	Conversation6: 我们得过去看看。 如果确实上了锁，我们肯定能找到很棒的东西！
+	Conversation7: 这儿。 我把它标在你的地图上。
+	Conversation8: 你准备好之后我也去，然后我们一起探索一下！
 }
 
-// PermafrostKeepDiscussion_BeforeOpening.Start: Use the key on the door, and it'll open!
+PermafrostKeepDiscussion_BeforeOpening.Start: 在大门上使用钥匙，它就打开了！
 
 PermafrostKeepDiscussion_AtSeed: {
-	// Start: Hmm...
-	// Conversation1: I've been looking around, but there doesn't seem to be too much of note, ^except for this.
-	// Conversation2: This frozen artifact appears to be some sort of seed...
-	// Conversation3: Furthermore, it has incredible magical potential. ^I can sense it.
-	// Conversation4: I'm not sure what it could be used for, ^but I'd recommend taking and holding onto it for later.
-	// Response1: Will do.
-	// Conversation5: Good. As for me, ^I'll give this some thought. I'm sure we could do great things with this seedling.
-	// Conversation6: Either way, I'll be taking my leave, I think. ^This place is rather small!
+	Start: 嗯……
+	Conversation1: 我找了一圈，不过好像没有太多值得注意的东西，^除了这个。
+	Conversation2: 这个冻起来的东西看起来好像是某种种子……
+	Conversation3: 而且，它的魔法潜能十分巨大。^ 我可以感觉到。
+	Conversation4: 我不确定它能用来干什么，^不过我建议你先拿着，以后再用。
+	Response1: 好的。
+	Conversation5: 真好。 对我来说，^我会好好思考一下。 我觉得我们可以用这株萌芽成就伟业。
+	Conversation6: 无论如何，我想我得先走了。^ 这里还有点挤！
 }
 
 FrostblessedSeedlingDiscussion: {
-	// Start: I've been pondering about that seedling for some time now.
-	// Solyn1: Plants like them are native to my homeworld. They are rare and difficult to cultivate, but I've never seen one with enough power to influence the flora around it.
-	// Solyn2: It's no wonder Permafrost would keep hold of something of such significance, even if it's unlikely he'd have known what to do with it.
-	// Solyn3: After all, he's not really much of a gardener, is he?
+	Start: 我最近一直在想那株萌芽的事。
+	Solyn1: 那种植物来源于我的故乡。 它们很稀有，而且难以培植，不过我从来没有见过哪一棵如此充满能量，甚至可以影响周围的环境。
+	Solyn2: 也难怪永冻会保存这么显眼的东西，尽管他可能也不知道能拿来做什么。
+	Solyn3: 毕竟，他也不是什么园丁，对吧。
 }
 
 GenesisRevealDiscussion: {
-	// Start: ...You're here.
-	// Solyn1: As we can both plainly see, things are not as they used to be.^ I knew that rift would be bad news.
-	// Solyn2: Maybe... this is why I was brought here.
-	// Solyn3: ... Regardless, it certainly will not be going away any time soon.
-	// Player1: What now, then?
-	// Solyn4: Do you remember that seedling we found in the keep that I asked you to hold on to?
-	// Player2: What about it?
-	// Solyn5: It is weak now, but holds almost limitless magical potential.^ If we can harness this power and turn it to the sky, it should be able to destroy the rift for good.
-	// Solyn6: But in order to achieve this, we will need the help of similar magical artifacts.
-	// Solyn7: We shall call this construction... the **Genesis**.
-	// Solyn8: In the meantime, I will consult whatever magical resources I can find in this pursuit.
-	// Solyn9: I'd recommend you continue your endeavors as usual. You have a knack for encountering the obscure that will definitely come in handy.
+	Start: ……你来了。
+	Solyn1: 我们都看到了，事情已经不像过去那样了。^ 我就知道这道裂隙是个坏消息。
+	Solyn2: 也许……这就是我被带到这里的原因。
+	Solyn3: ……无论如何，它短时间内肯定也不会离开。
+	Player1: 那么，现在怎么办？
+	Solyn4: 记得那株萌芽吗？我们从永冻的堡垒里找到的，我还告诉你要保存好。
+	Player2: 那个又怎么了？
+	Solyn5: 它现在很虚弱，不过有着无尽的魔法潜能。^ 如果我们可以控制这股能量，并将它导向天空，它应该能永久摧毁裂隙。
+	Solyn6: 不过为了达成这个，我们还需要其他类似的魔法道具来帮它一把。
+	Solyn7: 我们应该管这个构建过程叫做……**起源花**。
+	Solyn8: 与此同时，我也将为此尽力寻求魔法资源。
+	Solyn9: 我建议你还是继续你的冒险。不管遇到什么困难，你总有办法让它迎刃而解。
 }
 
 CeaselessVoidDiscussionBeforeBattle: {
-	// Start: I'm glad you're here.^ I have something important that we should talk about.
-	// StartingQuestion: What's it about?
-	// Conversation1: I've consulted various old texts originating from the Dungeon, and have learned that a sealed rift contained within may contain something of interest.
-	// Conversation2: This rift is a gateway to... somewhere else.^ I'm not entirely sure where.
-	// Conversation3: Furthermore, the scripts suggest that the ancient inhabitants of the Dungeon stored something extremely powerful near the entrance at the other side of the rift.^ I am certain it will be of value in constructing the Genesis.
-	// ConversationQuestion1: Fair enough. How can I be of help?
-	// Conversation4: From what I can tell, in order to explore beneath the rift, its protective seal will need to be destroyed.
-	// Conversation5: I ask that you draw it out.^ Once the rift is stabilized, I will do my part, join you in the Dungeon, and explore within.
-	// Conversation6: Are you up to the task?
-	// Conversation6ResponseYes: I am. But how do I 'draw it out', exactly?
-	// Conversation6ResponseNo: Maybe later.
-	// ConversationRejection: Understood. I'll be around if you change your mind.
-	// Conversation7: Thank you. I appreciate your help immensely.
-	// Conversation8: I read that there is a certain profaned rune that might, as the text says, 'evoke' the rift.
-	// Conversation9: I am unsure which rune they are referring to, exactly, but seeking out 'profane' artifacts, similar to those deep in the underworld, would likely be a sensible starting point.
-	// Conversation10: Good luck.
+	Start: 很感谢你来了。^ 我有一些很重要的事想跟你说。
+	StartingQuestion: 什么事？
+	Conversation1: 我查到了很多源于地牢的古代文本，发现里面有一道被封印的裂隙，里面可能会有我们感兴趣的东西。
+	Conversation2: 这道裂隙是通往……其他地方的入口。^ 我不太确定具体是哪里。
+	Conversation3: 还有，那些手稿认为，地牢曾经的主人在裂隙另一侧的入口附近储存着一些极为强大的东西。^ 我很确信这些东西对于构筑起源花很有价值。
+	ConversationQuestion1: 挺不错的。 我该做些什么？
+	Conversation4: 据我所知，要想深入裂隙探索，必须摧毁保护它的封印。
+	Conversation5: 我希望你把它拽出来。^ 我也会尽我的力，跟你一起在地牢作战，然后一起探索。
+	Conversation6: 你接受这个任务吗？
+	Conversation6ResponseYes: 我接受。 不过什么叫“拽出来”，我该怎么做？
+	Conversation6ResponseNo: 下次吧。
+	ConversationRejection: 明白了。 如果你改变主意，我再来找你。
+	Conversation7: 谢谢。 我很感谢你的帮助。
+	Conversation8: 我读到有一种什么亵渎的符文，书上写的是，它应该能以某种方式“唤醒”这道裂隙。
+	Conversation9: 我不知道上面说的是哪种符文。不过先去找找“亵渎”的物品，类似于地狱深处的那种，应该是个不错的入手点。
+	Conversation10: 祝你好运。
 }
 
 CeaselessVoidDiscussionAfterBattle: {
-	// Start: Something up?
-	// Conversation1: I defeated the Ceaseless Void, and a rift appeared.
-	// Conversation2: Wait, **defeated**? ^You had to do combat??
-	// Conversation3: Oh gosh... are you alright?
-	// ConversationResponse1: Yeah, I'm fine.
-	// Conversation4: Alright, thank goodness.^^ I... ^suppose then I'll meet you in the Dungeon. ^I'll be able to find the rift on my own.
-	// Conversation5: Once we're there, I'll step inside and see what's within.
-	// ConversationResponse2: This has all been rather dangerous. Are you sure about this, Solyn?
-	// Conversation6: ... I must do this.
-	// Conversation7: But still, I appreciate your concern. ^It means a lot to me.
-	// Conversation8: Either way, I'll see you there.
-	// Repeat: ...
+	Start: 什么事？
+	Conversation1: 我击败了无尽虚空，那道裂隙出现了。
+	Conversation2: 等等，**击败**了？^意思是需要战斗？？
+	Conversation3: 哦天哪……你还好吧？
+	ConversationResponse1: 是啊，我好好的。
+	Conversation4: 那就好，谢天谢地。^^我……^我猜我们可以在地牢碰个面。^我可以自己找到裂隙。
+	Conversation5: 我们到那之后，我会走进去，看看里面有什么。
+	ConversationResponse2: 这些绝对非常危险。 你确定要去吗，索琳？
+	Conversation6: ……我必须这样做。
+	Conversation7: 不过，我还是感谢你的关心。^这对我意义重大。
+	Conversation8: 无论如何，在那边见。
+	Repeat: ……
 }
 
 CeaselessVoidDiscussionBeforeEnteringRift: {
-	// Start: Here it is.
-	// Conversation1: I suppose all there is to do is...step inside.
-	// Confirmation: Are you sure you're ready?
-	// Conversation2: Yeah.^^ I am.
-	// Conversation3: I'll be back shortly.
+	Start: 它在这儿。
+	Conversation1: 我想现在要做的事就是……进去。
+	Confirmation: 你确定你准备好了吗？
+	Conversation2: 当然。^^ 我准备好了。
+	Conversation3: 我很快就会回来。
 }
 
 CeaselessVoidDiscussionAfterEnteringRift: {
-	// Start: I...^^ I ^found it.
-	// Question1: Are you OK??
-	// Conversation1: I... ^don't know. ^But I'm alive, at least.
-	// Question2: What happened?
-	// Conversation2: I entered the rift and immediately got this... overwhelming dread.^ It was like I didn't belong there.
-	// Conversation3: Nothing strange happened until I took the artifact. Once I did, I...
-	// Conversation4: No... ^I don't want to remember it.
-	// Conversation5: Let's... just go. This has been more than enough for one day.
-	// Conversation6: Here's the artifact. It'll be safest in your hands.
-	// Conversation7: I'll... ^be at my campsite. See you around.
+	Start: 我……^^我^找到它了。
+	Question1: 你还好吗？？
+	Conversation1: 我……^我不知道。^ 但至少我还活着。
+	Question2: 发生什么事了？
+	Conversation2: 我进入裂隙后立刻就感受到了一种……压倒性的恐惧。^ 就像是我并不属于那里一样。
+	Conversation3: 在我拿到这个物件之前并没有奇怪的事情发生。当我拿起它的时候，我……
+	Conversation4: 不……^我不想再回忆这个了。
+	Conversation5: 我们.....走吧，我们今天做的事已经够多了。
+	Conversation6: 这是那个物件，它在你手中最安全。
+	Conversation7: 我……^会待在我的露营地里，回见。
 }
 
 AntiseedDiscussion: {
-	// Start: Do you remember when I retrieved that bizarre seed from the rift in the dungeon?
-	// Solyn1: I'm beginning to form some new theories on it.
-	// Solyn2: It's unlike anything I've seen in my studies, both from my homeworld and from this world.^ It's clear it couldn't have originated from anywhere either of us are familiar with.
-	// Solyn3: The Frostblessed Seedling seems to be drawing power from it, implying a connection that I couldn't have foreseen initially.
-	// Solyn4: I will have to consider the implications of the interaction between these flowers. There is a deeper purpose to them that I have not yet discovered.
+	Start: 你还记得我从地牢的裂隙里找到的那颗奇怪的种子吗？
+	Solyn1: 我对于它有一种新的猜测。
+	Solyn2: 它不同于我所认识的任何事物，无论是在我的家乡还是在这颗星球。^显而易见，它不可能来自于我们熟悉的地方。
+	Solyn3: 霜佑萌芽似乎从它的身上汲取了能量，这预示着一种我未曾料想过的联系。
+	Solyn4: 我将不得不考虑这些花之间相互作用的含义，我尚未发现它们更深层次的目的。
 }
 
 DraedonBeforeCombatSimulation: {
-	// Start: Good that you're here. ^I want to talk a bit about the Genesis again.
-	// Question1: Are you sure it isn't ready yet?
-	// Conversation1: I don't think it is. ^But it's close. ^We just need one last artifact for it to realize its full potential.
-	// Conversation2: I've done more research on my own, and I believe there is someone out there that may have what we need.
-	// Question2: Who, exactly?
-	// Conversation3: A renowned scientist named Draedon. Have you heard of him before?
-	// Question3: I have! I briefly contacted him before with a special computer.
-	// Conversation4: Aha! That's good.
-	// Conversation5: Let's go to that computer then, and ask him together. ^I'll follow your lead.
+	Start: 很高兴在这儿见到你。^我想再聊聊关于起源花的事。
+	Question1: 你确定它还没准备好吗？
+	Conversation1: 我确定。^但是已经很接近了。^我们只需要最后一个物件来发挥它的全部潜力。
+	Conversation2: 我自己做了些调查，我相信有个人可能会拥有我们需要的东西。
+	Question2: 是谁？
+	Conversation3: 一个名为嘉登的著名科学家，你听说过他吗？
+	Question3: 当然！我先前跟他用一台特殊的计算机联络过。
+	Conversation4: 啊哈，那太好了！
+	Conversation5: 让我们一起去那台计算机前问问他吧。^ 我会跟着你的。
 }
 
 GenesisCompletion: {
-	// Start: Is something up?
-	// Player1: I planted the last seed near the Genesis, and it began to sprout.
-	// Solyn1: Wonderful!^ That means our hard work has finally paid off!
-	// Solyn2: Take me to it.^ I'll follow your lead.
+	Start: 有什么事吗？
+	Player1: 我在起源花附近种下了最后一颗种子，它已经开始生长了。
+	Solyn1: 太棒了！^这意味着我们的努力终于有了回报！
+	Solyn2: 把我带过去吧，^我会跟着你的。
 }
 
 AvatarFightLeadUp: {
-	// Solyn1: Here it is! It looks marvelous!
-	// Solyn2: It's been a long and difficult journey but we've really achieved something great.
-	// Solyn3: At last, we can see the fruits of our labors.
-	// Solyn4: Now, let's activate it.
+	Solyn1: 它在这儿！看起来棒极了！
+	Solyn2: 这是一场漫长而艰难的旅途，但我们的确取得了一些非凡的成就。
+	Solyn3: 最后，是时候看看我们的劳动果实了。
+	Solyn4: 现在，让我们激活它吧。
 }
 
 PostNamelessDiscussion: {
-	// Apology1: It's been quite some time since we last spoke, old friend.^^ I'm glad that you too were allowed into this place, and managed to pass your own test.
-	// Apology2: I believe I owe you an apology.
-	// Apology3: Our time together was incredible, but I must confess that my intentions were never wholly pure.
-	// Apology4: I at first saw you and the Dark One as a means to an end.^ Another chance to end up here.^ A chance at being a heroine worthy of the respect of the Deity's favor.
-	// Apology5: I was unwise and brash. It is clear to me now why I was initially rejected.
-	// Apology6: But... I suppose in the end I received my wish, at the cost of everything else.
-	// ApologyResponse: I have a couple of questions.
-	// QuestionsStart: ...?
-	// HowDidYouEndUpHereQuestion: How did you end up here?
-	// HowDidYouEndUpHere1: I'm...^ not entirely sure.
-	// HowDidYouEndUpHere2: All I remember is being enveloped in static, and waking up here. The Deity revealed themself in front of me in all of their splendor, without a word of response to my many questions.
-	// HowDidYouEndUpHere3: Maybe my reason for being here is pity. Maybe from their perspective I had redeemed myself and earned it.
-	// HowDidYouEndUpHere4: It's possible we'll never know. They don't seem much for conversation.
-	// HowDidYouEndUpHere5: Either way, I'm eternally grateful. This place is truly special.
-	// WhyDidYouSaveMeQuestion: Why did you save me?
-	// WhyDidYouSaveMe1: I knew in that moment that it was too late. My magic reserves wouldn't have been enough to save both of us.
-	// WhyDidYouSaveMe2: One of us was going to die.
-	// WhyDidYouSaveMe3: Your fate was clearly important. I felt that your life would be far more pertinent to preserve than mine.
-	// WhyDidYouSaveMe4: And besides, I wouldn't have been able to live with myself if I'd known that my reckless meddling had gotten you killed.
-	// WhyDidYouSaveMe5: Looking back, it was one of the few choices I made that I can confidently say was correct.
-	// WhatNowQuestion: What now?
-	// WhatNow1: Like I said, my time among the living is done.
-	// WhatNow2: I imagine my spirit will linger here for a very long time.
-	// WhatNow3: As for you? I don't know. You're not bound to this garden. You are still alive.
-	// WhatNow4: You're free now to do what you wish, having accomplished feats unmatched.
-	// WhatNow5: I'm sure you'll go on to do great things.
-	// DeityQuestion: What do you know about the deity?
-	// Deity1: Not much. I suspect there are certain things about them that neither of us will ever know.
-	// Deity2: But I do know that they are a being of benevolence and warmth. A creator of all things in our world.
-	// Deity3: On rare occasions, I see them tending to this wonderful garden. It is clear to me that it was made with an abundance of love and care.
-	// TreeQuestion: Want to sit beneath the tree together and take in the atmosphere?
-	// Tree1: ...
-	// Tree2: Of course I would.
+	Apology1: 许久不见，老朋友。^^ 我很高兴你也被准许进入这个地方，并通过了属于你的那场试炼。
+	Apology2: 我想我欠你一个道歉。
+	Apology3: 我们在一起的时光如同奇迹一般，但我必须坦白，我的意图从来就不是纯粹的。
+	Apology4: 我最初将你和黑暗的存在看作一种手段。^ 用来再得到一次来到这里的机会。^ 一个能够成为被光神青睐的女英雄的机会。
+	Apology5: 我并不明智，还很鲁莽。现在我明白了我当初为何会被拒绝了。
+	Apology6: 但是……我想我最终还是实现了我的愿望，却是以牺牲一切为代价。
+	ApologyResponse: 我有些问题想要问你。
+	QuestionsStart: ……？
+	HowDidYouEndUpHereQuestion: 你是怎么来到这里的？
+	HowDidYouEndUpHere1: 我……^并不完全清楚。
+	HowDidYouEndUpHere2: 我只记得我被一种稳恒的状态包围，然后在这里苏醒。光神在我的面前展露出了祂的光辉，对我的问题却毫无回应。
+	HowDidYouEndUpHere3: 或许我能来到这里的原因只是一种怜悯。又或许在祂看来，我救赎了我自己，这是我应得的。
+	HowDidYouEndUpHere4: 也许我们永远不会知道了，祂看起来可不怎么健谈。
+	HowDidYouEndUpHere5: 不管怎么样，我将永远心怀感激。这地方真的很特别。
+	WhyDidYouSaveMeQuestion: 你为什么要救我？
+	WhyDidYouSaveMe1: 当我意识到这一点的时候已经太迟了——我的魔力储备并不足以救下我们两个人。
+	WhyDidYouSaveMe2: 我们中的一个必将死去。
+	WhyDidYouSaveMe3: 你的命运显然十分重要。我认为拯救你的生命比拯救我的更有价值。
+	WhyDidYouSaveMe4: 此外，如果我知道是我那鲁莽的计划害死了你，我永远都不会原谅我自己的。
+	WhyDidYouSaveMe5: 现在看来，这是我为数不多可以称之为正确的决定之一。
+	WhatNowQuestion: 现在怎么办？
+	WhatNow1: 正如我所说的，我尚存于世的时光已经结束了。
+	WhatNow2: 我想我的灵魂将会在此逗留很长一段时间。
+	WhatNow3: 但你呢？我不知道，你不被这座花园所束缚，你还活着。
+	WhatNow4: 你可以自由地去做你想做的事，去完成那些无与伦比的壮举。
+	WhatNow5: 我相信你必将成就一番伟业。
+	DeityQuestion: 你对光神了解多少？
+	Deity1: 知之甚少，我猜有些关于祂的事我们可能永远也不会知道了。
+	Deity2: 但我知道祂是一个慈爱与温和的存在，是我们世间万物的造物主。
+	Deity3: 极少数情况下，我看见祂在照料这座花园，我很清楚它是由数不尽的爱与关怀建成的。
+	TreeQuestion: 你想与我一同坐在树下呼吸一下新鲜空气吗？
+	Tree1: ……
+	Tree2: 当然可以。
 }
 
 SolynErrorFallback.ErrorMessage1: 在加载对话的时候发生了一些未知错误！
-// TripDialogue1: Haha, silly me!
-// TripDialogue2: Whoops!
-// TripDialogue3: Haha, my mistake!
+TripDialogue1: 啊呀，我真傻！
+TripDialogue2: 哎呀！
+TripDialogue3: 哈哈，我的问题！

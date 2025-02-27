@@ -8,7 +8,7 @@ namespace NoxusBoss.Content.Items;
 public partial class SolynBooksSystem : ModSystem
 {
     /// <summary>
-    /// The chance of an Ominous Storybook dropping from any.
+    /// The chance of an Ominous Storybook dropping from any non-statue enemy.
     /// </summary>
     public static int OminousStorybookDropChance => 23000;
 

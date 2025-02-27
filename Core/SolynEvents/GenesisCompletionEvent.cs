@@ -29,13 +29,6 @@ public class GenesisCompletionEvent : SolynEvent
 
     public override void OnModLoad()
     {
-        DialogueManager.RegisterNew("GenesisRevealDiscussion", "Start").
-            LinkFromStartToFinish().
-            WithAppearanceCondition(instance => !CanStart).
-            WithRerollCondition(instance => !instance.AppearanceCondition()).
-            MakeSpokenByPlayer("Player1", "Player2").
-            WithRerollCondition(_ => Finished);
-
         ConversationSelector.PriorityConversationSelectionEvent += SelectIntroductionDialogue;
     }
 
