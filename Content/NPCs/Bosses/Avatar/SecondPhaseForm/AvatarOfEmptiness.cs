@@ -1305,6 +1305,8 @@ public partial class AvatarOfEmptiness : ModNPC
             {
                 while (remap < 0.4f)
                 {
+                    distanceFromCenter = (DesiredDistortionCenterOverride ?? NPC.Center).Distance(Target.Center);
+                    modifiedDistanceFromCenter = (distanceFromCenter - distortionRadiusCutoff) * IdealDistortionIntensity;
                     remap = Utils.Remap(modifiedDistanceFromCenter, 450f, distortionRadiusIntensityRange * 1.25f, 1f, 0.01f);
                     Main.player[NPC.TranslatedTargetIndex].Center += Main.player[NPC.TranslatedTargetIndex].SafeDirectionTo(NPC.Center) * 2f;
                 }
