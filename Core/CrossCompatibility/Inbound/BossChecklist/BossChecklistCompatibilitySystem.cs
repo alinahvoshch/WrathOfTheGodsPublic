@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Reflection;
-using BossChecklist;
 using Luminance.Core.Hooking;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -68,7 +67,7 @@ public class BossChecklistCompatibilitySystem : ModSystem
     [JITWhenModsEnabled("BossChecklist")]
     private void FixNamelessBeingSpoiledAfterAvatarFight()
     {
-        MethodInfo? despawnMessageMethod = typeof(MapHelper).Assembly.GetType("BossChecklist.EntryInfo").GetMethod("GetDespawnMessage", UniversalBindingFlags);
+        MethodInfo? despawnMessageMethod = BossChecklistMod.Code.GetType("BossChecklist.EntryInfo").GetMethod("GetDespawnMessage", UniversalBindingFlags);
         if (despawnMessageMethod is null)
             Mod.Logger.Warn("Could not find Boss Checklist's boss despawn message method.");
         else

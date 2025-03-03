@@ -10,6 +10,7 @@ using NoxusBoss.Content.NPCs.Bosses.Draedon.SpecificEffectManagers;
 using NoxusBoss.Core.DataStructures;
 using NoxusBoss.Core.Graphics.RenderTargets;
 using NoxusBoss.Core.World.GameScenes.AvatarAppearances;
+using NoxusBoss.Core.World.GameScenes.EndCredits;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
@@ -290,7 +291,7 @@ public partial class MarsBody : ModNPC
 
     public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
     {
-        if (!NPC.IsABestiaryIconDummy)
+        if (!NPC.IsABestiaryIconDummy && !ModContent.GetInstance<EndCreditsScene>().IsActive)
         {
             RiftEclipseSky.IsEnabled = true;
             RiftEclipseSky.MoveOverSunInterpolant = 1f;

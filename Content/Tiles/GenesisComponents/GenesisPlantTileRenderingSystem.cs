@@ -100,6 +100,9 @@ public abstract class GenesisPlantTileRenderingSystem : ModSystem
 
     public override void PostUpdateEverything()
     {
+        if (TileDisablingSystem.TilesAreUninteractable)
+            return;
+
         int tileID = TileID;
         for (int i = 0; i < tilePoints.Count; i++)
         {
@@ -109,9 +112,6 @@ public abstract class GenesisPlantTileRenderingSystem : ModSystem
 
             UpdatePoint(tilePoints[i].Position);
         }
-
-        if (TileDisablingSystem.TilesAreUninteractable)
-            return;
 
         // Handle the destruction of plant instances if they've ceased to be growing.
         for (int i = 0; i < tilePoints.Count; i++)

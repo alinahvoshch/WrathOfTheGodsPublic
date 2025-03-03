@@ -83,6 +83,7 @@ public class CelestialDreamcatcher : ModProjectile, IProjOwnedByBoss<NamelessDei
         Projectile.penetrate = -1;
         Projectile.tileCollide = false;
         Projectile.ignoreWater = true;
+        Projectile.hostile = true;
         Projectile.timeLeft = EnterPhase2_AttackPlayer_ShootDelay + EnterPhase2_AttackPlayer_ShootTime + EnterPhase2_AttackPlayer_FadeOutDelay + EnterPhase2_AttackPlayer_FadeOutTime;
     }
 

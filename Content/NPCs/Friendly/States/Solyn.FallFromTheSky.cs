@@ -79,7 +79,7 @@ public partial class Solyn : ModNPC, IPixelatedPrimitiveRenderer
 
             // Verify that the player is in an open surface area and not in space.
             // If they aren't, despawn as though nothing happened.
-            bool openAir = player.ZoneForest && !player.ZoneSkyHeight;
+            bool openAir = !player.ZoneSkyHeight;
             for (int dy = 4; dy < 36; dy++)
             {
                 Tile t = Framing.GetTileSafely((int)(player.Center.X / 16f), (int)(player.Center.Y / 16f) - dy);

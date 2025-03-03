@@ -64,7 +64,7 @@ public class SolynCampsiteWorldGen : ModSystem
     {
         for (int tries = 0; tries < 6400; tries++)
         {
-            int x = (int)(WorldGen.genRand.NextFloat(0.047f, 0.46f) * Main.maxTilesX);
+            int x = (int)(WorldGen.genRand.NextFloat(0.054f, 0.46f) * Main.maxTilesX);
             if (WorldGen.genRand.NextBool())
                 x = Main.maxTilesX - x;
 
@@ -104,7 +104,7 @@ public class SolynCampsiteWorldGen : ModSystem
             // Reject positions that are too bumpy.
             float averageBumpiness = topography.Average(t => Abs(t));
             float maximumDisrepancy = Abs(topography.Max() - topography.Min());
-            float leniencyCoefficient = Lerp(1f, 2.8f, InverseLerp(0f, 3200f, tries).Squared());
+            float leniencyCoefficient = Lerp(1f, 4.2f, InverseLerp(0f, 4800f, tries).Squared());
             if (averageBumpiness >= leniencyCoefficient * 1.5f || maximumLocalBumpiness >= leniencyCoefficient * 3f || maximumDisrepancy >= leniencyCoefficient * 4f || totalHeightChanges >= leniencyCoefficient * 5f)
                 continue;
 
@@ -112,7 +112,7 @@ public class SolynCampsiteWorldGen : ModSystem
             if (AnyHostileBiomeTiles(center))
                 continue;
 
-            // Reject positions that would place a telescope some awkward spot.
+            // Reject positions that would place a telescope in some awkward spot.
             if (PerformTelescopeCheck(center) && tries <= 900)
                 continue;
 

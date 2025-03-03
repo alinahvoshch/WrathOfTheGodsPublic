@@ -1257,6 +1257,7 @@ public class GennedAssets
             public static readonly SoundStyle ExoelectricDisintegrationRayChargeUp = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/Mars/ExoelectricDisintegrationRayChargeUp");
             public static readonly SoundStyle ExoelectricDisintegrationRayFire = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/Mars/ExoelectricDisintegrationRayFire");
             public static readonly SoundStyle EyeFlicker = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/Mars/EyeFlicker");
+            public static readonly SoundStyle Farewell = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/Mars/Farewell");
             public static readonly SoundStyle HitScream = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/Mars/HitScream", 4);
             public static readonly SoundStyle Laugh = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/Mars/Laugh", 3);
             public static readonly SoundStyle LightFlickerOff = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/Mars/LightFlickerOff");
@@ -1295,6 +1296,7 @@ public class GennedAssets
             public static readonly SoundStyle CosmicLaserLoop = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/NamelessDeity/CosmicLaserLoop");
             public static readonly SoundStyle CosmicLaserObliteration = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/NamelessDeity/CosmicLaserObliteration");
             public static readonly SoundStyle CosmicLaserStart = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/NamelessDeity/CosmicLaserStart");
+            public static readonly SoundStyle CreateCreditsLotus = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/NamelessDeity/CreateCreditsLotus");
             public static readonly SoundStyle DaggerBurst = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/NamelessDeity/DaggerBurst");
             public static readonly SoundStyle DaggerGraze = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/NamelessDeity/DaggerGraze", 2);
             public static readonly SoundStyle DaggerGrazeEcho = new SoundStyle("NoxusBoss/Assets/Sounds/Custom/NamelessDeity/DaggerGrazeEcho", 2);

@@ -11,6 +11,7 @@ using NoxusBoss.Core.CrossCompatibility.Inbound.RealisticSky;
 using NoxusBoss.Core.GlobalInstances;
 using NoxusBoss.Core.SoundSystems;
 using NoxusBoss.Core.World.GameScenes.AvatarAppearances;
+using NoxusBoss.Core.World.GameScenes.EndCredits;
 using NoxusBoss.Core.World.WorldSaving;
 using Terraria;
 using Terraria.ID;
@@ -199,6 +200,8 @@ public class RiftEclipseManagementSystem : ModSystem
 
     public override void PostUpdateNPCs()
     {
+        bool keepEclipseBecauseMarsIsPresent = MarsBody.Myself is null && !ModContent.GetInstance<EndCreditsScene>().IsActive;
+
         // Keep the Avatar over the moon if necessary.
         if (RiftEclipseOngoing)
         {
@@ -209,7 +212,7 @@ public class RiftEclipseManagementSystem : ModSystem
         }
 
         // If the Avatar was over the moon but isn't anymore, get rid of him.
-        else if (RiftEclipseSky.MoveOverSunInterpolant != 0f && MarsBody.Myself is null)
+        else if (RiftEclipseSky.MoveOverSunInterpolant != 0f && keepEclipseBecauseMarsIsPresent)
         {
             RiftEclipseSky.RiftScaleFactor = 0f;
             RiftEclipseSky.MoveOverSunInterpolant = 0f;

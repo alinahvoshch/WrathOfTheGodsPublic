@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using NoxusBoss.Assets;
 using NoxusBoss.Content.NPCs.Bosses.Avatar.SecondPhaseForm;
+using NoxusBoss.Content.NPCs.Bosses.Draedon;
 using NoxusBoss.Content.NPCs.Bosses.NamelessDeity;
 using NoxusBoss.Content.NPCs.Bosses.NamelessDeity.Rendering.RenderSteps;
 using NoxusBoss.Content.NPCs.Friendly;
@@ -50,6 +51,7 @@ public class EndCreditsScene : Cutscene
         NamelessFliesAway,
         WaitAfterNamelessFliesAway,
         ShyAvatarAppears,
+        MarsBows,
         ScreenFadesToBlack,
         RecordingSoftwareRant_Regular,
         RecordingSoftwareRant_WhyDidYouSkipTheBosses,
@@ -163,9 +165,19 @@ public class EndCreditsScene : Cutscene
     public static int ShyAvatarAnimationTime => SecondsToFrames(8f);
 
     /// <summary>
+    /// How long Mars waits before appearing to do his bow animation.
+    /// </summary>
+    public static int MarsBowAnimationDelay => SecondsToFrames(2f);
+
+    /// <summary>
+    /// How long Mars spends doing his bow animation.
+    /// </summary>
+    public static int MarsBowAnimationTime => SecondsToFrames(6.5f);
+
+    /// <summary>
     /// How long it takes for the screen to fade to black.
     /// </summary>
-    public static int ScreenFadesToBlackTime => SecondsToFrames(28.5f);
+    public static int ScreenFadesToBlackTime => SecondsToFrames(20f);
 
     /// <summary>
     /// The color used for the programmer title.
@@ -311,6 +323,9 @@ public class EndCreditsScene : Cutscene
                 break;
             case CreditsState.ShyAvatarAppears:
                 ShyAvatarAppears(solyn);
+                break;
+            case CreditsState.MarsBows:
+                MarsBows(solyn);
                 break;
             case CreditsState.ScreenFadesToBlack:
                 ScreenFadesToBlack(solyn);
@@ -618,6 +633,7 @@ public class EndCreditsScene : Cutscene
             nameless.Hands[0].Velocity.X += 10f;
             nameless.Hands[1].Velocity.X -= 10f;
             SoundEngine.PlaySound(GennedAssets.Sounds.NamelessDeity.FingerSnap with { Volume = 1.1f });
+            SoundEngine.PlaySound(GennedAssets.Sounds.NamelessDeity.CreateCreditsLotus).WithVolumeBoost(1.37f);
             ScreenShakeSystem.StartShake(6f);
 
             while (NamelessDeityBoss.Myself.Center.Y <= 100f)
@@ -758,8 +774,83 @@ public class EndCreditsScene : Cutscene
         if (relativeTime >= ShyAvatarAnimationTime)
         {
             AvatarOfEmptiness.Myself.active = false;
+            State = CreditsState.MarsBows;
+        }
+    }
+
+    /// <summary>
+    /// Executes the cutscene state that makes the Avatar appear and wave at Solyn and the player.
+    /// </summary>
+    public void MarsBows(NPC solyn)
+    {
+        int relativeTime = Timer - (CameraPanTime + InitialSitWaitTime + AppleDislodgeTime + AppleTelekinesisTime + AppleBiteDelayTimePlayer + AppleBiteTransitionDelay + AppleBiteTransitionDelay + SecondSitWaitTime + HeadpatTime + NamelessAppearanceTime + NamelessFlyAwayTime + ThirdSitWaitTime + ShyAvatarAnimationTime + MarsBowAnimationDelay);
+        if (relativeTime >= 5 && MarsBody.Myself is null)
+        {
+            int topOfScreen = (int)Main.screenPosition.Y - 100;
+            NPC.NewNPC(new EntitySource_WorldEvent(), (int)Main.LocalPlayer.Center.X - 250, topOfScreen, ModContent.NPCType<MarsBody>(), 1);
+            SoundEngine.PlaySound(GennedAssets.Sounds.Mars.PowerUp);
+        }
+        if (MarsBody.Myself is not null && MarsBody.Myself.As<MarsBody>().CurrentState != MarsBody.MarsAIType.EndCreditsScene)
+            MarsBody.Myself.As<MarsBody>().StateMachine.StateStack.Push(MarsBody.Myself.As<MarsBody>().StateMachine.StateRegistry[MarsBody.MarsAIType.EndCreditsScene]);
+
+        if (relativeTime >= MarsBowAnimationDelay + MarsBowAnimationTime)
+        {
+            if (MarsBody.Myself is not null)
+                MarsBody.Myself.active = false;
             State = CreditsState.ScreenFadesToBlack;
         }
+
+        if (MarsBody.Myself is null)
+            return;
+
+        float leaveInterpolant = InverseLerp(MarsBowAnimationTime - 90f, MarsBowAnimationTime - 30f, relativeTime);
+        float bowInterpolant = InverseLerp(120f, 165f, relativeTime).Squared();
+        Vector2 armHoverOffset = new Vector2(150f, 200f);
+        armHoverOffset.X *= SmoothStep(1f, 0.5f, bowInterpolant);
+        armHoverOffset.Y *= SmoothStep(1f, 0.67f, bowInterpolant.Squared());
+
+        Vector2 leftHoverOffset = armHoverOffset * new Vector2(-1f, 1f);
+        Vector2 rightHoverOffset = armHoverOffset;
+
+        leftHoverOffset.X -= bowInterpolant * 300f;
+
+        NPC mars = MarsBody.Myself;
+        MarsBody marsModNPC = mars.As<MarsBody>();
+        marsModNPC.MoveArmsTowards(leftHoverOffset, rightHoverOffset);
+        marsModNPC.RailgunCannonAngle = marsModNPC.leftElbowPosition.AngleTo(marsModNPC.IdealLeftHandPosition) - PiOver2 * (1f - bowInterpolant);
+        marsModNPC.EnergyCannonAngle = marsModNPC.rightElbowPosition.AngleTo(marsModNPC.IdealRightHandPosition);
+        marsModNPC.ThrusterStrength = SmoothStep(0.6f, 1.3f, leaveInterpolant);
+
+        // Descend.
+        if (relativeTime <= 60)
+        {
+            if (relativeTime <= 2)
+                mars.velocity = Vector2.Zero;
+
+            mars.velocity = Vector2.UnitY * SmoothStep(0f, 60f, InverseLerp(60f, 0f, relativeTime).Squared());
+        }
+        else if (leaveInterpolant <= 0f)
+            mars.velocity = Vector2.Lerp(mars.velocity, Vector2.UnitY * Cos(relativeTime * 0.05f) * (1f - bowInterpolant) * 2f, 0.02f);
+        else
+            mars.velocity.Y -= leaveInterpolant * 0.9f;
+
+        if (relativeTime == 195)
+        {
+            ScreenShakeSystem.StartShake(2f);
+            SoundEngine.PlaySound(GennedAssets.Sounds.Mars.Farewell);
+        }
+
+        // Bow down.
+        mars.rotation = SmoothStep(0f, 0.2f, bowInterpolant);
+
+        // Make Solyn and the player look at mars.
+        solyn.As<Solyn>().PerformStandardFraming();
+        solyn.spriteDirection = -1;
+        Main.LocalPlayer.direction = -1;
+
+        // Use the chainsaw.
+        marsModNPC.ChainsawActivationInterpolant = 0f;
+        marsModNPC.EnergyCannonChainsawActive = true;
     }
 
     /// <summary>
@@ -767,7 +858,7 @@ public class EndCreditsScene : Cutscene
     /// </summary>
     public void ScreenFadesToBlack(NPC solyn)
     {
-        int relativeTime = Timer - (CameraPanTime + InitialSitWaitTime + AppleDislodgeTime + AppleTelekinesisTime + AppleBiteDelayTimePlayer + AppleBiteTransitionDelay + AppleBiteTransitionDelay + SecondSitWaitTime + HeadpatTime + NamelessAppearanceTime + NamelessFlyAwayTime + ThirdSitWaitTime + ShyAvatarAnimationTime);
+        int relativeTime = Timer - (CameraPanTime + InitialSitWaitTime + AppleDislodgeTime + AppleTelekinesisTime + AppleBiteDelayTimePlayer + AppleBiteTransitionDelay + AppleBiteTransitionDelay + SecondSitWaitTime + HeadpatTime + NamelessAppearanceTime + NamelessFlyAwayTime + ThirdSitWaitTime + ShyAvatarAnimationTime + MarsBowAnimationDelay + MarsBowAnimationTime);
         solyn.As<Solyn>().Frame = 18;
 
         if (NamelessDeityBoss.Myself is not null)

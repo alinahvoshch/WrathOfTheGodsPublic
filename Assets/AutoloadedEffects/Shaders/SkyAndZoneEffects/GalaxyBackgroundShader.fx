@@ -107,7 +107,7 @@ float4 CalculateGalaxyColor(float2 coords, float scaleFactor)
         // Combine two twinkling, low resolution star values together to determine the effects of twinkling stars on the galaxy.
         float twinkle = CalculateStarBrightness(coords, 0.5) + CalculateStarBrightness(coords * 2.5, 0.99);
         
-        // Calculate the base density for this step based on coords swirled around based distance from the center of the scene and time, to create the spiral arms of the galaxy.
+        // Calculate the base density for this step based on coords swirled around based on distance from the center of the scene and time, to create the spiral arms of the galaxy.
         float distanceFade = smoothstep(0.1, 1, distanceFromCenter);
         float3 densityNoiseCoords = float3(RotatedBy(coords - 0.5, distanceFromCenter * -15.1 + spinTime) * 3 + 0.5, z);
         float density = Noise3(densityNoiseCoords) * distanceFade * 6;

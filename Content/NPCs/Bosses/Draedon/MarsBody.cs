@@ -17,6 +17,7 @@ using NoxusBoss.Core.DataStructures;
 using NoxusBoss.Core.GlobalInstances;
 using NoxusBoss.Core.Graphics.GeneralScreenEffects;
 using NoxusBoss.Core.Graphics.SpecificEffectManagers;
+using NoxusBoss.Core.World.GameScenes.EndCredits;
 using NoxusBoss.Core.World.WorldSaving;
 using Terraria;
 using Terraria.Audio;
@@ -48,6 +49,8 @@ public partial class MarsBody : ModNPC, IBossDowned
         CarvedLaserbeam,
 
         VulnerableUntilDeath,
+
+        EndCreditsScene,
 
         ResetCycle,
 
@@ -555,7 +558,7 @@ public partial class MarsBody : ModNPC, IBossDowned
 
         // Reset things every frame.
         bool chainsawWasActive = EnergyCannonChainsawActive;
-        NPC.dontTakeDamage = false;
+        NPC.dontTakeDamage = CurrentState == MarsAIType.EndCreditsScene;
         NPC.gfxOffY = 0f;
         NPC.damage = 0;
         NPC.hide = false;
@@ -596,12 +599,13 @@ public partial class MarsBody : ModNPC, IBossDowned
         StateMachine.PerformBehaviors();
         StateMachine.PerformStateTransitionCheck();
 
-        UpdateLoopSounds();
+        if (!ModContent.GetInstance<EndCreditsScene>().IsActive)
+            UpdateLoopSounds();
 
         // Update chainsaw information.
         ChainsawActivationInterpolant = Saturate(ChainsawActivationInterpolant + EnergyCannonChainsawActive.ToDirectionInt() * NPC.Opacity * 0.011f);
         ChainsawVisualsTimer += (1f - GameSceneSlowdownSystem.SlowdownInterpolant) * ChainsawActivationInterpolant / 60f;
-        if (EnergyCannonChainsawActive != chainsawWasActive)
+        if (EnergyCannonChainsawActive != chainsawWasActive && !ModContent.GetInstance<EndCreditsScene>().IsActive)
             SoundEngine.PlaySound(GennedAssets.Sounds.Mars.ChainsawArmSwitch, RightHandPosition);
 
         // Update Mars' arms.
@@ -619,7 +623,8 @@ public partial class MarsBody : ModNPC, IBossDowned
             NPC.life = minHP;
 
         // Let Solyn enter the battle.
-        BattleSolyn.SummonSolynForBattle(NPC.GetSource_FromAI(), Target.Center, BattleSolyn.SolynAIType.FightMars);
+        if (!ModContent.GetInstance<EndCreditsScene>().IsActive)
+            BattleSolyn.SummonSolynForBattle(NPC.GetSource_FromAI(), Target.Center, BattleSolyn.SolynAIType.FightMars);
 
         int starID = ModContent.ProjectileType<SolynSentientStar>();
         foreach (Projectile star in Main.ActiveProjectiles)

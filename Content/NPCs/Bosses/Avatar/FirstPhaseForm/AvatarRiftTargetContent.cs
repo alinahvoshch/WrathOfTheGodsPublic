@@ -158,6 +158,9 @@ public static class AvatarRiftTargetContent
 
         // Draw the rift target.
         Color riftColor = backgroundProp ? Color.Gray : Color.White;
+        if (backgroundProp && Main.bloodMoon)
+            riftColor = Color.Black;
+
         Vector2 drawPosition = npc.Center - screenPos;
         DrawData targetData = new DrawData(target, drawPosition, target.Frame(), riftColor * npc.Opacity * opacity, rotation, target.Size() * 0.5f, what * 1.67f, 0, 0f);
         targetData.Draw(Main.spriteBatch);

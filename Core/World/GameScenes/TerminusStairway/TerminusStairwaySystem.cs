@@ -373,9 +373,6 @@ public class TerminusStairwaySystem : ModSystem
             StepSoundCountdown = (int)Utils.Remap(horizontalSpeed, 4f, 11f, 30f, 2f);
             dustCount += 5;
             dustLingerance += 0.9f;
-
-            // Add a very tiny screen shake.
-            ScreenShakeSystem.StartShakeAtPoint(player.Bottom, 1f);
         }
 
         // Create a little bit of fancy dust at the player's feet.
