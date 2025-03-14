@@ -933,7 +933,7 @@ DubiousSpellbook: {
 }
 
 DustyDiary: {
-	DisplayName: Запылевшие записки
+	DisplayName: Запылившиеся записки
 	ObtainmentHint: "[c/F79BC6:Я сама попробую её найти]"
 	Tooltip:
 		'''
